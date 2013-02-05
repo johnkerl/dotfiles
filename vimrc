@@ -102,6 +102,7 @@ map  0x
 map  :n
 " Reflow the current paragraph
 map  gqip}}{j
+" Reflow the current line and the one below.  Nice with auto-repeat.
 map  gqj
 " Replace current character with space and move right.  Nice with auto-repeat.
 map  r l
@@ -199,7 +200,7 @@ map \g A <tt>:)</tt>
 "       \ endif
 "
 " It sets filetype to conf.  So SetFileTypeSH *is* getting called, and then
-" this stanza *afterward* sets filetype back to conf.  G*d-DAMNED annoying.
+" this stanza *afterward* sets filetype back to conf.  This is annoying.
 " Now, I can replace filetype.vim at runtime.  But the following is easier:
 "
 " a. Here in .vimrc, add an autocommand to call SetFileTypeSH("bash").

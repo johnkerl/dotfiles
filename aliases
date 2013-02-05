@@ -78,7 +78,7 @@ alias vim='vim -i NONE -X'
 #    ./java/src/org/johnkerl/packagename/MoreSpecificPattern2.java
 #    ./java/src/org/johnkerl/packagename/MoreSpecificPattern3.java
 #
-# * bash$ cd2file AnotherFileName.java
+# * bash$ file2dir AnotherFileName.java
 #    ./java/src/org/johnkerl/packagename
 #
 # ----------------------------------------------------------------

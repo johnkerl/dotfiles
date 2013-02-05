@@ -2,6 +2,7 @@
 
 # ==============================================================================
 # For my prompt, and anything else that wants to echo colorfully using echo -e.
+# These are xterm-style escape sequences.
 # John Kerl
 # 2011-06-30
 # ==============================================================================
