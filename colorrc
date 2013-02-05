@@ -1,0 +1,55 @@
+# vim: set filetype=sh:
+
+# ==============================================================================
+# For my prompt, and anything else that wants to echo colorfully using echo -e.
+# John Kerl
+# 2011-06-30
+# ==============================================================================
+
+# The begin and end \[ \] seem to have some sort of scoping effect ...  without
+# them, the final esc0m resets *all* terminal attributes, including line wrap
+# in Putty, which is unpleasant in the extreme.  But, this only happens when
+# the short versions are used in my prompt string.  When I use the long ones
+# with echo -e, the literal \[ and \] appear in the output.  So, I don't
+# understand this; but, I need to have both versions, it appears.
+
+export longtextdefault="\[\e[0m\]"
+export   longblack="\[\e[30m\]"
+export     longred="\[\e[31m\]"
+export   longgreen="\[\e[32m\]"
+export  longyellow="\[\e[33m\]"
+export    longblue="\[\e[34m\]"
+export longmagenta="\[\e[35m\]"
+export    longcyan="\[\e[36m\]"
+export   longwhite="\[\e[37m\]"
+
+export textdefault="\e[0m"
+export   black="\e[30m"
+export     red="\e[31m"
+export   green="\e[32m"
+export  yellow="\e[33m"
+export    blue="\e[34m"
+export magenta="\e[35m"
+export    cyan="\e[36m"
+export   white="\e[37m"
+
+export bold="\[\e[1m\]"
+export underline="\[\e[4m\]"
+export notboldorunderline="\[\e[22m\]"
+
+# Xterm title sequence
+export starttitle="\[\e]2;"
+export endtitle="\a"
+
+colortest() {
+    echo -e "default: |${textdefault}default${textdefault}|"
+    echo -e "black:   |${black}black${textdefault}|"
+    echo -e "red:     |${red}red${textdefault}|"
+    echo -e "green:   |${green}green${textdefault}|"
+    echo -e "yellow:  |${yellow}yellow${textdefault}|"
+    echo -e "blue:    |${blue}blue${textdefault}|"
+    echo -e "magenta: |${magenta}magenta${textdefault}|"
+    echo -e "cyan:    |${cyan}cyan${textdefault}|"
+    echo -e "white:   |${white}white${textdefault}|"
+    echo -e "default: |${textdefault}default${textdefault}|"
+}

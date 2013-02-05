@@ -1,0 +1,91 @@
+# vim: set filetype=sh:
+
+# ----------------------------------------------------------------
+# Set my prompt, using bash-prompt escapes and xterm text-coloring escapes.
+#
+# Some bash-prompt escapes:
+# \d: date
+# \h: hostname
+# \H: hostname.domainname
+# \j: number of background jobs
+# \t: time
+# \u: username
+# \v: Bash version
+# \V: Extended bash version
+# \w: pwd
+# \V: basename of pwd
+
+# Simpler predecessors:
+# export PS1='`whoami`:`pwd`% '
+# export PS1='\u@\h:\W% '
+
+# Example:
+# kerl@sprax[tmp]  jobs=1 dirs=2$ 
+# \_____________/  \___________/|
+#     green             red     green
+
+# Load xterm-style color variables:
+. ~kerl/.colorrc
+
+if [ "`whoami`" = "root" ]; then
+    pcolor="$longred"
+else
+    pcolor="$longgreen"
+fi
+
+# show_jobs_and_dirs is just a C program which prints the "jobs=1 dirs=2" parts
+# when they are non-trivial.  I wrote it in C to avoid stack traces when ^C-ing
+# an empty prompt line.
+
+#export PS1="${starttitle}\u@\h \w${endtitle}${longgreen}\u@\h[\W]\$${longtextdefault} "
+#export PS1="${starttitle}\u@\h \w${endtitle}${bold}${pcolor}\u@\h[\W]${longred}"'$(/home/kerl/bin/Linux/show_jobs_and_dirs $(jobs | wc -l) $(dirs -p | wc -l))'"${pcolor}\$${longtextdefault} "
+export PS1="${bold}${pcolor}\u@\h[\W]${longred}"'$(/home/kerl/bin/Linux/show_jobs_and_dirs $(jobs | wc -l) $(dirs -p | wc -l))'"${pcolor}\$${longtextdefault} "
+
+# ----------------------------------------------------------------
+# Augment path
+if [ -z "$BEEN_HERE" ]; then
+
+	export RUBYLIB=$HOME/pub_http_internet/ruby:$HOME/pub_http_internet/ruby/ruffl
+	export PYTHONPATH=.:$HOME/scripts/pythonlib:$HOME/src/stats
+	export PERLLIB=.:$HOME/scripts/perllib
+	export GOROOT=/usr/local/go
+
+	export PATH=/usr/local/bin:${PATH}
+	export PATH=/usr/local/jdk1.6.0_30/bin:${PATH}
+	export PATH=/home/kerl/scala/scala-2.9.1.final/bin:${PATH}
+	export PATH=$GOROOT/bin:${PATH}
+	export PATH=$HOME/scripts/stats:${PATH}
+	export PATH=$HOME/scripts/rand:${PATH}
+	export PATH=$HOME/scripts/pgr:${PATH}
+	export PATH=$HOME/scripts/one-offs:${PATH}
+	export PATH=$HOME/scripts-aux/one-offs:${PATH}
+	export PATH=$HOME/scripts/latex:${PATH}
+	export PATH=$HOME/scripts-aux/isp:${PATH}
+	export PATH=$HOME/scripts-aux/home:${PATH}
+	export PATH=$HOME/scripts/arith:${PATH}
+	export PATH=$HOME/bin/`uname`:${PATH}
+	export PATH=$HOME/scripts/fundam:${PATH}
+	export PATH=$HOME/scripts/ntbl:${PATH}
+	export PATH=.:${PATH}
+
+	export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl
+	export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl/cmds
+	export PATH=${PATH}:$HOME/aspectj/aspectj1.6/bin
+	export PATH=${PATH}:/sbin:/usr/sbin # Programs such as ifconfig
+	export PATH=${PATH}:/usr/local/Acrobat4/bin # Adobe Acrobat
+
+	if [ -z "$MANPATH" ]; then
+		export MANPATH=/usr/share/man:/usr/local/man
+	fi
+
+	export CLASSPATH=.:$HOME/aspectj/aspectj1.6/lib/aspectjrt.jar
+	export CLASSPATH=${CLASSPATH}:/home/kerl/scala/scalatest-1.6.1/scalatest-1.6.1.jar
+	export CLASSPATH=${CLASSPATH}:/usr/share/maven-repo/junit/junit/4.x/junit-4.x.jar 
+
+	export LD_LIBRARY_PATH=/usr/local/lib
+
+	export BEEN_HERE=yes
+fi
+
+# ----------------------------------------------------------------
+export PAGER=less
