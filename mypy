@@ -1,3 +1,6 @@
+# For use by my .aliases, for starting a Python REPL with my favorite modules
+# preloaded.
+
 from math      import *
 from kerlutil  import *
 from sackmat_m import *
