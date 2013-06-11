@@ -29,6 +29,7 @@ alias j='jobs -l'
 # an edit-compile loop.  Hence, jc and jr.  Likewise for scalac and scala.
 alias jc=javac
 alias jr=java
+alias si=scala
 alias sc=scalac
 alias sr=scala
 alias st='scala org.scalatest.tools.Runner -p . -o -s'
@@ -38,6 +39,7 @@ alias py='python -Qnew -i ~/.mypy'
 
 alias ll='ls -l'
 alias lll='ls -lL'
+alias llh='ls -lh'
 alias ls='ls --color=tty'
 # Biggest files last:
 alias lss='ls -Slr'

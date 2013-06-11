@@ -21,8 +21,8 @@ set encoding=utf-8
 set autoindent
 set nocindent " Nice feature; doesn't match my preferences.
 
-"set ts=4
-set ts=8
+set ts=4
+"set ts=8
 
 "Turn that beeping off!
 set vb t_vb=
@@ -155,7 +155,9 @@ map \J O64A=
 "                               * * *
 map \r O* * *32I 
 " HTML monospace smiley:
-map \g A <tt>:)</tt>
+map \G A <tt>:)</tt>
+
+map \g :%w:%!go run %
 
 "---------------------------------------------------------------
 " 2011-04-22
