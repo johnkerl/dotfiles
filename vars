@@ -39,55 +39,55 @@ fi
 
 #export PS1="${starttitle}\u@\h \w${endtitle}${longgreen}\u@\h[\W]\$${longtextdefault} "
 #export PS1="${starttitle}\u@\h \w${endtitle}${bold}${pcolor}\u@\h[\W]${longred}"'$(/home/kerl/bin/Linux/show_jobs_and_dirs $(jobs | /usr/bin/wc -l) $(dirs -p | /usr/bin/wc -l))'"${pcolor}\$${longtextdefault} "
-export PS1="${bold}${pcolor}\u@\h[\W]${longred}"'$(/home/kerl/bin/Linux/show_jobs_and_dirs $(jobs | /usr/bin/wc -l) $(dirs -p | /usr/bin/wc -l))'"${pcolor}\$${longtextdefault} "
+export PS1="${bold}${pcolor}\u@\h${longred}"'$(echo [j=$(echo $(jobs | /usr/bin/wc -l))][d=$(echo $(dirs -p | /usr/bin/wc -l))])'"${pcolor}[\W]\$${longtextdefault} "
 
 # ----------------------------------------------------------------
 # Augment path
 if [ -z "$BEEN_HERE" ]; then
 
-	export JAVA_HOME=/usr/local/jdk1.6.0_30
-	export SCALA_HOME=/home/kerl/lang/scala/scala-2.10.1
+	#export JAVA_HOME=/usr/local/jdk1.6.0_30
+	#export SCALA_HOME=/home/kerl/lang/scala/scala-2.10.1
 	#export SCALA_HOME=/home/kerl/lang/scala/scala-2.9.1.final
-	export GOROOT=/usr/local/go
+	#export GOROOT=/usr/local/go
 
 	export RUBYLIB=$HOME/pub_http_internet/ruby:$HOME/pub_http_internet/ruby/ruffl
 	export PYTHONPATH=.:$HOME/scripts/pythonlib:$HOME/src/stats
 	export PERLLIB=.:$HOME/scripts/perllib
-	export PCRGO=$HOME/pub_http_internet/practical-chrestomathies/go
-	export GOPATH=$PCRGO
+	#export PCRGO=$HOME/git/practical-chrestomathies/go
+	#export GOPATH=$PCRGO
 
 	export PATH=/usr/local/bin:${PATH}
-	export PATH=$JAVA_HOME/bin:${PATH}
-	export PATH=$SCALA_HOME/bin:${PATH}
-	export PATH=$GOROOT/bin:${PATH}
-	export PATH=$HOME/scripts/stats:${PATH}
-	export PATH=$HOME/scripts/rand:${PATH}
-	export PATH=$HOME/scripts/pgr:${PATH}
+	#export PATH=$JAVA_HOME/bin:${PATH}
+	#export PATH=$SCALA_HOME/bin:${PATH}
+	#export PATH=$GOROOT/bin:${PATH}
+	#export PATH=$HOME/scripts/stats:${PATH}
+	#export PATH=$HOME/scripts/rand:${PATH}
+	export PATH=$HOME/bin/pgr:${PATH}
 	export PATH=$HOME/scripts/one-offs:${PATH}
-	export PATH=$HOME/scripts-aux/one-offs:${PATH}
-	export PATH=$HOME/scripts/latex:${PATH}
-	export PATH=$HOME/scripts-aux/isp:${PATH}
-	export PATH=$HOME/scripts-aux/home:${PATH}
+	#export PATH=$HOME/scripts-aux/one-offs:${PATH}
+	#export PATH=$HOME/scripts/latex:${PATH}
+	#export PATH=$HOME/scripts-aux/isp:${PATH}
+	#export PATH=$HOME/scripts-aux/home:${PATH}
 	export PATH=$HOME/scripts/arith:${PATH}
-	export PATH=$HOME/bin/`uname`:${PATH}
-	export PATH=$PCRGO/bin:${PATH} # Use my gotools ahead of my ctools :)
+	#export PATH=$PCRGO/bin:${PATH} # Use my gotools ahead of my ctools, if built
 	export PATH=$HOME/scripts/fundam:${PATH}
-	export PATH=$HOME/scripts/ntbl:${PATH}
+	#export PATH=$HOME/bin/`uname`:${PATH}
+	export PATH=$HOME/bin:${PATH}
 	export PATH=.:${PATH}
 
-	export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl
-	export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl/cmds
-	export PATH=${PATH}:$HOME/aspectj/aspectj1.6/bin
-	export PATH=${PATH}:/sbin:/usr/sbin # Programs such as ifconfig
+	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl
+	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl/cmds
+	#export PATH=${PATH}:$HOME/aspectj/aspectj1.6/bin
+	#export PATH=${PATH}:/sbin:/usr/sbin # Programs such as ifconfig
 	export PATH=${PATH}:/usr/local/Acrobat4/bin # Adobe Acrobat
 
 	if [ -z "$MANPATH" ]; then
 		export MANPATH=/usr/share/man:/usr/local/man
 	fi
 
-	export CLASSPATH=.:$HOME/aspectj/aspectj1.6/lib/aspectjrt.jar
-	export CLASSPATH=${CLASSPATH}:/home/kerl/scala/scalatest-1.6.1/scalatest-1.6.1.jar
-	export CLASSPATH=${CLASSPATH}:/usr/share/maven-repo/junit/junit/4.x/junit-4.x.jar 
+	#export CLASSPATH=.:$HOME/aspectj/aspectj1.6/lib/aspectjrt.jar
+	#export CLASSPATH=${CLASSPATH}:/home/kerl/scala/scalatest-1.6.1/scalatest-1.6.1.jar
+	#export CLASSPATH=${CLASSPATH}:/usr/share/maven-repo/junit/junit/4.x/junit-4.x.jar 
 
 	export LD_LIBRARY_PATH=/usr/local/lib
 
@@ -96,3 +96,4 @@ fi
 
 # ----------------------------------------------------------------
 export PAGER=less
+export EDITOR=vim

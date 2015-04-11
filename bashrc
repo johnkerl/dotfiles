@@ -14,6 +14,9 @@ fi
 if [ -f ~kerl/.vars-personal ]; then
 	. ~kerl/.vars-personal
 fi
+if [ -f ~kerl/.vars-site ]; then
+	. ~kerl/.vars-site
+fi
 
 # ----------------------------------------------------------------
 # The rest is for interactive shells only.
@@ -39,5 +42,5 @@ bind 'set bell-style none'
 # Bash history-editing option.
 set mark-modified-lines off
 
-# Not functional in current bash:
-#bind \\C-w:backward-kill-word
+# stty werase undef
+# bind '"\C-w": backward-kill-word'

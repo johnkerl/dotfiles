@@ -29,10 +29,10 @@ alias j='jobs -l'
 # an edit-compile loop.  Hence, jc and jr.  Likewise for scalac and scala.
 alias jc=javac
 alias jr=java
-alias si=scala
-alias sc=scalac
-alias sr=scala
-alias st='scala org.scalatest.tools.Runner -p . -o -s'
+#alias si=scala
+#alias sc=scalac
+#alias sr=scala
+#alias st='scala org.scalatest.tools.Runner -p . -o -s'
 
 # For Python REPL with my most-used modules pre-loaded:
 alias py='python -Qnew -i ~/.mypy'
@@ -40,7 +40,8 @@ alias py='python -Qnew -i ~/.mypy'
 alias ll='ls -l'
 alias lll='ls -lL'
 alias llh='ls -lh'
-alias ls='ls --color=tty'
+#alias ls='ls --color=tty'
+alias ls='ls -G'
 # Biggest files last:
 alias lss='ls -Slr'
 # Most recent files last:
@@ -52,6 +53,11 @@ alias v=vim
 # E.g. for "diff ... | vim -":
 alias v-='vim -'
 alias vim='vim -i NONE -X'
+
+alias gs='git status'
+alias gd='git diff'
+alias gam='git add $(git status | grep modified | nf)'
+alias gcm='git commit -m'
 
 # ================================================================
 # Next are some shell functions.  The main deliverables are vimr and cd2file.
