@@ -37,9 +37,17 @@ fi
 # when they are non-trivial.  I wrote it in C to avoid stack traces when ^C-ing
 # an empty prompt line.
 
+# FOR BASH:
 #export PS1="${starttitle}\u@\h \w${endtitle}${longgreen}\u@\h[\W]\$${longtextdefault} "
 #export PS1="${starttitle}\u@\h \w${endtitle}${bold}${pcolor}\u@\h[\W]${longred}"'$(/home/kerl/bin/Linux/show_jobs_and_dirs $(jobs | /usr/bin/wc -l) $(dirs -p | /usr/bin/wc -l))'"${pcolor}\$${longtextdefault} "
-export PS1="${bold}${pcolor}\u@\h${longred}"'$(echo [j=$(echo $(jobs | /usr/bin/wc -l))][d=$(echo $(dirs -p | /usr/bin/wc -l))])'"${pcolor}[\W]\$${longtextdefault} "
+#export PS1="${bold}${pcolor}\u@\h${longred}"'$(echo [j=$(echo $(jobs | /usr/bin/wc -l))][d=$(echo $(dirs -p | /usr/bin/wc -l))])'"${pcolor}[\W]\$${longtextdefault} "
+export PS1="${bold}${pcolor}\u@\h${longred}"'[j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"${pcolor}[\W]\$${longtextdefault} "
+
+# FOR ZSH:
+# http://www.gentoo.org/doc/en/zsh.xml
+# http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+# See also ~/.colorrc
+#export PS1=$'\e[0;32m%n@%m[%c]\e[0;31m[j%js%?]\e[0;32m%#\e[0m '
 
 # ----------------------------------------------------------------
 # Augment path
