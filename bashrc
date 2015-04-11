@@ -42,5 +42,7 @@ bind 'set bell-style none'
 # Bash history-editing option.
 set mark-modified-lines off
 
-# stty werase undef
-# bind '"\C-w": backward-kill-word'
+# Without this, control-W at end of line on "ls /a/b/c/d" results in "ls".
+# With this,    control-W at end of line on "ls /a/b/c/d" results in "ls /a/b/c".
+stty werase undef
+bind '"\C-w": backward-kill-word'
