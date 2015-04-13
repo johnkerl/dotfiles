@@ -79,6 +79,7 @@ if [ -z "$BEEN_HERE" ]; then
 	export PATH=$HOME/scripts/arith:${PATH}
 	#export PATH=$PCRGO/bin:${PATH} # Use my gotools ahead of my ctools, if built
 	export PATH=$HOME/scripts/fundam:${PATH}
+	export PATH=$HOME/scripts/abbrevs:${PATH}
 	#export PATH=$HOME/bin/`uname`:${PATH}
 	export PATH=$HOME/bin/site:${PATH}
 	export PATH=$HOME/bin:${PATH}
