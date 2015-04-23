@@ -45,6 +45,7 @@ let groovy_space_errors=1
 let scala_space_errors=1
 
 set background=dark
+map ,z :set background=light<C-m>
 
 set tagstack
 set tags=./tags,../tags,../../tags,../../../tags,../../../../tags,../../../../../tags
@@ -147,6 +148,11 @@ au BufNewFile,BufRead Makefile set ts=8
 au BufNewFile,BufRead Makefile set noexpandtab
 au BufNewFile,BufRead Makefile map <C-a> I<TAB><ESC>
 au BufNewFile,BufRead Makefile map <C-u> 0x
+
+au BufNewFile,BufRead *.[ch] set ts=4
+au BufNewFile,BufRead *.[ch] set noexpandtab
+au BufNewFile,BufRead *.[ch] map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead *.[ch] map <C-u> 0x
 
 " ----------------------------------------------------------------
 
@@ -258,8 +264,9 @@ map \v :se ft=java<C-m>
 " Now, I can replace filetype.vim at runtime.  But the following is easier:
 "
 " a. Here in .vimrc, add an autocommand to call SetFileTypeSH("bash").
-" b. *AND*, In my modeline, set filetype=sh.
+" b. *AND*, in my modeline, for each target file:
+"    # vim: set filetype.sh
 
 augroup my_bash_init_files
-  au BufNewFile,BufRead .envrc* .aliases .vars :call SetFileTypeSH("bash")
+  au BufNewFile,BufRead .aliases,.vars,.vars-personal,.vars-site :call SetFileTypeSH("bash")
 augroup END

@@ -6,6 +6,8 @@
 # ================================================================
 # First, simple aliases.
 
+UNAME=$(uname)
+
 # I do not prefer -i aliases.
 unalias cp 2> /dev/null
 unalias mv 2> /dev/null
@@ -37,11 +39,14 @@ alias jr=java
 # For Python REPL with my most-used modules pre-loaded:
 alias py='python -Qnew -i ~/.mypy'
 
+if [ "$UNAME" = "Darwin" ]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=tty'
+fi
 alias ll='ls -l'
 alias lll='ls -lL'
 alias llh='ls -lh'
-#alias ls='ls --color=tty'
-alias ls='ls -G'
 # Biggest files last:
 alias lss='ls -Slr'
 # Most recent files last:
