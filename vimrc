@@ -50,7 +50,7 @@ map ,z :set background=light<C-m>
 set tagstack
 set tags=./tags,../tags,../../tags,../../../tags,../../../../tags,../../../../../tags
 " Include '-' (ASCII 45) and ':' (ASCII 58) as part of word for tag searches
-set iskeyword=@,45,48-57,58_,192-255,#
+set iskeyword=@,45,48-57,58,192-255,#
 
 
 " Enable language-specific syntax highlighting.
