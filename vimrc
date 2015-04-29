@@ -49,6 +49,9 @@ map ,z :set background=light<C-m>
 
 set tagstack
 set tags=./tags,../tags,../../tags,../../../tags,../../../../tags,../../../../../tags
+" Include '-' (ASCII 45) and ':' (ASCII 58) as part of word for tag searches
+set iskeyword=@,45,48-57,_,192-255,#
+
 
 " Enable language-specific syntax highlighting.
 syntax on
@@ -268,5 +271,5 @@ map \v :se ft=java<C-m>
 "    # vim: set filetype.sh
 
 augroup my_bash_init_files
-  au BufNewFile,BufRead .aliases,.vars,.vars-personal,.vars-site :call SetFileTypeSH("bash")
+  au BufNewFile,BufRead .aliases,.colorrc,.vars,.vars-personal,.vars-site :call SetFileTypeSH("bash")
 augroup END

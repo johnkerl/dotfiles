@@ -24,33 +24,53 @@ export longmagenta="\[\e[35m\]"
 export    longcyan="\[\e[36m\]"
 export   longwhite="\[\e[37m\]"
 
-export textdefault="\e[0m"
-export   black="\e[30m"
-export     red="\e[31m"
-export   green="\e[32m"
-export  yellow="\e[33m"
-export    blue="\e[34m"
-export magenta="\e[35m"
-export    cyan="\e[36m"
-export   white="\e[37m"
-
-export bold="\[\e[1m\]"
-export underline="\[\e[4m\]"
-export notboldorunderline="\[\e[22m\]"
+if [ "$(uname)" = "Darwin" ]; then
+  export        textdefault=$'\033[0m'
+  export              black=$'\033[30;01m'
+  export                red=$'\033[31;01m'
+  export              green=$'\033[32;01m'
+  export             yellow=$'\033[33;01m'
+  export               blue=$'\033[34;01m'
+  export            magenta=$'\033[35;01m'
+  export               cyan=$'\033[36;01m'
+  export              white=$'\033[37;01m'
+  export               bold=$'\033[1;01m'
+  export          underline=$'\033[4;01m'
+  export notboldorunderline=$'\033[0m'
+  export         starttitle=$'\033]0;'
+  export           endtitle=$'\007'
+else
+  export        textdefault="\e[0m"
+  export              black="\e[30m"
+  export                red="\e[31m"
+  export              green="\e[32m"
+  export             yellow="\e[33m"
+  export               blue="\e[34m"
+  export            magenta="\e[35m"
+  export               cyan="\e[36m"
+  export              white="\e[37m"
+  export               bold="\[\e[1m\]"
+  export          underline="\[\e[4m\]"
+  export notboldorunderline="\[\e[22m\]"
+  export         starttitle="\[\e]2;"
+  export           endtitle="\a"
+fi
 
 # Xterm title sequence
-export starttitle="\[\e]2;"
-export endtitle="\a"
 
 colortest() {
-    echo -e "default: |${textdefault}default${textdefault}|"
-    echo -e "black:   |${black}black${textdefault}|"
-    echo -e "red:     |${red}red${textdefault}|"
-    echo -e "green:   |${green}green${textdefault}|"
-    echo -e "yellow:  |${yellow}yellow${textdefault}|"
-    echo -e "blue:    |${blue}blue${textdefault}|"
-    echo -e "magenta: |${magenta}magenta${textdefault}|"
-    echo -e "cyan:    |${cyan}cyan${textdefault}|"
-    echo -e "white:   |${white}white${textdefault}|"
-    echo -e "default: |${textdefault}default${textdefault}|"
+    echo -e "default:    |${textdefault}default${textdefault}|"
+    echo -e "black:      |${black}black${textdefault}|"
+    echo -e "red:        |${red}red${textdefault}|"
+    echo -e "green:      |${green}green${textdefault}|"
+    echo -e "yellow:     |${yellow}yellow${textdefault}|"
+    echo -e "blue:       |${blue}blue${textdefault}|"
+    echo -e "magenta:    |${magenta}magenta${textdefault}|"
+    echo -e "cyan:       |${cyan}cyan${textdefault}|"
+    echo -e "white:      |${white}white${textdefault}|"
+    echo -e "default:    |${textdefault}default${textdefault}|"
+    echo -e "bold:       |${bold}bold${textdefault}|"
+    echo -e "underline:  |${underline}underline${notboldorunderline}|"
+    echo -e "title text: |${starttitle}title text${endtitle}|"
+    echo -e "default:    |${textdefault}default${notboldorunderline}|"
 }
