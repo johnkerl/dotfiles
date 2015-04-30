@@ -52,12 +52,15 @@ alias lss='ls -Slr'
 # Most recent files last:
 alias lt='ls -lrt'
 
-alias title='xtitle'
-
 alias v=vim
-# E.g. for "diff ... | vim -":
-alias v-='vim -'
+alias v-='vim -'  # E.g. for "diff ... | vim -":
+alias vt='vim -t' # Tag jump
 alias vim='vim -i NONE -X'
+tvim() {
+  title "$@"
+  vim "$@"
+}
+alias tt=title # https://github.com/johnkerl/scripts
 
 alias gs='git status'
 alias gd='git diff'
