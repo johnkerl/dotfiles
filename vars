@@ -73,7 +73,7 @@ if [ -z "$BEEN_HERE" ]; then
 	#export GOROOT=/usr/local/go
 
 	export RUBYLIB=$HOME/pub_http_internet/ruby:$HOME/pub_http_internet/ruby/ruffl
-	export PYTHONPATH=.:$HOME/git/scripts-math/pythonlib:$HOME/git/scripts-matth/stats
+	export PYTHONPATH=.:$HOME/git/scripts-math/pythonlib:$HOME/git/scripts-math/stats
 	export PERLLIB=.:$HOME/scripts/perllib
 	#export PCRGO=$HOME/git/practical-chrestomathies/go
 	#export GOPATH=$PCRGO
