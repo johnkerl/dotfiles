@@ -27,10 +27,19 @@
 # Load xterm-style color variables:
 . ~kerl/.colorrc
 
+# black white
+# red   green   blue
+# cyan  magenta yellow
 if [ "`whoami`" = "root" ]; then
-    pcolor="$longred"
+    color1="$longred"
+    color2="$longyellow"
 else
-    pcolor="$longgreen"
+    #color1="$longgreen"
+    #color2="$longyellow"
+    color1="$longyellow"
+    color2="$longyellow"
+    #color1="$longred"
+    #color2="$longred"
 fi
 
 # show_jobs_and_dirs is just a C program which prints the "jobs=1 dirs=2" parts
@@ -51,7 +60,7 @@ fi
 if [ -z "$BASH_VERSION" ]; then # zsh
   export PS1="${green}%n@%m[%c]${red}[j%js%?]${green}%#${textdefault} "
 else
-  export PS1="${bold}${pcolor}\u@\h${longred}"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"${pcolor}[\W]\$${longtextdefault} "
+  export PS1="${bold}${color1}\u@\h""${color2}"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"${color1}[\W]\$${longtextdefault} "
 fi
 
 # ----------------------------------------------------------------
@@ -64,30 +73,21 @@ if [ -z "$BEEN_HERE" ]; then
 	#export GOROOT=/usr/local/go
 
 	export RUBYLIB=$HOME/pub_http_internet/ruby:$HOME/pub_http_internet/ruby/ruffl
-	export PYTHONPATH=.:$HOME/scripts/pythonlib:$HOME/src/stats
+	export PYTHONPATH=.:$HOME/git/scripts-math/pythonlib:$HOME/git/scripts-matth/stats
 	export PERLLIB=.:$HOME/scripts/perllib
 	#export PCRGO=$HOME/git/practical-chrestomathies/go
 	#export GOPATH=$PCRGO
 
 	export PATH=/usr/local/bin:${PATH}
-	#export PATH=$JAVA_HOME/bin:${PATH}
-	#export PATH=$SCALA_HOME/bin:${PATH}
-	#export PATH=$GOROOT/bin:${PATH}
-	#export PATH=$HOME/scripts/stats:${PATH}
-	#export PATH=$HOME/scripts/rand:${PATH}
-	export PATH=$HOME/bin/pgr:${PATH}
-	export PATH=$HOME/scripts/one-offs:${PATH}
-	#export PATH=$HOME/scripts-aux/one-offs:${PATH}
-	#export PATH=$HOME/scripts/latex:${PATH}
-	#export PATH=$HOME/scripts-aux/isp:${PATH}
-	#export PATH=$HOME/scripts-aux/home:${PATH}
-	export PATH=$HOME/scripts/arith:${PATH}
-	#export PATH=$PCRGO/bin:${PATH} # Use my gotools ahead of my ctools, if built
-	export PATH=$HOME/scripts/fundam:${PATH}
-	export PATH=$HOME/scripts/abbrevs:${PATH}
-	#export PATH=$HOME/bin/`uname`:${PATH}
-	export PATH=$HOME/bin/site:${PATH}
-	export PATH=$HOME/bin:${PATH}
+
+	export PATH=${PATH}:$HOME/bin
+	export PATH=${PATH}:$HOME/bin/site
+	export PATH=${PATH}:$HOME/scripts/abbrevs
+	export PATH=${PATH}:$HOME/scripts/fundam
+	export PATH=${PATH}:$HOME/scripts/arith
+	export PATH=${PATH}:$HOME/scripts/one-offs
+	export PATH=${PATH}:$HOME/bin/pgr
+
 	export PATH=.:${PATH}
 
 	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl
@@ -97,7 +97,9 @@ if [ -z "$BEEN_HERE" ]; then
 	export PATH=${PATH}:/usr/local/Acrobat4/bin # Adobe Acrobat
 
 	if [ -z "$MANPATH" ]; then
-		export MANPATH=/usr/share/man:/usr/local/man
+		#export MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:$HOME/osrc/wtfc-osx-man
+		export MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/share/man
+
 	fi
 
 	#export CLASSPATH=.:$HOME/aspectj/aspectj1.6/lib/aspectjrt.jar

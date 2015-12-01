@@ -1,6 +1,8 @@
 " John Kerl's vimrc, 2003-2013 and onward ...
 " See vim online help for more information.
 
+source $HOME/.vimrc-site
+
 behave xterm
 
 "set compatible
@@ -49,8 +51,8 @@ map ,z :set background=light<C-m>
 
 set tagstack
 set tags=./tags,../tags,../../tags,../../../tags,../../../../tags,../../../../../tags
-" Include '-' (ASCII 45) and ':' (ASCII 58) as part of word for tag searches
-set iskeyword=@,45,48-57,58,192-255,#
+" Include '-' (ASCII 45) and ':' (ASCII 58) as part of word for tag searches; '_'=95
+"set iskeyword=@,45,48-57,58,95,192-255,#
 
 
 " Enable language-specific syntax highlighting.
@@ -84,6 +86,8 @@ map \i :set ic<C-m>
 map \I :set noic<C-m>
 map \a :set ai<C-m>
 map \A :set noai<C-m>
+map \t :set paste<C-m>
+map \T :set nopaste<C-m>
 
 map \n :se nu<C-m>
 map \N :se nonu<C-m>
@@ -104,6 +108,9 @@ map - :.=<C-m>
 map _ :$=<C-m>
 " Insert a space & keep the cursor position still:
 map <C-k> i <ESC>
+
+" Put current line at middle of screen
+map <SPACE> zz
 
 " ----------------------------------------------------------------
 " Tabs/whitespaces, and indent/unindent keymaps
@@ -136,7 +143,11 @@ map \2 :se ts=2<C-m>
 map \3 :se ts=3<C-m>
 map \4 :se ts=4<C-m>
 map \8 :se ts=8<C-m>
-map \0 :se ts=80<C-m>
+"map \0 :se ts=80<C-m>
+map \0 :set colorcolumn=80<CR>
+
+map \c :set colorcolumn=<C-m>                                                  
+map \C :set colorcolumn=80<C-m>                                                
 
 "au BufNewFile,BufRead *.java map <C-a> I    <ESC>
 "au BufNewFile,BufRead *.java map <C-u> 0xxxx
@@ -152,10 +163,62 @@ au BufNewFile,BufRead Makefile set noexpandtab
 au BufNewFile,BufRead Makefile map <C-a> I<TAB><ESC>
 au BufNewFile,BufRead Makefile map <C-u> 0x
 
+au BufNewFile,BufRead Makefile.am set ts=8
+au BufNewFile,BufRead Makefile.am set noexpandtab
+au BufNewFile,BufRead Makefile.am map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead Makefile.am map <C-u> 0x
+
+au BufNewFile,BufRead configure.ac set ts=8
+au BufNewFile,BufRead configure.ac set noexpandtab
+au BufNewFile,BufRead configure.ac map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead configure.ac map <C-u> 0x
+
 au BufNewFile,BufRead *.[ch] set ts=4
 au BufNewFile,BufRead *.[ch] set noexpandtab
 au BufNewFile,BufRead *.[ch] map <C-a> I<TAB><ESC>
 au BufNewFile,BufRead *.[ch] map <C-u> 0x
+
+au BufNewFile,BufRead *.[d] set ts=4
+au BufNewFile,BufRead *.[d] set noexpandtab
+au BufNewFile,BufRead *.[d] map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead *.[d] map <C-u> 0x
+
+au BufNewFile,BufRead *.go set ts=4
+au BufNewFile,BufRead *.go set noexpandtab
+au BufNewFile,BufRead *.go map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead *.go map <C-u> 0x
+
+au BufNewFile,BufRead *.py set ts=4
+au BufNewFile,BufRead *.py set noexpandtab
+au BufNewFile,BufRead *.py map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead *.py map <C-u> 0x
+
+au BufNewFile,BufRead py* set ts=4
+au BufNewFile,BufRead py* set noexpandtab
+au BufNewFile,BufRead py* map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead py* map <C-u> 0x
+
+au BufNewFile,BufRead pgr set ts=4
+au BufNewFile,BufRead pgr set noexpandtab
+au BufNewFile,BufRead pgr map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead pgr map <C-u> 0x
+
+function Yestabs()
+  set ts=4
+  set noexpandtab
+  map <C-a> I<TAB><ESC>
+  map <C-u> 0x
+endfunction
+
+function Notabs()
+  set ts=2
+  set expandtab
+  map <C-a> I  <ESC>
+  map <C-u> 0xx
+endfunction
+
+map ,Z :call Yestabs()<CR>
+map ,z :call Notabs()<CR>
 
 " ----------------------------------------------------------------
 
@@ -188,8 +251,8 @@ map <C-o> :w<C-m>:n<C-m>
 " etc.
 
 " /* comment */
-map \c O/* <ESC>64A-<ESC>A*/<ESC>
-map \C O/* <ESC>64A=<ESC>A*/<ESC>
+"map \c O/* <ESC>64A-<ESC>A*/<ESC>
+"map \C O/* <ESC>64A=<ESC>A*/<ESC>
 " (* comment *)
 "map \c 0i(*<ESC>A*)<ESC>
 "map \m O(* <ESC>64A-<ESC>A*)<ESC>
@@ -205,8 +268,8 @@ map \= O// <ESC>32A -<ESC>
 map \s O# <ESC>64A-<ESC>
 map \S O# <ESC>64A=<ESC>
 " % comment
-map \t O%% <ESC>64A-<ESC>
-map \T O%% <ESC>64A=<ESC>
+" map \t O%% <ESC>64A-<ESC>
+" map \T O%% <ESC>64A=<ESC>
 " Just the line, no comment character
 map \j O<ESC>64A-<ESC>
 map \J O<ESC>64A=<ESC>

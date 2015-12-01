@@ -13,6 +13,8 @@ unalias cp 2> /dev/null
 unalias mv 2> /dev/null
 unalias rm 2> /dev/null
 
+alias minpath='export PATH=/usr/bin:/bin:/usr/local/bin; export PS1="MINPATH\$ "'
+
 alias 1='fg %1'
 alias 2='fg %2'
 alias 3='fg %3'
@@ -37,7 +39,7 @@ alias jr=java
 #alias st='scala org.scalatest.tools.Runner -p . -o -s'
 
 # For Python REPL with my most-used modules pre-loaded:
-alias py='python -Qnew -i ~/.mypy'
+#alias py='python -Qnew -i ~/.mypy'
 
 if [ "$UNAME" = "Darwin" ]; then
   alias ls='ls -G'
@@ -57,8 +59,23 @@ alias v-='vim -'  # E.g. for "diff ... | vim -":
 alias vt='vim -t' # Tag jump
 alias vim='vim -i NONE -X'
 tvim() {
+  title $(basename $@)
+  vim "$@"
+}
+ttvim() {
   title "$@"
   vim "$@"
+}
+# Edit "$variablename" but put "variablename" in the title bar
+vvim() {
+  name="$1"
+  val=$(eval echo '$'"$name")
+  if [ -z "$val" ]; then
+    echo "Couldn't expand \$$name."
+  else
+    title "$name"
+    vim "$val"
+  fi
 }
 alias tt=title # https://github.com/johnkerl/scripts
 
@@ -66,6 +83,7 @@ alias gs='git status'
 alias gd='git diff'
 alias gam='git add $(git status | grep modified | nf)'
 alias gcm='git commit -m'
+alias gcmc='git commit -m "$(cat gcm.txt)"'
 
 # ================================================================
 # Next are some shell functions.  The main deliverables are vimr and cd2file.
