@@ -94,6 +94,10 @@ map \N :se nonu<C-m>
 map \l :se list<C-m>
 map \L :se nolist<C-m>
 
+map <C-h> :.!sh<CR>
+map \h yyp:.!sh<CR>
+map \H !}sh<CR>
+
 "map \b i\begin{eqnarray*}<C-m><TAB>&=& \\<C-m><C-d>\end{eqnarray*}<C-m><ESC>
 map \b :.!ind -1b<C-m>
 map \B :.!uind -1b<C-m>
