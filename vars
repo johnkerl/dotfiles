@@ -31,36 +31,31 @@
 # red   green   blue
 # cyan  magenta yellow
 if [ "`whoami`" = "root" ]; then
-    color1="$longred"
-    color2="$longyellow"
+    color1="$red"
+    color2="$yellow"
 else
-    #color1="$longgreen"
-    #color2="$longyellow"
-    color1="$longyellow"
-    color2="$longyellow"
-    #color1="$longred"
-    #color2="$longred"
+    #color1="$green"
+    #color2="$yellow"
+    color1="$yellow"
+    color2="$yellow"
+    #color1="$red"
+    #color2="$red"
 fi
 
-# show_jobs_and_dirs is just a C program which prints the "jobs=1 dirs=2" parts
-# when they are non-trivial.  I wrote it in C to avoid stack traces when ^C-ing
-# an empty prompt line.
-
-# FOR BASH:
-#export PS1="${starttitle}\u@\h \w${endtitle}${longgreen}\u@\h[\W]\$${longtextdefault} "
-#export PS1="${starttitle}\u@\h \w${endtitle}${bold}${pcolor}\u@\h[\W]${longred}"'$(/home/kerl/bin/Linux/show_jobs_and_dirs $(jobs | /usr/bin/wc -l) $(dirs -p | /usr/bin/wc -l))'"${pcolor}\$${longtextdefault} "
-#export PS1="${bold}${pcolor}\u@\h${longred}"'$(echo [j=$(echo $(jobs | /usr/bin/wc -l))][d=$(echo $(dirs -p | /usr/bin/wc -l))])'"${pcolor}[\W]\$${longtextdefault} "
-
-# FOR ZSH:
-# http://www.gentoo.org/doc/en/zsh.xml
-# http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
-# See also ~/.colorrc
-#export PS1=$'\e[0;32m%n@%m[%c]\e[0;31m[j%js%?]\e[0;32m%#\e[0m '
+# Notes:
+#
+# * show_jobs_and_dirs is just a C program which prints the "jobs=1 dirs=2" parts
+#   when they are non-trivial.  I wrote it in C to avoid stack traces when ^C-ing
+#   an empty prompt line.
+#
+# * The \[ \] around xterm escape sequences are important in shell prompts so that
+#   the shell can properly compute the length of the prompt string which in turn
+#   is essential to avoid screen-garbaging on history editing of long command lines.
 
 if [ -z "$BASH_VERSION" ]; then # zsh
   export PS1="${green}%n@%m[%c]${red}[j%js%?]${green}%#${textdefault} "
 else
-  export PS1="${bold}${color1}\u@\h""${color2}"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"${color1}[\W]\$${longtextdefault} "
+  export PS1="\[${bold}${color1}\]\u@\h""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\][\W]\$\[${textdefault}\] "
 fi
 
 # ----------------------------------------------------------------
@@ -78,29 +73,33 @@ if [ -z "$BEEN_HERE" ]; then
 	#export PCRGO=$HOME/git/practical-chrestomathies/go
 	#export GOPATH=$PCRGO
 
-	export PATH=/usr/local/bin:${PATH}
-
-	export PATH=${PATH}:$HOME/bin
+  # Path tail
 	export PATH=${PATH}:$HOME/bin/site
 	export PATH=${PATH}:$HOME/scripts/abbrevs
 	export PATH=${PATH}:$HOME/scripts/fundam
 	export PATH=${PATH}:$HOME/scripts/arith
 	export PATH=${PATH}:$HOME/scripts/one-offs
 	export PATH=${PATH}:$HOME/bin/pgr
-
-	export PATH=.:${PATH}
-
 	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl
 	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl/cmds
 	#export PATH=${PATH}:$HOME/aspectj/aspectj1.6/bin
 	#export PATH=${PATH}:/sbin:/usr/sbin # Programs such as ifconfig
 	export PATH=${PATH}:/usr/local/Acrobat4/bin # Adobe Acrobat
 
+  # Path head
+	export PATH=/usr/local/bin:${PATH}
+	export PATH=${HOME}/bin:${PATH}
+	#export PATH=${PATH}:$HOME/bin
+	export PATH=.:${PATH}
+
 	if [ -z "$MANPATH" ]; then
 		#export MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:$HOME/osrc/wtfc-osx-man
-		export MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/share/man
-
+		export MANPATH=$HOME/man
 	fi
+  export MANPATH=${MANPATH}:/usr/share/man
+  export MANPATH=${MANPATH}:/usr/local/man
+  export MANPATH=${MANPATH}:/usr/local/share/man
+  export MANPATH=${MANPATH}:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/share/man
 
 	#export CLASSPATH=.:$HOME/aspectj/aspectj1.6/lib/aspectjrt.jar
 	#export CLASSPATH=${CLASSPATH}:/home/kerl/scala/scalatest-1.6.1/scalatest-1.6.1.jar

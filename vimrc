@@ -96,7 +96,7 @@ map \L :se nolist<C-m>
 
 map <C-h> :.!sh<CR>
 map \h yyp:.!sh<CR>
-map \H !}sh<CR>
+map \H yyp!}head -n 1 \| sh<CR>k
 
 "map \b i\begin{eqnarray*}<C-m><TAB>&=& \\<C-m><C-d>\end{eqnarray*}<C-m><ESC>
 map \b :.!ind -1b<C-m>
@@ -181,6 +181,11 @@ au BufNewFile,BufRead *.[ch] set ts=4
 au BufNewFile,BufRead *.[ch] set noexpandtab
 au BufNewFile,BufRead *.[ch] map <C-a> I<TAB><ESC>
 au BufNewFile,BufRead *.[ch] map <C-u> 0x
+
+au BufNewFile,BufRead *.[ly] set ts=4
+au BufNewFile,BufRead *.[ly] set noexpandtab
+au BufNewFile,BufRead *.[ly] map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead *.[ly] map <C-u> 0x
 
 au BufNewFile,BufRead *.[d] set ts=4
 au BufNewFile,BufRead *.[d] set noexpandtab

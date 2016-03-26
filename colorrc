@@ -7,23 +7,6 @@
 # 2011-06-30
 # ==============================================================================
 
-# The begin and end \[ \] seem to have some sort of scoping effect ...  without
-# them, the final esc0m resets *all* terminal attributes, including line wrap
-# in Putty, which is unpleasant in the extreme.  But, this only happens when
-# the short versions are used in my prompt string.  When I use the long ones
-# with echo -e, the literal \[ and \] appear in the output.  So, I don't
-# understand this; but, I need to have both versions, it appears.
-
-export longtextdefault="\[\e[0m\]"
-export   longblack="\[\e[30m\]"
-export     longred="\[\e[31m\]"
-export   longgreen="\[\e[32m\]"
-export  longyellow="\[\e[33m\]"
-export    longblue="\[\e[34m\]"
-export longmagenta="\[\e[35m\]"
-export    longcyan="\[\e[36m\]"
-export   longwhite="\[\e[37m\]"
-
 if [ "$(uname)" = "Darwin" ]; then
   export        textdefault=$'\033[0m'
   export              black=$'\033[30;01m'
@@ -49,10 +32,10 @@ else
   export            magenta="\e[35m"
   export               cyan="\e[36m"
   export              white="\e[37m"
-  export               bold="\[\e[1m\]"
-  export          underline="\[\e[4m\]"
-  export notboldorunderline="\[\e[22m\]"
-  export         starttitle="\[\e]2;"
+  export               bold="\e[1m"
+  export          underline="\e[4m"
+  export notboldorunderline="\e[22m"
+  export         starttitle="\e]2;"
   export           endtitle="\a"
 fi
 
