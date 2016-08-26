@@ -1,0 +1,2 @@
+setenv I_AM_IN_SCREEN true
+shell -$SHELL
