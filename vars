@@ -38,6 +38,7 @@ else
     #color2="$yellow"
     color1="$yellow"
     color2="$yellow"
+    color3="$green"
     #color1="$red"
     #color2="$red"
 fi
@@ -55,7 +56,9 @@ fi
 if [ -z "$BASH_VERSION" ]; then # zsh
   export PS1="${green}%n@%m[%c]${red}[j%js%?]${green}%#${textdefault} "
 else
-  export PS1="\[${bold}${color1}\]\u@\h""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\][\W]\$\[${textdefault}\] "
+  #export PS1="\[${bold}${color1}\]\u@\h""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\][\W]\$\[${textdefault}\] "
+  # See pathnick.c
+  export PS1="\[${bold}${color1}\]\u@\h""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\]\[${color3}\]\`pathnick\`\[${color1}\][\W]\$\[${textdefault}\] "
 fi
 
 # ----------------------------------------------------------------
