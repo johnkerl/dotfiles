@@ -47,6 +47,7 @@ let groovy_space_errors=1
 let scala_space_errors=1
 
 set background=dark
+"set background=light
 map ,z :set background=light<C-m>
 
 set tagstack
@@ -81,6 +82,9 @@ map \, :tnext<C-m>
 "map # :w<C-m>:e#
 map \x l
 map \w :w<C-m>:!latex %<C-m>
+
+map \e :set hlsearch<CR>
+map \E :set nohlsearch<CR>
 
 map \i :set ic<C-m>
 map \I :set noic<C-m>
