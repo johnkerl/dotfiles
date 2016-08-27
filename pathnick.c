@@ -10,10 +10,10 @@
 //
 // * In my shell rc file, things like
 //
-//   export PATHNICKS="$PATHNICKS,$HOME/project:PROJECT1"
+//   export PATHNICKS="$HOME/project:PROJECT1"
 //   export PATHNICKS="$PATHNICKS,$HOME/project2:PROJECT2"
-//   export PATHNICKS="$HOME:HOME"
-//   export PATHNICKS="/tmp:TMP"
+//   export PATHNICKS="$PATHNICKS,$HOME:HOME"
+//   export PATHNICKS="$PATHNICKS,/tmp:TMP"
 //
 // * Then for my $PS1 I can do things like
 //
