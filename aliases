@@ -37,6 +37,7 @@ alias jr=java
 #alias sc=scalac
 #alias sr=scala
 #alias st='scala org.scalatest.tools.Runner -p . -o -s'
+alias grep='grep --color=auto'
 
 # For Python REPL with my most-used modules pre-loaded:
 #alias py='python -Qnew -i ~/.mypy'
@@ -79,13 +80,15 @@ vvim() {
 }
 alias tt=title # https://github.com/johnkerl/scripts
 
-alias gs='git status'
-alias gd='git diff'
-alias gd1='git diff HEAD~ HEAD'
-alias gd2='git diff HEAD~2 HEAD'
+alias   gs='git status'
+alias   gd='git diff'
+alias  gd1='git diff HEAD~ HEAD'
+alias  gd2='git diff HEAD~2 HEAD'
 alias gd12='git diff HEAD~2 HEAD~1'
-alias gam='git add $(git status | grep modified | nf)'
-alias gcm='git commit -m'
+alias  gam='git add $(git status | grep modified | nf)'
+alias  gcm='git commit -m'
+alias  gca='git commit --amend'
+alias gcam='git commit --amend -m'
 alias gcmc='git commit -m "$(cat gcm.txt)"'
 
 # ================================================================

@@ -33,6 +33,8 @@ set formatoptions=ql " This one is needed for vim without filename
 " http://stackoverflow.com/questions/6076592/vim-set-formatoptions-being-lost
 autocmd BufNewFile,BufRead * setlocal formatoptions=ql
 
+autocmd BufEnter reg_test/run :syntax sync fromstart
+
 set vb t_vb= "Turn that beeping off!
 
 set noignorecase
@@ -48,7 +50,7 @@ let scala_space_errors=1
 
 set background=dark
 "set background=light
-map ,z :set background=light<C-m>
+"map ,z :set background=light<C-m>
 
 set tagstack
 set tags=./tags,../tags,../../tags,../../../tags,../../../../tags,../../../../../tags
@@ -59,7 +61,7 @@ set tags=./tags,../tags,../../tags,../../../tags,../../../../tags,../../../../..
 " Enable language-specific syntax highlighting.
 syntax on
 
-au BufNewFile,BufRead *.g,*.groovy set filetype=groovy
+"au BufNewFile,BufRead *.g,*.groovy set filetype=groovy
 
 " ----------------------------------------------------------------
 " Trying this 2008-02-12 ...
@@ -68,7 +70,7 @@ au BufNewFile,BufRead *.g,*.groovy set filetype=groovy
 " no arguments, this comments=... does apply.  However, autoindent with gqip
 " now breaks; //'s flow into the paragraph. :(
 " set comments=f:-
-map \f :set comments=f:-<C-m>
+"map \f :set comments=f:-<C-m>
 
 " ================================================================
 " Keymaps
@@ -81,7 +83,7 @@ map \, :tnext<C-m>
 " 2010-08-08
 "map # :w<C-m>:e#
 map \x l
-map \w :w<C-m>:!latex %<C-m>
+"""""map \w :w<C-m>:!latex %<C-m>
 
 map \e :set hlsearch<CR>
 map \E :set nohlsearch<CR>
@@ -152,7 +154,9 @@ map \3 :se ts=3<C-m>
 map \4 :se ts=4<C-m>
 map \8 :se ts=8<C-m>
 "map \0 :se ts=80<C-m>
-map \0 :set colorcolumn=80<CR>
+map \0 :set colorcolumn=120<CR>
+map \o :set colorcolumn=80<CR>
+map \O :set colorcolumn=0<CR>
 
 map \c :set colorcolumn=<C-m>                                                  
 map \C :set colorcolumn=80<C-m>                                                
