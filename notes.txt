@@ -1,0 +1,7 @@
+ln -s {~/git/dotfiles/,~/.}aliases
+ln -s {~/git/dotfiles/,~/.}bashrc
+ln -s {~/git/dotfiles/,~/.}colorrc
+ln -s {~/git/dotfiles/,~/.}mypy
+ln -s {~/git/dotfiles/,~/.}screenrc
+ln -s {~/git/dotfiles/,~/.}vars
+ln -s {~/git/dotfiles/,~/.}vimrc
