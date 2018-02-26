@@ -170,15 +170,10 @@ map \C :set colorcolumn=80<C-m>
 "au BufNewFile,BufRead *.groovy map <C-a> I    <ESC>
 "au BufNewFile,BufRead *.groovy map <C-u> 0xxxx
 
-au BufNewFile,BufRead Makefile set ts=8
-au BufNewFile,BufRead Makefile set noexpandtab
-au BufNewFile,BufRead Makefile map <C-a> I<TAB><ESC>
-au BufNewFile,BufRead Makefile map <C-u> 0x
-
-au BufNewFile,BufRead Makefile.am set ts=8
-au BufNewFile,BufRead Makefile.am set noexpandtab
-au BufNewFile,BufRead Makefile.am map <C-a> I<TAB><ESC>
-au BufNewFile,BufRead Makefile.am map <C-u> 0x
+au BufNewFile,BufRead Makefile* set ts=8
+au BufNewFile,BufRead Makefile* set noexpandtab
+au BufNewFile,BufRead Makefile* map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead Makefile* map <C-u> 0x
 
 au BufNewFile,BufRead configure.ac set ts=8
 au BufNewFile,BufRead configure.ac set noexpandtab
