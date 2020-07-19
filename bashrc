@@ -4,18 +4,18 @@
 # User-specific aliases and functions
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
+if [ -x /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-if [ -f ~kerl/.vars ]; then
-	. ~kerl/.vars
+if [ -e ~/.vars ]; then
+	. ~/.vars
 fi
-if [ -f ~kerl/.vars-personal ]; then
-	. ~kerl/.vars-personal
+if [ -e ~/.vars-personal ]; then
+	. ~/.vars-personal
 fi
-if [ -f ~kerl/.vars-site ]; then
-	. ~kerl/.vars-site
+if [ -e ~/.vars-site ]; then
+	. ~/.vars-site
 fi
 
 # ----------------------------------------------------------------
@@ -27,8 +27,8 @@ fi
 
 # ----------------------------------------------------------------
 
-if [ -f ~kerl/.aliases ]; then
-	. ~kerl/.aliases
+if [ -f ~/.aliases ]; then
+	. ~/.aliases
 fi
 
 # I use a black background.  Replace (dark) blue with cyan for colored
