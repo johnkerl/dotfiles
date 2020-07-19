@@ -4,7 +4,7 @@
 # User-specific aliases and functions
 
 # Source global definitions
-if [ -x /etc/bashrc ]; then
+if [ -e /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
