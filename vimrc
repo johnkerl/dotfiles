@@ -200,20 +200,40 @@ au BufNewFile,BufRead *.go set noexpandtab
 au BufNewFile,BufRead *.go map <C-a> I<TAB><ESC>
 au BufNewFile,BufRead *.go map <C-u> 0x
 
+"au BufNewFile,BufRead *.py set ts=4
+"au BufNewFile,BufRead *.py set noexpandtab
+"au BufNewFile,BufRead *.py map <C-a> I<TAB><ESC>
+"au BufNewFile,BufRead *.py map <C-u> 0x
+
+"au BufNewFile,BufRead py* set ts=4
+"au BufNewFile,BufRead py* set noexpandtab
+"au BufNewFile,BufRead py* map <C-a> I<TAB><ESC>
+"au BufNewFile,BufRead py* map <C-u> 0x
+
+"au BufNewFile,BufRead pgr set ts=4
+"au BufNewFile,BufRead pgr set noexpandtab
+"au BufNewFile,BufRead pgr map <C-a> I<TAB><ESC>
+"au BufNewFile,BufRead pgr map <C-u> 0x
+
 au BufNewFile,BufRead *.py set ts=4
-au BufNewFile,BufRead *.py set noexpandtab
-au BufNewFile,BufRead *.py map <C-a> I<TAB><ESC>
-au BufNewFile,BufRead *.py map <C-u> 0x
+au BufNewFile,BufRead *.py set expandtab
+au BufNewFile,BufRead *.py map <C-a> I    <ESC>
+au BufNewFile,BufRead *.py map <C-u> 0xxxx
 
 au BufNewFile,BufRead py* set ts=4
-au BufNewFile,BufRead py* set noexpandtab
-au BufNewFile,BufRead py* map <C-a> I<TAB><ESC>
-au BufNewFile,BufRead py* map <C-u> 0x
+au BufNewFile,BufRead py* set expandtab
+au BufNewFile,BufRead py* map <C-a> I    <ESC>
+au BufNewFile,BufRead py* map <C-u> 0xxxx
 
 au BufNewFile,BufRead pgr set ts=4
-au BufNewFile,BufRead pgr set noexpandtab
-au BufNewFile,BufRead pgr map <C-a> I<TAB><ESC>
-au BufNewFile,BufRead pgr map <C-u> 0x
+au BufNewFile,BufRead pgr set expandtab
+au BufNewFile,BufRead pgr map <C-a> I    <ESC>
+au BufNewFile,BufRead pgr map <C-u> 0xxxx
+
+:autocmd FileType python set ts=4
+:autocmd FileType python set expandtab
+:autocmd FileType python map <C-a> I    <ESC>
+:autocmd FileType python map <C-u> 0xxxx
 
 function Yestabs()
   set ts=4
