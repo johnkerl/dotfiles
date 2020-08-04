@@ -37,7 +37,7 @@ fi
 # eval `dircolors|sed s/34/36/g`
 
 # ----------------------------------------------------------------
-# Turn that beeping off.
+# Turn the beeping off.
 bind 'set bell-style none'
 # Bash history-editing option.
 set mark-modified-lines off

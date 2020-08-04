@@ -35,7 +35,7 @@ autocmd BufNewFile,BufRead * setlocal formatoptions=ql
 
 autocmd BufEnter reg_test/run :syntax sync fromstart
 
-set vb t_vb= "Turn that beeping off!
+set vb t_vb= "Turn the beeping off
 
 set noignorecase
 set nonovice
