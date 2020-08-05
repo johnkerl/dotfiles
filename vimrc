@@ -365,6 +365,6 @@ map \v :se ft=java<C-m>
 " b. *AND*, in my modeline, for each target file:
 "    # vim: set filetype.sh
 
-augroup my_bash_init_files
-  au BufNewFile,BufRead .aliases,.colorrc,.vars,.vars-personal,.vars-site :call SetFileTypeSH("bash")
-augroup END
+"augroup my_bash_init_files
+"  au BufNewFile,BufRead .aliases,.colorrc,.vars,.vars-personal,.vars-site :call SetFileTypeSH("bash")
+"augroup END
