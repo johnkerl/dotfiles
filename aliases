@@ -80,6 +80,7 @@ vvim() {
 }
 alias tt=title # https://github.com/johnkerl/scripts
 
+# reminder git clone ssh://git@github.com/johnkerl/scripts.git
 alias   gs='git status'
 alias   gd='git diff'
 alias  gd1='git diff HEAD~ HEAD'
