@@ -109,7 +109,8 @@ if [ -z "$BEEN_HERE" ]; then
   export MANPATH=${MANPATH}:/usr/share/man
   export MANPATH=${MANPATH}:/usr/local/man
   export MANPATH=${MANPATH}:/usr/local/share/man
-  export MANPATH=${MANPATH}:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/share/man
+  #export MANPATH=${MANPATH}:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/share/man
+  export MANPATH=${MANPATH}://Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/share/man
 
 	#export CLASSPATH=.:$HOME/aspectj/aspectj1.6/lib/aspectjrt.jar
 	#export CLASSPATH=${CLASSPATH}:/home/kerl/scala/scalatest-1.6.1/scalatest-1.6.1.jar

@@ -245,5 +245,5 @@ cdwhich() {
 
 # ================================================================
 # Reminders:
-# git clone ssh://git@github.com/johnkerl/scripts.git
+# git clone ssh://git@github.com/johnkerl/scripts
 # jq '.|select(.key=="value")' filename.json
