@@ -309,9 +309,9 @@ map \J O<ESC>64A=<ESC>
 "                               * * *
 map \r O* * *<ESC>32I <ESC>
 " HTML monospace smiley:
-"map \g A <tt>:)</tt><ESC>
-map \g :se ft=groovy<C-m>
 map \v :se ft=java<C-m>
+
+map \g :%!gofmt<CR>
 
 "au BufNewFile,BufRead *.go set filetype=go
 
