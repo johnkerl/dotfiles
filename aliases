@@ -80,12 +80,14 @@ vvim() {
 }
 alias tt=title # https://github.com/johnkerl/scripts
 
+alias   gl='git log -n 5'
 alias   gs='git status'
 alias   gd='git diff'
 alias  gd1='git diff HEAD~ HEAD'
 alias  gd2='git diff HEAD~2 HEAD'
 alias gd12='git diff HEAD~2 HEAD~1'
 #alias  gam='git add $(git status | grep modified | nf)'
+alias   ga='git add'
 alias  gam='git add $(git status | grep modified: | sed "s/ *modified: *//" | cpick 1)'
 alias  gcm='git commit -m'
 alias  gca='git commit --amend'
