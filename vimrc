@@ -123,6 +123,17 @@ map <C-k> i <ESC>
 map <SPACE> zz
 
 " ----------------------------------------------------------------
+" https://vi.stackexchange.com/questions/15505/highlight-whole-todo-comment-line
+syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
+highlight link myTodo Todo
+highlight Search ctermbg=DarkGrey
+highlight Todo ctermbg=DarkGrey
+"syn list Todo
+"syn list myTodo
+
+au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
+
+" ----------------------------------------------------------------
 " Tabs/whitespaces, and indent/unindent keymaps
 
 "set noexpandtab
@@ -161,6 +172,7 @@ map \O :set colorcolumn=0<CR>
 map \c :set colorcolumn=<C-m>                                                  
 map \C :set colorcolumn=80<C-m>                                                
 
+" ----------------------------------------------------------------
 "au BufNewFile,BufRead *.java map <C-a> I    <ESC>
 "au BufNewFile,BufRead *.java map <C-u> 0xxxx
 
