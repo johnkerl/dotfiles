@@ -126,7 +126,7 @@ map <SPACE> zz
 " https://vi.stackexchange.com/questions/15505/highlight-whole-todo-comment-line
 syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
 highlight link myTodo Todo
-highlight Search ctermbg=DarkGrey
+highlight Search ctermbg=LightGrey
 highlight Todo ctermbg=DarkGrey
 "syn list Todo
 "syn list myTodo
