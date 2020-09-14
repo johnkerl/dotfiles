@@ -94,6 +94,34 @@ alias  gcm='git commit -m'
 alias  gca='git commit --amend'
 alias gcam='git commit --amend -m'
 alias gcmc='git commit -m "$(cat gcm.txt)"'
+alias gsl='git sl ...upstream/master'
+alias  gb='git branch'
+alias  gc='git checkout'
+
+# ----------------------------------------------------------------
+# Miller
+. ~/.vars-tracker
+
+my_assign_dir mlb "$HOME/pub_http_internet/miller-releases/miller-head"
+my_assign_dir mlc "$HOME/pub_http_internet/miller-releases/miller-head/c"
+my_assign_dir mld "$HOME/pub_http_internet/miller-releases/miller-head/doc"
+my_assign_dir mll "$HOME/pub_http_internet/miller-releases/miller-head/c/dsls"
+
+my_assign_dir  mlg   "$HOME/pub_http_internet/miller-releases/miller-head/go"
+my_assign_file bnf   "$mlg/src/miller/parsing/mlr.bnf"
+my_assign_file ast   "$mlg/src/miller/dsl/ast.go"
+my_assign_dir  cli   "$mlg/src/miller/cli"
+my_assign_dir  cst   "$mlg/src/miller/dsl/cst"
+my_assign_dir  lib   "$mlg/src/miller/lib"
+my_assign_dir  types "$mlg/src/miller/types"
+
+export    indir="$mlc/reg_test/input"
+export   outdir="$mlc/output-regtest"
+
+alias        bake='make -f Makefile.no-autoconfig'
+alias clonemiller='git clone https://github.com/johnkerl/miller'
+alias     mygroff='groff -man -Tascii'
+alias    macbakes='make -C ../c -f Makefile.no-autoconfig mlrg installhome && make -C ../doc -f Makefile.no-autoconfig all installhome'
 
 # ================================================================
 # Next are some shell functions.  The main deliverables are vimr and cd2file.
