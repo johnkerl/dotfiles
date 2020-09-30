@@ -90,6 +90,7 @@ if [ -z "$BEEN_HERE" ]; then
 	export PATH=${PATH}:$HOME/bin/pgr
 	export PATH=${PATH}:/usr/local/go/bin
 	export PATH=${PATH}:/usr/local/mysql/bin
+	export PATH=${PATH}:/usr/local/opt/node/bin
 	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl
 	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl/cmds
 	#export PATH=${PATH}:$HOME/aspectj/aspectj1.6/bin
