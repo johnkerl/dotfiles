@@ -91,7 +91,7 @@ alias gd12='git diff HEAD~2 HEAD~1'
 alias   ga='git add'
 alias  gam='git add $(git status | grep modified: | sed "s/ *modified: *//" | cpick 1)'
 alias  gcm='git commit -m'
-alias  gca='git commit --amend'
+alias  gca='git commit --amend --date $(systime)'
 alias gcam='git commit --amend -m'
 alias gcmc='git commit -m "$(cat gcm.txt)"'
 alias gsl='git sl ...upstream/master'
@@ -117,6 +117,7 @@ my_assign_dir  map    "src/miller/mappers"
 my_assign_dir  outp   "src/miller/output"
 my_assign_dir  types  "src/miller/types"
 my_assign_file put    "src/miller/mappers/put.go"
+my_assign_file udf    "src/miller/dsl/cst/udf.go"
 my_assign_file mlrmap "src/miller/types/mlrmap.go"
 my_assign_file mlrval "src/miller/types/mlrval.go"
 
@@ -126,7 +127,7 @@ export   outdir="$mlc/output-regtest"
 alias        bake='make -f Makefile.no-autoconfig'
 alias clonemiller='git clone https://github.com/johnkerl/miller'
 alias     mygroff='groff -man -Tascii'
-alias    macbakes='make -C ../c -f Makefile.no-autoconfig mlrg installhome && make -C ../doc -f Makefile.no-autoconfig all installhome'
+alias    macbakes='make -C ../c -f Makefile.no-autoconfig mlrg installhome && make -C ../docs html && make -C ../docs installhome'
 
 # ================================================================
 # Next are some shell functions.  The main deliverables are vimr and cd2file.
