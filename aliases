@@ -79,7 +79,6 @@ vvim() {
     vim "$val"
   fi
 }
-alias tt=title # https://github.com/johnkerl/scripts
 
 alias   gl='git log -n 5'
 alias   gs='git status'
