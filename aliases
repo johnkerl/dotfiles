@@ -30,9 +30,9 @@ alias h='history 10'
 alias j='jobs -l'
 
 # Since "java" is a leading substring of "javac", "!java" doesn't work right in
-# an edit-compile loop.  Hence, jc and jr.  Likewise for scalac and scala.
-alias jc=javac
-alias jr=java
+# an edit-compile loop.  Hence, these two.  Likewise for scalac and scala.
+alias jvc=javac
+alias jvr=java
 #alias si=scala
 #alias sc=scalac
 #alias sr=scala
@@ -115,7 +115,7 @@ my_assign_dir  inp    "src/miller/input"
 my_assign_dir  map    "src/miller/mappers"
 my_assign_dir  outp   "src/miller/output"
 my_assign_dir  types  "src/miller/types"
-my_assign_file put    "src/miller/mappers/put.go"
+my_assign_file put    "src/miller/mappers/put_or_filter.go"
 my_assign_file udf    "src/miller/dsl/cst/udf.go"
 my_assign_file mlrmap "src/miller/types/mlrmap.go"
 my_assign_file mlrval "src/miller/types/mlrval.go"
