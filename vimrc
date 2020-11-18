@@ -100,7 +100,8 @@ map \N :se nonu<C-m>
 map \l :se list<C-m>
 map \L :se nolist<C-m>
 
-map <C-h> :.!sh<CR>
+"map <C-h> :.!sh<CR>
+map <C-h> !}echorun<CR>}}
 map \h yyp:.!sh<CR>
 map \H yyp!}head -n 1 \| sh<CR>k
 

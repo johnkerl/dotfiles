@@ -55,6 +55,7 @@ alias lss='ls -Slr'
 # Most recent files last:
 alias lt='ls -lrt'
 
+alias nnbu='nbu -d ~/Desktop/folder/bak'
 alias v='vim'
 alias vv='vim todo.txt'
 alias v-='vim -'  # E.g. for "diff ... | vim -":
