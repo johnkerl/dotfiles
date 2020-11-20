@@ -110,7 +110,9 @@ my_assign_dir mld "$HOME/pub_http_internet/miller-releases/miller-head/docs"
 alias vvv='vim $mlg/todo.txt'
 
 my_assign_file bnf    "src/miller/parsing/mlr.bnf"
-my_assign_file ast    "src/miller/dsl/ast.go"
+my_assign_file astt   "src/miller/dsl/ast_types.go"
+my_assign_file astb   "src/miller/dsl/ast_build.go"
+my_assign_file astp   "src/miller/dsl/ast_print.go"
 my_assign_dir  cli    "src/miller/cli"
 my_assign_dir  cst    "src/miller/dsl/cst"
 my_assign_dir  lib    "src/miller/lib"
@@ -122,6 +124,7 @@ my_assign_file put    "src/miller/mappers/put_or_filter.go"
 my_assign_file udf    "src/miller/dsl/cst/udf.go"
 my_assign_file mlrmap "src/miller/types/mlrmap.go"
 my_assign_file mlrval "src/miller/types/mlrval.go"
+my_assign_file stream "src/miller/stream/stream.go"
 
 export    indir="$mlc/reg_test/input"
 export   outdir="$mlc/output-regtest"
