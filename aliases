@@ -57,7 +57,7 @@ alias lt='ls -lrt'
 
 alias nnbu='nbu -d ~/Desktop/folder/bak'
 alias v='vim'
-alias vv='vim todo.txt'
+alias vv='vim ~/Desktop/PLAN.txt'
 alias v-='vim -'  # E.g. for "diff ... | vim -":
 alias vt='vim -t' # Tag jump
 alias vim='vim -i NONE -X'
@@ -106,6 +106,8 @@ my_assign_dir mlb "$HOME/pub_http_internet/miller-releases/miller-head"
 my_assign_dir mlc "$HOME/pub_http_internet/miller-releases/miller-head/c"
 my_assign_dir mlg "$HOME/pub_http_internet/miller-releases/miller-head/go"
 my_assign_dir mld "$HOME/pub_http_internet/miller-releases/miller-head/docs"
+
+alias vvv='vim $mlg/todo.txt'
 
 my_assign_file bnf    "src/miller/parsing/mlr.bnf"
 my_assign_file ast    "src/miller/dsl/ast.go"
