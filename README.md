@@ -12,4 +12,19 @@ ln -s $(pwd)/vars-tracker ~/.vars-tracker
 ln -s $(pwd)/vimrc        ~/.vimrc
 ```
 
+Then:
+
+In `~/.bash_profile` add
+
+```
+. ~/.bashrc
+```
+
 See also https://github.com/johnkerl/scripts/tree/master/suitcase for a remote-setup option.
+
+Conventions:
+
+* `~/.vars` is `PS1` and `PATH`
+* `~/.aliases` (misnamed) is everything else -- mostly, but not entirely, aliases and shell functions
+* `~/.vars-personal` not in source control
+* `~/.vars-site` not in source control -- job-specific things go here
