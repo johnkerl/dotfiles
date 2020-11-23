@@ -100,10 +100,10 @@ map \N :se nonu<C-m>
 map \l :se list<C-m>
 map \L :se nolist<C-m>
 
-"map <C-h> :.!sh<CR>
-map <C-h> !}echorun<CR>}}
-map \h yyp:.!sh<CR>
-map \H yyp!}head -n 1 \| sh<CR>k
+map <C-h> :.!sh<CR>j
+map \h !}echorun<CR>}}
+"map \h yyp:.!sh<CR>
+"map \H yyp!}head -n 1 \| sh<CR>k
 
 "map \b i\begin{eqnarray*}<C-m><TAB>&=& \\<C-m><C-d>\end{eqnarray*}<C-m><ESC>
 map \b :.!ind -1b<C-m>
