@@ -94,13 +94,14 @@ map \a :set ai<C-m>
 map \A :set noai<C-m>
 map \t :set paste<C-m>
 map \T :set nopaste<C-m>
+map \D :set ft=diff<C-m>
 
 map \n :se nu<C-m>
 map \N :se nonu<C-m>
 map \l :se list<C-m>
 map \L :se nolist<C-m>
 
-map <C-h> :.!sh<CR>j
+map <C-h> :.!bash<CR>j
 map \h !}echorun<CR>}}
 "map \h yyp:.!sh<CR>
 "map \H yyp!}head -n 1 \| sh<CR>k
