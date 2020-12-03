@@ -97,6 +97,8 @@ alias gcmc='git commit -m "$(cat gcm.txt)"'
 alias gsl='git sl ...upstream/master'
 alias  gb='git branch'
 alias  gc='git checkout'
+alias gla='git log --graph --all'
+alias gsb='git branch' # show branch
 
 # ----------------------------------------------------------------
 # Miller
