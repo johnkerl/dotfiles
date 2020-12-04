@@ -77,8 +77,7 @@ if [ -z "$BEEN_HERE" ]; then
   export PYTXPATH=/opt/homebrew/lib/python2.7/site-packages
   export PYTHONPATH=${PYTHONPATH}:${PYTXPATH}
 	export PERLLIB=.:$HOME/scripts/perllib
-	#export PCRGO=$HOME/git/practical-chrestomathies/go
-	#export GOPATH=$PCRGO
+	export GOPATH=$HOME/go
 
   # Path tail
 	export PATH=${PATH}:$HOME/bin/site
@@ -89,6 +88,7 @@ if [ -z "$BEEN_HERE" ]; then
 	export PATH=${PATH}:$HOME/scripts/one-offs
 	export PATH=${PATH}:$HOME/bin/pgr
 	export PATH=${PATH}:/usr/local/go/bin
+	export PATH=${PATH}:$GOPATH/bin
 	export PATH=${PATH}:/usr/local/mysql/bin
 	export PATH=${PATH}:/usr/local/opt/node/bin
 	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl
