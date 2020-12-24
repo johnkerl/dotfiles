@@ -76,6 +76,7 @@ if [ -z "$BEEN_HERE" ]; then
   export PYTXPATH=/opt/homebrew/lib/python2.7/site-packages
   export PYTHONPATH=${PYTHONPATH}:${PYTXPATH}
 	export PERLLIB=.:$HOME/scripts/perllib
+	export GOPATH=$HOME/go
 
   # Path tail
 	export PATH=${PATH}:$HOME/bin/site
