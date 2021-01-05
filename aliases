@@ -99,6 +99,7 @@ alias  gb='git branch'
 alias  gc='git checkout'
 alias gla='git log --graph --all'
 alias gsb='git branch' # show branch
+alias gmkbr='git checkout -b'
 
 # ----------------------------------------------------------------
 # Miller
