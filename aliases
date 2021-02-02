@@ -124,7 +124,7 @@ my_assign_file astt   "src/miller/dsl/ast_types.go"
 my_assign_file astb   "src/miller/dsl/ast_build.go"
 my_assign_file astp   "src/miller/dsl/ast_print.go"
 my_assign_dir  cli    "src/miller/cli"
-my_assign_dir  clt    "src/miller/clitypes"
+my_assign_dir  clu    "src/miller/cliutil"
 my_assign_dir  cst    "src/miller/dsl/cst"
 my_assign_dir  lib    "src/miller/lib"
 my_assign_dir  inp    "src/miller/input"
@@ -137,6 +137,7 @@ my_assign_file uds    "src/miller/dsl/cst/uds.go"
 my_assign_file mlrmap "src/miller/types/mlrmap.go"
 my_assign_file mlrval "src/miller/types/mlrval.go"
 my_assign_file stream "src/miller/stream/stream.go"
+my_assign_file repl   "src/miller/auxents/repl.go"
 
 #export    indir="$mlc/reg_test/input"
 #export   outdir="$mlc/output-regtest"
@@ -149,7 +150,8 @@ alias clonemiller='git clone https://github.com/johnkerl/miller'
 alias     mygroff='groff -man -Tascii'
 alias    macbakes='make -C ../c -f Makefile.no-autoconfig mlrg installhome && make -C ../docs html && make -C ../docs installhome'
 
-alias mrpl='rlwrap mlrgo repl'
+alias mrplg='rlwrap mlrgo repl'
+alias  mrpl='rlwrap mlr repl'
 
 # ================================================================
 # Next are some shell functions.  The main deliverables are vimr and cd2file.

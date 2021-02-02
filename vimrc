@@ -329,6 +329,8 @@ map \g :%!gofmt<CR>
 
 "au BufNewFile,BufRead *.go set filetype=go
 
+map \y :.!xget<CR>
+
 "---------------------------------------------------------------
 " 2011-04-22
 "
