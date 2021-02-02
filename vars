@@ -84,6 +84,7 @@ if [ -z "$BEEN_HERE" ]; then
 	export PATH=${PATH}:$HOME/scripts/fundam/accel
 	export PATH=${PATH}:$HOME/scripts/fundam
 	export PATH=${PATH}:$HOME/scripts/arith
+	export PATH=${PATH}:$HOME/scripts/git
 	export PATH=${PATH}:$HOME/scripts/one-offs
 	export PATH=${PATH}:$HOME/bin/pgr
 	export PATH=${PATH}:$HOME/go/bin
