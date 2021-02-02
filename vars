@@ -62,6 +62,8 @@ else
   export PS1="\[${bold}${color1}\]\u@${HOSTNAME%.*.*}""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\]\[${color3}\]\`pathnick\`\[${color1}\][\W]\$\[${textdefault}\] "
 fi
 
+export MLR_REPL_PS1="${red}[mlr]${textdefault} "
+
 # ----------------------------------------------------------------
 # Augment path
 if [ -z "$BEEN_HERE" ]; then
