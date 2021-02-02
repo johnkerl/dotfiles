@@ -98,8 +98,14 @@ alias gsl='git sl ...upstream/master'
 alias  gb='git branch'
 alias  gc='git checkout'
 alias gla='git log --graph --all'
-alias gsb='git branch' # show branch
-alias gmkbr='git checkout -b'
+
+# from my ~/bin/site
+alias  gitsb='git show-current-branch'
+alias gitsbs='git show-branches'
+alias  gitnb='git new-branch'
+alias  gitdb='git delete-branch'
+alias  git2b='git switch-branch'
+alias gitpom='git pull origin master'
 
 # ----------------------------------------------------------------
 # Miller
@@ -142,6 +148,8 @@ alias        bake='make -f Makefile.no-autoconfig'
 alias clonemiller='git clone https://github.com/johnkerl/miller'
 alias     mygroff='groff -man -Tascii'
 alias    macbakes='make -C ../c -f Makefile.no-autoconfig mlrg installhome && make -C ../docs html && make -C ../docs installhome'
+
+alias mrpl='rlwrap mlrgo repl'
 
 # ================================================================
 # Next are some shell functions.  The main deliverables are vimr and cd2file.
