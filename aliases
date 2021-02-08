@@ -150,8 +150,7 @@ alias clonemiller='git clone https://github.com/johnkerl/miller'
 alias     mygroff='groff -man -Tascii'
 alias    macbakes='make -C ../c -f Makefile.no-autoconfig mlrg installhome && make -C ../docs html && make -C ../docs installhome'
 
-alias mrplg='rlwrap mlrgo repl'
-alias  mrpl='rlwrap mlr repl'
+alias  mrpl='rlwrap mlrgo repl'
 
 # ================================================================
 # Next are some shell functions.  The main deliverables are vimr and cd2file.
