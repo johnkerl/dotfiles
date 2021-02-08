@@ -137,7 +137,7 @@ my_assign_file uds    "src/miller/dsl/cst/uds.go"
 my_assign_file mlrmap "src/miller/types/mlrmap.go"
 my_assign_file mlrval "src/miller/types/mlrval.go"
 my_assign_file stream "src/miller/stream/stream.go"
-my_assign_file repl   "src/miller/auxents/repl.go"
+my_assign_dir  repl   "src/miller/auxents/repl"
 
 #export    indir="$mlc/reg_test/input"
 #export   outdir="$mlc/output-regtest"

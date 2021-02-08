@@ -63,7 +63,10 @@ else
 fi
 
 #export MLR_REPL_PS1="${red}[mlr]${textdefault} "
-export MLR_REPL_PS1='mlr: '
+#export MLR_REPL_PS1='mlr: '
+#export MLR_REPL_PS1='μλρ: '
+#export MLR_REPL_PS1='μιλλερ: '
+export MLR_REPL_PS1='μεταμόρφωσις: '
 
 # ----------------------------------------------------------------
 # Augment path
