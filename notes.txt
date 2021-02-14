@@ -1,7 +1,9 @@
-ln -s {~/git/dotfiles/,~/.}aliases
-ln -s {~/git/dotfiles/,~/.}bashrc
-ln -s {~/git/dotfiles/,~/.}colorrc
-ln -s {~/git/dotfiles/,~/.}mypy
-ln -s {~/git/dotfiles/,~/.}screenrc
-ln -s {~/git/dotfiles/,~/.}vars
-ln -s {~/git/dotfiles/,~/.}vimrc
+pwd=$(pwd)
+ln -s -f {$pwd/,~/.}aliases
+ln -s -f {$pwd/,~/.}bashrc
+ln -s -f {$pwd/,~/.}colorrc
+ln -s -f {$pwd/,~/.}mypy
+ln -s -f {$pwd/,~/.}screenrc
+ln -s -f {$pwd/,~/.}vars
+ln -s -f {$pwd/,~/.}vars-tracker
+ln -s -f {$pwd/,~/.}vimrc
