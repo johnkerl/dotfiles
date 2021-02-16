@@ -102,6 +102,8 @@ alias gla='git log --graph --all'
 # from my ~/bin/site
 alias  gitsb='git show-current-branch'
 alias gitsbs='git show-branches'
+alias     sb='git show-current-branch'
+alias    sbs='git show-branches'
 alias  gitnb='git new-branch'
 alias  gitdb='git delete-branch'
 alias  git2b='git switch-branch'
@@ -137,6 +139,8 @@ my_assign_file uds    "src/dsl/cst/uds.go"
 my_assign_file mlrmap "src/types/mlrmap.go"
 my_assign_file mlrval "src/types/mlrval.go"
 my_assign_file stream "src/stream/stream.go"
+my_assign_file stack  "src/runtime/stack.go"
+my_assign_file typing "src/types/mlrval_typing.go"
 my_assign_dir  repl   "src/auxents/repl"
 
 #export    indir="$mlc/reg_test/input"
