@@ -81,6 +81,8 @@ vvim() {
   fi
 }
 
+alias ppx='pingety-ping 8.8.8.8'
+
 alias   gl='git log -n 5'
 alias   gs='git status'
 alias   gd='git diff'
