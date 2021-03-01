@@ -57,6 +57,7 @@ alias lt='ls -lrt'
 
 alias nnbu='nbu -d ~/Desktop/folder/bak'
 alias v='vim'
+alias nn='nnbu ~/Desktop/PLAN.txt'
 alias vv='vim ~/Desktop/PLAN.txt'
 alias v-='vim -'  # E.g. for "diff ... | vim -":
 alias vt='vim -t' # Tag jump
