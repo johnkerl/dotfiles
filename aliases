@@ -103,14 +103,15 @@ alias  gc='git checkout'
 alias gla='git log --graph --all'
 
 # from my ~/bin/site
-alias  gitsb='git show-current-branch'
-alias gitsbs='git show-branches'
-alias     sb='git show-current-branch'
-alias    sbs='git show-branches'
-alias  gitnb='git new-branch'
-alias  gitdb='git delete-branch'
-alias  git2b='git switch-branch'
-alias gitpom='git pull origin master'
+alias   gitsb='git show-current-branch'
+alias  gitsbs='git show-branches'
+alias      sb='git show-current-branch'
+alias     sbs='git show-branches'
+alias   gitnb='git new-branch'
+alias   gitdb='git delete-branch'
+alias  gitddb='git delete-branch-force'
+alias   git2b='git switch-branch'
+alias  gitpom='git pull origin master'
 
 # ----------------------------------------------------------------
 # Miller
