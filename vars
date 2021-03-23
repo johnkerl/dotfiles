@@ -62,6 +62,14 @@ else
   export PS1="\[${bold}${color1}\]\u@${HOSTNAME%.*.*}""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\]\[${color3}\]\`pathnick\`\[${color1}\][\W]\$\[${textdefault}\] "
 fi
 
+#export MLR_REPL_PS1="${red}[mlr]${textdefault} "
+#export MLR_REPL_PS1='mlr: '
+#export MLR_REPL_PS1='μλρ: '
+#export MLR_REPL_PS1='μιλλερ: '
+#export MLR_REPL_PS1='μεταμόρφωσις: '
+#export MLR_REPL_PS1="${yellow}μεταμόρφωσις:${textdefault} "
+export MLR_REPL_PS1="${red}μεταμόρφωσις:${textdefault} "
+
 # ----------------------------------------------------------------
 # Augment path
 if [ -z "$BEEN_HERE" ]; then
@@ -69,7 +77,6 @@ if [ -z "$BEEN_HERE" ]; then
 	#export JAVA_HOME=/usr/local/jdk1.6.0_30
 	#export SCALA_HOME=/home/kerl/lang/scala/scala-2.10.1
 	#export SCALA_HOME=/home/kerl/lang/scala/scala-2.9.1.final
-	#export GOROOT=/usr/local/go
 
 	export RUBYLIB=$HOME/pub_http_internet/ruby:$HOME/pub_http_internet/ruby/ruffl
 	export PYTHONPATH=.:$HOME/git/scripts-math/pythonlib:$HOME/git/scripts-math/stats
@@ -77,8 +84,7 @@ if [ -z "$BEEN_HERE" ]; then
   export PYTXPATH=/opt/homebrew/lib/python2.7/site-packages
   export PYTHONPATH=${PYTHONPATH}:${PYTXPATH}
 	export PERLLIB=.:$HOME/scripts/perllib
-	#export PCRGO=$HOME/git/practical-chrestomathies/go
-	#export GOPATH=$PCRGO
+	export GOPATH=$HOME/go
 
   # Path tail
 	export PATH=${PATH}:$HOME/bin/site
@@ -86,9 +92,11 @@ if [ -z "$BEEN_HERE" ]; then
 	export PATH=${PATH}:$HOME/scripts/fundam/accel
 	export PATH=${PATH}:$HOME/scripts/fundam
 	export PATH=${PATH}:$HOME/scripts/arith
+	export PATH=${PATH}:$HOME/scripts/git
 	export PATH=${PATH}:$HOME/scripts/one-offs
 	export PATH=${PATH}:$HOME/bin/pgr
-	#export PATH=${PATH}:/usr/local/go/bin
+	export PATH=${PATH}:/usr/local/go/bin
+	export PATH=${PATH}:$HOME/go/bin
 	export PATH=${PATH}:/usr/local/mysql/bin
 	export PATH=${PATH}:/usr/local/opt/node/bin
 	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl

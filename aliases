@@ -57,6 +57,7 @@ alias lt='ls -lrt'
 
 alias nnbu='nbu -d ~/Desktop/folder/bak'
 alias v='vim'
+alias nn='nnbu ~/Desktop/PLAN.txt'
 alias vv='vim ~/Desktop/PLAN.txt'
 alias v-='vim -'  # E.g. for "diff ... | vim -":
 alias vt='vim -t' # Tag jump
@@ -81,6 +82,8 @@ vvim() {
   fi
 }
 
+alias ppx='pingety-ping 8.8.8.8'
+
 alias   gl='git log -n 5'
 alias   gs='git status'
 alias   gd='git diff'
@@ -97,6 +100,18 @@ alias gcmc='git commit -m "$(cat gcm.txt)"'
 alias gsl='git sl ...upstream/master'
 alias  gb='git branch'
 alias  gc='git checkout'
+alias gla='git log --graph --all'
+
+# from my ~/bin/site
+alias   gitsb='git show-current-branch'
+alias  gitsbs='git show-branches'
+alias      sb='git show-current-branch'
+alias     sbs='git show-branches'
+alias   gitnb='git new-branch'
+alias   gitdb='git delete-branch'
+alias  gitddb='git delete-branch-force'
+alias   git2b='git switch-branch'
+alias  gitpom='git pull origin master'
 
 # ----------------------------------------------------------------
 # Miller
@@ -109,33 +124,41 @@ my_assign_dir mld "$HOME/pub_http_internet/miller-releases/miller-head/docs"
 
 alias vvv='vim $mlg/todo.txt'
 
-my_assign_file bnf    "src/miller/parsing/mlr.bnf"
-my_assign_file astt   "src/miller/dsl/ast_types.go"
-my_assign_file astb   "src/miller/dsl/ast_build.go"
-my_assign_file astp   "src/miller/dsl/ast_print.go"
-my_assign_dir  cli    "src/miller/cli"
-my_assign_dir  cst    "src/miller/dsl/cst"
-my_assign_dir  lib    "src/miller/lib"
-my_assign_dir  inp    "src/miller/input"
-my_assign_dir  map    "src/miller/mappers"
-my_assign_dir  outp   "src/miller/output"
-my_assign_dir  types  "src/miller/types"
-my_assign_file put    "src/miller/mappers/put_or_filter.go"
-my_assign_file udf    "src/miller/dsl/cst/udf.go"
-my_assign_file mlrmap "src/miller/types/mlrmap.go"
-my_assign_file mlrval "src/miller/types/mlrval.go"
-my_assign_file stream "src/miller/stream/stream.go"
+my_assign_file bnf    "src/parsing/mlr.bnf"
+my_assign_dir  ast    "src/dsl/"
+my_assign_file astt   "src/dsl/ast_types.go"
+my_assign_file astb   "src/dsl/ast_build.go"
+my_assign_file astp   "src/dsl/ast_print.go"
+my_assign_dir  cli    "src/cli"
+my_assign_dir  clu    "src/cliutil"
+my_assign_dir  cst    "src/dsl/cst"
+my_assign_dir  lib    "src/lib"
+my_assign_dir  inp    "src/input"
+my_assign_dir  tra    "src/transformers"
+my_assign_dir  outp   "src/output"
+my_assign_dir  types  "src/types"
+my_assign_file put    "src/transformers/put-or-filter.go"
+my_assign_file udf    "src/dsl/cst/udf.go"
+my_assign_file uds    "src/dsl/cst/uds.go"
+my_assign_file mlrmap "src/types/mlrmap.go"
+my_assign_file mlrval "src/types/mlrval.go"
+my_assign_file stream "src/stream/stream.go"
+my_assign_file stack  "src/runtime/stack.go"
+my_assign_file typing "src/types/mlrval_typing.go"
+my_assign_dir  repl   "src/auxents/repl"
 
 #export    indir="$mlc/reg_test/input"
 #export   outdir="$mlc/output-regtest"
 export    indir="$mlg/reg-test/input"
 export   outdir="$mlg/output-reg-test"
-export    cases="$mlg/reg-test/cases"
+export    cases="./reg-test/cases"
 
 alias        bake='make -f Makefile.no-autoconfig'
 alias clonemiller='git clone https://github.com/johnkerl/miller'
 alias     mygroff='groff -man -Tascii'
 alias    macbakes='make -C ../c -f Makefile.no-autoconfig mlrg installhome && make -C ../docs html && make -C ../docs installhome'
+
+alias  mrpl='rlwrap mlrgo repl'
 
 # ================================================================
 # Next are some shell functions.  The main deliverables are vimr and cd2file.
