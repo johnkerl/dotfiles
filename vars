@@ -95,6 +95,7 @@ if [ -z "$BEEN_HERE" ]; then
 	export PATH=${PATH}:$HOME/scripts/git
 	export PATH=${PATH}:$HOME/scripts/one-offs
 	export PATH=${PATH}:$HOME/bin/pgr
+	export PATH=${PATH}:/usr/local/go/bin
 	export PATH=${PATH}:$HOME/go/bin
 	export PATH=${PATH}:/usr/local/mysql/bin
 	export PATH=${PATH}:/usr/local/opt/node/bin
@@ -106,6 +107,7 @@ if [ -z "$BEEN_HERE" ]; then
 
   # Path head
 	export PATH=/usr/local/bin:${PATH}
+	export PATH=/usr/local/go/bin:${PATH}
 	export PATH=${HOME}/bin:${PATH}
 	export PATH=${HOME}/lbin:${PATH}
 	export PATH=.:${PATH}
