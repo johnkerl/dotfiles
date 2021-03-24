@@ -153,10 +153,10 @@ export    indir="$mlg/reg-test/input"
 export   outdir="$mlg/output-reg-test"
 export    cases="./reg-test/cases"
 
-alias        bake='make -f Makefile.no-autoconfig'
 alias clonemiller='git clone https://github.com/johnkerl/miller'
 alias     mygroff='groff -man -Tascii'
-alias    macbakes='make -C ../c -f Makefile.no-autoconfig mlrg installhome && make -C ../docs html && make -C ../docs installhome'
+alias        bake='make -f Makefile.no-autoconfig'
+alias    macbakes='bake -C ../c mlrg installhome && bake -C ../man installhome && make -C ../docs html'
 
 alias  mrpl='rlwrap mlrgo repl'
 
