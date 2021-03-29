@@ -97,7 +97,7 @@ alias  gcm='git commit -m'
 alias  gca='git commit --amend --date $(systime)'
 alias gcam='git commit --amend -m'
 alias gcmc='git commit -m "$(cat gcm.txt)"'
-alias gsl='git sl ...upstream/master'
+alias gsl='git sl ...upstream/main'
 alias  gb='git branch'
 alias  gc='git checkout'
 alias gla='git log --graph --all'
@@ -111,7 +111,7 @@ alias   gitnb='git new-branch'
 alias   gitdb='git delete-branch'
 alias  gitddb='git delete-branch-force'
 alias   git2b='git switch-branch'
-alias  gitpom='git pull origin master'
+alias  gitpom='git pull origin main'
 
 # ----------------------------------------------------------------
 # Miller
