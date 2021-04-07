@@ -159,6 +159,7 @@ alias        bake='make -f Makefile.no-autoconfig'
 alias    macbakes='bake -C ../c mlrg installhome && bake -C ../man installhome && make -C ../docs html'
 
 alias  mrpl='rlwrap mlrgo repl'
+alias    mr='mlr regtest'
 
 # ================================================================
 # Next are some shell functions.  The main deliverables are vimr and cd2file.
