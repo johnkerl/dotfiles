@@ -158,7 +158,7 @@ alias     mygroff='groff -man -Tascii'
 alias        bake='make -f Makefile.no-autoconfig'
 alias    macbakes='bake -C ../c mlrg installhome && bake -C ../man installhome && make -C ../docs html'
 
-alias  mrpl='rlwrap mlrgo repl'
+alias  mrpl='rlwrap mlr repl'
 alias    mr='mlr regtest'
 
 # ================================================================
