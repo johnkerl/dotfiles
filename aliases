@@ -147,6 +147,8 @@ my_assign_file stack  "src/runtime/stack.go"
 my_assign_file typing "src/types/mlrval_typing.go"
 my_assign_dir  repl   "src/auxents/repl"
 
+my_assign_dir   pgp   "regtest/cases-pending-go-port"
+
 export      indir="$mlg/reg-test/input"
 export     outdir="$mlg/output-reg-test"
 export      cases="./reg-test/cases"
