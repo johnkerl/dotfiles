@@ -25,6 +25,9 @@ alias 7='fg %7'
 alias 8='fg %8'
 alias 9='fg %9'
 
+alias  bb='pbpaste'
+alias bbv='pbpaste | vim -'
+
 alias cls=clear
 alias h='history 10'
 alias j='jobs -l'
