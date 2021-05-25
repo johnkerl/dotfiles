@@ -124,6 +124,10 @@ my_assign_dir mlb "$HOME/pub_http_internet/miller-releases/miller-head"
 my_assign_dir mlc "$HOME/pub_http_internet/miller-releases/miller-head/c"
 my_assign_dir mlg "$HOME/pub_http_internet/miller-releases/miller-head/go"
 my_assign_dir mld "$HOME/pub_http_internet/miller-releases/miller-head/docs"
+my_assign_dir do6 "$HOME/pub_http_internet/miller-releases/miller-head/docs6"
+
+alias 5make='PATH=../c:$PATH make html'
+alias 6make='PATH=../go:$PATH make html'
 
 alias vvv='vim $mlg/todo.txt'
 
