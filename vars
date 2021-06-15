@@ -137,4 +137,4 @@ export EDITOR=vim
 
 # ----------------------------------------------------------------
 export MLR_KEY_COLOR=160
-export MLR_VALUE_COLOR=222
+export MLR_VALUE_COLOR=136
