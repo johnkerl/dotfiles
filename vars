@@ -68,7 +68,8 @@ fi
 #export MLR_REPL_PS1='μιλλερ: '
 #export MLR_REPL_PS1='μεταμόρφωσις: '
 #export MLR_REPL_PS1="${yellow}μεταμόρφωσις:${textdefault} "
-export MLR_REPL_PS1="${red}μεταμόρφωσις:${textdefault} "
+#export MLR_REPL_PS1="${red}μεταμόρφωσις:${textdefault} "
+export MLR_REPL_PS1="μεταμόρφωσις: "
 
 # ----------------------------------------------------------------
 # Augment path

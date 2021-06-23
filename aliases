@@ -105,7 +105,7 @@ alias  gb='git branch'
 alias  gc='git checkout'
 alias gla='git log --graph --all'
 
-# from my ~/bin/site
+# from https://github.com/johnkerl/scripts/tree/main/git
 alias   gitsb='git show-current-branch'
 alias  gitsbs='git show-branches'
 alias      sb='git show-current-branch'
@@ -115,6 +115,7 @@ alias   gitdb='git delete-branch'
 alias  gitddb='git delete-branch-force'
 alias   git2b='git switch-branch'
 alias  gitpom='git pull origin main'
+alias     gff='git files-from'
 
 # ----------------------------------------------------------------
 # Miller
