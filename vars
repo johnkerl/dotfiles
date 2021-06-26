@@ -62,14 +62,13 @@ else
   export PS1="\[${bold}${color1}\]\u@${HOSTNAME%.*.*}""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\]\[${color3}\]\`pathnick\`\[${color1}\][\W]\$\[${textdefault}\] "
 fi
 
-#export MLR_REPL_PS1="${red}[mlr]${textdefault} "
+# ----------------------------------------------------------------
 #export MLR_REPL_PS1='mlr: '
 #export MLR_REPL_PS1='μλρ: '
 #export MLR_REPL_PS1='μιλλερ: '
-#export MLR_REPL_PS1='μεταμόρφωσις: '
-#export MLR_REPL_PS1="${yellow}μεταμόρφωσις:${textdefault} "
-#export MLR_REPL_PS1="${red}μεταμόρφωσις:${textdefault} "
-export MLR_REPL_PS1="μεταμόρφωσις: "
+export MLR_REPL_PS1='μεταμόρφωσις: '
+export MLR_KEY_COLOR=202
+export MLR_VALUE_COLOR=214
 
 # ----------------------------------------------------------------
 # Augment path
@@ -135,7 +134,3 @@ fi
 # ----------------------------------------------------------------
 export PAGER=less
 export EDITOR=vim
-
-# ----------------------------------------------------------------
-export MLR_KEY_COLOR=202
-export MLR_VALUE_COLOR=214
