@@ -59,7 +59,14 @@ else
   #export PS1="\[${bold}${color1}\]\u@\h""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\][\W]\$\[${textdefault}\] "
   # See pathnick.c
   #export PS1="\[${bold}${color1}\]\u@\h""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\]\[${color3}\]\`pathnick\`\[${color1}\][\W]\$\[${textdefault}\] "
-  export PS1="\[${bold}${color1}\]\u@${HOSTNAME%.*.*}""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\]\[${color3}\]\`pathnick\`\[${color1}\][\W]\$\[${textdefault}\] "
+  #export PS1="\[${bold}${color1}\]\u@${HOSTNAME%.*.*}""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\]\[${color3}\]\`pathnick\`\[${color1}\][\W]\$\[${textdefault}\] "
+
+  ps1_color1=$'\033[1;38;5;178m'
+  ps1_color2=$'\033[1;38;5;136m'
+  ps1_color3=$'\033[1;38;5;178m'
+  ps1_color4=$'\033[1;38;5;136m'
+  default=$'\033[0m'
+  export PS1="\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${HOSTNAME%.*.*}\[${color4ps1_}\][\W]$\[${default}\] "
 fi
 
 # ----------------------------------------------------------------
