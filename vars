@@ -74,8 +74,10 @@ fi
 #export MLR_REPL_PS1='μλρ: '
 #export MLR_REPL_PS1='μιλλερ: '
 export MLR_REPL_PS1='μεταμόρφωσις: '
-export MLR_KEY_COLOR=202
-export MLR_VALUE_COLOR=214
+export MLR_KEY_COLOR=darkorange
+export MLR_VALUE_COLOR=darkgoldenrod
+
+export LUMIN_MATCH_COLOR=red3
 
 # ----------------------------------------------------------------
 # Augment path
