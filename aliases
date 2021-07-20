@@ -8,6 +8,13 @@
 
 UNAME=$(uname)
 
+# -j.5: search results in middle of screen, not top-line (which is default).
+# -r: render ANSI color codes as such.
+# Setting $LESS makes git diff et al. do things I don't like; use an alias instead.
+# export LESS="-j.5 -r"
+alias less='less -j.5 -r'
+# See also vars file
+
 # I do not prefer -i aliases.
 unalias cp 2> /dev/null
 unalias mv 2> /dev/null
