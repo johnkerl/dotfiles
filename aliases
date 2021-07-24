@@ -164,6 +164,8 @@ my_assign_file stack  "src/runtime/stack.go"
 my_assign_file typing "src/types/mlrval_typing.go"
 my_assign_dir  repl   "src/auxents/repl"
 
+my_assign_dir bi "regtest/cases/dsl-emit-basic-indexing"
+
 my_assign_dir   pgp   "regtest/cases-pending-go-port"
 
 export      indir="$mlg/reg-test/input"
