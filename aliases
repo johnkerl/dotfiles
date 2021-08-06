@@ -128,13 +128,13 @@ alias     gff='git files-from'
 # Miller
 . ~/.vars-tracker
 
-my_assign_dir mlb  "$HOME/pub_http_internet/miller-releases/miller-head"
-my_assign_dir mlc  "$HOME/pub_http_internet/miller-releases/miller-head/c"
-my_assign_dir mlg  "$HOME/pub_http_internet/miller-releases/miller-head/go"
-my_assign_dir mld5 "$HOME/pub_http_internet/miller-releases/miller-head/docs"
-my_assign_dir mld6 "$HOME/pub_http_internet/miller-releases/miller-head/docs6"
-my_assign_dir man5 "$HOME/pub_http_internet/miller-releases/miller-head/man"
-my_assign_dir man6 "$HOME/pub_http_internet/miller-releases/miller-head/man6"
+my_assign_dir mlb   "$HOME/pub_http_internet/miller-releases/miller-head"
+my_assign_dir mlc   "$HOME/pub_http_internet/miller-releases/miller-head/c"
+my_assign_dir mlg   "$HOME/pub_http_internet/miller-releases/miller-head/go"
+my_assign_dir mld5  "$HOME/pub_http_internet/miller-releases/miller-head/docs"
+my_assign_dir mld   "$HOME/pub_http_internet/miller-releases/miller-head/docs6"
+my_assign_dir man5  "$HOME/pub_http_internet/miller-releases/miller-head/man"
+my_assign_dir man6  "$HOME/pub_http_internet/miller-releases/miller-head/man6"
 
 alias five='PATH=../c:$PATH'
 alias  six='PATH=../go:$PATH'
