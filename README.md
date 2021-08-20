@@ -29,3 +29,5 @@ Conventions:
 * `~/.aliases` (misnamed) is everything else -- mostly, but not entirely, aliases and shell functions
 * `~/.vars-personal` not in source control
 * `~/.vars-site` not in source control -- job-specific things go here
+
+foo test
