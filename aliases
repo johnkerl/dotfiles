@@ -36,7 +36,7 @@ alias  bb='pbpaste'
 alias bbv='pbpaste | vim -'
 
 alias cls=clear
-alias h='history 10'
+alias h='history 30'
 alias j='jobs -l'
 
 # Since "java" is a leading substring of "javac", "!java" doesn't work right in
