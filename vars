@@ -93,10 +93,10 @@ if [ -z "$BEEN_HERE" ]; then
 	#export SCALA_HOME=/home/kerl/lang/scala/scala-2.9.1.final
 
 	export RUBYLIB=$HOME/pub_http_internet/ruby:$HOME/pub_http_internet/ruby/ruffl
-	export PYTHONPATH=.:$HOME/git/scripts-math/pythonlib:$HOME/git/scripts-math/stats
+	#export PYTHONPATH=.:$HOME/git/scripts-math/pythonlib:$HOME/git/scripts-math/stats
   #export PYTXPATH=/opt/homebrew/lib/python3.5/site-packages
-  export PYTXPATH=/opt/homebrew/lib/python2.7/site-packages
-  export PYTHONPATH=${PYTHONPATH}:${PYTXPATH}
+  #export PYTXPATH=/opt/homebrew/lib/python2.7/site-packages
+  #export PYTHONPATH=${PYTHONPATH}:${PYTXPATH}
 	export PERLLIB=.:$HOME/scripts/perllib
 	export GOPATH=$HOME/go
 
