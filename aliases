@@ -3,6 +3,11 @@
 # ================================================================
 # John Kerl's bash aliases and shell functions, 1992-2013 and onward ...
 
+# Don't do this for non-interactive shells
+if [ "${-/i/}" = "$-" ] ; then
+  return 0
+fi
+
 # ================================================================
 # First, simple aliases.
 
@@ -126,6 +131,13 @@ alias  gitddb='git delete-branch-force'
 alias   git2b='git switch-branch'
 alias  gitpom='git pull origin main'
 alias     gff='git files-from'
+
+# ----------------------------------------------------------------
+# For pathnicks.c in repo johnkerl/dotfiles
+export PATHNICKS="$mlb:MLR"
+export PATHNICKS="$PATHNICKS,$HOME/pub_http_internet/miller-releases:MLRREL"
+export PATHNICKS="$PATHNICKS,$HOME/git/fork:GIT-FORK"
+export PATHNICKS="$PATHNICKS,$HOME/git:GIT-MAIN"
 
 # ----------------------------------------------------------------
 # Miller
