@@ -196,6 +196,10 @@ alias    macbakes='bake -C ../c mlrg installhome && bake -C ../man installhome &
 alias         bgo='go build mlr.go'
 alias         fgo='go fmt ./...'
 
+alias         mds='mkdocs serve'
+alias         mdb='mkdocs build'
+alias        pmdb='pushd .. && mkdocs build && popd'
+
 alias        mrpl='rlwrap mlr repl'
 alias          mr='mlr regtest'
 
