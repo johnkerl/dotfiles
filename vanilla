@@ -7,3 +7,5 @@ export MLR_KEY_COLOR=
 export MLR_VALUE_COLOR=
 
 export LUMIN_MATCH_COLOR=
+
+export PATH=$(echo $PATH|sed 's/\.://')
