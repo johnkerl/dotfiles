@@ -17,7 +17,8 @@ UNAME=$(uname)
 # -r: render ANSI color codes as such.
 # Setting $LESS makes git diff et al. do things I don't like; use an alias instead.
 # export LESS="-j.5 -r"
-alias less='less -j.5 -r'
+#alias less='less -j.5 -r'
+alias less='less -r'
 # See also vars file
 
 # I do not prefer -i aliases.
@@ -113,9 +114,11 @@ alias  gca='git commit --amend --date $(systime) --no-edit'
 alias gcae='git commit --amend --date $(systime)'
 alias gcam='git commit --amend -m'
 alias gcmc='git commit -m "$(cat gcm.txt)"'
+alias   gp='git push'
 alias gsl='git sl ...upstream/main'
 alias  gb='git branch'
 alias  gc='git checkout'
+alias grc='git rebase --continue'
 alias gla='git log --graph --all'
 alias glog='git log --oneline --graph'
 alias gloga='git log --oneline --graph --all'
@@ -131,6 +134,8 @@ alias  gitddb='git delete-branch-force'
 alias   git2b='git switch-branch'
 alias  gitpom='git pull origin main'
 alias     gff='git files-from'
+
+alias     bcd='black . --check'
 
 # ----------------------------------------------------------------
 # For pathnicks.c in repo johnkerl/dotfiles

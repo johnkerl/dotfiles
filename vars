@@ -92,7 +92,6 @@ if [ -z "$BEEN_HERE" ]; then
 	#export SCALA_HOME=/home/kerl/lang/scala/scala-2.10.1
 	#export SCALA_HOME=/home/kerl/lang/scala/scala-2.9.1.final
 
-	export GOPATH=$HOME/go
 	export RUBYLIB=$HOME/pub_http_internet/ruby:$HOME/pub_http_internet/ruby/ruffl
 	export PERLLIB=.:$HOME/scripts/perllib
 	#export PYTHONPATH=.:$HOME/git/scripts-math/pythonlib:$HOME/git/scripts-math/stats
