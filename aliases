@@ -17,7 +17,6 @@ UNAME=$(uname)
 # -r: render ANSI color codes as such.
 # Setting $LESS makes git diff et al. do things I don't like; use an alias instead.
 # export LESS="-j.5 -r"
-#alias less='less -j.5 -r'
 alias less='less -r'
 # See also vars file
 
@@ -184,6 +183,11 @@ my_assign_file stream "src/stream/stream.go"
 my_assign_file stack  "src/runtime/stack.go"
 my_assign_file typing "src/types/mlrval_typing.go"
 my_assign_dir  repl   "src/auxents/repl"
+
+my_assign_file dflags "reference-main-flag-list.md.in"
+my_assign_file dverbs "reference-verbs.md.in"
+my_assign_file dfuncs "reference-dsl-builtin-functions.md.in"
+my_assign_file dgloss "glossary.md.in"
 
 my_assign_dir bi "regtest/cases/dsl-emit-basic-indexing"
 
