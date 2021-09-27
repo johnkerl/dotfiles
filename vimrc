@@ -325,7 +325,9 @@ map \r O* * *<ESC>32I <ESC>
 " HTML monospace smiley:
 map \v :se ft=java<C-m>
 
-map \g :%!gofmt<CR>
+" Set mark, format, return to mark. Without the mark, the cursor would be at
+" the top of the file after the %!...
+map \g mz:%!gofmt<CR>'z
 
 "au BufNewFile,BufRead *.go set filetype=go
 
