@@ -184,6 +184,8 @@ my_assign_file stream "src/stream/stream.go"
 my_assign_file stack  "src/runtime/stack.go"
 my_assign_file typing "src/types/mlrval_typing.go"
 my_assign_dir  repl   "src/auxents/repl"
+my_assign_file bifs   "$cst/builtin_function_manager.go"
+my_assign_file hofs   "$cst/hofs.go"
 
 my_assign_file dflags "reference-main-flag-list.md.in"
 my_assign_file dverbs "reference-verbs.md.in"
