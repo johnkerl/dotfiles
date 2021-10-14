@@ -14,6 +14,9 @@ fi
 if [ -e ~/.vars-personal ]; then
 	. ~/.vars-personal
 fi
+if [ -e ~/.vars-site-shared ]; then
+	. ~/.vars-site-shared
+fi
 if [ -e ~/.vars-site ]; then
 	. ~/.vars-site
 fi
