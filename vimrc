@@ -249,6 +249,11 @@ au BufNewFile,BufRead pgr map <C-u> 0xxxx
 :autocmd FileType python map <C-a> I    <ESC>
 :autocmd FileType python map <C-u> 0xxxx
 
+au BufNewFile,BufRead *.[rR] set ts=2
+au BufNewFile,BufRead *.[rR] set expandtab
+au BufNewFile,BufRead *.[rR] map <C-a> I  <ESC>
+au BufNewFile,BufRead *.[rR] map <C-u> 0xx
+
 function Yestabs()
   set ts=4
   set noexpandtab

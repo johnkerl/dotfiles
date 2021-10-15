@@ -44,6 +44,8 @@ alias cls=clear
 alias h='history 30'
 alias j='jobs -l'
 
+alias R='R --no-save'
+
 # Since "java" is a leading substring of "javac", "!java" doesn't work right in
 # an edit-compile loop.  Hence, these two.  Likewise for scalac and scala.
 alias jvc=javac
