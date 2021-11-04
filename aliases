@@ -194,11 +194,6 @@ my_assign_file dverbs "reference-verbs.md.in"
 my_assign_file dfuncs "reference-dsl-builtin-functions.md.in"
 my_assign_file dgloss "glossary.md.in"
 
-my_assign_dir bi "regtest/cases/dsl-emit-basic-indexing"
-
-my_assign_dir   cpg   "regtest/cases-pending-go-port"
-my_assign_dir   cpw   "regtest/cases-pending-windows"
-
 export      indir="$mlg/reg-test/input"
 export     outdir="$mlg/output-reg-test"
 export      cases="./reg-test/cases"
