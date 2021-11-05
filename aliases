@@ -153,11 +153,9 @@ export PATHNICKS="$PATHNICKS,$HOME/git:GIT-MAIN"
 my_assign_dir mlb   "$HOME/pub_http_internet/miller-releases/miller-head"
 my_assign_dir mlc   "$HOME/pub_http_internet/miller-releases/miller-head/c"
 my_assign_dir mlg   "$HOME/pub_http_internet/miller-releases/miller-head/go"
-my_assign_dir mld5  "$HOME/pub_http_internet/miller-releases/miller-head/docs"
-my_assign_dir mld   "$HOME/pub_http_internet/miller-releases/miller-head/docs6"
-my_assign_dir mlds  "$HOME/pub_http_internet/miller-releases/miller-head/docs6/src"
-my_assign_dir man5  "$HOME/pub_http_internet/miller-releases/miller-head/man"
-my_assign_dir man6  "$HOME/pub_http_internet/miller-releases/miller-head/man6"
+my_assign_dir mld   "$HOME/pub_http_internet/miller-releases/miller-head/docs"
+my_assign_dir mlds  "$HOME/pub_http_internet/miller-releases/miller-head/docs/src"
+my_assign_dir man   "$HOME/pub_http_internet/miller-releases/miller-head/man"
 
 alias five='PATH=../c:$PATH'
 alias  six='PATH=../go:$PATH'
@@ -193,11 +191,6 @@ my_assign_file dflags "reference-main-flag-list.md.in"
 my_assign_file dverbs "reference-verbs.md.in"
 my_assign_file dfuncs "reference-dsl-builtin-functions.md.in"
 my_assign_file dgloss "glossary.md.in"
-
-my_assign_dir bi "regtest/cases/dsl-emit-basic-indexing"
-
-my_assign_dir   cpg   "regtest/cases-pending-go-port"
-my_assign_dir   cpw   "regtest/cases-pending-windows"
 
 export      indir="$mlg/reg-test/input"
 export     outdir="$mlg/output-reg-test"
