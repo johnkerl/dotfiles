@@ -133,7 +133,8 @@ if [ -z "$BEEN_HERE" ]; then
 
 	if [ -z "$MANPATH" ]; then
 		#export MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:$HOME/osrc/wtfc-osx-man
-		export MANPATH=$HOME/man
+		#export MANPATH=$HOME/man
+		export MANPATH=$HOME/git/johnkerl/miller/man
 	fi
   export MANPATH=${MANPATH}:/usr/share/man
   export MANPATH=${MANPATH}:/usr/local/man
