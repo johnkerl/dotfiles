@@ -13,3 +13,8 @@ d <- function() {
 dla <- function() {
   devtools::load_all()
 }
+pp2 <- function() {
+  arr <<- tiledb_array("~/data/palmer_penguins2", return_as="data.frame")
+  sch <<- schema(arr)
+  dom <<- domain(sch)
+}
