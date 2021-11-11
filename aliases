@@ -153,8 +153,6 @@ export PATHNICKS="$PATHNICKS,$HOME/git:GIT-MAIN"
 . ~/.vars-tracker
 
 my_assign_dir mlb   "$HOME/pub_http_internet/miller-releases/miller-head"
-my_assign_dir mlc   "$HOME/pub_http_internet/miller-releases/miller-head/c"
-my_assign_dir mlg   "$HOME/pub_http_internet/miller-releases/miller-head/go"
 my_assign_dir mld   "$HOME/pub_http_internet/miller-releases/miller-head/docs"
 my_assign_dir mlds  "$HOME/pub_http_internet/miller-releases/miller-head/docs/src"
 my_assign_dir mman  "$HOME/pub_http_internet/miller-releases/miller-head/man"
@@ -162,30 +160,30 @@ my_assign_dir mman  "$HOME/pub_http_internet/miller-releases/miller-head/man"
 alias five='PATH=../c:$PATH'
 alias  six='PATH=../go:$PATH'
 
-alias vvv='vim $mlg/todo.txt'
+alias vvv='vim $mlb/todo.txt'
 
-my_assign_file bnf    "src/parsing/mlr.bnf"
-my_assign_dir  ast    "src/dsl/"
-my_assign_file astt   "src/dsl/ast_types.go"
-my_assign_file astb   "src/dsl/ast_build.go"
-my_assign_file astp   "src/dsl/ast_print.go"
-my_assign_dir  cli    "src/cli"
-my_assign_dir  clu    "src/cliutil"
-my_assign_dir  cst    "src/dsl/cst"
-my_assign_dir  lib    "src/lib"
-my_assign_dir  inp    "src/input"
-my_assign_dir  tra    "src/transformers"
-my_assign_dir  outp   "src/output"
-my_assign_dir  types  "src/types"
-my_assign_file put    "src/transformers/put-or-filter.go"
-my_assign_file udf    "src/dsl/cst/udf.go"
-my_assign_file uds    "src/dsl/cst/uds.go"
-my_assign_file mlrmap "src/types/mlrmap.go"
-my_assign_file mlrval "src/types/mlrval.go"
-my_assign_file stream "src/stream/stream.go"
-my_assign_file stack  "src/runtime/stack.go"
-my_assign_file typing "src/types/mlrval_typing.go"
-my_assign_dir  repl   "src/auxents/repl"
+my_assign_file bnf    "internal/pkg/parsing/mlr.bnf"
+my_assign_dir  ast    "internal/pkg/dsl/"
+my_assign_file astt   "internal/pkg/dsl/ast_types.go"
+my_assign_file astb   "internal/pkg/dsl/ast_build.go"
+my_assign_file astp   "internal/pkg/dsl/ast_print.go"
+my_assign_dir  cli    "internal/pkg/cli"
+my_assign_dir  clu    "internal/pkg/cliutil"
+my_assign_dir  cst    "internal/pkg/dsl/cst"
+my_assign_dir  lib    "internal/pkg/lib"
+my_assign_dir  inp    "internal/pkg/input"
+my_assign_dir  tra    "internal/pkg/transformers"
+my_assign_dir  outp   "internal/pkg/output"
+my_assign_dir  types  "internal/pkg/types"
+my_assign_file put    "internal/pkg/transformers/put-or-filter.go"
+my_assign_file udf    "internal/pkg/dsl/cst/udf.go"
+my_assign_file uds    "internal/pkg/dsl/cst/uds.go"
+my_assign_file mlrmap "internal/pkg/types/mlrmap.go"
+my_assign_file mlrval "internal/pkg/types/mlrval.go"
+my_assign_file stream "internal/pkg/stream/stream.go"
+my_assign_file stack  "internal/pkg/runtime/stack.go"
+my_assign_file typing "internal/pkg/types/mlrval_typing.go"
+my_assign_dir  repl   "internal/pkg/auxents/repl"
 my_assign_file bifs   "$cst/builtin_function_manager.go"
 my_assign_file hofs   "$cst/hofs.go"
 
@@ -194,21 +192,12 @@ my_assign_file dverbs "reference-verbs.md.in"
 my_assign_file dfuncs "reference-dsl-builtin-functions.md.in"
 my_assign_file dgloss "glossary.md.in"
 
-export      indir="$mlg/reg-test/input"
-export     outdir="$mlg/output-reg-test"
-export      cases="./reg-test/cases"
-
 alias clonemiller='git clone https://github.com/johnkerl/miller'
 alias     mygroff='groff -man -Tascii'
 alias        bake='make -f Makefile.no-autoconfig'
-alias    macbakes='bake -C ../c mlrg installhome && bake -C ../man installhome && make -C ../docs html'
-
-alias         bgo='go build mlr.go'
-alias         fgo='go fmt ./...'
 
 alias         mds='mkdocs serve'
 alias         mdb='mkdocs build'
-alias        pmdb='pushd .. && mkdocs build && popd'
 
 alias        mrpl='rlwrap mlr repl'
 alias          mr='mlr regtest'
