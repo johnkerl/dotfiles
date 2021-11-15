@@ -18,3 +18,6 @@ pp2 <- function() {
   sch <<- schema(arr)
   dom <<- domain(sch)
 }
+afe <- function() {
+  source("/home/ubuntu/git/TileDB-Inc/cloud-dev-temp/scripts/r/cloud-array-force-error.r")
+}
