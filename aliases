@@ -48,6 +48,7 @@ alias    R='R --no-save -q'
 alias  rbq='R CMD build --no-build-vignettes --no-manual .'
 alias  riq='R CMD INSTALL --no-byte-compile --no-test-load --no-docs --no-html .'
 alias rbiq='rbq && riq'
+alias  rbi='R CMD build . && R CMD INSTALL .'
 
 # Since "java" is a leading substring of "javac", "!java" doesn't work right in
 # an edit-compile loop.  Hence, these two.  Likewise for scalac and scala.
