@@ -120,7 +120,7 @@ alias  gcam='git commit --amend -m'
 alias  gcmc='git commit -m "$(cat gcm.txt)"'
 alias    gp='git push'
 alias   gpf='git push --force'
-alias  gaap='gam && gca && gpf'
+alias  gaap='gam && echo "" && gca && echo "" && gpf'
 alias   gsl='git sl ...upstream/main'
 alias    gb='git branch'
 alias    gc='git checkout'
@@ -164,6 +164,7 @@ alias  six='PATH=../go:$PATH'
 
 alias vvv='vim $mlb/todo.txt'
 
+my_assign_dir  mlv    "internal/pkg/mlrval"
 my_assign_file bnf    "internal/pkg/parsing/mlr.bnf"
 my_assign_dir  ast    "internal/pkg/dsl/"
 my_assign_file astt   "internal/pkg/dsl/ast_types.go"
