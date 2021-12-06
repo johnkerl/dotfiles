@@ -3,9 +3,17 @@
   # options(error = traceback)
   options(repos = list(CRAN = "https://cran.rstudio.com"))
   library(tiledb)
+  library(tiledbcloud)
+}
+vers <- function() {
+  print(packageVersion("tiledb"))
+  print(packageVersion("tiledbcloud"))
 }
 t <- function() {
   library(tiledb)
+}
+tc <- function() {
+  library(tiledbcloud)
 }
 d <- function() {
   library(devtools)
@@ -15,6 +23,9 @@ dla <- function() {
 }
 rox <- function() {
   roxygen2::roxygenise()
+}
+pbs <- function() {
+  pkgdown::build_site()
 }
 pp2 <- function() {
   arr <<- tiledb_array("~/data/palmer_penguins2", return_as="data.frame")

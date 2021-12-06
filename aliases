@@ -44,11 +44,14 @@ alias cls=clear
 alias h='history 30'
 alias j='jobs -l'
 
-alias    R='R --no-save -q'
-alias  rbq='R CMD build --no-build-vignettes --no-manual .'
-alias  riq='R CMD INSTALL --no-byte-compile --no-test-load --no-docs --no-html .'
-alias rbiq='rbq && riq'
-alias  rbi='R CMD build . && R CMD INSTALL .'
+alias     R='R --no-save -q'
+alias   rbq='R CMD build --no-build-vignettes --no-manual .'
+alias   riq='R CMD INSTALL --no-byte-compile --no-test-load --no-docs --no-html .'
+alias  rbiq='rbq && riq'
+alias rbaiq='R -e "roxygen2::roxygenise()" && R -e "pkgdown::build_site()" && rbq && riq'
+alias   rbi='R CMD build . && R CMD INSTALL .'
+alias   rox="R -e 'roxygen2::roxygenise()'"
+alias   pbs="R -e 'pkgdown::build_site()'"
 
 # Since "java" is a leading substring of "javac", "!java" doesn't work right in
 # an edit-compile loop.  Hence, these two.  Likewise for scalac and scala.
@@ -122,24 +125,21 @@ alias    gp='git push'
 alias   gpf='git push --force'
 alias  gaap='gam && echo "" && gca && echo "" && gpf'
 alias   gsl='git sl ...upstream/main'
-alias    gb='git branch'
-alias    gc='git checkout'
 alias   grc='git rebase --continue'
 alias   gla='git log --graph --all'
 alias  glog='git log --oneline --graph'
 alias gloga='git log --oneline --graph --all'
 
 # from https://github.com/johnkerl/scripts/tree/main/git
-alias   gitsb='git show-current-branch'
-alias  gitsbs='git show-branches'
-alias      sb='git show-current-branch'
+alias     gsb='git show-current-branch'
 alias     sbs='git show-branches'
-alias   gitcb='git checkout'
-alias   gitnb='git new-branch'
-alias   gitdb='git delete-branch'
-alias  gitddb='git delete-branch-force'
-alias   git2b='git switch-branch'
-alias  gitpom='git pull origin main'
+alias     gcb='git checkout'
+alias     gnb='git new-branch'
+alias     gdb='git delete-branch'
+alias     gmb='git merge'
+alias    gddb='git delete-branch-force'
+alias     g2b='git switch-branch'
+alias    gpom='git pull origin main'
 alias     gff='git files-from'
 
 alias     bcd='black . --check'
