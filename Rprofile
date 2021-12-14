@@ -2,8 +2,12 @@
   # print("You changed your R options")
   # options(error = traceback)
   options(repos = list(CRAN = "https://cran.rstudio.com"))
-  library(tiledb)
-  library(tiledbcloud)
+  if (interactive()) {
+    library(tiledb)
+    library(tiledbcloud)
+    print(utils::packageVersion("tiledb"))
+    print(utils::packageVersion("tiledbcloud"))
+  }
 }
 vers <- function() {
   print(packageVersion("tiledb"))
