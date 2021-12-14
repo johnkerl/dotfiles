@@ -165,7 +165,9 @@ alias  six='PATH=../go:$PATH'
 
 alias vvv='vim $mlb/todo.txt'
 
+my_assign_dir  pkg    "internal/pkg"
 my_assign_dir  mlv    "internal/pkg/mlrval"
+my_assign_dir  bifs   "internal/pkg/bifs"
 my_assign_file bnf    "internal/pkg/parsing/mlr.bnf"
 my_assign_dir  ast    "internal/pkg/dsl/"
 my_assign_file astt   "internal/pkg/dsl/ast_types.go"
@@ -188,7 +190,6 @@ my_assign_file stream "internal/pkg/stream/stream.go"
 my_assign_file stack  "internal/pkg/runtime/stack.go"
 my_assign_file typing "internal/pkg/types/mlrval_typing.go"
 my_assign_dir  repl   "internal/pkg/auxents/repl"
-my_assign_file bifs   "$cst/builtin_function_manager.go"
 my_assign_file hofs   "$cst/hofs.go"
 
 my_assign_file dflags "reference-main-flag-list.md.in"
