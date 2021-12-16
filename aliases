@@ -129,6 +129,8 @@ alias   grc='git rebase --continue'
 alias   gla='git log --graph --all'
 alias  glog='git log --oneline --graph'
 alias gloga='git log --oneline --graph --all'
+alias  gprm='git pull --rebase origin main'
+alias gprmr='git pull --rebase origin master'
 
 # from https://github.com/johnkerl/scripts/tree/main/git
 alias     gsb='git show-current-branch'
