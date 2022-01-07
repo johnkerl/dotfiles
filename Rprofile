@@ -36,3 +36,9 @@ pp2 <- function() {
   sch <<- schema(arr)
   dom <<- domain(sch)
 }
+ttdr <- function() {
+  tinytest::test_package("tiledb")
+}
+ttdc <- function() {
+  tinytest::test_package("tiledbcloud")
+}
