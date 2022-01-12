@@ -5,8 +5,10 @@
   if (interactive()) {
     library(tiledb)
     library(tiledbcloud)
-    print(utils::packageVersion("tiledb"))
-    print(utils::packageVersion("tiledbcloud"))
+    library(tinytest)
+    cat("tiledb:      ", toString(utils::packageVersion("tiledb")), "\n")
+    cat("tiledbcloud: ", toString(utils::packageVersion("tiledbcloud")), "\n")
+    cat("tinytest:    ", toString(utils::packageVersion("tinytest")), "\n")
   }
 }
 vers <- function() {
@@ -38,6 +40,9 @@ pp2 <- function() {
 }
 tta <- function() {
   tinytest::test_all(".")
+}
+ttd <- function() {
+  tinytest::run_test_file("inst/tinytest/test_delayed.R")
 }
 ttdr <- function() {
   tinytest::test_package("tiledb")
