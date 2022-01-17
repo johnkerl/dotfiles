@@ -147,13 +147,6 @@ alias     gff='git files-from'
 alias     bcd='black . --check'
 
 # ----------------------------------------------------------------
-# For pathnicks.c in repo johnkerl/dotfiles
-export PATHNICKS="$mlb:MLR"
-export PATHNICKS="$PATHNICKS,$HOME/pub_http_internet/miller-releases:MLRREL"
-export PATHNICKS="$PATHNICKS,$HOME/git/fork:GIT-FORK"
-export PATHNICKS="$PATHNICKS,$HOME/git:GIT-MAIN"
-
-# ----------------------------------------------------------------
 # Miller
 . ~/.vars-tracker
 
@@ -194,6 +187,7 @@ my_assign_file stack  "internal/pkg/runtime/stack.go"
 my_assign_file typing "internal/pkg/types/mlrval_typing.go"
 my_assign_dir  repl   "internal/pkg/auxents/repl"
 my_assign_file hofs   "$cst/hofs.go"
+my_assign_file exv    "docs/src/example.csv"
 
 my_assign_file dflags "reference-main-flag-list.md.in"
 my_assign_file dverbs "reference-verbs.md.in"
@@ -209,6 +203,13 @@ alias         mdb='mkdocs build'
 
 alias        mrpl='rlwrap mlr repl'
 alias          mr='mlr regtest'
+
+# ================================================================
+# For pathnicks.c in repo johnkerl/dotfiles
+export PATHNICKS="$mlb:MLR"
+export PATHNICKS="$PATHNICKS,$HOME/pub_http_internet/miller-releases:MLRREL"
+export PATHNICKS="$PATHNICKS,$HOME/git/fork:GIT-FORK"
+export PATHNICKS="$PATHNICKS,$HOME/git:GIT-MAIN"
 
 # ================================================================
 # Next are some shell functions.  The main deliverables are vimr and cd2file.
