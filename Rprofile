@@ -6,9 +6,11 @@
     library(tiledb)
     library(tiledbcloud)
     library(tinytest)
-    cat("tiledb:      ", toString(utils::packageVersion("tiledb")), "\n")
+    library(future)
+    cat("tiledb:      ", toString(utils::packageVersion("tiledb")),      "\n")
     cat("tiledbcloud: ", toString(utils::packageVersion("tiledbcloud")), "\n")
-    cat("tinytest:    ", toString(utils::packageVersion("tinytest")), "\n")
+    cat("tinytest:    ", toString(utils::packageVersion("tinytest")),    "\n")
+    cat("future:      ", toString(utils::packageVersion("future")),      "\n")
   }
 }
 vers <- function() {
@@ -29,3 +31,5 @@ ttd2 <- function() { tinytest::run_test_file("inst/tinytest/test_delayed_2.R") }
 ttd3 <- function() { tinytest::run_test_file("inst/tinytest/test_delayed_3.R") }
 ttdr <- function() { tinytest::test_package("tiledb")                          }
 ttdc <- function() { tinytest::test_package("tiledbcloud")                     }
+
+rfoo <- function() { source("foo.r") }
