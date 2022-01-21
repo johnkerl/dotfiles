@@ -49,3 +49,4 @@ set mark-modified-lines off
 # With this,    control-W at end of line on "ls /a/b/c/d" results in "ls /a/b/c".
 stty werase undef
 bind '"\C-w": backward-kill-word'
+. "$HOME/.cargo/env"
