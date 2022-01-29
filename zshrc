@@ -1,9 +1,12 @@
 # vim: set filetype=sh:
 # .zshrc
 
+# In this repo
 if [ -f ~kerl/.vars ]; then
 	. ~kerl/.vars
 fi
+
+# Not in this repo -- perhaps in a private repo
 if [ -f ~kerl/.vars-personal ]; then
 	. ~kerl/.vars-personal
 fi

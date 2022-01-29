@@ -28,4 +28,4 @@ Conventions:
 * `~/.vars` is `PS1` and `PATH`
 * `~/.aliases` (misnamed) is everything else -- mostly, but not entirely, aliases and shell functions
 * `~/.vars-personal` not in source control
-* `~/.vars-site` not in source control -- job-specific things go here
+* `~/.vars-site` not in source control (or, in a private repo) -- job-specific things go here

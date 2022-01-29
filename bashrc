@@ -8,9 +8,12 @@ if [ -e /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# In this repo
 if [ -e ~/.vars ]; then
 	. ~/.vars
 fi
+
+# Not in this repo -- perhaps in a private repo
 if [ -e ~/.vars-personal ]; then
 	. ~/.vars-personal
 fi
