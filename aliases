@@ -202,7 +202,7 @@ alias         mds='mkdocs serve'
 alias         mdb='mkdocs build'
 
 alias        mrpl='rlwrap mlr repl'
-alias          mr='mlr regtest'
+alias          mr='make && mlr regtest'
 
 # ================================================================
 # For pathnicks.c in repo johnkerl/dotfiles
