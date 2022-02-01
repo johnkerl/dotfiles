@@ -8,6 +8,7 @@
     library(tinytest)
     library(future)
     namespace <<- 'johnkerl-tiledb'
+    namespaceToCharge <<- namespace
     cat("tiledb:      ", toString(utils::packageVersion("tiledb")),      "\n")
     cat("tiledbcloud: ", toString(utils::packageVersion("tiledbcloud")), "\n")
     cat("tinytest:    ", toString(utils::packageVersion("tinytest")),    "\n")
@@ -33,6 +34,7 @@ ttd2 <- function() { tinytest::run_test_file("inst/tinytest/test_a_delayed_2.R")
 ttd3 <- function() { tinytest::run_test_file("inst/tinytest/test_a_delayed_3.R") }
 ttd4 <- function() { tinytest::run_test_file("inst/tinytest/test_a_delayed_4.R") }
 ttd5 <- function() { tinytest::run_test_file("inst/tinytest/test_d_delayed_5.R") }
+ttd6 <- function() { tinytest::run_test_file("inst/tinytest/test_d_delayed_6.R") }
 ttdr <- function() { tinytest::test_package("tiledb")                          }
 ttdc <- function() { tinytest::test_package("tiledbcloud")                     }
 
