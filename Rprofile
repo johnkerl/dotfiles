@@ -29,6 +29,7 @@ rox <- function() { roxygen2::roxygenise() }
 pbs <- function() { pkgdown::build_site()  }
 
 tta  <- function() { tinytest::test_all(".")                                   }
+tcue <- function() { tinytest::run_test_file("inst/tinytest/test_c_udf_execution.R") }
 ttd1 <- function() { tinytest::run_test_file("inst/tinytest/test_a_delayed_1.R") }
 ttd2 <- function() { tinytest::run_test_file("inst/tinytest/test_a_delayed_2.R") }
 ttd3 <- function() { tinytest::run_test_file("inst/tinytest/test_a_delayed_3.R") }

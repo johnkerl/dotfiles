@@ -74,7 +74,7 @@ fi
 #   the shell can properly compute the length of the prompt string which in turn
 #   is essential to avoid screen-garbaging on history editing of long command lines.
 #
-# * $ENV is for various work/project-specific things, typically set up in ~/.vars-site
+# * $PS1ENV is for various work/project-specific things, typically set up in ~/.vars-site
 #   which is in a private repo.
 
 if [ -z "$BASH_VERSION" ]; then # zsh
@@ -90,7 +90,7 @@ else
   ps1_color3=$'\033[1;38;5;178m'
   ps1_color4=$'\033[1;38;5;136m'
   default=$'\033[0m'
-  export PS1="\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${HOSTNAME%.*.*}\[${ps1_color4}\][\${ENV}][\W]$\[${default}\] "
+  export PS1="\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${HOSTNAME%.*.*}\[${ps1_color4}\][\${PS1ENV}][\W]$\[${default}\] "
 fi
 
 # ----------------------------------------------------------------
