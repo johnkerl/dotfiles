@@ -36,6 +36,7 @@ ttd3 <- function() { tinytest::run_test_file("inst/tinytest/test_a_delayed_3.R")
 ttd4 <- function() { tinytest::run_test_file("inst/tinytest/test_a_delayed_4.R") }
 ttd5 <- function() { tinytest::run_test_file("inst/tinytest/test_d_delayed_5.R") }
 ttd6 <- function() { tinytest::run_test_file("inst/tinytest/test_d_delayed_6.R") }
+ttd7 <- function() { tinytest::run_test_file("inst/tinytest/test_d_delayed_7.R") }
 ttdr <- function() { tinytest::test_package("tiledb")                          }
 ttdc <- function() { tinytest::test_package("tiledbcloud")                     }
 
