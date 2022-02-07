@@ -8,7 +8,7 @@ export MLR_REPL_PS1='μεταμόρφωσις: '
 export MLR_KEY_COLOR=darkorange
 export MLR_VALUE_COLOR=darkgoldenrod
 
-export LUMIN_MATCH_COLOR=red3
+export LUMIN_MATCH_COLOR=red
 
 # See also aliases file.
 # The alias is for interactive use. The $PAGER is for, at least, git diff.  I
