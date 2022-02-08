@@ -16,6 +16,7 @@ set cpoptions=aABcdeFs
 set exrc
 set modeline
 set modelines=5
+set tw=100
 
 set encoding=utf-8
 "set encoding=latin1
