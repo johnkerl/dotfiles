@@ -1,6 +1,7 @@
 .First <- function() {
   # print("You changed your R options")
   # options(error = traceback)
+  options("menu.graphics" = FALSE) # no Xquartz pop-ups when I'm using the CLI
   options(repos = list(CRAN = "https://cran.rstudio.com"))
   if (interactive()) {
     library(tiledb)
@@ -29,6 +30,7 @@ rox <- function() { roxygen2::roxygenise() }
 pbs <- function() { pkgdown::build_site()  }
 
 tta  <- function() { tinytest::test_all(".")                                   }
+tcurg <- function() { tinytest::run_test_file("inst/tinytest/test_c_udf_reg_generic.R") }
 tcue <- function() { tinytest::run_test_file("inst/tinytest/test_c_udf_execution.R") }
 ttd1 <- function() { tinytest::run_test_file("inst/tinytest/test_a_delayed_1.R") }
 ttd2 <- function() { tinytest::run_test_file("inst/tinytest/test_a_delayed_2.R") }
@@ -39,5 +41,7 @@ ttd6 <- function() { tinytest::run_test_file("inst/tinytest/test_d_delayed_6.R")
 ttd7 <- function() { tinytest::run_test_file("inst/tinytest/test_d_delayed_7.R") }
 ttdr <- function() { tinytest::test_package("tiledb")                          }
 ttdc <- function() { tinytest::test_package("tiledbcloud")                     }
+
+dtt  <- function() { devtools::test() }
 
 rfoo <- function() { source("foo.r") }
