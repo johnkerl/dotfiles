@@ -53,6 +53,9 @@ alias   rbi='R CMD build . && R CMD INSTALL .'
 alias   rox="R -e 'roxygen2::roxygenise()'"
 alias   pbs="R -e 'pkgdown::build_site()'"
 
+alias    qp='quarto preview'
+alias    qr='quarto render'
+
 # Since "java" is a leading substring of "javac", "!java" doesn't work right in
 # an edit-compile loop.  Hence, these two.  Likewise for scalac and scala.
 alias jvc=javac

@@ -10,6 +10,7 @@
     library(future)
     namespace <<- 'johnkerl-tiledb'
     namespaceToCharge <<- namespace
+    cat("R:           ", R.Version()$version.string,                     "\n")
     cat("tiledb:      ", toString(utils::packageVersion("tiledb")),      "\n")
     cat("tiledbcloud: ", toString(utils::packageVersion("tiledbcloud")), "\n")
     cat("tinytest:    ", toString(utils::packageVersion("tinytest")),    "\n")
@@ -43,5 +44,7 @@ ttdr <- function() { tinytest::test_package("tiledb")                          }
 ttdc <- function() { tinytest::test_package("tiledbcloud")                     }
 
 dtt  <- function() { devtools::test() }
+
+tsd  <- function() { devtools::test_active_file(file="tests/testthat/test_Seurat_SCDataset.R") }
 
 rfoo <- function() { source("foo.r") }
