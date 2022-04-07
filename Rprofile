@@ -43,6 +43,9 @@ ttd7 <- function() { tinytest::run_test_file("inst/tinytest/test_d_delayed_7.R")
 ttdr <- function() { tinytest::test_package("tiledb")                          }
 ttdc <- function() { tinytest::test_package("tiledbcloud")                     }
 
+tdon  <- function() { Sys.setenv(TILEDB_CLOUD_R_HTTP_DEBUG='true') }
+tdoff <- function() { Sys.unsetenv('TILEDB_CLOUD_R_HTTP_DEBUG') }
+
 dtt  <- function() { devtools::test() }
 
 tsd  <- function() { devtools::test_active_file(file="tests/testthat/test_Seurat_SCDataset.R") }
