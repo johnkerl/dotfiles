@@ -6,6 +6,7 @@
   if (interactive()) {
     library(tiledb)
     library(tiledbcloud)
+    library(tiledbsc)
     library(tinytest)
     library(future)
     namespace <<- 'johnkerl-tiledb'
@@ -13,6 +14,7 @@
     cat("R:           ", R.Version()$version.string,                     "\n")
     cat("tiledb:      ", toString(utils::packageVersion("tiledb")),      "\n")
     cat("tiledbcloud: ", toString(utils::packageVersion("tiledbcloud")), "\n")
+    cat("tiledbsc:    ", toString(utils::packageVersion("tiledbsc")),    "\n")
     cat("tinytest:    ", toString(utils::packageVersion("tinytest")),    "\n")
     cat("future:      ", toString(utils::packageVersion("future")),      "\n")
     cat("namespace:   ", namespace, "\n")
