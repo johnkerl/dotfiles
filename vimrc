@@ -198,10 +198,20 @@ au BufNewFile,BufRead configure.ac set noexpandtab
 au BufNewFile,BufRead configure.ac map <C-a> I<TAB><ESC>
 au BufNewFile,BufRead configure.ac map <C-u> 0x
 
-au BufNewFile,BufRead *.[ch] set ts=4
-au BufNewFile,BufRead *.[ch] set noexpandtab
-au BufNewFile,BufRead *.[ch] map <C-a> I<TAB><ESC>
-au BufNewFile,BufRead *.[ch] map <C-u> 0x
+"au BufNewFile,BufRead *.[ch] set ts=4
+"au BufNewFile,BufRead *.[ch] set noexpandtab
+"au BufNewFile,BufRead *.[ch] map <C-a> I<TAB><ESC>
+"au BufNewFile,BufRead *.[ch] map <C-u> 0x
+
+au BufNewFile,BufRead *.[ch] set ts=2
+au BufNewFile,BufRead *.[ch] set expandtab
+au BufNewFile,BufRead *.[ch] map <C-a> I  <ESC>
+au BufNewFile,BufRead *.[ch] map <C-u> 0xx
+
+au BufNewFile,BufRead *.cc set ts=2
+au BufNewFile,BufRead *.cc set expandtab
+au BufNewFile,BufRead *.cc map <C-a> I  <ESC>
+au BufNewFile,BufRead *.cc map <C-u> 0xx
 
 au BufNewFile,BufRead *.[ly] set ts=4
 au BufNewFile,BufRead *.[ly] set noexpandtab
