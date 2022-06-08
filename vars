@@ -126,6 +126,7 @@ if [ -z "$BEEN_HERE" ]; then
 	#export PATH=${PATH}:$HOME/aspectj/aspectj1.6/bin
 	#export PATH=${PATH}:/sbin:/usr/sbin # Programs such as ifconfig
 	export PATH=${PATH}:/usr/local/Acrobat4/bin # Adobe Acrobat
+  export PATH=${PATH}:/usr/local/opt/jupyterlab/bin
 
   # Path head
 	export PATH=/usr/local/bin:${PATH}
