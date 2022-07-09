@@ -65,6 +65,7 @@ alias jvr=java
 #alias sr=scala
 #alias st='scala org.scalatest.tools.Runner -p . -o -s'
 alias grep='grep --color=auto'
+alias gog='rg --type=go'
 
 # For Python REPL with my most-used modules pre-loaded:
 #alias py='python -Qnew -i ~/.mypy'
@@ -85,8 +86,6 @@ alias lt='ls -lrt'
 
 alias nnbu='nbu -d ~/Desktop/folder/bak'
 alias v='vim'
-alias nn='nnbu ~/Desktop/PLAN/PLAN.txt'
-alias vv='vim ~/Desktop/PLAN/PLAN.txt'
 alias v-='vim -'  # E.g. for "diff ... | vim -":
 alias vt='vim -t' # Tag jump
 alias vim='vim -i NONE -X'
@@ -161,6 +160,9 @@ alias     bcd='black . --check'
 # ----------------------------------------------------------------
 # Miller
 . ~/.vars-tracker
+
+my_assign_file vv   "$HOME/Desktop/PLAN/PLAN.txt"
+alias nn='nnbu ~/Desktop/PLAN/PLAN.txt'
 
 my_assign_dir mlb   "$HOME/git/johnkerl/miller"
 my_assign_dir mld   "$mlb/docs"
