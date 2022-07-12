@@ -66,6 +66,7 @@ alias jvr=java
 #alias st='scala org.scalatest.tools.Runner -p . -o -s'
 alias grep='grep --color=auto'
 alias gog='rg --type=go'
+alias pyg='rg --type=py'
 
 # For Python REPL with my most-used modules pre-loaded:
 #alias py='python -Qnew -i ~/.mypy'
