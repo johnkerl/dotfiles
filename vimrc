@@ -146,25 +146,24 @@ au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 c
 set expandtab
 
 " TWO:
-map <C-a> I  <ESC>
-map <C-u> 0xx
+"map <C-a> I  <ESC>
+"map <C-u> 0xx
+"set ts=2
 
 " THREE:
 "map <C-a> I   <ESC>
 "map <C-u> 0xxx
+"set ts=3
 
 " FOUR:
-"map <C-a> I    <ESC>
-"map <C-u> 0xxxx
+map <C-a> I    <ESC>
+map <C-u> 0xxxx
+set ts=4
 
 " TAB:
 """""map <C-a> I<TAB><ESC>
 """""map <C-u> 0x
-
-set ts=2
-"set ts=4
 "set ts=8
-"set ts=80
 
 map \2 :se ts=2<C-m>
 map \3 :se ts=3<C-m>
@@ -276,10 +275,10 @@ function Yestabs()
 endfunction
 
 function Notabs()
-  set ts=2
+  set ts=4
   set expandtab
-  map <C-a> I  <ESC>
-  map <C-u> 0xx
+  map <C-a> I    <ESC>
+  map <C-u> 0xxxx
 endfunction
 
 map ,Z :call Yestabs()<CR>
