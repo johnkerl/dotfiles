@@ -103,7 +103,7 @@ map \l :se list<C-m>
 map \L :se nolist<C-m>
 
 " This highlight git merge lines
-map \m :se hlsearch<C-m>/^[<=>][<=>][<=>][<=>][<=>][<=>][<=>]<C-m>
+map \m :se hlsearch<C-m>/^[<=\|>][<=\|>][<=\|>][<=\|>][<=\|>][<=\|>][<=\|>]<C-m>
 
 map <C-h> :.!bash<CR>j
 map \h !}echorun<CR>}}

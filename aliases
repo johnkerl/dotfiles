@@ -162,8 +162,8 @@ alias     bcd='black . --check'
 # Miller
 . ~/.vars-tracker
 
-my_assign_file vv   "$HOME/Desktop/PLAN/PLAN.txt"
-alias nn='nnbu ~/Desktop/PLAN/PLAN.txt'
+my_assign_file vv   "$HOME/Desktop/folder/PLAN.txt"
+alias nn='nnbu ~/Desktop/folder/PLAN.txt'
 
 my_assign_dir mlb   "$HOME/git/johnkerl/miller"
 my_assign_dir mld   "$mlb/docs"
