@@ -53,6 +53,12 @@ bind 'set bell-style none'
 stty werase undef
 bind '"\C-w": backward-kill-word'
 
+if [ $(uname) = "Linux" ]; then
+    # Tab-complete `ls $foo/bar` -> `ls \$foo/bar` on Ubuntu 22.04 (EC2)
+    # Non-broken on Mac these days
+    shopt -s direxpand
+fi
+
 # ----------------------------------------------------------------
 # Rust
 if [ -f "$HOME/.cargo/.env" ]; then
