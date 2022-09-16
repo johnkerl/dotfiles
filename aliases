@@ -142,6 +142,7 @@ alias  gprmr='git pull --rebase origin master'
 alias   grom='git rebase origin/main'
 alias  groma='git rebase origin/master'
 alias  griom='git rebase -i origin/main'
+alias griomo='git rebase -i origin/main-old'
 alias grioma='git rebase -i origin/master'
 
 # from https://github.com/johnkerl/scripts/tree/main/git
