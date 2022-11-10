@@ -161,7 +161,8 @@ if [ -z "$BEEN_HERE" ]; then
 	#export CLASSPATH=${CLASSPATH}:/home/kerl/scala/scalatest-1.6.1/scalatest-1.6.1.jar
 	#export CLASSPATH=${CLASSPATH}:/usr/share/maven-repo/junit/junit/4.x/junit-4.x.jar 
 
-	export LD_LIBRARY_PATH=/usr/local/lib
+	export   LD_LIBRARY_PATH=/usr/local/lib
+	export DYLD_LIBRARY_PATH=/usr/local/lib
 
 	export BEEN_HERE=yes
 fi
