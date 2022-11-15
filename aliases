@@ -88,6 +88,7 @@ alias lt='ls -lrt'
 alias nnbu='nbu -d ~/Desktop/folder/bak'
 alias v='vim'
 alias v-='vim -'  # E.g. for "diff ... | vim -":
+alias pbv='pbp | v-'
 alias vt='vim -t' # Tag jump
 alias vim='vim -i NONE -X'
 tvim() {
