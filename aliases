@@ -45,7 +45,9 @@ alias h='history 30'
 alias j='jobs -l'
 
 alias     R='R --no-save -q'
-alias   rbq='R CMD build --no-build-vignettes --no-manual .'
+
+alias   rbq='rm -f *.tar.gz; R CMD build --no-build-vignettes --no-manual .'
+alias   rcq='R CMD check --as-cran --no-manual --ignore-vignettes *.tar.gz'
 alias   riq='R CMD INSTALL --no-byte-compile --no-test-load --no-docs --no-html .'
 alias  rbiq='rbq && riq'
 alias rbaiq='R -e "roxygen2::roxygenise()" && R -e "pkgdown::build_site()" && rbq && riq'
