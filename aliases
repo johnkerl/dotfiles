@@ -150,6 +150,9 @@ alias    gri='git rebase -i'
 alias  griom='git rebase -i origin/main'
 alias griomo='git rebase -i origin/main-old'
 alias grioma='git rebase -i origin/master'
+alias    gdm='git diff origin/main'
+alias   gdma='git diff origin/master'
+alias   gdmo='git diff origin/main-old'
 
 # from https://github.com/johnkerl/scripts/tree/main/git
 alias     gsb='git show-current-branch'

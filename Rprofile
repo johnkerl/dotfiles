@@ -54,3 +54,13 @@ dtt  <- function() { devtools::test() }
 tsd  <- function() { devtools::test_active_file(file="tests/testthat/test_Seurat_SCDataset.R") }
 
 rfoo <- function() { source("foo.r") }
+local({
+   r <- getOption("repos");
+   r["CRAN"] <- "https://cloud.r-project.org"
+   options(repos=r)
+})
+local({
+   r <- getOption("repos");
+   r["CRAN"] <- "https://cloud.r-project.org"
+   options(repos=r)
+})
