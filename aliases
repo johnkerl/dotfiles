@@ -55,6 +55,8 @@ alias   rbi='R CMD build . && R CMD INSTALL .'
 alias   rox="R -e 'roxygen2::roxygenise()'"
 alias   pbs="R -e 'pkgdown::build_site()'"
 
+alias   rbc='rm -f *.tar.gz; R CMD build --no-build-vignettes --no-manual . && R CMD check *.tar.gz'
+
 alias    qp='quarto preview'
 alias    qr='quarto render'
 
