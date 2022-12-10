@@ -169,6 +169,9 @@ alias     gff='git files-from'
 alias     bcd='black . --check'
 
 # ----------------------------------------------------------------
+alias cbr='cargo build --release'
+
+# ----------------------------------------------------------------
 # Miller
 . ~/.vars-tracker
 
