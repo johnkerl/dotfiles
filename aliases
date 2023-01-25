@@ -169,6 +169,9 @@ alias    gxxb='git delete-branch-force'
 alias     g2b='git switch-branch'
 alias    gpom='git pull origin main'
 alias     gff='git files-from'
+gffa() {
+    gff "$@" | sed 's:apis/python/::'
+}
 
 alias     bcd='black . --check'
 
