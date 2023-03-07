@@ -33,6 +33,8 @@ dla <- function() { devtools::load_all()   }
 rox <- function() { roxygen2::roxygenise() }
 pbs <- function() { pkgdown::build_site()  }
 
+ttl  <- function() { testthat::test_local("tests/testthat") }
+
 tta  <- function() { tinytest::test_all(".")                                   }
 tcurg <- function() { tinytest::run_test_file("inst/tinytest/test_c_udf_reg_generic.R") }
 tcue <- function() { tinytest::run_test_file("inst/tinytest/test_c_udf_execution.R") }

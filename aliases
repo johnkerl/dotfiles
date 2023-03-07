@@ -45,6 +45,9 @@ alias h='history 30'
 alias j='jobs -l'
 
 alias     R='R --no-save -q'
+ttl() {
+  Rscript -e 'testthat::test_local("tests/testthat")'
+}
 
 alias   rbq='rm -f *.tar.gz; R CMD build --no-build-vignettes --no-manual .'
 alias   rcq='R CMD check --as-cran --no-manual --ignore-vignettes *.tar.gz'
