@@ -20,7 +20,15 @@
     cat("future:       ", toString(utils::packageVersion("future")),      "\n")
     cat("namespace:    ", namespace, "\n")
   }
+  # Not the workspace, just my previous CLI commands
+  if(interactive()) try(utils::loadhistory("~/.Rhistory"))
 }
+
+.Last <- function() {
+  # Not the workspace, just my previous CLI commands
+  if(interactive()) try(utils::savehistory("~/.Rhistory"))
+}
+
 vers <- function() {
   print(packageVersion("tiledb"))
   print(packageVersion("tiledbcloud"))
