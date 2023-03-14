@@ -15,10 +15,11 @@
     cat("tiledb:       ", toString(utils::packageVersion("tiledb")),      "\n")
     cat("core:         ", as.character(tiledb::tiledb_version(compact=TRUE)), "\n")
     #cat("tiledbcloud: ", toString(utils::packageVersion("tiledbcloud")), "\n")
-    cat("tiledbsoma:   ", toString(utils::packageVersion("tiledbsoma")),    "\n")
-    cat("tinytest:     ", toString(utils::packageVersion("tinytest")),    "\n")
-    cat("future:       ", toString(utils::packageVersion("future")),      "\n")
-    cat("namespace:    ", namespace, "\n")
+    #cat("tiledbsoma:   ", toString(utils::packageVersion("tiledbsoma")),    "\n")
+    tiledbsoma::show_package_versions()
+    #cat("tinytest:     ", toString(utils::packageVersion("tinytest")),    "\n")
+    #cat("future:       ", toString(utils::packageVersion("future")),      "\n")
+    #cat("namespace:    ", namespace, "\n")
   }
   # Not the workspace, just my previous CLI commands
   if(interactive()) try(utils::loadhistory("~/.Rhistory"))
