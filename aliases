@@ -75,6 +75,11 @@ alias grep='grep --color=auto'
 alias gog='rg --type=go'
 alias pyg='rg --type=py'
 
+alias cm0='cmake --build build --target clean && rm -rf build'
+alias cm1='cmake -B build'
+alias cm2='cmake --build build'
+alias cmx='cm0 && cm1 && cm2'
+
 # For Python REPL with my most-used modules pre-loaded:
 #alias py='python -Qnew -i ~/.mypy'
 
