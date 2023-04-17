@@ -78,7 +78,14 @@ alias pyg='rg --type=py'
 alias cm0='cmake --build build --target clean && rm -rf build'
 alias cm1='cmake -B build'
 alias cm2='cmake --build build'
+alias cm3='cmake --build build --target test -j 12'
+alias cm4='cmake --build build --target install' # install-foo
 alias cmx='cm0 && cm1 && cm2'
+alias   cm12='cm1 && cm2'
+alias  cm123='cm1 && cm2 && cm3'
+alias cm1234='cm1 && cm2 && cm3 && cm4'
+
+my_assign_dir spf "$HOME/git/johnkerl/spffl"
 
 # For Python REPL with my most-used modules pre-loaded:
 #alias py='python -Qnew -i ~/.mypy'
