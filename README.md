@@ -12,6 +12,7 @@ ln -s $(pwd)/vars         ~/.vars
 ln -s $(pwd)/vars-tracker ~/.vars-tracker
 ln -s $(pwd)/vimrc        ~/.vimrc
 ln -s $(pwd)/Renviron     ~/.Renviron
+ln -s $(pwd)/Rprofile     ~/.Rprofile
 ```
 
 Then:
