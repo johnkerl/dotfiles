@@ -217,6 +217,11 @@ au BufNewFile,BufRead *.cpp set expandtab
 au BufNewFile,BufRead *.cpp map <C-a> I  <ESC>
 au BufNewFile,BufRead *.cpp map <C-u> 0xx
 
+au BufNewFile,BufRead CMakeLists.txt set ts=2
+au BufNewFile,BufRead CMakeLists.txt set expandtab
+au BufNewFile,BufRead CMakeLists.txt map <C-a> I  <ESC>
+au BufNewFile,BufRead CMakeLists.txt map <C-u> 0xx
+
 au BufNewFile,BufRead *.[ly] set ts=4
 au BufNewFile,BufRead *.[ly] set noexpandtab
 au BufNewFile,BufRead *.[ly] map <C-a> I<TAB><ESC>
