@@ -82,6 +82,10 @@ alias  cmb='cmake --build build'
 alias  cmt='cmake --build build --target test -j 12'
 alias  cmi='cmake --build build --target install' # install-foo
 
+alias   cmgb='cmg && cmb'
+alias  cmgbt='cmg && cmb && cmt'
+alias cmgbti='cmg && cmb && cmti'
+
 my_assign_dir spf "$HOME/git/johnkerl/spffl"
 
 # For Python REPL with my most-used modules pre-loaded:

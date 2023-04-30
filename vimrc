@@ -212,6 +212,11 @@ au BufNewFile,BufRead *.cc set expandtab
 au BufNewFile,BufRead *.cc map <C-a> I  <ESC>
 au BufNewFile,BufRead *.cc map <C-u> 0xx
 
+au BufNewFile,BufRead *.cpp set ts=2
+au BufNewFile,BufRead *.cpp set expandtab
+au BufNewFile,BufRead *.cpp map <C-a> I  <ESC>
+au BufNewFile,BufRead *.cpp map <C-u> 0xx
+
 au BufNewFile,BufRead *.[ly] set ts=4
 au BufNewFile,BufRead *.[ly] set noexpandtab
 au BufNewFile,BufRead *.[ly] map <C-a> I<TAB><ESC>
