@@ -192,6 +192,11 @@ au BufNewFile,BufRead Makefile* set noexpandtab
 au BufNewFile,BufRead Makefile* map <C-a> I<TAB><ESC>
 au BufNewFile,BufRead Makefile* map <C-u> 0x
 
+au BufNewFile,BufRead Makevars* set ts=8
+au BufNewFile,BufRead Makevars* set noexpandtab
+au BufNewFile,BufRead Makevars* map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead Makevars* map <C-u> 0x
+
 au BufNewFile,BufRead configure.ac set ts=8
 au BufNewFile,BufRead configure.ac set noexpandtab
 au BufNewFile,BufRead configure.ac map <C-a> I<TAB><ESC>
