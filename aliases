@@ -49,19 +49,21 @@ ttl() {
   Rscript -e 'testthat::test_local("tests/testthat")'
 }
 
-alias   rbq='rm -f *.tar.gz; R CMD build --no-build-vignettes --no-manual .'
-alias   rcq='R CMD check --as-cran --no-manual --ignore-vignettes *.tar.gz'
-alias   riq='R CMD INSTALL --no-byte-compile --no-test-load --no-docs --no-html .'
-alias  rbiq='rbq && riq'
-alias rbaiq='R -e "roxygen2::roxygenise()" && R -e "pkgdown::build_site()" && rbq && riq'
-alias   rbi='R CMD build . && R CMD INSTALL .'
-alias   rox="R -e 'roxygen2::roxygenise()'"
-alias   pbs="R -e 'pkgdown::build_site()'"
+# ----------------------------------------------------------------
+alias rca='Rscript -e "Rcpp::compileAttributes()"'
+alias rox="Rscript -e 'roxygen2::roxygenise()'"
+alias pbs="Rscript -e 'pkgdown::build_site()'"
 
-alias   rbc='rm -f *.tar.gz; R CMD build --no-build-vignettes --no-manual . && R CMD check *.tar.gz'
+alias rcb='rm -f *.tar.gz; R CMD build --no-build-vignettes --no-manual .'
+alias rcc='R CMD check --as-carn --no-vignettes --no-manual *.tar.gz'
+alias rci='R CMD INSTALL --no-test-load --no-docs --no-html *tar.gz'
 
-alias    qp='quarto preview'
-alias    qr='quarto render'
+alias tht='Rscript -e testthat::test_local\(\"tests/testthat\"\)'
+alias rabi='rca && rcb && rci && echo && echo DONE'
+
+# ----------------------------------------------------------------
+alias qp='quarto preview'
+alias qr='quarto render'
 
 # Since "java" is a leading substring of "javac", "!java" doesn't work right in
 # an edit-compile loop.  Hence, these two.  Likewise for scalac and scala.
