@@ -52,16 +52,16 @@ export EDITOR=vim
 # red   green   blue
 # cyan  magenta yellow
 if [ "`whoami`" = "root" ]; then
-    color1="$red"
-    color2="$yellow"
+	  color1="$red"
+	  color2="$yellow"
 else
-    #color1="$green"
-    #color2="$yellow"
-    color1="$yellow"
-    color2="$yellow"
-    color3="$green"
-    #color1="$red"
-    #color2="$red"
+	  #color1="$green"
+	  #color2="$yellow"
+	  color1="$yellow"
+	  color2="$yellow"
+	  color3="$green"
+	  #color1="$red"
+	  #color2="$red"
 fi
 
 # Notes:
@@ -78,30 +78,30 @@ fi
 #   which is in a private repo.
 
 if [ -z "$BASH_VERSION" ]; then # zsh
-  export PS1="${green}%n@%m[%c]${red}[j%js%?]${green}%#${textdefault} "
+	export PS1="${green}%n@%m[%c]${red}[j%js%?]${green}%#${textdefault} "
 else
-  #export PS1="\[${bold}${color1}\]\u@\h""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\][\W]\$\[${textdefault}\] "
-  # See pathnick.c
-  #export PS1="\[${bold}${color1}\]\u@\h""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\]\[${color3}\]\`pathnick\`\[${color1}\][\W]\$\[${textdefault}\] "
-  #export PS1="\[${bold}${color1}\]\u@${HOSTNAME%.*.*}""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\]\[${color3}\]\`pathnick\`\[${color1}\][\W]\$\[${textdefault}\] "
+	#export PS1="\[${bold}${color1}\]\u@\h""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\][\W]\$\[${textdefault}\] "
+	# See pathnick.c
+	#export PS1="\[${bold}${color1}\]\u@\h""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\]\[${color3}\]\`pathnick\`\[${color1}\][\W]\$\[${textdefault}\] "
+	#export PS1="\[${bold}${color1}\]\u@${HOSTNAME%.*.*}""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\]\[${color3}\]\`pathnick\`\[${color1}\][\W]\$\[${textdefault}\] "
 
 
-  # Other conditions may certainly apply. For me in 2022 my main goal is distinguishing visually
-  # from terminals on my Mac laptop from SSH sessions into a Linux EC2 instance.
-  if [ $(uname) = "Darwin" ]; then
-    ps1_color1=$'\033[1;38;5;178m'
-    ps1_color2=$'\033[1;38;5;136m'
-    ps1_color3=$'\033[1;38;5;178m'
-    ps1_color4=$'\033[1;38;5;136m'
-  else
-    ps1_color1=$'\033[1;38;5;208m'
-    ps1_color2=$'\033[1;38;5;94m'
-    ps1_color3=$'\033[1;38;5;208m'
-    ps1_color4=$'\033[1;38;5;94m'
-  fi
+	# Other conditions may certainly apply. For me in 2022 my main goal is distinguishing visually
+	# from terminals on my Mac laptop from SSH sessions into a Linux EC2 instance.
+	if [ $(uname) = "Darwin" ]; then
+	  ps1_color1=$'\033[1;38;5;178m'
+	  ps1_color2=$'\033[1;38;5;136m'
+	  ps1_color3=$'\033[1;38;5;178m'
+	  ps1_color4=$'\033[1;38;5;136m'
+	else
+	  ps1_color1=$'\033[1;38;5;208m'
+	  ps1_color2=$'\033[1;38;5;94m'
+	  ps1_color3=$'\033[1;38;5;208m'
+	  ps1_color4=$'\033[1;38;5;94m'
+	fi
 
-  default=$'\033[0m'
-  export PS1="\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${HOSTNAME%.*.*}\[${ps1_color4}\][\${PS1ENV}]"'[$(git-show-current-branch-safe)]'"[\W]$\[${default}\] "
+	default=$'\033[0m'
+	export PS1="\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${HOSTNAME%.*.*}\[${ps1_color4}\][\${PS1ENV}]"'[$(git-show-current-branch-safe)]'"[\W]$\[${default}\] "
 fi
 
 # ----------------------------------------------------------------
@@ -115,11 +115,11 @@ if [ -z "$BEEN_HERE" ]; then
 	export RUBYLIB=$HOME/pub_http_internet/ruby:$HOME/pub_http_internet/ruby/ruffl
 	export PERLLIB=.:$HOME/scripts/perllib
 	#export PYTHONPATH=.:$HOME/git/scripts-math/pythonlib:$HOME/git/scripts-math/stats
-  #export PYTXPATH=/opt/homebrew/lib/python3.5/site-packages
-  #export PYTXPATH=/opt/homebrew/lib/python2.7/site-packages
-  #export PYTHONPATH=${PYTHONPATH}:${PYTXPATH}
+	#export PYTXPATH=/opt/homebrew/lib/python3.5/site-packages
+	#export PYTXPATH=/opt/homebrew/lib/python2.7/site-packages
+	#export PYTHONPATH=${PYTHONPATH}:${PYTXPATH}
 
-  # Path tail
+	# Path tail
 	export PATH=${PATH}:$HOME/bin/site
 	export PATH=${PATH}:$HOME/scripts/abbrevs
 	export PATH=${PATH}:$HOME/scripts/fundam/accel
@@ -132,14 +132,15 @@ if [ -z "$BEEN_HERE" ]; then
 	export PATH=${PATH}:$HOME/go/bin
 	export PATH=${PATH}:/usr/local/mysql/bin
 	export PATH=${PATH}:/usr/local/opt/node/bin
+	export PATH=${PATH}:/opt/homebrew/bin
 	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl
 	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl/cmds
 	#export PATH=${PATH}:$HOME/aspectj/aspectj1.6/bin
 	#export PATH=${PATH}:/sbin:/usr/sbin # Programs such as ifconfig
 	export PATH=${PATH}:/usr/local/Acrobat4/bin # Adobe Acrobat
-  export PATH=${PATH}:/usr/local/opt/jupyterlab/bin
+	export PATH=${PATH}:/usr/local/opt/jupyterlab/bin
 
-  # Path head
+	# Path head
 	export PATH=/usr/local/bin:${PATH}
 	export PATH=/usr/local/go/bin:${PATH}
 	export PATH=${HOME}/bin:${PATH}
@@ -151,11 +152,11 @@ if [ -z "$BEEN_HERE" ]; then
 		#export MANPATH=$HOME/man
 		export MANPATH=$HOME/git/johnkerl/miller/man
 	fi
-  export MANPATH=${MANPATH}:/usr/share/man
-  export MANPATH=${MANPATH}:/usr/local/man
-  export MANPATH=${MANPATH}:/usr/local/share/man
-  #export MANPATH=${MANPATH}:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/share/man
-  export MANPATH=${MANPATH}://Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/share/man
+	export MANPATH=${MANPATH}:/usr/share/man
+	export MANPATH=${MANPATH}:/usr/local/man
+	export MANPATH=${MANPATH}:/usr/local/share/man
+	#export MANPATH=${MANPATH}:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/share/man
+	export MANPATH=${MANPATH}://Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/share/man
 
 	#export CLASSPATH=.:$HOME/aspectj/aspectj1.6/lib/aspectjrt.jar
 	#export CLASSPATH=${CLASSPATH}:/home/kerl/scala/scalatest-1.6.1/scalatest-1.6.1.jar
