@@ -132,7 +132,6 @@ if [ -z "$BEEN_HERE" ]; then
 	export PATH=${PATH}:$HOME/go/bin
 	export PATH=${PATH}:/usr/local/mysql/bin
 	export PATH=${PATH}:/usr/local/opt/node/bin
-	export PATH=${PATH}:/opt/homebrew/bin
 	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl
 	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl/cmds
 	#export PATH=${PATH}:$HOME/aspectj/aspectj1.6/bin
@@ -141,6 +140,7 @@ if [ -z "$BEEN_HERE" ]; then
 	export PATH=${PATH}:/usr/local/opt/jupyterlab/bin
 
 	# Path head
+	export PATH=/opt/homebrew/bin:${PATH}
 	export PATH=/usr/local/bin:${PATH}
 	export PATH=/usr/local/go/bin:${PATH}
 	export PATH=${HOME}/bin:${PATH}
