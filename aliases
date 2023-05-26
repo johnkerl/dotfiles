@@ -55,7 +55,7 @@ alias rox="Rscript -e 'roxygen2::roxygenise()'"
 alias pbs="Rscript -e 'pkgdown::build_site()'"
 
 alias rcb='rm -f *.tar.gz; R CMD build --no-build-vignettes --no-manual .'
-alias rcc='R CMD check --as-carn --no-vignettes --no-manual *.tar.gz'
+alias rcc='R CMD check --as-cran --no-vignettes --no-manual *.tar.gz'
 alias rci='R CMD INSTALL --no-test-load --no-docs --no-html *tar.gz'
 alias rcbi='rcb && rci'
 
