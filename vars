@@ -100,8 +100,14 @@ else
 	  ps1_color4=$'\033[1;38;5;94m'
 	fi
 
-  default=$'\033[0m'
-  export PS1="\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${HOSTNAME%.*.*}\[${ps1_color4}\][\${PS1ENV}]"'[$(systime -x)][$(git-show-current-branch-safe)]'"[\W]$\[${default}\] "
+	#hostname=${HOSTNAME%.*.*}
+	hostname=${HOSTNAME%.*}
+	if [ -f ~/.hostname-alias ]; then
+		hostname=$(cat ~/.hostname-alias)
+	fi
+
+	default=$'\033[0m'
+	export PS1="\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${hostname}\[${ps1_color4}\][\${PS1ENV}]"'[$(systime -x)][$(git-show-current-branch-safe)]'"[\W]$\[${default}\] "
 fi
 
 # ----------------------------------------------------------------
