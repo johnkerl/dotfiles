@@ -100,8 +100,7 @@ else
 	  ps1_color4=$'\033[1;38;5;94m'
 	fi
 
-	#hostname=${HOSTNAME%.*.*}
-	hostname=${HOSTNAME%.*}
+	hostname=${HOSTNAME%%.*}
 	if [ -f ~/.hostname-alias ]; then
 		hostname=$(cat ~/.hostname-alias)
 	fi
