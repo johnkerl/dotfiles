@@ -44,6 +44,11 @@ alias cls=clear
 alias h='history 30'
 alias j='jobs -l'
 
+wreset () {
+    bind '"\C-w": backward-kill-word'
+    stty werase undef
+}
+
 alias     R='R --no-save -q'
 ttl() {
   Rscript -e 'testthat::test_local("tests/testthat")'
