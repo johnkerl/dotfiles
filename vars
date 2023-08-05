@@ -106,7 +106,7 @@ else
 	fi
 
 	default=$'\033[0m'
-	export PS1="\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${hostname}\[${ps1_color4}\][\${PS1ENV}]"'[$(systime -x)][$(git-show-current-branch-safe)]'"[\W]$\[${default}\] "
+	export PS1="\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${hostname}\[${ps1_color4}\][\${PS1ENV}]"'[$(git-show-current-branch-safe)]'"[\W]$\[${default}\] "
 fi
 
 # ----------------------------------------------------------------
