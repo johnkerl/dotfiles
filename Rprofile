@@ -8,7 +8,7 @@
     #library(tiledbcloud)
     library(tiledbsoma)
     library(tinytest)
-    library(future)
+    #library(future)
     namespace <<- 'johnkerl-tiledb'
     namespaceToCharge <<- namespace
     cat("R:            ", R.Version()$version.string,                     "\n")
