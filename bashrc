@@ -33,6 +33,9 @@ fi
 
 # ----------------------------------------------------------------
 
+if [ -f ~/.vars-tracker ]; then
+	. ~/.vars-tracker
+fi
 if [ -f ~/.aliases ]; then
 	. ~/.aliases
 fi
