@@ -171,11 +171,10 @@ map \4 :se ts=4<C-m>
 map \8 :se ts=8<C-m>
 "map \0 :se ts=80<C-m>
 map \0 :set colorcolumn=120<CR>
-map \o :set colorcolumn=80<CR>
+map \o :set colorcolumn=88<CR>
+map \c :set colorcolumn=80<C-m>                                                
 map \O :set colorcolumn=0<CR>
-
-map \c :set colorcolumn=<C-m>                                                  
-map \C :set colorcolumn=80<C-m>                                                
+map \C :set colorcolumn=<C-m>                                                  
 
 " ----------------------------------------------------------------
 "au BufNewFile,BufRead *.java map <C-a> I    <ESC>
