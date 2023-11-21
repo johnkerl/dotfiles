@@ -34,7 +34,7 @@ export EDITOR=vim
 # \v: Bash version
 # \V: Extended bash version
 # \w: pwd
-# \V: basename of pwd
+# \W: basename of pwd
 
 # Simpler predecessors:
 # export PS1='`whoami`:`pwd`% '
@@ -112,6 +112,12 @@ else
     #PS1+='[$?]'
     PS1+="$ "
     PS1+="\[${default}\]"
+
+    # For copy/paste into gists etc.:
+    # * more spare
+    # * blank line before prompt
+    export PSX="\[${ps1_color1}\]\u\h[\W]\[${default}\] "
+    alias psx='export PS1="$PSX"'
 fi
 
 # ----------------------------------------------------------------
