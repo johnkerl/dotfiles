@@ -105,7 +105,7 @@ else
 		hostname=$(cat ~/.hostname-alias)
 	fi
 
-    export PS1="\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${hostname}\[${ps1_color4}\]"
+    export PS1="\n\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${hostname}\[${ps1_color4}\]"
     PS1+="[\${PS1ENV}]"
     PS1+='[$(git-show-current-branch-safe)]'
     PS1+='[\W]'
