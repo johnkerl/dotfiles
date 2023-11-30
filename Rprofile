@@ -2,7 +2,10 @@
   # print("You changed your R options")
   # options(error = traceback)
   options("menu.graphics" = FALSE) # no Xquartz pop-ups when I'm using the CLI
-  options(repos = list(CRAN = "https://cran.rstudio.com"))
+
+  # options(repos = list(CRAN = "https://cran.rstudio.com"))
+  options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/2023-10-09"))
+
   if (interactive()) {
     library(tiledb)
     #library(tiledbcloud)
@@ -65,23 +68,11 @@ dtt  <- function() { devtools::test() }
 tsd  <- function() { devtools::test_active_file(file="tests/testthat/test_Seurat_SCDataset.R") }
 
 rfoo <- function() { source("foo.r") }
+
 local({
    r <- getOption("repos");
    r["CRAN"] <- "https://cloud.r-project.org"
    options(repos=r)
 })
-local({
-   r <- getOption("repos");
-   r["CRAN"] <- "https://cloud.r-project.org"
-   options(repos=r)
-})
-local({
-   r <- getOption("repos");
-   r["CRAN"] <- "https://cloud.r-project.org"
-   options(repos=r)
-})
-local({
-   r <- getOption("repos");
-   r["CRAN"] <- "https://cloud.r-project.org"
-   options(repos=r)
-})
+
+options(download.file.method = 'libcurl' , HTTPUserAgent = 'R/4.3.2 R (4.3.2 x86_64-pc-linux-gnu x86_64 linux-gnu)' ) 
