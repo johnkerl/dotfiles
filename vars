@@ -130,10 +130,6 @@ if [ -z "$BEEN_HERE" ]; then
 
 	export RUBYLIB=$HOME/pub_http_internet/ruby:$HOME/pub_http_internet/ruby/ruffl
 	export PERLLIB=.:$HOME/scripts/perllib
-	#export PYTHONPATH=.:$HOME/git/scripts-math/pythonlib:$HOME/git/scripts-math/stats
-	#export PYTXPATH=/opt/homebrew/lib/python3.5/site-packages
-	#export PYTXPATH=/opt/homebrew/lib/python2.7/site-packages
-	#export PYTHONPATH=${PYTHONPATH}:${PYTXPATH}
 
 	# Path tail
 	export PATH=${PATH}:$HOME/bin/site
@@ -148,10 +144,6 @@ if [ -z "$BEEN_HERE" ]; then
 	export PATH=${PATH}:$HOME/go/bin
 	export PATH=${PATH}:/usr/local/mysql/bin
 	export PATH=${PATH}:/usr/local/opt/node/bin
-	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl
-	#export PATH=${PATH}:$HOME/pub_http_internet/ruby/ruffl/cmds
-	#export PATH=${PATH}:$HOME/aspectj/aspectj1.6/bin
-	#export PATH=${PATH}:/sbin:/usr/sbin # Programs such as ifconfig
 	export PATH=${PATH}:/usr/local/Acrobat4/bin # Adobe Acrobat
 	export PATH=${PATH}:/usr/local/opt/jupyterlab/bin
 
@@ -161,11 +153,8 @@ if [ -z "$BEEN_HERE" ]; then
 	export PATH=/usr/local/go/bin:${PATH}
 	export PATH=${HOME}/bin:${PATH}
 	export PATH=${HOME}/lbin:${PATH}
-	export PATH=.:${PATH}
 
 	if [ -z "$MANPATH" ]; then
-		#export MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:$HOME/osrc/wtfc-osx-man
-		#export MANPATH=$HOME/man
 		export MANPATH=$HOME/git/johnkerl/miller/man
 	fi
 	export MANPATH=${MANPATH}:/usr/share/man
