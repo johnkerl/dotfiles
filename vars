@@ -1,5 +1,9 @@
 # vim: set filetype=sh:
 
+# Ref:
+# eval $(ssh-agent -s)
+# ssh-add ~/.ssh/id_rsa
+
 # ----------------------------------------------------------------
 #export MLR_REPL_PS1='mlr: '
 #export MLR_REPL_PS1='μλρ: '
