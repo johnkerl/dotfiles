@@ -4,7 +4,8 @@
   options("menu.graphics" = FALSE) # no Xquartz pop-ups when I'm using the CLI
 
   # options(repos = list(CRAN = "https://cran.rstudio.com"))
-  options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/2023-10-09"))
+  # options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/2023-10-09"))
+  options(repos = c(CRAN = "https://cran.r-project.org"))
 
   if (interactive()) {
     library(tiledb)
