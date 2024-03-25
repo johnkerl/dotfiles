@@ -47,6 +47,10 @@ rox <- function() { roxygen2::roxygenise() }
 pbs <- function() { pkgdown::build_site()  }
 
 tht  <- function() { testthat::test_local("tests/testthat") }
+tsmx <- function() { testthat::set_max_fails(Inf) }
+
+tsdf  <- function() { testthat::test_file("tests/testthat/test-SOMADataFrame.R") }
+tseq  <- function() { testthat::test_file("tests/testthat/test-SOMAExperiment-query.R")
 
 tta   <- function() { tinytest::test_all(".")                                           }
 tcurg <- function() { tinytest::run_test_file("inst/tinytest/test_c_udf_reg_generic.R") }
@@ -77,3 +81,8 @@ local({
 })
 
 options(download.file.method = 'libcurl' , HTTPUserAgent = 'R/4.3.2 R (4.3.2 x86_64-pc-linux-gnu x86_64 linux-gnu)' ) 
+local({
+   r <- getOption("repos");
+   r["CRAN"] <- "https://cloud.r-project.org"
+   options(repos=r)
+})
