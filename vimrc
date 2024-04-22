@@ -146,9 +146,9 @@ au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 c
 set expandtab
 
 " TWO:
-"map <C-a> I  <ESC>
-"map <C-u> 0xx
-"set ts=2
+map <C-a> I  <ESC>
+map <C-u> 0xx
+set ts=2
 
 " THREE:
 "map <C-a> I   <ESC>
@@ -156,9 +156,9 @@ set expandtab
 "set ts=3
 
 " FOUR:
-map <C-a> I    <ESC>
-map <C-u> 0xxxx
-set ts=4
+"#map <C-a> I    <ESC>
+"map <C-u> 0xxxx
+"set ts=4
 
 " TAB:
 """""map <C-a> I<TAB><ESC>
