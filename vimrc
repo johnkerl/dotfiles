@@ -281,6 +281,11 @@ au BufNewFile,BufRead *.[rR] set expandtab
 au BufNewFile,BufRead *.[rR] map <C-a> I  <ESC>
 au BufNewFile,BufRead *.[rR] map <C-u> 0xx
 
+au BufNewFile,BufRead *.md set ts=2
+au BufNewFile,BufRead *.md set expandtab
+au BufNewFile,BufRead *.md map <C-a> I  <ESC>
+au BufNewFile,BufRead *.md map <C-u> 0xx
+
 function Yestabs()
   set ts=4
   set noexpandtab
