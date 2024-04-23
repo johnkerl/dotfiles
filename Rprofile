@@ -54,6 +54,7 @@ dlatht <- function() { devtools::load_all(); testthat::test_local("tests/testtha
 tfac  <- function() { testthat::test_file("tests/testthat/test-Factory.R") }
 tsdf  <- function() { testthat::test_file("tests/testthat/test-SOMADataFrame.R") }
 tseq  <- function() { testthat::test_file("tests/testthat/test-SOMAExperiment-query.R")
+tsceo <- function() { testthat::test_file("tests/testthat/test-SCEOutgest.R")
 
 tta   <- function() { tinytest::test_all(".")                                           }
 tcurg <- function() { tinytest::run_test_file("inst/tinytest/test_c_udf_reg_generic.R") }
