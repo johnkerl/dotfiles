@@ -49,6 +49,8 @@ pbs <- function() { pkgdown::build_site()  }
 tht  <- function() { testthat::test_local("tests/testthat") }
 tsmx <- function() { testthat::set_max_fails(Inf) }
 
+dlatht <- function() { devtools::load_all(); testthat::test_local("tests/testthat") }
+
 tfac  <- function() { testthat::test_file("tests/testthat/test-Factory.R") }
 tsdf  <- function() { testthat::test_file("tests/testthat/test-SOMADataFrame.R") }
 tseq  <- function() { testthat::test_file("tests/testthat/test-SOMAExperiment-query.R")
