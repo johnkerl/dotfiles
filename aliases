@@ -191,6 +191,14 @@ alias    gdm='git diff origin/main'
 alias   gdma='git diff origin/master'
 alias   gdmo='git diff origin/main-old'
 
+gacp() {
+  if [ $# -eq 1 ]; then
+    gam && gcm "$@" && git push
+  else
+    echo "Need commit message as single argument"
+  fi
+}
+
 # from https://github.com/johnkerl/scripts/tree/main/git
 alias     gsb='git show-current-branch'
 alias     sbs='git show-branches'
