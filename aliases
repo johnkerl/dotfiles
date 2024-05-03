@@ -238,6 +238,7 @@ alias five='PATH=../c:$PATH'
 alias  six='PATH=../go:$PATH'
 
 alias vvv='vim $mlb/todo.txt'
+alias vtt='vim ~/Desktop/TODAY.txt'
 
 my_assign_dir  pkg    "pkg"
 my_assign_dir  mlv    "pkg/mlrval"
