@@ -46,6 +46,7 @@ dla <- function() { devtools::load_all()   }
 rox <- function() { roxygen2::roxygenise() }
 pbs <- function() { pkgdown::build_site()  }
 
+tnt  <- function() { tinytest::run_test_dir('inst/tinytest') }
 tht  <- function() { testthat::test_local("tests/testthat") }
 tsmx <- function() { testthat::set_max_fails(Inf) }
 
