@@ -67,3 +67,11 @@ fi
 if [ -f "$HOME/.cargo/.env" ]; then
   . "$HOME/.cargo/env"
 fi
+
+# ----------------------------------------------------------------
+# nvm
+
+#export NVM_DIR=~/.nvm
+export NVM_DIR=/usr/local/opt/nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
