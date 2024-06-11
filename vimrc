@@ -147,22 +147,26 @@ au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 c
 set expandtab
 
 " TWO:
-map <C-a> I  <ESC>j
-map <C-u> 0xxj
+map <C-a> I  <ESC>
+map <C-b> I  <ESC>j
+map <C-u> 0xx
 set ts=2
 
 " THREE:
 "map <C-a> I   <ESC>
+"map <C-b> I   <ESC>j
 "map <C-u> 0xxx
 "set ts=3
 
 " FOUR:
 "#map <C-a> I    <ESC>
+"#map <C-b> I    <ESC>j
 "map <C-u> 0xxxx
 "set ts=4
 
 " TAB:
 """""map <C-a> I<TAB><ESC>
+"""""map <C-b> I<TAB><ESC>j
 """""map <C-u> 0x
 "set ts=8
 
@@ -179,126 +183,150 @@ map \C :set colorcolumn=<C-m>
 
 " ----------------------------------------------------------------
 "au BufNewFile,BufRead *.java map <C-a> I    <ESC>
+"au BufNewFile,BufRead *.java map <C-b> I    <ESC>j
 "au BufNewFile,BufRead *.java map <C-u> 0xxxx
 
 "au BufNewFile,BufRead *.g map <C-a> I    <ESC>
+"au BufNewFile,BufRead *.g map <C-b> I    <ESC>j
 "au BufNewFile,BufRead *.g map <C-u> 0xxxx
 
 "au BufNewFile,BufRead *.groovy map <C-a> I    <ESC>
+"au BufNewFile,BufRead *.groovy map <C-b> I    <ESC>j
 "au BufNewFile,BufRead *.groovy map <C-u> 0xxxx
 
 au BufNewFile,BufRead Makefile* set ts=8
 au BufNewFile,BufRead Makefile* set noexpandtab
-au BufNewFile,BufRead Makefile* map <C-a> I<TAB><ESC>j
-au BufNewFile,BufRead Makefile* map <C-u> 0xj
+au BufNewFile,BufRead Makefile* map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead Makefile* map <C-b> I<TAB><ESC>j
+au BufNewFile,BufRead Makefile* map <C-u> 0x
 
 au BufNewFile,BufRead Makevars* set ts=8
 au BufNewFile,BufRead Makevars* set noexpandtab
-au BufNewFile,BufRead Makevars* map <C-a> I<TAB><ESC>j
-au BufNewFile,BufRead Makevars* map <C-u> 0xj
+au BufNewFile,BufRead Makevars* map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead Makevars* map <C-b> I<TAB><ESC>j
+au BufNewFile,BufRead Makevars* map <C-u> 0x
 
 au BufNewFile,BufRead configure.ac set ts=8
 au BufNewFile,BufRead configure.ac set noexpandtab
-au BufNewFile,BufRead configure.ac map <C-a> I<TAB><ESC>j
-au BufNewFile,BufRead configure.ac map <C-u> 0xj
+au BufNewFile,BufRead configure.ac map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead configure.ac map <C-b> I<TAB><ESC>j
+au BufNewFile,BufRead configure.ac map <C-u> 0x
 
 "au BufNewFile,BufRead *.[ch] set ts=4
 "au BufNewFile,BufRead *.[ch] set noexpandtab
-"au BufNewFile,BufRead *.[ch] map <C-a> I<TAB><ESC>j
-"au BufNewFile,BufRead *.[ch] map <C-u> 0xj
+"au BufNewFile,BufRead *.[ch] map <C-a> I<TAB><ESC>
+"au BufNewFile,BufRead *.[ch] map <C-b> I<TAB><ESC>j
+"au BufNewFile,BufRead *.[ch] map <C-u> 0x
 
 au BufNewFile,BufRead *.[ch] set ts=2
 au BufNewFile,BufRead *.[ch] set expandtab
-au BufNewFile,BufRead *.[ch] map <C-a> I  <ESC>j
-au BufNewFile,BufRead *.[ch] map <C-u> 0xxj
+au BufNewFile,BufRead *.[ch] map <C-a> I  <ESC>
+au BufNewFile,BufRead *.[ch] map <C-b> I  <ESC>j
+au BufNewFile,BufRead *.[ch] map <C-u> 0xx
 
 au BufNewFile,BufRead *.cc set ts=2
 au BufNewFile,BufRead *.cc set expandtab
-au BufNewFile,BufRead *.cc map <C-a> I  <ESC>j
-au BufNewFile,BufRead *.cc map <C-u> 0xxj
+au BufNewFile,BufRead *.cc map <C-a> I  <ESC>
+au BufNewFile,BufRead *.cc map <C-b> I  <ESC>j
+au BufNewFile,BufRead *.cc map <C-u> 0xx
 
 au BufNewFile,BufRead *.cpp set ts=2
 au BufNewFile,BufRead *.cpp set expandtab
-au BufNewFile,BufRead *.cpp map <C-a> I  <ESC>j
-au BufNewFile,BufRead *.cpp map <C-u> 0xxj
+au BufNewFile,BufRead *.cpp map <C-a> I  <ESC>
+au BufNewFile,BufRead *.cpp map <C-b> I  <ESC>j
+au BufNewFile,BufRead *.cpp map <C-u> 0xx
 
 au BufNewFile,BufRead CMakeLists.txt set ts=2
 au BufNewFile,BufRead CMakeLists.txt set expandtab
 au BufNewFile,BufRead CMakeLists.txt map <C-a> I  <ESC>j
-au BufNewFile,BufRead CMakeLists.txt map <C-u> 0xxj
+au BufNewFile,BufRead CMakeLists.txt map <C-u> 0xx
 
 au BufNewFile,BufRead *.[ly] set ts=4
 au BufNewFile,BufRead *.[ly] set noexpandtab
-au BufNewFile,BufRead *.[ly] map <C-a> I<TAB><ESC>j
-au BufNewFile,BufRead *.[ly] map <C-u> 0xj
+au BufNewFile,BufRead *.[ly] map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead *.[ly] map <C-b> I<TAB><ESC>j
+au BufNewFile,BufRead *.[ly] map <C-u> 0x
 
 au BufNewFile,BufRead *.[d] set ts=4
 au BufNewFile,BufRead *.[d] set noexpandtab
-au BufNewFile,BufRead *.[d] map <C-a> I<TAB><ESC>j
-au BufNewFile,BufRead *.[d] map <C-u> 0xj
+au BufNewFile,BufRead *.[d] map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead *.[d] map <C-b> I<TAB><ESC>j
+au BufNewFile,BufRead *.[d] map <C-u> 0x
 
 au BufNewFile,BufRead *.go set ts=4
 au BufNewFile,BufRead *.go set noexpandtab
-au BufNewFile,BufRead *.go map <C-a> I<TAB><ESC>j
-au BufNewFile,BufRead *.go map <C-u> 0xj
+au BufNewFile,BufRead *.go map <C-a> I<TAB><ESC>
+au BufNewFile,BufRead *.go map <C-b> I<TAB><ESC>j
+au BufNewFile,BufRead *.go map <C-u> 0x
 
 "au BufNewFile,BufRead *.py set ts=4
 "au BufNewFile,BufRead *.py set noexpandtab
-"au BufNewFile,BufRead *.py map <C-a> I<TAB><ESC>j
-"au BufNewFile,BufRead *.py map <C-u> 0xj
+"au BufNewFile,BufRead *.py map <C-a> I<TAB><ESC>
+"au BufNewFile,BufRead *.py map <C-b> I<TAB><ESC>j
+"au BufNewFile,BufRead *.py map <C-u> 0x
 
 "au BufNewFile,BufRead py* set ts=4
 "au BufNewFile,BufRead py* set noexpandtab
-"au BufNewFile,BufRead py* map <C-a> I<TAB><ESC>j
-"au BufNewFile,BufRead py* map <C-u> 0xj
+"au BufNewFile,BufRead py* map <C-a> I<TAB><ESC>
+"au BufNewFile,BufRead py* map <C-b> I<TAB><ESC>j
+"au BufNewFile,BufRead py* map <C-u> 0x
 
 "au BufNewFile,BufRead pgr set ts=4
 "au BufNewFile,BufRead pgr set noexpandtab
-"au BufNewFile,BufRead pgr map <C-a> I<TAB><ESC>j
-"au BufNewFile,BufRead pgr map <C-u> 0xj
+"au BufNewFile,BufRead pgr map <C-a> I<TAB><ESC>
+"au BufNewFile,BufRead pgr map <C-b> I<TAB><ESC>j
+"au BufNewFile,BufRead pgr map <C-u> 0x
 
 au BufNewFile,BufRead *.py set ts=4
 au BufNewFile,BufRead *.py set expandtab
-au BufNewFile,BufRead *.py map <C-a> I    <ESC>j
-au BufNewFile,BufRead *.py map <C-u> 0xxxxj
+au BufNewFile,BufRead *.py map <C-a> I    <ESC>
+au BufNewFile,BufRead *.py map <C-b> I    <ESC>j
+au BufNewFile,BufRead *.py map <C-u> 0xxxx
 
 au BufNewFile,BufRead py* set ts=4
 au BufNewFile,BufRead py* set expandtab
-au BufNewFile,BufRead py* map <C-a> I    <ESC>j
-au BufNewFile,BufRead py* map <C-u> 0xxxxj
+au BufNewFile,BufRead py* map <C-a> I    <ESC>
+au BufNewFile,BufRead py* map <C-b> I    <ESC>j
+au BufNewFile,BufRead py* map <C-u> 0xxxx
 
 au BufNewFile,BufRead pgr set ts=4
 au BufNewFile,BufRead pgr set expandtab
-au BufNewFile,BufRead pgr map <C-a> I    <ESC>j
-au BufNewFile,BufRead pgr map <C-u> 0xxxxj
+au BufNewFile,BufRead pgr map <C-a> I    <ESC>
+au BufNewFile,BufRead pgr map <C-b> I    <ESC>j
+au BufNewFile,BufRead pgr map <C-u> 0xxxx
 
 :autocmd FileType python set ts=4
 :autocmd FileType python set expandtab
-:autocmd FileType python map <C-a> I    <ESC>j
-:autocmd FileType python map <C-u> 0xxxxj
+:autocmd FileType python map <C-a> I    <ESC>
+:autocmd FileType python map <C-b> I    <ESC>j
+:autocmd FileType python map <C-u> 0xxxx
 
 au BufNewFile,BufRead *.[rR] set ts=2
 au BufNewFile,BufRead *.[rR] set expandtab
-au BufNewFile,BufRead *.[rR] map <C-a> I  <ESC>j
-au BufNewFile,BufRead *.[rR] map <C-u> 0xxj
+au BufNewFile,BufRead *.[rR] map <C-a> I  <ESC>
+au BufNewFile,BufRead *.[rR] map <C-b> I  <ESC>j
+au BufNewFile,BufRead *.[rR] map <C-u> 0xx
 
 au BufNewFile,BufRead *.md set ts=2
 au BufNewFile,BufRead *.md set expandtab
-au BufNewFile,BufRead *.md map <C-a> I  <ESC>j
-au BufNewFile,BufRead *.md map <C-u> 0xxj
+au BufNewFile,BufRead *.md map <C-a> I  <ESC>
+au BufNewFile,BufRead *.md map <C-b> I  <ESC>j
+au BufNewFile,BufRead *.md map <C-u> 0xx
 
 function Yestabs()
   set ts=4
   set noexpandtab
-  map <C-a> I<TAB><ESC>j
-  map <C-u> 0xj
+  map <C-a> I<TAB><ESC>
+  map <C-b> I<TAB><ESC>j
+  map <C-u> 0x
 endfunction
 
 function Notabs()
   set ts=4
   set expandtab
-  map <C-a> I    <ESC>j
-  map <C-u> 0xxxxj
+  map <C-a> I    <ESC>
+  map <C-b> I    <ESC>j
+  map <C-u> 0xxxx
 endfunction
 
 map ,Z :call Yestabs()<CR>
