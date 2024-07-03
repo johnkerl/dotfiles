@@ -72,9 +72,6 @@ alias tht='Rscript -e testthat::test_local\(\"tests/testthat\"\)'
 alias rabi='rca && rcb && rci && echo && echo DONE'
 
 # ----------------------------------------------------------------
-alias corecpp='g++ -std=c++17 -Wno-deprecated-declarations -I/usr/local/include -L/usr/local/lib -ltiledb'
-
-# ----------------------------------------------------------------
 alias qp='quarto preview'
 alias qr='quarto render'
 
