@@ -421,11 +421,13 @@ map \r O* * *<ESC>32I <ESC>
 map \v :se ft=java<C-m>
 
 " fleurons:
-map \f O𐡷𐡷 ❦ 𐡸 𐫱 𐡷 ❦ 𐡸 𐫱 𐡷 ❦ 𐡸 𐫱 𐡷 ❦ 𐡸 𐫱 𐡷 ❦ 𐡸 𐫱 𐡷 ❦ 𐡸 𐫱 𐡷 ❦ 𐡸 𐫱 𐡷 ❦ 𐡸𐡸<ESC>
+"map \f O𐡷𐡷 ❦ 𐡸 𐫱 𐡷 ❦ 𐡸 𐫱 𐡷 ❦ 𐡸 𐫱 𐡷 ❦ 𐡸 𐫱 𐡷 ❦ 𐡸 𐫱 𐡷 ❦ 𐡸 𐫱 𐡷 ❦ 𐡸 𐫱 𐡷 ❦ 𐡸𐡸<ESC>
 
 " Set mark, format, return to mark. Without the mark, the cursor would be at
 " the top of the file after the %!...
-map \g mz:%!gofmt<CR>'z
+map \G mz:%!gofmt<CR>'z
+map \g mz:%!clang-format<CR>'z
+map \f :w<CR>!make format<CR>
 
 "au BufNewFile,BufRead *.go set filetype=go
 
