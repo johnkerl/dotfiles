@@ -171,11 +171,14 @@ alias    gaa='gam && echo "" && gca'
 alias   gaap='gam && echo "" && gca && echo "" && gpf'
 alias    gsl='git sl ...upstream/main'
 alias    grc='git rebase --continue'
-alias    gla='git log --graph --all'
-alias   glog='git log --graph --oneline'
+
+alias   glog='git log'
 alias  glogg='git log --graph'
-alias  gloga='git log --graph --all --oneline'
-alias glogga='git log --graph --all'
+
+alias  glogga='git log --graph --all'
+alias  gloggo='git log --graph --oneline'
+alias gloggoa='git log --graph --all --oneline'
+
 alias    grh='git reset --hard'
 alias   gprm='git pull --rebase origin main'
 alias  gprmr='git pull --rebase origin master'
