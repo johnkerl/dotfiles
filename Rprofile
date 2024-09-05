@@ -75,7 +75,8 @@ tdoff <- function() { Sys.unsetenv('TILEDB_CLOUD_R_HTTP_DEBUG') }
 
 dtt  <- function() { devtools::test() }
 
-tsd  <- function() { devtools::test_active_file(file="tests/testthat/test_Seurat_SCDataset.R") }
+tsd  <- function() { devtools::test_active_file(file="tests/testthat/test-SOMADataFrame.R") }
+tsh  <- function() { devtools::test_active_file(file="tests/testthat/test-shape.R") }
 
 rfoo <- function() { source("foo.r") }
 
@@ -86,6 +87,11 @@ local({
 })
 
 options(download.file.method = 'libcurl' , HTTPUserAgent = 'R/4.3.2 R (4.3.2 x86_64-pc-linux-gnu x86_64 linux-gnu)' ) 
+local({
+   r <- getOption("repos");
+   r["CRAN"] <- "https://cloud.r-project.org"
+   options(repos=r)
+})
 local({
    r <- getOption("repos");
    r["CRAN"] <- "https://cloud.r-project.org"
