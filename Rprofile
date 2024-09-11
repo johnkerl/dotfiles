@@ -53,7 +53,10 @@ tsmx <- function() { testthat::set_max_fails(Inf) }
 dlatht <- function() { devtools::load_all(); testthat::test_local("tests/testthat") }
 
 tfac  <- function() { testthat::test_file("tests/testthat/test-Factory.R") }
-tsdf  <- function() { testthat::test_file("tests/testthat/test-SOMADataFrame.R") }
+#tsdf  <- function() { testthat::test_file("tests/testthat/test-SOMADataFrame.R") }
+tsdf  <- function() { devtools::test_active_file(file="tests/testthat/test-SOMADataFrame.R") }
+tsnda <- function() { devtools::test_active_file(file="tests/testthat/test-SOMASparseNDArray.R") }
+tsh   <- function() { devtools::test_active_file(file="tests/testthat/test-shape.R") }
 tseq  <- function() { testthat::test_file("tests/testthat/test-SOMAExperiment-query.R") }
 tsceo <- function() { testthat::test_file("tests/testthat/test-SCEOutgest.R") }
 
@@ -74,9 +77,6 @@ tdon  <- function() { Sys.setenv(TILEDB_CLOUD_R_HTTP_DEBUG='true') }
 tdoff <- function() { Sys.unsetenv('TILEDB_CLOUD_R_HTTP_DEBUG') }
 
 dtt  <- function() { devtools::test() }
-
-tsd  <- function() { devtools::test_active_file(file="tests/testthat/test-SOMADataFrame.R") }
-tsh  <- function() { devtools::test_active_file(file="tests/testthat/test-shape.R") }
 
 rfoo <- function() { source("foo.r") }
 
