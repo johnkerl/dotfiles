@@ -105,6 +105,8 @@ my_assign_dir spf "$HOME/git/johnkerl/spffl"
 # For Python REPL with my most-used modules pre-loaded:
 #alias py='python -Qnew -i ~/.mypy'
 
+alias pve='python --version'
+
 if [ "$UNAME" = "Darwin" ]; then
   alias ls='ls -G'
 else
