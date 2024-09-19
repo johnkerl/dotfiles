@@ -76,6 +76,13 @@ export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# ----------------------------------------------------------------
+if [ -f $HOME/.no-pyenv ]; then
+  export PATH=$HOME/lbin/python-3.9-links:$PATH
+else
+  export PYENV_ROOT="$HOME/.pyenv"
+  if [ -d $PYENV_ROOT/bin ] ; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+  fi
+fi
