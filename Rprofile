@@ -39,12 +39,13 @@ vers <- function() {
   print(packageVersion("tiledbcloud"))
 }
 
-t   <- function() { library(tiledb)        }
-tc  <- function() { library(tiledbcloud)   }
-d   <- function() { library(devtools)      }
-dla <- function() { devtools::load_all()   }
-rox <- function() { roxygen2::roxygenise() }
-pbs <- function() { pkgdown::build_site()  }
+t    <- function() { library(tiledb)        }
+tc   <- function() { library(tiledbcloud)   }
+d    <- function() { library(devtools)      }
+dla  <- function() { devtools::load_all()   }
+rox  <- function() { roxygen2::roxygenise() }
+ddoc <- function() { devtools::document()   }
+pbs  <- function() { pkgdown::build_site()  }
 
 tnt  <- function() { tinytest::run_test_dir('inst/tinytest') }
 tht  <- function() { testthat::test_local("tests/testthat") }
