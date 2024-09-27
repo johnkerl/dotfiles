@@ -39,9 +39,9 @@ vers <- function() {
   print(packageVersion("tiledbcloud"))
 }
 
-t    <- function() { library(tiledb)        }
-tc   <- function() { library(tiledbcloud)   }
-d    <- function() { library(devtools)      }
+#t    <- function() { library(tiledb)        }
+#tc   <- function() { library(tiledbcloud)   }
+#d    <- function() { library(devtools)      }
 dla  <- function() { devtools::load_all()   }
 rox  <- function() { roxygen2::roxygenise() }
 ddoc <- function() { devtools::document()   }

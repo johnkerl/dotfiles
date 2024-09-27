@@ -156,10 +156,27 @@ alias     gd='git diff'
 #alias    gd1='git diff HEAD~ HEAD'
 #alias    gd2='git diff HEAD~2 HEAD'
 #alias    gd3='git diff HEAD~3 HEAD'
+
 alias    gd1='git diff HEAD~'
 alias    gd2='git diff HEAD~2'
 alias    gd3='git diff HEAD~3'
+alias    gd4='git diff HEAD~4'
+alias    gd5='git diff HEAD~5'
+
 alias   gd12='git diff HEAD~2 HEAD~1'
+alias   gd13='git diff HEAD~3 HEAD~1'
+alias   gd14='git diff HEAD~4 HEAD~1'
+alias   gd15='git diff HEAD~5 HEAD~1'
+
+alias   gd23='git diff HEAD~3 HEAD~2'
+alias   gd24='git diff HEAD~4 HEAD~2'
+alias   gd25='git diff HEAD~5 HEAD~2'
+
+alias   gd34='git diff HEAD~4 HEAD~3'
+alias   gd35='git diff HEAD~5 HEAD~3'
+
+alias   gd45='git diff HEAD~5 HEAD~4'
+
 alias     ga='git add'
 alias    gam='git add $(git status | grep modified: | sed "s/ *modified: *//" | cpick 1)'
 alias    gcm='git commit -m'
