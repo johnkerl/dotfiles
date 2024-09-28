@@ -61,6 +61,8 @@ tsh   <- function() { devtools::test_active_file(file="tests/testthat/test-shape
 tseq  <- function() { testthat::test_file("tests/testthat/test-SOMAExperiment-query.R") }
 tsceo <- function() { testthat::test_file("tests/testthat/test-SCEOutgest.R") }
 
+tht1  <- function(filename) { devtools::test_active_file(file=filename) }
+
 tta   <- function() { tinytest::test_all(".")                                           }
 tcurg <- function() { tinytest::run_test_file("inst/tinytest/test_c_udf_reg_generic.R") }
 tcue  <- function() { tinytest::run_test_file("inst/tinytest/test_c_udf_execution.R")   }
