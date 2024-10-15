@@ -39,6 +39,10 @@ vers <- function() {
   print(packageVersion("tiledbcloud"))
 }
 
+etrc <- function() { spdl::filesetup("/dev/stderr"); spdl::set_level("trace") }
+edbg <- function() { spdl::filesetup("/dev/stderr"); spdl::set_level("debug") }
+eoff <- function() { spdl::filesetup("/dev/stderr"); spdl::set_level("error") }
+
 #t    <- function() { library(tiledb)        }
 #tc   <- function() { library(tiledbcloud)   }
 #d    <- function() { library(devtools)      }
