@@ -373,7 +373,8 @@ map <C-x> gqj
 " Replace current character with space and move right.  Nice with auto-repeat.
 map <C-d> r l
 " Move to next file, with save.
-map <C-o> :w<C-m>:n<C-m>
+"map <C-o> :w<C-m>:n<C-m>
+map <C-o> 0xj
 
 " ================================================================
 " Language-specific separators.  Uppercase is equal signs; lowercase is dashes.

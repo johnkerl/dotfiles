@@ -8,16 +8,16 @@
   options(repos = c(CRAN = "https://cran.r-project.org"))
 
   if (interactive()) {
-    library(tiledb)
+    #library(tiledb)
     #library(tiledbcloud)
     library(tiledbsoma)
     library(tinytest)
     #library(future)
-    namespace <<- 'johnkerl-tiledb'
-    namespaceToCharge <<- namespace
+    #namespace <<- 'johnkerl-tiledb'
+    #namespaceToCharge <<- namespace
     cat("R:            ", R.Version()$version.string,                     "\n")
-    cat("tiledb:       ", toString(utils::packageVersion("tiledb")),      "\n")
-    cat("core:         ", as.character(tiledb::tiledb_version(compact=TRUE)), "\n")
+    #cat("tiledb:       ", toString(utils::packageVersion("tiledb")),      "\n")
+    #cat("core:         ", as.character(tiledb::tiledb_version(compact=TRUE)), "\n")
     #cat("tiledbcloud: ", toString(utils::packageVersion("tiledbcloud")), "\n")
     #cat("tiledbsoma:   ", toString(utils::packageVersion("tiledbsoma")),    "\n")
     tiledbsoma::show_package_versions()
@@ -35,7 +35,7 @@
 }
 
 vers <- function() {
-  print(packageVersion("tiledb"))
+  #print(packageVersion("tiledb"))
   print(packageVersion("tiledbcloud"))
 }
 
