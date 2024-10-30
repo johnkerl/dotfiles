@@ -8,8 +8,7 @@
   options(repos = c(CRAN = "https://cran.r-project.org"))
 
   if (interactive()) {
-    # library(tiledb)
-    # library(tiledbcloud)
+    library(tiledb)
     library(tiledbsoma)
     library(tinytest)
     # library(future)
