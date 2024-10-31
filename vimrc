@@ -103,7 +103,7 @@ map \l :se list<C-m>
 map \L :se nolist<C-m>
 
 " This highlight git merge lines
-map \m :se hlsearch<C-m>/^[<=\|>][<=\|>][<=\|>][<=\|>][<=\|>][<=\|>][<=\|>]<C-m>
+map \m :se hlsearch<C-m>/^[<=\|>][<=\|>][<=\|>][<=\|>][<=\|>][<=\|>][<=\|>] <C-m>
 
 map <C-h> :.!bash<CR>j
 map \h !}echorun<CR>}}
@@ -131,14 +131,28 @@ map <SPACE> zz
 
 " ----------------------------------------------------------------
 " https://vi.stackexchange.com/questions/15505/highlight-whole-todo-comment-line
+
 syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
 highlight link myTodo Todo
 highlight Search ctermbg=LightGrey
 highlight Todo ctermbg=DarkGrey
+
+syntax match myImportant1 /^ *! .*/
+highlight link myImportant1 ErrorMsg
+
+syntax match myImportant2 /^ *\~ .*/
+highlight link myImportant2 SpellBad
+
+syntax match myImportant3 /^ *w .*/
+highlight link myImportant3 Visual
+
 "syn list Todo
 "syn list myTodo
 
 au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
+au BufNewFile,BufRead * syntax match myImportant1 /^ *! .*/
+au BufNewFile,BufRead * syntax match myImportant2 /^ *\~ .*/
+au BufNewFile,BufRead * syntax match myImportant3 /^ *w .*/
 
 " ----------------------------------------------------------------
 " Tabs/whitespaces, and indent/unindent keymaps
@@ -374,6 +388,8 @@ map <C-x> gqj
 map <C-d> r l
 " Move to next file, with save.
 map <C-o> :w<C-m>:n<C-m>
+" Shell uncomment with autorepeat
+map <C-S-o> 0xj
 
 " ================================================================
 " Language-specific separators.  Uppercase is equal signs; lowercase is dashes.
