@@ -92,7 +92,7 @@ alias     cmg='cmake -B build'
 alias cmgdist='cmake -B build -DCMAKE_INSTALL_PREFIX=./dist'
 alias    cmgd='cmake -B build -DCMAKE_BUILD_TYPE=Debug'
 alias     cmb='cmake --build build'
-alias     cmt='cmake --build build --target test -j 12'
+alias     cmt='cmake --build build --target test* -j 12'
 alias     cmi='cmake --build build --target install'
 alias sudocmi='sudo cmake --build build --target install'
 
