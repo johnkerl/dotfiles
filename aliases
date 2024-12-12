@@ -67,6 +67,7 @@ alias rcb='rm -f *.tar.gz; R CMD build --no-build-vignettes --no-manual .'
 alias rcc='R CMD check --as-cran --no-vignettes --no-manual *.tar.gz'
 alias rci='R CMD INSTALL --no-test-load --no-docs --no-html *tar.gz'
 alias rcbi='rcb && rci'
+alias rcac='R CMD check --as-cran --no-manual *.tar.gz'
 
 alias tht='Rscript -e testthat::test_local\(\"tests/testthat\"\)'
 alias rabi='rca && rcb && rci && echo && echo DONE'
