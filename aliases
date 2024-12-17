@@ -49,6 +49,13 @@ wreset () {
     stty werase undef
 }
 
+whither () {
+  for arg; do
+  which $arg || declare -f $arg || alias $arg
+  done
+}
+
+# ----------------------------------------------------------------
 alias     R='R --no-save -q'
 ttl() {
   Rscript -e 'testthat::test_local("tests/testthat")'
