@@ -86,6 +86,7 @@ map \, :tnext<C-m>
 map \x l
 """""map \w :w<C-m>:!latex %<C-m>
 
+map \w :syn sync fromstart<CR>
 map \e :set hlsearch<CR>
 map \E :set nohlsearch<CR>
 
