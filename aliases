@@ -260,8 +260,7 @@ alias cbr='cargo build --release'
 # Miller
 . ~/.vars-tracker
 
-my_assign_file vv   "$HOME/Desktop/folder/PLAN.txt"
-alias nn='nnbu ~/Desktop/folder/PLAN.txt'
+my_assign_file vv   "$HOME/git/johnkerl/tiledb-misc/notes/todo/PLAN.txt"
 
 my_assign_dir mlb   "$HOME/git/johnkerl/miller"
 my_assign_dir mld   "$mlb/docs"
