@@ -261,6 +261,7 @@ alias cbr='cargo build --release'
 . ~/.vars-tracker
 
 my_assign_file vv   "$HOME/git/johnkerl/tiledb-misc/notes/todo/PLAN.txt"
+alias vtt="vim $HOME/git/johnkerl/tiledb-misc/notes/TODAY.txt"
 
 my_assign_dir mlb   "$HOME/git/johnkerl/miller"
 my_assign_dir mld   "$mlb/docs"
@@ -271,7 +272,6 @@ alias five='PATH=../c:$PATH'
 alias  six='PATH=../go:$PATH'
 
 alias vvv='vim $mlb/todo.txt'
-alias vtt='vim ~/Desktop/TODAY.txt'
 
 my_assign_dir  pkg    "pkg"
 my_assign_dir  mlv    "pkg/mlrval"
