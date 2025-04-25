@@ -1,0 +1,5 @@
+[build]
+rustc-wrapper = "/opt/homebrew/bin/sccache"
+
+[profile.debug.package."*"]
+debug = "line-tables-only"
