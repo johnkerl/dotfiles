@@ -62,6 +62,10 @@ ttl() {
 }
 
 # ----------------------------------------------------------------
+alias cgclip='cargo clippy --workspace --all-targets --all-features -- -Dwarnings'
+alias cgtest='cargo test --workspace --all-targets --all-features'
+
+# ----------------------------------------------------------------
 alias dreb='docker run --rm -it --entrypoint=/bin/bash'
 alias drit='docker run --rm -it'
 
@@ -83,6 +87,7 @@ alias rabi='rca && rcb && rci && echo && echo DONE'
 alias qp='quarto preview'
 alias qr='quarto render'
 
+# ----------------------------------------------------------------
 # Since "java" is a leading substring of "javac", "!java" doesn't work right in
 # an edit-compile loop.  Hence, these two.  Likewise for scalac and scala.
 alias jvc=javac
@@ -91,6 +96,8 @@ alias jvr=java
 #alias sc=scalac
 #alias sr=scala
 #alias st='scala org.scalatest.tools.Runner -p . -o -s'
+
+# ----------------------------------------------------------------
 alias grep='grep --color=auto'
 alias gog='rg --type=go'
 alias pyg='rg --type=py'
@@ -111,12 +118,14 @@ alias cmgbti='cmg && cmb && cmti'
 
 my_assign_dir spf "$HOME/git/johnkerl/spffl"
 
+# ----------------------------------------------------------------
 # For Python REPL with my most-used modules pre-loaded:
 #alias py='python -Qnew -i ~/.mypy'
 
 alias  pve='python --version'
 alias pves='pyenv versions'
 
+# ----------------------------------------------------------------
 if [ "$UNAME" = "Darwin" ]; then
   alias ls='ls -G'
 else
