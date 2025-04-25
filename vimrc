@@ -444,7 +444,8 @@ map \v :se ft=java<C-m>
 " the top of the file after the %!...
 map \G mz:%!gofmt<CR>'z
 map \g mz:%!clang-format<CR>'z
-map \f :w<CR>!make format<CR>
+map \f :w<CR>!make format<CR>'z
+map \F mz:%!rustfmt<CR>'z
 
 "au BufNewFile,BufRead *.go set filetype=go
 
