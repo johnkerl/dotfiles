@@ -65,6 +65,8 @@ ttl() {
 alias cbb='cargo build'
 alias crr='cargo run'
 alias cbr='cbb && crr'
+alias rbt='export RUST_BACKTRACE=1'
+alias rbu='unset RUST_BACKTRACE'
 alias cgclip='cargo clippy --workspace --all-targets --all-features -- -Dwarnings'
 alias cgtest='cargo test --workspace --all-targets --all-features'
 
