@@ -68,6 +68,7 @@ alias cbr='cbb && crr'
 alias rbt='export RUST_BACKTRACE=1'
 alias rbu='unset RUST_BACKTRACE'
 alias cgclip='cargo clippy --workspace --all-targets --all-features -- -Dwarnings'
+alias cgbld='cargo build --workspace --all-targets --all-features'
 alias cgtest='cargo test --workspace --all-targets --all-features'
 
 # ----------------------------------------------------------------
