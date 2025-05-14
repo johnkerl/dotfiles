@@ -445,7 +445,8 @@ map \v :se ft=java<C-m>
 map \G mz:%!gofmt<CR>'z
 map \g mz:%!clang-format<CR>'z
 map \f :w<CR>!make format<CR>'z
-map \F mz:%!rustfmt<CR>'z
+" Default edition is 2015: ick.
+map \F mz:%!rustfmt --edition 2024<CR>'z
 
 "au BufNewFile,BufRead *.go set filetype=go
 
