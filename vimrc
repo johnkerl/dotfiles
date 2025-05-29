@@ -12,7 +12,7 @@ set noincsearch
 set noshowmode
 "set notagrelative
 set tagrelative
-set cpoptions=aABcdeFsz
+set cpoptions=aABcdeFs
 set exrc
 set modeline
 set modelines=5

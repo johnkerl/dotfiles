@@ -150,6 +150,7 @@ if [ -z "$BEEN_HERE" ]; then
 	export PATH=${PATH}:/usr/local/opt/node/bin
 	export PATH=${PATH}:/usr/local/Acrobat4/bin # Adobe Acrobat
 	export PATH=${PATH}:/usr/local/opt/jupyterlab/bin
+  export PATH=${PATH}:"/home/ubuntu/.pixi/bin"
 
 	# Path head
 	export PATH=/opt/homebrew/bin:${PATH}
