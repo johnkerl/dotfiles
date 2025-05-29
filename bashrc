@@ -86,3 +86,5 @@ else
     eval "$(pyenv init -)"
   fi
 fi
+
+. "$HOME/.local/bin/env"

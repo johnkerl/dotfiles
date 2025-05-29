@@ -7,6 +7,7 @@ ln -s $(pwd)/aliases      ~/.aliases
 ln -s $(pwd)/bashrc       ~/.bashrc
 ln -s $(pwd)/colorrc      ~/.colorrc
 ln -s $(pwd)/mypy         ~/.mypy
+ln -s $(pwd)/screenrc     ~/.screenrc
 ln -s $(pwd)/vanilla      ~/.vanilla
 ln -s $(pwd)/vars         ~/.vars
 ln -s $(pwd)/vars-tracker ~/.vars-tracker

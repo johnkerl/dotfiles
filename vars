@@ -120,7 +120,7 @@ else
     # For copy/paste into gists etc.:
     # * more spare
     # * blank line before prompt
-    export PSX="\n\[${ps1_color1}\]\u$hostname[\W]\[${default}\] "
+    export PSX="\n\[${ps1_color1}\]\u@$hostname[\W]\[${default}\] "
     alias psx='export PS1="$PSX"'
 fi
 
