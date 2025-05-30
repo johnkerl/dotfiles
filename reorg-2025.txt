@@ -1,6 +1,7 @@
+----------------------------------------------------------------
 STATUS
 * .aliases, .vimrc, et al. are kitchen-sinky
-* all PATH updates in .vars
+* all PATH updates are in .vars
 
 split some things out by language/project/etc:
 * bash: Git, R things, Rust things, C++ things, etc.
@@ -11,3 +12,44 @@ Note for sourcing:
 echo ${BASH_SOURCE[0]}
 echo ${BASH_SOURCE[1]}
 echo ${BASH_SOURCE[2]}
+
+----------------------------------------------------------------
+~/.bashrc
+  ~/.vars
+    ~/.colorrc
+  ~/.vars-personal
+    ~/.vars-tracker SHOULD be used
+  ~/.vars-site
+    ~/.vars-tracker
+
+  ~/.vars-tracker
+  ~/.aliases
+
+----------------------------------------------------------------
+VARS
+  MLR misc
+  colorrc
+  PS1
+  PATH
+  things needed for scripted & interactive
+
+VARS-TRACKER
+  is code
+
+VARS-PERSONAL and VARS-SITE
+  exist mainly to call vars-tracker, & some work-specific aliases/functions
+
+ALIASES
+  things not needed for scripts, only interactive
+  lots of aliases
+  some shell functions
+  lots of use of vars-tracker, e.g. for miller
+
+----------------------------------------------------------------
+IDEAS
+
+* lose the 'vars' and 'aliases' in filenames
+* more prefix-suffix style:
+  - job name (e.g. datadog)
+  - project name (e.g. miller, kwr, jko)
+* have vars-tracker export some have-been-here symbol, & have others require it at the top || b04k
