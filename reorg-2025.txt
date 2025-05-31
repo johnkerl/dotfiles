@@ -53,3 +53,15 @@ IDEAS
   - job name (e.g. datadog)
   - project name (e.g. miller, kwr, jko)
 * have vars-tracker export some have-been-here symbol, & have others require it at the top || b04k
+
+! have a single installer script
+  - macos vs linux
+  - johnkerl/scripts
+  - ~/bin
+  - miller
+  - lumin
+  - golang
+  - johnkerl/dotfiles
+  - johnkerl/private-dotfiles
+  - johnkerl/work-misc
+  - save off & update ~/.bashrc -- or balk until it's manually moved/saved off
