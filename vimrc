@@ -3,6 +3,14 @@
 
 source $HOME/.vimrc-site
 
+" :h :digraphs
+" C-k 'e accent up
+" C-k `e accent down
+" C-k ^n circumflex
+" C-k ~n tilde
+" C-k i: dieresis
+" C-k ,c cedilla
+
 behave xterm
 
 "set compatible
