@@ -112,7 +112,12 @@ else
     export PS1="\n\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${hostname}\[${ps1_color4}\]"
     PS1+="[\${PS1ENV}]"
     PS1+='[$(git-show-current-branch-safe)]'
-    PS1+='[\W]'
+    if [ -x $HOME/bin/basenames ]; then
+      # No PROMPT_DIRTRIM in bash < 4, and I have bash 3 on MacOS in 2025.
+      PS1+='[$(basenames 2)]'
+    else
+      PS1+='[\W]'
+    fi
     #PS1+='[$?]'
     PS1+="$ "
     PS1+="\[${default}\]"
