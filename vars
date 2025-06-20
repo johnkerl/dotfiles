@@ -113,8 +113,9 @@ else
     PS1+="[\${PS1ENV}]"
     PS1+='[$(git-show-current-branch-safe)]'
     if [ -x $HOME/bin/basenames ]; then
-      # No PROMPT_DIRTRIM in bash < 4, and I have bash 3 on MacOS in 2025.
-      PS1+='[$(basenames 2)]'
+      # No PROMPT_DIRTRIM support in bash < 4, and I have bash 3 on MacOS in 2025.
+      export PROMPT_DIRTRIM=2
+      PS1+='[$(basenames $PROMPT_DIRTRIM)]'
     else
       PS1+='[\W]'
     fi
