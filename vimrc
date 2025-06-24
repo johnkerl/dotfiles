@@ -147,13 +147,17 @@ highlight Search ctermbg=LightGrey
 highlight Todo ctermbg=DarkGrey
 
 syntax match myImportant1 /^ *! .*/
-highlight link myImportant1 ErrorMsg
+"highlight link myImportant1 ErrorMsg
+highlight link myImportant1 ModeMsg
 
 syntax match myImportant2 /^ *\~ .*/
-highlight link myImportant2 SpellBad
+"highlight link myImportant2 SpellBad
+highlight link myImportant2 Question
 
 syntax match myImportant3 /^ *w .*/
-highlight link myImportant3 Visual
+"highlight link myImportant3 Visual
+"highlight link myImportant3 Conceal
+highlight link myImportant3 CursorLine
 
 "syn list Todo
 "syn list myTodo
