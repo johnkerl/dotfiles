@@ -27,6 +27,8 @@ unalias rm 2> /dev/null
 
 alias minpath='export PATH=/usr/bin:/bin:/usr/local/bin; export PS1="MINPATH\$ "'
 
+alias sdus='sudo du -hs */ 2> /dev/null| gmsort'
+
 alias 1='fg %1'
 alias 2='fg %2'
 alias 3='fg %3'
@@ -69,6 +71,7 @@ alias rbt='export RUST_BACKTRACE=1'
 alias rbu='unset RUST_BACKTRACE'
 #export CARGO_TARGET_DIR=~/CARGO_TARGET_DIR
 alias cgclip='cargo clippy --workspace --all-targets --all-features -- -Dwarnings'
+alias cgclipfix='cargo clippy --fix --workspace --all-targets --all-features -- -Dwarnings'
 alias  cgbld='cargo build --workspace --all-targets --all-features'
 alias cgtest='cargo test --workspace --all-targets --all-features'
 alias cginst='cargo install --workspace --all-targets --all-features'

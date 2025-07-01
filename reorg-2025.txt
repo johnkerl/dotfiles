@@ -3,10 +3,18 @@ STATUS
 * .aliases, .vimrc, et al. are kitchen-sinky
 * all PATH updates are in .vars
 
-split some things out by language/project/etc:
+Split some things out by language/project/etc:
 * bash: Git, R things, Rust things, C++ things, etc.
 * vim: use the vim subdirectory pattern?
 * leave room/pattern for private-repo things (work projects)
+
+Maybe put these into a subdirectory which is just one symlink?
+
+aliases
+colorrc
+mypy
+vars
+vars-tracker
 
 Note for sourcing:
 echo ${BASH_SOURCE[0]}
