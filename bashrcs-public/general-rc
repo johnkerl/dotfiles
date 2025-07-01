@@ -1,3 +1,8 @@
+# ----------------------------------------------------------------
+# MacOS Catalina gripery about yay-zsh
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# ----------------------------------------------------------------
 # The alias is for interactive use. The $PAGER is for, at least, git diff.  I
 # find that omitting the -r from $PAGER but leaving it in place for the alias
 # makes the screen output look less janky. In particular, with $PAGER being
@@ -14,6 +19,7 @@ export EDITOR=vim
 alias less='less -r'
 # See also vars file
 
+# ----------------------------------------------------------------
 # I do not prefer -i aliases.
 unalias cp 2> /dev/null
 unalias mv 2> /dev/null
@@ -28,20 +34,6 @@ alias 6='fg %6'
 alias 7='fg %7'
 alias 8='fg %8'
 alias 9='fg %9'
-
-alias minpath='export PATH=/usr/bin:/bin:/usr/local/bin; export PS1="MINPATH\$ "'
-
-alias sdus='sudo du -hs */ 2> /dev/null| gmsort'
-
-alias  bb='pbpaste'
-alias bbv='pbpaste | vim -'
-
-alias cls=clear
-alias h='history 30'
-alias j='jobs -l'
-alias grep='grep --color=auto'
-alias gog='rg --type=go'
-alias pyg='rg --type=py'
 
 UNAME=$(uname)
 if [ "$UNAME" = "Darwin" ]; then
@@ -58,10 +50,15 @@ alias lss='ls -hSlr'
 # Most recent files last:
 alias lt='ls -lrt'
 
-alias nnbu='nbu -d ~/Desktop/folder/bak'
+alias cls=clear
+alias h='history 30'
+alias j='jobs -l'
+alias grep='grep --color=auto'
+alias gog='rg --type=go'
+alias pyg='rg --type=py'
+
 alias v='vim'
 alias v-='vim -'  # E.g. for "diff ... | vim -":
-alias pbv='pbp | v-'
 alias vt='vim -t' # Tag jump
 alias vim='vim -i NONE -X'
 tvim() {
@@ -72,6 +69,31 @@ ttvim() {
   title "$@"
   vim "$@"
 }
+
+wreset () {
+    bind '"\C-w": backward-kill-word'
+    stty werase undef
+}
+
+# ----------------------------------------------------------------
+# This shows the provenance aliases, shell functions, and executables.
+# The 'which' command does that only for executables.
+
+whither () {
+  for arg; do
+  which $arg || declare -f $arg || alias $arg
+  done
+}
+
+# ----------------------------------------------------------------
+alias minpath='export PATH=/usr/bin:/bin:/usr/local/bin; export PS1="MINPATH\$ "'
+
+alias sdus='sudo du -hs */ 2> /dev/null| gmsort'
+
+alias pbv='pbp | vim -'
+
+alias nnbu='nbu -d ~/Desktop/folder/bak'
+
 # Edit "$variablename" but put "variablename" in the title bar
 vvim() {
   name="$1"
@@ -85,11 +107,6 @@ vvim() {
 }
 
 alias ppx='pingety-ping 8.8.8.8'
-whither () {
-  for arg; do
-  which $arg || declare -f $arg || alias $arg
-  done
-}
 
 # ================================================================
 # Next are some shell functions.  The main deliverables are vimr and cd2file.
@@ -240,9 +257,4 @@ cdwhich() {
 	dir=$(dirname $path)
 	cd $dir
     fi
-}
-alias vtt="vim $HOME/Desktop/TODO.txt"
-wreset () {
-    bind '"\C-w": backward-kill-word'
-    stty werase undef
 }

@@ -13,74 +13,26 @@ fi
 # o github.com/johnkerl/private-dotfiles (private repo)
 # o Anything else work-related
 
-#way="old"
-way="new"
+boot=~/.bashrc-bootstrap
+if [ ! -f $boot ]; then
+  echo BASHRC: $boot not found
+else
+  . $boot
 
-if [ "$way" = "old" ]; then
-  echo "BASHRC: OLD WAY"
+  #__set_verbose
 
-  for file in \
-    ~/.vars \
-    ~/.vars-personal \
-    ~/.vars-site-shared \
-    ~/.vars-site \
-    ~/.vars-tracker \
-    ~/.aliases
+  for init in \
+    ~/.bashrcs-public/init \
+    ~/.bashrcs-private/init \
+    ~/.bashrcs-work/init
   do
-    if [ -e $file ]; then
-      . $file
+    if [ -e $init ]; then
+      __maybe_say "BEGIN SOURCE $init"
+      . $init
+      __maybe_say "END   SOURCE $init"
     fi
   done
-
-  # I use a black background.  Replace (dark) blue with cyan for colored
-  # ls output.
-  # Later note:  this was OK on some OS version; not OK later.
-  # eval `dircolors|sed s/34/36/g`
-
-  # Turn the beeping off.
-  bind 'set bell-style none'
-  # Bash history-editing option.
-  #set mark-modified-lines off
-
-  # Without this, control-W at end of line on "ls /a/b/c/d" results in "ls".
-  # With this,    control-W at end of line on "ls /a/b/c/d" results in "ls /a/b/c".
-  stty werase undef
-  bind '"\C-w": backward-kill-word'
-
-  if [ $(uname) = "Linux" ]; then
-      # Tab-complete `ls $foo/bar` -> `ls \$foo/bar` on Ubuntu 22.04 (EC2)
-      # Non-broken on Mac these days
-      shopt -s direxpand
-  fi
-
-else
-  boot=~/.bashrc-bootstrap
-  if [ ! -f $boot ]; then
-    echo BASHRC: $boot not found
-  else
-    . $boot
-
-    #__set_verbose
-
-    for init in \
-      ~/.bashrc-public/init \
-      ~/.bashrc-private/init \
-      ~/.bashrc-work/init
-    do
-      if [ -e $init ]; then
-        __maybe_say "BEGIN SOURCE $init"
-        . $init
-        __maybe_say "END   SOURCE $init"
-      fi
-    done
-  fi
 fi
-
-# ----------------------------------------------------------------
-# This is how to skip the rest for non-interactive shells
-# if [ "${-/i/}" = "$-" ] ; then
-# 	return 0
-# fi
 
 # ================================================================
 # The rest could go into my GitHub dotfiles repos, but, software-installation
