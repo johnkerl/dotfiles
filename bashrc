@@ -30,6 +30,8 @@ else
       __maybe_say "BEGIN SOURCE $init"
       . $init
       __maybe_say "END   SOURCE $init"
+    else
+      __maybe_say "NOT FOUND $init"
     fi
   done
 fi

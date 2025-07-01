@@ -1,2 +1,4 @@
+# vim: set filetype=sh:
+
 alias dreb='docker run --rm -it --entrypoint=/bin/bash'
 alias drit='docker run --rm -it'

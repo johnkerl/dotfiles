@@ -1,1 +1,3 @@
+# vim: set filetype=sh:
+
 export LUMIN_MATCH_COLOR=red

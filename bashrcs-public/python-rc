@@ -1,3 +1,5 @@
+# vim: set filetype=sh:
+
 # For Python REPL with my most-used modules pre-loaded:
 #alias py='python -Qnew -i ~/.mypy'
 alias  pve='python --version'

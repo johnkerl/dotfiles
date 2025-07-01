@@ -1,3 +1,5 @@
+# vim: set filetype=sh:
+
 alias   cpp20='clang++ -std=c++20'
 alias     cmz='cmake --build build --target clean && rm -rf build'
 alias     cmg='cmake -B build'

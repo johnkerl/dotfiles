@@ -1,3 +1,5 @@
+# vim: set filetype=sh:
+
 # ----------------------------------------------------------------
 # Miller user
 #export MLR_REPL_PS1='mlr: '

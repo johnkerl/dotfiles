@@ -1,3 +1,5 @@
+# vim: set filetype=sh:
+
 alias rca='Rscript -e "Rcpp::compileAttributes()"'
 alias rox="Rscript -e 'roxygen2::roxygenise()'"
 alias pbs="Rscript -e 'pkgdown::build_site()'"

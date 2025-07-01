@@ -1,2 +1,4 @@
+# vim: set filetype=sh:
+
 alias qp='quarto preview'
 alias qr='quarto render'

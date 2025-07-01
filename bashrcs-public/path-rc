@@ -1,3 +1,5 @@
+# vim: set filetype=sh:
+
 # Augment path
 if [ -z "$BEEN_HERE" ]; then
 

@@ -1,3 +1,5 @@
+# vim: set filetype=sh:
+
 alias cbb='cargo build'
 alias crr='cargo run'
 alias cbr='cbb && crr'

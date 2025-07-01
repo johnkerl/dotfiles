@@ -1,6 +1,16 @@
+# vim: set filetype=sh:
+
 # ----------------------------------------------------------------
 # MacOS Catalina gripery about yay-zsh
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# Suppress rewriting of window title
+export PROMPT_COMMAND=
+
+stty werase undef
+bind '"\C-w": backward-kill-word'
+
+bind 'set bell-style none'
 
 # ----------------------------------------------------------------
 # The alias is for interactive use. The $PAGER is for, at least, git diff.  I

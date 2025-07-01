@@ -1,5 +1,7 @@
 # vim: set filetype=sh:
 
+# This is intended to be sourced from ../bashrc.
+
 self=$(__get_source_name)
 selfdir=$(dirname $self)
 
