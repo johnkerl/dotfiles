@@ -13,111 +13,74 @@ fi
 # o github.com/johnkerl/private-dotfiles (private repo)
 # o Anything else work-related
 
-# Bootstrap:
-# * Verbosity
-# * Function to get sourcefile name
-# * vars-tracker
+#way="old"
+way="new"
 
-# 0 /Users/kerl/.bashrc
-# 1 /Users/kerl/.bashrc-public/third-level
-# 2 /Users/kerl/.bashrc-public/second-level
-# 3 /Users/kerl/.bashrc-public/init
-# 4 /Users/kerl/.bashrc
-# 5 /Users/kerl/.bash_profile
+if [ "$way" = "old" ]; then
+  echo "BASHRC: OLD WAY"
 
-# foo() {
-#   echo 0 ${BASH_SOURCE[0]}
-#   echo 1 ${BASH_SOURCE[1]}
-#   echo a ${BASH_SOURCE[@]}
-#   echo n ${#BASH_SOURCE[@]}
-#   echo ? ${BASH_SOURCE}
-#   echo p $(pwd)
-# }
-
-__get_source_name() {
-  echo 1 ${BASH_SOURCE[1]}
-}
-
-__set_verbose() {
-  export __VERBOSE=true
-}
-
-__unset_verbose() {
-  unset __VERBOSE
-}
-
-boot=~/.bashrc-bootstrap
-if [ ! -f $boot ]; then
-  echo BASHRC: $boot not found
-else
-  . $boot
-
-  for init in \
-    ~/.bashrc-public/init \
-    ~/.bashrc-private/init \
-    ~/.bashrc-work/init
+  for file in \
+    ~/.vars \
+    ~/.vars-personal \
+    ~/.vars-site-shared \
+    ~/.vars-site \
+    ~/.vars-tracker \
+    ~/.aliases
   do
-    if [ -e $init ]; then
-      __maybe_say "BEGIN SOURCE $init"
-      . $init
-      __maybe_say "END   SOURCE $init"
+    if [ -e $file ]; then
+      . $file
     fi
   done
-fi
 
-# ----------------------------------------------------------------
-# In this repo
-if [ -e ~/.vars ]; then
-	. ~/.vars
-fi
+  # I use a black background.  Replace (dark) blue with cyan for colored
+  # ls output.
+  # Later note:  this was OK on some OS version; not OK later.
+  # eval `dircolors|sed s/34/36/g`
 
-# Not in this repo -- perhaps in a private repo
-if [ -e ~/.vars-personal ]; then
-	. ~/.vars-personal
-fi
-if [ -e ~/.vars-site-shared ]; then
-	. ~/.vars-site-shared
-fi
-if [ -e ~/.vars-site ]; then
-	. ~/.vars-site
+  # Turn the beeping off.
+  bind 'set bell-style none'
+  # Bash history-editing option.
+  #set mark-modified-lines off
+
+  # Without this, control-W at end of line on "ls /a/b/c/d" results in "ls".
+  # With this,    control-W at end of line on "ls /a/b/c/d" results in "ls /a/b/c".
+  stty werase undef
+  bind '"\C-w": backward-kill-word'
+
+  if [ $(uname) = "Linux" ]; then
+      # Tab-complete `ls $foo/bar` -> `ls \$foo/bar` on Ubuntu 22.04 (EC2)
+      # Non-broken on Mac these days
+      shopt -s direxpand
+  fi
+
+else
+  boot=~/.bashrc-bootstrap
+  if [ ! -f $boot ]; then
+    echo BASHRC: $boot not found
+  else
+    . $boot
+
+    #__set_verbose
+
+    for init in \
+      ~/.bashrc-public/init \
+      ~/.bashrc-private/init \
+      ~/.bashrc-work/init
+    do
+      if [ -e $init ]; then
+        __maybe_say "BEGIN SOURCE $init"
+        . $init
+        __maybe_say "END   SOURCE $init"
+      fi
+    done
+  fi
 fi
 
 # ----------------------------------------------------------------
 # This is how to skip the rest for non-interactive shells
-if [ "${-/i/}" = "$-" ] ; then
-	return 0
-fi
-
-# ----------------------------------------------------------------
-
-if [ -f ~/.vars-tracker ]; then
-	. ~/.vars-tracker
-fi
-if [ -f ~/.aliases ]; then
-	. ~/.aliases
-fi
-
-# I use a black background.  Replace (dark) blue with cyan for colored
-# ls output.
-# Later note:  this was OK on some OS version; not OK later.
-# eval `dircolors|sed s/34/36/g`
-
-# ----------------------------------------------------------------
-# Turn the beeping off.
-bind 'set bell-style none'
-# Bash history-editing option.
-#set mark-modified-lines off
-
-# Without this, control-W at end of line on "ls /a/b/c/d" results in "ls".
-# With this,    control-W at end of line on "ls /a/b/c/d" results in "ls /a/b/c".
-stty werase undef
-bind '"\C-w": backward-kill-word'
-
-if [ $(uname) = "Linux" ]; then
-    # Tab-complete `ls $foo/bar` -> `ls \$foo/bar` on Ubuntu 22.04 (EC2)
-    # Non-broken on Mac these days
-    shopt -s direxpand
-fi
+# if [ "${-/i/}" = "$-" ] ; then
+# 	return 0
+# fi
 
 # ================================================================
 # The rest could go into my GitHub dotfiles repos, but, software-installation

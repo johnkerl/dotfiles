@@ -1,0 +1,61 @@
+# ----------------------------------------------------------------
+# Miller user
+#export MLR_REPL_PS1='mlr: '
+#export MLR_REPL_PS1='μλρ: '
+#export MLR_REPL_PS1='μιλλερ: '
+export MLR_REPL_PS1='μεταμόρφωσις: '
+export MLR_KEY_COLOR=darkorange
+export MLR_VALUE_COLOR=darkgoldenrod
+
+# ----------------------------------------------------------------
+# Miller developer
+
+__my_assign_dir mlb   "$HOME/git/johnkerl/miller"
+__my_assign_dir mld   "$mlb/docs"
+__my_assign_dir mlds  "$mlb/docs/src"
+__my_assign_dir mman  "$mlb/man"
+
+__my_assign_dir  pkg    "pkg"
+__my_assign_dir  mlv    "pkg/mlrval"
+__my_assign_dir  bifs   "pkg/bifs"
+__my_assign_file bfm    "pkg/dsl/cst/builtin_function_manager.go"
+__my_assign_file bnf    "pkg/parsing/mlr.bnf"
+__my_assign_dir  ast    "pkg/dsl/"
+__my_assign_file astt   "pkg/dsl/ast_types.go"
+__my_assign_file astb   "pkg/dsl/ast_build.go"
+__my_assign_file astp   "pkg/dsl/ast_print.go"
+__my_assign_dir  cli    "pkg/cli"
+__my_assign_dir  clim   "pkg/climain"
+__my_assign_dir  clu    "pkg/cliutil"
+__my_assign_dir  cst    "pkg/dsl/cst"
+__my_assign_dir  lib    "pkg/lib"
+__my_assign_dir  inp    "pkg/input"
+__my_assign_dir  tra    "pkg/transformers"
+__my_assign_dir  outp   "pkg/output"
+__my_assign_dir  types  "pkg/types"
+__my_assign_file put    "pkg/transformers/put-or-filter.go"
+__my_assign_file udf    "pkg/dsl/cst/udf.go"
+__my_assign_file uds    "pkg/dsl/cst/uds.go"
+__my_assign_file mlrmap "pkg/types/mlrmap.go"
+__my_assign_file mlrval "pkg/types/mlrval.go"
+__my_assign_file stream "pkg/stream/stream.go"
+__my_assign_file stack  "pkg/runtime/stack.go"
+__my_assign_file typing "pkg/types/mlrval_typing.go"
+__my_assign_dir  repl   "pkg/auxents/repl"
+__my_assign_file hofs   "$cst/hofs.go"
+__my_assign_file exv    "docs/src/example.csv"
+
+__my_assign_file dflags "reference-main-flag-list.md.in"
+__my_assign_file dverbs "reference-verbs.md.in"
+__my_assign_file dfuncs "reference-dsl-builtin-functions.md.in"
+__my_assign_file dgloss "glossary.md.in"
+
+alias clonemiller='git clone https://github.com/johnkerl/miller'
+alias     mygroff='groff -man -Tascii'
+alias        bake='make -f Makefile.no-autoconfig'
+
+alias         mds='mkdocs serve'
+alias         mdb='mkdocs build'
+
+alias        mrpl='rlwrap mlr repl'
+alias          mr='make && mlr regtest'

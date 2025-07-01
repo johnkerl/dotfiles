@@ -1,0 +1,110 @@
+# XXX COMMENT
+# XXX requires color-rc to have been sourced first
+
+# ----------------------------------------------------------------
+# Set my prompt, using bash-prompt escapes and xterm text-coloring escapes.
+#
+# Some bash-prompt escapes:
+# \d: date
+# \h: hostname
+# \H: hostname.domainname
+# \j: number of background jobs
+# \t: time
+# \u: username
+# \v: Bash version
+# \V: Extended bash version
+# \w: pwd
+# \W: basename of pwd
+
+# Simpler predecessors:
+# export PS1='`whoami`:`pwd`% '
+# export PS1='\u@\h:\W% '
+
+# Example:
+# kerl@sprax[tmp]  jobs=1 dirs=2$ 
+# \_____________/  \___________/|
+#     green             red     green
+
+# black white
+# red   green   blue
+# cyan  magenta yellow
+if [ "`whoami`" = "root" ]; then
+	  color1="$red"
+	  color2="$yellow"
+else
+	  #color1="$green"
+	  #color2="$yellow"
+	  color1="$yellow"
+	  color2="$yellow"
+	  color3="$green"
+	  #color1="$red"
+	  #color2="$red"
+fi
+
+# Notes:
+#
+# * show_jobs_and_dirs is just a C program which prints the "jobs=1 dirs=2" parts
+#   when they are non-trivial.  I wrote it in C to avoid stack traces when ^C-ing
+#   an empty prompt line.
+#
+# * The \[ \] around xterm escape sequences are important in shell prompts so that
+#   the shell can properly compute the length of the prompt string which in turn
+#   is essential to avoid screen-garbaging on history editing of long command lines.
+#
+# * $PS1ENV is for various work/project-specific things, typically set up in ~/.vars-site
+#   which is in a private repo.
+
+if [ -z "$BASH_VERSION" ]; then # zsh
+	export PS1="${green}%n@%m[%c]${red}[j%js%?]${green}%#${textdefault} "
+else
+	#export PS1="\[${bold}${color1}\]\u@\h""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\][\W]\$\[${textdefault}\] "
+	# See pathnick.c
+	#export PS1="\[${bold}${color1}\]\u@\h""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\]\[${color3}\]\`pathnick\`\[${color1}\][\W]\$\[${textdefault}\] "
+	#export PS1="\[${bold}${color1}\]\u@${HOSTNAME%.*.*}""\[${color2}\]"'[s$?j$(echo -n $(jobs | wc -l))d$(echo -n $(dirs -p | wc -l))]'"\[${color1}\]\[${color3}\]\`pathnick\`\[${color1}\][\W]\$\[${textdefault}\] "
+
+	# Other conditions may certainly apply. For me in 2022 my main goal is distinguishing visually
+	# from terminals on my Mac laptop from SSH sessions into a Linux EC2 instance.
+	if [ $(uname) = "Darwin" ]; then
+	  ps1_color1=$'\033[1;38;5;178m'
+	  ps1_color2=$'\033[1;38;5;136m'
+	  ps1_color3=$'\033[1;38;5;178m'
+	  ps1_color4=$'\033[1;38;5;136m'
+	else
+	  ps1_color1=$'\033[1;38;5;208m'
+	  ps1_color2=$'\033[1;38;5;94m'
+	  ps1_color3=$'\033[1;38;5;208m'
+	  ps1_color4=$'\033[1;38;5;94m'
+	fi
+	default=$'\033[0m'
+
+	hostname=${HOSTNAME%%.*}
+	if [ -f ~/.hostname-alias ]; then
+		hostname=$(cat ~/.hostname-alias)
+	fi
+
+    export PS1="\n\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${hostname}\[${ps1_color4}\]"
+    PS1+="[\${PS1ENV}]"
+    PS1+='[$(git-show-current-branch-safe)]'
+    if [ -x $HOME/bin/basenames ]; then
+      # No PROMPT_DIRTRIM support in bash < 4, and I have bash 3 on MacOS in 2025.
+      export PROMPT_DIRTRIM=2
+      PS1+='[$(basenames $PROMPT_DIRTRIM)]'
+    else
+      PS1+='[\W]'
+    fi
+    #PS1+='[$?]'
+    PS1+="$ "
+    PS1+="\[${default}\]"
+
+    # For copy/paste into gists etc.:
+    # * more spare
+    # * blank line before prompt
+    export PSX="\n\[${ps1_color1}\]\u@$hostname[\W]\[${default}\] "
+    alias psx='export PS1="$PSX"'
+fi
+
+# For pathnicks.c in repo johnkerl/dotfiles
+export PATHNICKS="$mlb:MLR"
+export PATHNICKS="$PATHNICKS,$HOME/pub_http_internet/miller-releases:MLRREL"
+export PATHNICKS="$PATHNICKS,$HOME/git/fork:GIT-FORK"
+export PATHNICKS="$PATHNICKS,$HOME/git:GIT-MAIN"

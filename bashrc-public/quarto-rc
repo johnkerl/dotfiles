@@ -1,0 +1,2 @@
+alias qp='quarto preview'
+alias qr='quarto render'

@@ -1,0 +1,89 @@
+# ----------------------------------------------------------------
+
+alias     gln='git log -n'
+alias     gs='git status'
+alias     gd='git diff'
+#alias    gd1='git diff HEAD~ HEAD'
+#alias    gd2='git diff HEAD~2 HEAD'
+#alias    gd3='git diff HEAD~3 HEAD'
+
+alias    gd1='git diff HEAD~'
+alias    gd2='git diff HEAD~2'
+alias    gd3='git diff HEAD~3'
+alias    gd4='git diff HEAD~4'
+alias    gd5='git diff HEAD~5'
+
+alias   gd12='git diff HEAD~2 HEAD~1'
+alias   gd13='git diff HEAD~3 HEAD~1'
+alias   gd14='git diff HEAD~4 HEAD~1'
+alias   gd15='git diff HEAD~5 HEAD~1'
+
+alias   gd23='git diff HEAD~3 HEAD~2'
+alias   gd24='git diff HEAD~4 HEAD~2'
+alias   gd25='git diff HEAD~5 HEAD~2'
+
+alias   gd34='git diff HEAD~4 HEAD~3'
+alias   gd35='git diff HEAD~5 HEAD~3'
+
+alias   gd45='git diff HEAD~5 HEAD~4'
+
+alias     ga='git add'
+alias    gam='git add $(git status | grep modified: | sed "s/ *modified: *//" | cpick 1)'
+alias    gcm='git commit -m'
+alias   gcmr='git commit -m "DESCRIPTION and NEWS.md [skip ci]"'
+alias gcmdba='git commit -m "doc-build artifacts for previous commit"'
+alias    gca='git commit --amend --date $(systime) --no-edit'
+alias   gcae='git commit --amend --date $(systime)'
+alias   gcam='git commit --amend -m'
+alias   gcmc='git commit -m "$(cat gcm.txt)"'
+alias     gp='git push'
+alias    gpf='git push --force-with-lease'
+alias    gaa='gam && echo "" && gca'
+alias   gaap='gam && echo "" && gca && echo "" && gpf'
+alias    gsl='git sl ...upstream/main'
+alias    grc='git rebase --continue'
+
+alias   glog='git log'
+alias  glogg='git log --graph'
+
+alias  glogga='git log --graph --all'
+alias  gloggo='git log --graph --oneline'
+alias gloggoa='git log --graph --all --oneline'
+
+alias    grh='git reset --hard'
+alias   gprm='git pull --rebase origin main'
+alias  gprmr='git pull --rebase origin master'
+alias   grom='git rebase origin/main'
+alias  groma='git rebase origin/master'
+alias    gri='git rebase -i'
+alias  griod='git rebase -i origin/dev'
+alias  griom='git rebase -i origin/main'
+alias grioma='git rebase -i origin/master'
+alias    gdm='git diff origin/main'
+alias   gdma='git diff origin/master'
+alias   gdmo='git diff origin/main-old'
+
+gacp() {
+  if [ $# -eq 1 ]; then
+    gam && gcm "$@" && git push
+  else
+    echo "Need commit message as single argument"
+  fi
+}
+
+# from https://github.com/johnkerl/scripts/tree/main/git
+alias     gsb='git show-current-branch'
+alias     sbs='git show-branches'
+alias     gub='git checkout'
+alias     gnb='git new-branch'
+alias     gmb='git merge'
+alias     gxb='git delete-branch'
+alias    gxxb='git delete-branch-force'
+alias     g2b='git switch-branch'
+alias    gpom='git pull origin main'
+alias     gff='git files-from'
+gffa() {
+    gff "$@" | sed 's:apis/python/::'
+}
+alias     grh='git reset --hard'
+alias     gra='git rebase --abort'

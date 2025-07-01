@@ -1,6 +1,25 @@
+# vim: set filetype=sh:
+
 self=$(__get_source_name)
 selfdir=$(dirname $self)
 
 __maybe_say SELF IS $self
 
-. $selfdir/second
+for file in \
+  color-rc \
+  prompt-rc \
+  path-rc \
+  general-rc \
+  git-rc \
+  quarto-rc \
+  python-rc \
+  cpp-rc \
+  rust-rc \
+  docker-rc \
+  r-rc \
+  java-rc \
+  miller-rc \
+  lumin-rc
+do
+  . $selfdir/$file
+done

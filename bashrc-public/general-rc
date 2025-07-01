@@ -1,0 +1,248 @@
+# The alias is for interactive use. The $PAGER is for, at least, git diff.  I
+# find that omitting the -r from $PAGER but leaving it in place for the alias
+# makes the screen output look less janky. In particular, with $PAGER being
+# "less -r", git diff on-screen information doesn't start showing the first
+# diff-output line.
+#export PAGER='less -j.5 -r'
+export PAGER='less'
+export EDITOR=vim
+
+# -j.5: search results in middle of screen, not top-line (which is default).
+# -r: render ANSI color codes as such.
+# Setting $LESS makes git diff et al. do things I don't like; use an alias instead.
+# export LESS="-j.5 -r"
+alias less='less -r'
+# See also vars file
+
+# I do not prefer -i aliases.
+unalias cp 2> /dev/null
+unalias mv 2> /dev/null
+unalias rm 2> /dev/null
+
+alias 1='fg %1'
+alias 2='fg %2'
+alias 3='fg %3'
+alias 4='fg %4'
+alias 5='fg %5'
+alias 6='fg %6'
+alias 7='fg %7'
+alias 8='fg %8'
+alias 9='fg %9'
+
+alias minpath='export PATH=/usr/bin:/bin:/usr/local/bin; export PS1="MINPATH\$ "'
+
+alias sdus='sudo du -hs */ 2> /dev/null| gmsort'
+
+alias  bb='pbpaste'
+alias bbv='pbpaste | vim -'
+
+alias cls=clear
+alias h='history 30'
+alias j='jobs -l'
+alias grep='grep --color=auto'
+alias gog='rg --type=go'
+alias pyg='rg --type=py'
+
+UNAME=$(uname)
+if [ "$UNAME" = "Darwin" ]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=tty'
+fi
+alias ll='ls -l'
+alias lll='ls -lL'
+alias llh='ls -lh'
+# Biggest files last:
+#alias lss='ls -Slr'
+alias lss='ls -hSlr'
+# Most recent files last:
+alias lt='ls -lrt'
+
+alias nnbu='nbu -d ~/Desktop/folder/bak'
+alias v='vim'
+alias v-='vim -'  # E.g. for "diff ... | vim -":
+alias pbv='pbp | v-'
+alias vt='vim -t' # Tag jump
+alias vim='vim -i NONE -X'
+tvim() {
+  title $(basename $@)
+  vim "$@"
+}
+ttvim() {
+  title "$@"
+  vim "$@"
+}
+# Edit "$variablename" but put "variablename" in the title bar
+vvim() {
+  name="$1"
+  val=$(eval echo '$'"$name")
+  if [ -z "$val" ]; then
+    echo "Couldn't expand \$$name."
+  else
+    title "$name"
+    vim "$val"
+  fi
+}
+
+alias ppx='pingety-ping 8.8.8.8'
+whither () {
+  for arg; do
+  which $arg || declare -f $arg || alias $arg
+  done
+}
+
+# ================================================================
+# Next are some shell functions.  The main deliverables are vimr and cd2file.
+# These enable vim and cd to find files several levels deep, which is
+# particularly important for Java development wherein package naming forces
+# several levels of directories.
+
+# ----------------------------------------------------------------
+# file2dir:
+# * Given a file name, searches for it recursively downward from the pwd.
+# * I don't use this directly but it's used by cd2file and vimr.
+# * If exactly one such file is found, prints to stdout the name of the
+#   directory containing that file and returns 0 (success).
+# * On failure, prints a message to stderr and prints nothing to stdout;
+#   exits with 1 (failure).
+# * Wildcards may be used as long as they're escaped, to get them past initial
+#   shell globbing so that they can reach here unglobbed.
+#
+# Examples:
+# * bash$ file2dir CommonFileName.java
+#   Sorry, multiple matches (> 10).
+#
+# * bash$ file2dir MoreSpecificPattern\*.java
+#   Sorry, multiple matches:
+#    ./java/src/org/johnkerl/packagename/MoreSpecificPattern1.java
+#    ./java/src/org/johnkerl/packagename/MoreSpecificPattern2.java
+#    ./java/src/org/johnkerl/packagename/MoreSpecificPattern3.java
+#
+# * bash$ file2dir AnotherFileName.java
+#    ./java/src/org/johnkerl/packagename
+#
+# ----------------------------------------------------------------
+# John Kerl, 2010-06-18
+# ----------------------------------------------------------------
+
+file2dir () {
+	if [ $# -eq 0 ]; then
+		echo "$FUNCNAME: Need an argument." 1>&2
+		return 1
+	elif [ $# -ne 1 ]; then
+		echo "$FUNCNAME: Need just one argument." 1>&2
+		return 1
+	fi
+	local arg="$1"
+	local paths="$(find . -follow -name $arg)"
+	local num_found=$(echo "$paths" | wc -w)
+	if [ $num_found -gt 10 ]; then
+		echo "Sorry, multiple matches (> 10)." 1>&2
+		return 1
+	elif [ $num_found -gt 1 ]; then
+		echo "Sorry, multiple matches:" 1>&2
+		local path="" # keep local for iterator
+		for path in $paths; do
+			echo "  " $path 1>&2
+		done
+		return 1
+	fi
+	if [ $num_found -lt 1 ]; then
+		echo "Couldn't find $arg." 1>&2
+		return 1
+	fi
+	local dir=$(dirname $paths)
+	if [ -z "$dir" ]; then
+		echo "Oddity in $FUNCNAME in ~/.aliases: dir name is \"\"." 1>&2
+		return 1
+	fi
+	if [ ! -d "$dir" ]; then
+		echo "$FUNCNAME: Not cd'ing to \"$dir\" since it's not a directory." 1>&2
+		echo "This is weird." 1>&2
+		return 1
+	fi
+	echo $dir
+	return 0
+}
+
+# ----------------------------------------------------------------
+# cd2file:
+# * Given a file name, searches for it recursively downward from the pwd.
+# * If exactly one such file is found, chdirs the shell to the directory
+#   containing that file.
+# * On failure, prints a message to stderr and does not chdir the shell.
+# * Wildcards may be used as long as they're escaped, to get them past initial
+#   shell globbing so that they can reach here unglobbed.
+
+# Examples:
+# * bash$ file2dir CommonFileName.java
+#   Sorry, multiple matches (> 10).
+#
+# * bash$ file2dir MoreSpecificPattern\*.java
+#   Sorry, multiple matches:
+#    ./java/src/org/johnkerl/packagename/MoreSpecificPattern1.java
+#    ./java/src/org/johnkerl/packagename/MoreSpecificPattern2.java
+#    ./java/src/org/johnkerl/packagename/MoreSpecificPattern3.java
+#
+# * bash$ cd2file AnotherFileName.java
+#   cd'ing to:
+#    ./java/src/org/johnkerl/packagename
+#
+# ----------------------------------------------------------------
+# John Kerl, 2010-06-18
+# ----------------------------------------------------------------
+
+cd2file() {
+	dir=$(file2dir "$@")
+	if [ $? -ne 0 ]; then
+		# An error message was already printed out by file2dir.
+		return 1
+	fi
+	echo "  cd'ing to:"
+	echo "  $dir"
+	cd $dir && return 0 # Normal
+	return 1 # Failure
+}
+
+pushd2file() {
+	dir=$(file2dir "$@")
+	if [ $? -ne 0 ]; then
+		# An error message was already printed out by file2dir.
+		return 1
+	fi
+	echo "  pushd'ing to:"
+	echo "  $dir"
+	pushd $dir && return 0 # Normal
+	return 1 # Failure
+}
+
+# ----------------------------------------------------------------
+# vimr:  does not chdir the shell but does edit the file.
+vimr() {
+	dir=$(file2dir "$@")
+	if [ $? -ne 0 ]; then
+		# An error message was already printed out by file2dir.
+		return 1
+	fi
+	vim $dir/"$@"
+}
+
+# ------------------------------------------------------------------------------
+cdwhich() {
+    local cmd
+    local path
+
+    cmd="$1"
+    path=$(which $cmd)
+    if [ $? -ne 0 ]; then
+	echo "Can't find dir for \"$cmd\""
+    else
+	dir=$(dirname $path)
+	cd $dir
+    fi
+}
+alias vtt="vim $HOME/Desktop/TODO.txt"
+wreset () {
+    bind '"\C-w": backward-kill-word'
+    stty werase undef
+}
