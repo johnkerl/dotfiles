@@ -1,5 +1,24 @@
 ----------------------------------------------------------------
-STATUS
+NEW
+
+* Top-level ~/.bashrc looks at dirs:
+  o .bashrcs-public/
+    - top-level file
+      - sourcees
+    - cargo
+    - nvm
+    - pyenv
+  o .bashrcs-private/
+    - top-level file
+      - sourcees
+  o .bashrcs-work/
+    - top-level file
+      - sourcees
+
+Make an installer script
+
+----------------------------------------------------------------
+STATUS QUO
 * .aliases, .vimrc, et al. are kitchen-sinky
 * all PATH updates are in .vars
 

@@ -1,13 +1,71 @@
 # vim: set filetype=sh:
 # .bashrc
 
-# User-specific aliases and functions
-
-# Source global definitions
+# ================================================================
+# Systemwide setup
 if [ -e /etc/bashrc ]; then
-	. /etc/bashrc
+  . /etc/bashrc
 fi
 
+# ================================================================
+# Files to source are from:
+# o github.com/johnkerl/dotfiles
+# o github.com/johnkerl/private-dotfiles (private repo)
+# o Anything else work-related
+
+# Bootstrap:
+# * Verbosity
+# * Function to get sourcefile name
+# * vars-tracker
+
+# 0 /Users/kerl/.bashrc
+# 1 /Users/kerl/.bashrc-public/third-level
+# 2 /Users/kerl/.bashrc-public/second-level
+# 3 /Users/kerl/.bashrc-public/init
+# 4 /Users/kerl/.bashrc
+# 5 /Users/kerl/.bash_profile
+
+# foo() {
+#   echo 0 ${BASH_SOURCE[0]}
+#   echo 1 ${BASH_SOURCE[1]}
+#   echo a ${BASH_SOURCE[@]}
+#   echo n ${#BASH_SOURCE[@]}
+#   echo ? ${BASH_SOURCE}
+#   echo p $(pwd)
+# }
+
+__get_source_name() {
+  echo 1 ${BASH_SOURCE[1]}
+}
+
+__set_verbose() {
+  export __VERBOSE=true
+}
+
+__unset_verbose() {
+  unset __VERBOSE
+}
+
+boot=~/.bashrc-bootstrap
+if [ ! -f $boot ]; then
+  echo BASHRC: $boot not found
+else
+  . $boot
+
+  for init in \
+    ~/.bashrc-public/init \
+    ~/.bashrc-private/init \
+    ~/.bashrc-work/init
+  do
+    if [ -e $init ]; then
+      __maybe_say "BEGIN SOURCE $init"
+      . $init
+      __maybe_say "END   SOURCE $init"
+    fi
+  done
+fi
+
+# ----------------------------------------------------------------
 # In this repo
 if [ -e ~/.vars ]; then
 	. ~/.vars
@@ -25,8 +83,7 @@ if [ -e ~/.vars-site ]; then
 fi
 
 # ----------------------------------------------------------------
-# The rest is for interactive shells only.
-
+# This is how to skip the rest for non-interactive shells
 if [ "${-/i/}" = "$-" ] ; then
 	return 0
 fi
@@ -62,27 +119,32 @@ if [ $(uname) = "Linux" ]; then
     shopt -s direxpand
 fi
 
+# ================================================================
+# The rest could go into my GitHub dotfiles repos, but, software-installation
+# tools like to edit ~/.bashrc files directly. Sometimes it's easier to just let
+# them do that.
+
 # ----------------------------------------------------------------
-# Rust
+# RUST
 if [ -f "$HOME/.cargo/.env" ]; then
   . "$HOME/.cargo/env"
 fi
 
 # ----------------------------------------------------------------
-# nvm
-
+# NVM
 export NVM_DIR=~/.nvm
-#export NVM_DIR=/usr/local/opt/nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # ----------------------------------------------------------------
-if [ -f $HOME/.no-pyenv ]; then
-  export PATH=$HOME/lbin/python-3.9-links:$PATH
-else
-  export PYENV_ROOT="$HOME/.pyenv"
-  if [ -d $PYENV_ROOT/bin ] ; then
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-  fi
+# PYENV
+# if [ -f $HOME/.no-pyenv ]; then
+#   echo "bashrc: Skipping pyenv init"
+# fi
+export PYENV_ROOT="$HOME/.pyenv"
+if [ -d $PYENV_ROOT/bin ] ; then
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
 fi

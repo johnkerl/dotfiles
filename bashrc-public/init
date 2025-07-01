@@ -1,0 +1,6 @@
+self=$(__get_source_name)
+selfdir=$(dirname $self)
+
+__maybe_say SELF IS $self
+
+. $selfdir/second

@@ -1,0 +1,151 @@
+# ================================================================
+
+# 0 /Users/kerl/.bashrc
+# 1 /Users/kerl/.bashrc-public/third-level
+# 2 /Users/kerl/.bashrc-public/second-level
+# 3 /Users/kerl/.bashrc-public/init
+# 4 /Users/kerl/.bashrc
+# 5 /Users/kerl/.bash_profile
+
+# foo() {
+#   echo 0 ${BASH_SOURCE[0]}
+#   echo 1 ${BASH_SOURCE[1]}
+#   echo a ${BASH_SOURCE[@]}
+#   echo n ${#BASH_SOURCE[@]}
+#   echo ? ${BASH_SOURCE}
+#   echo p $(pwd)
+# }
+
+# XXX note bash3
+
+# ================================================================
+# XXX COMMENT
+
+__get_source_name() {
+  echo ${BASH_SOURCE[1]}
+}
+
+__wami() {
+  echo bs0  ${BASH_SOURCE[0]}
+  echo bs1  ${BASH_SOURCE[1]}
+  echo bs$  ${BASH_SOURCE[@]}
+  echo bsn  ${#BASH_SOURCE[@]}
+  echo bare ${BASH_SOURCE}
+}
+
+__set_verbose() {
+  export __VERBOSE=true
+}
+
+__unset_verbose() {
+  unset __VERBOSE
+}
+
+__maybe_say() {
+  if [ "$__VERBOSE" = "true" ]; then
+    echo BASHRC: $@
+  fi
+}
+
+if [ -f ~/.bashrc-verbose ]; then
+  __set_verbose
+fi
+
+# ================================================================
+# These help me keep track of source-code files:
+# * Define and environment variable and an alias with a single command, not one
+#   alias command and another export-variable command.
+# * Protect referential integrity: make sure I can find names for files which
+#   have been renamed or deleted.
+# * Example use:
+#     my_assign_file fa "/path/to/file/a.ext"
+#     my_assign_dir  db "/path/to/directory/b"
+#   Then I can do the following commands:
+#
+#     ls $fa  # list /path/to/file/a.ext
+#     fa      # edit /path/to/file/a.ext
+#
+#     ls $db  # list /path/to/directory/b
+#     db      # cd   /path/to/directory/b
+
+# ----------------------------------------------------------------
+# PRIVATE:
+
+__my_assign_impl() {
+  if [ $# -ne 3 ]; then
+    echo "my_assign_file: need name and value as arguments; got $@"
+  else
+    command="$1"
+    name="$2"
+    value="$3"
+    alias $name="$command $value"
+    eval export $name="$value"
+  fi
+}
+
+__check_my_assign_dirs() {
+  verbose=false
+  if [ $# -eq 1 ]; then
+    verbose=true
+  fi
+  for entry in $( env | grep my_assign_dir_); do
+    name=$(echo $entry | sed 's/=.*//' | sed 's/my_assign_dir_//')
+    value=$(echo $entry | sed 's/.*=//')
+    if [ -d "$value" ]; then
+      if [ "$verbose" = "true" ]; then
+        echo "ok $name=$value"
+      fi
+    else
+      echo "DOES NOT EXIST: $name=$value"
+    fi
+  done
+}
+
+__check_my_assign_files() {
+  verbose=false
+  if [ $# -eq 1 ]; then
+    verbose=true
+  fi
+  for entry in $( env | grep my_assign_file_); do
+    name=$(echo $entry | sed 's/=.*//' | sed 's/my_assign_file_//')
+    value=$(echo $entry | sed 's/.*=//')
+    if [ -f "$value" ]; then
+      if [ "$verbose" = "true" ]; then
+        echo "ok $name=$value"
+      fi
+    else
+      echo "DOES NOT EXIST: $name=$value"
+    fi
+  done
+}
+
+# ----------------------------------------------------------------
+# PUBLIC:
+
+__my_assign_file() {
+  if [ $# -ne 2 ]; then
+    echo "my_assign_file: need name and value as arguments; got $@"
+  else
+    name="$1"
+    value="$2"
+    __my_assign_impl vim "$name" "$value"
+    export my_assign_file_$name="$value"
+  fi
+}
+
+__my_assign_dir() {
+  if [ $# -ne 2 ]; then
+    echo "my_assign_file: need name and value as arguments; got $@"
+  else
+    name="$1"
+    value="$2"
+    __my_assign_impl cd "$name" "$value"
+    export my_assign_dir_$name="$value"
+  fi
+}
+
+# Use -v for verbose
+__check_my_assigns() {
+  __check_my_assign_dirs "$@"
+  __check_my_assign_files "$@"
+}
