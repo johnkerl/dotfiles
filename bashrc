@@ -24,7 +24,7 @@ else
   for init in \
     ~/.bashrcs-public/init \
     ~/.bashrcs-private/init \
-    ~/.bashrcs-work/init
+    ~/.bashrc-work
   do
     if [ -e $init ]; then
       __maybe_say "BEGIN SOURCE $init"

@@ -1,27 +1,13 @@
 #!/bin/bash
 
 # ================================================================
-# Usage:
-# curl https://raw.githubusercontent.com/johnkerl/dotfiles/refs/heads/main/install.sh | bash
-# curl -H 'Cache-Control: no-cache, no-store'  https://raw.githubusercontent.com/johnkerl/dotfiles/refs/heads/main/install.sh
+# XXX COMMENTS ON CONTEXT
 # ================================================================
-
-
-# ----------------------------------------------------------------
-echo "HELLO!"
-set -euo pipefail
-
-mkdir -p ~/git/johnkerl
-
-cd ~/git/johnkerl
-git clone https://github.com/johnkerl/dotfiles
-cd dotfiles
-
-# XXX TODO: separate the curl bits from the have-checked-out-repo bits
-# XXX TODO: hostname-alias ...
 
 # ----------------------------------------------------------------
 # Check for existings
+echo ""
+echo "johnkerl/dotfiles: checking for overwrites"
 
 ok="true"
 for file in \
@@ -38,6 +24,9 @@ if [ "$ok" != "true" ]; then
 fi
 
 # ----------------------------------------------------------------
+echo ""
+echo "johnkerl/dotfiles: installing symlinks"
+
 for item in \
   bashrc \
   bashrc_profile \
@@ -46,6 +35,20 @@ for item in \
   screenrc \
   vimrc
 do
+  if [ ! -f ./$item ]; then
+    echo johnkerl/dotfiles: cannot find ./$item
+  fi
   ln -s $(pwd)/$item ~/.$item
-  echo ln -s $(pwd)/$item ~/.$item
+  echo johnkerl/dotfiles: ln -s $(pwd)/$item ~/.$item
 done
+
+# ----------------------------------------------------------------
+if [ "$#" -eq 1 ]; then
+  echo "$1" > ~/.hostname-alias
+  echo "johnnkerl/dotfiles: setting $1 in ~/.hostname-alias"
+fi
+
+# ----------------------------------------------------------------
+echo ""
+echo "johnkerl/dotfiles: done"
+echo ""
