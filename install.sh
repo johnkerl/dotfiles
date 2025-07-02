@@ -8,7 +8,7 @@
 
 
 # ----------------------------------------------------------------
-echo "HELLO"
+echo "HELLO!"
 set -euo pipefail
 
 mkdir -p ~/git/johnkerl
