@@ -8,19 +8,22 @@ if [ -e /etc/bashrc ]; then
 fi
 
 # ================================================================
-# See README.md for more context.
+# Use an installed checkout of https://github.com/johnkerl/dotfiles.
+# See https://github.com/johnkerl/dotfiles/blob/main/README.md
 #
-# Files to source are from:
-# o github.com/johnkerl/dotfiles
-# o github.com/johnkerl/private-dotfiles (private repo)
-# o Anything else work-related
+# The files we source are from:
+# o ~/.bashrcs-public/:  github.com/johnkerl/dotfiles (this is a public repo)
+# o ~/.bashrcs-private/: github.com/johnkerl/private-dotfiles (this is private repo)
+# o ~/.bashrc-work:      Anything else work-related/site-related
 
+# First, source things all the ~/.bashrcs-public/* files need.
 boot=~/.bashrc-bootstrap
 if [ ! -f $boot ]; then
   echo BASHRC: $boot not found
 else
   . $boot
 
+  # Uncomment this for some tracing. This causes __maybe_say to say things.
   #__set_verbose
 
   for init in \
@@ -41,7 +44,8 @@ fi
 # ================================================================
 # The rest could go into my GitHub dotfiles repos, but, software-installation
 # tools like to edit ~/.bashrc files directly. Sometimes it's easier to just let
-# them do that.
+# them do that. That way, if a tool install edits my ~/.bashrc, I'll see the
+# double entries all in one place, right here.
 
 # ----------------------------------------------------------------
 # RUST

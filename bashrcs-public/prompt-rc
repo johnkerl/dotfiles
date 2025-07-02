@@ -26,53 +26,40 @@
 # \_____________/  \___________/|
 #     green             red     green
 
-# black white
-# red   green   blue
-# cyan  magenta yellow
-if [ "`whoami`" = "root" ]; then
-	  color1="$__text_red"
-	  color2="$__text_yellow"
-else
-	  color1="$__text_yellow"
-	  color2="$__text_yellow"
-	  color3="$__text_green"
-fi
-
 # Notes:
-#
-# * show_jobs_and_dirs is just a C program which prints the "jobs=1 dirs=2" parts
-#   when they are non-trivial.  I wrote it in C to avoid stack traces when ^C-ing
-#   an empty prompt line.
 #
 # * The \[ \] around xterm escape sequences are important in shell prompts so that
 #   the shell can properly compute the length of the prompt string which in turn
 #   is essential to avoid screen-garbaging on history editing of long command lines.
 
 if [ -z "$BASH_VERSION" ]; then # zsh
-	export PS1="${__text_green}%n@%m[%c]${__text_red}[j%js%?]${__text_green}%#${__text_textdefault} "
-else
+  # These colors from ./color-rc which should be sourced before this file.
+	export PS1="${__text_green}%n@%m[%c]${__text_red}[j%js%?]${__text_green}%#${__textdefault} "
+
+else # bash
 
 	# Other conditions may certainly apply. For me in 2022 my main goal is distinguishing visually
 	# from terminals on my Mac laptop from SSH sessions into a Linux EC2 instance.
 	if [ $(uname) = "Darwin" ]; then
-	  ps1_color1=$'\033[1;38;5;178m'
-	  ps1_color2=$'\033[1;38;5;136m'
-	  ps1_color3=$'\033[1;38;5;178m'
-	  ps1_color4=$'\033[1;38;5;136m'
+    # Artisanal shades of yellow
+	  __ps1_color1=$'\033[1;38;5;178m'
+	  __ps1_color2=$'\033[1;38;5;136m'
+	  __ps1_color3=$'\033[1;38;5;178m'
+	  __ps1_color4=$'\033[1;38;5;136m'
 	else
-	  ps1_color1=$'\033[1;38;5;208m'
-	  ps1_color2=$'\033[1;38;5;94m'
-	  ps1_color3=$'\033[1;38;5;208m'
-	  ps1_color4=$'\033[1;38;5;94m'
+    # Artisanal shades of orange and brown
+	  __ps1_color1=$'\033[1;38;5;208m'
+	  __ps1_color2=$'\033[1;38;5;94m'
+	  __ps1_color3=$'\033[1;38;5;208m'
+	  __ps1_color4=$'\033[1;38;5;94m'
 	fi
-	default=$'\033[0m'
 
 	hostname=${HOSTNAME%%.*}
 	if [ -f ~/.hostname-alias ]; then
 		hostname=$(cat ~/.hostname-alias)
 	fi
 
-    export PS1="\n\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${hostname}\[${ps1_color4}\]"
+    export PS1="\n\[${__ps1_color1}\]\u\[${__ps1_color2}\]@\[${__ps1_color3}\]${hostname}\[${__ps1_color4}\]"
 
     # $PS1ENV is for various work/project-specific things, typically set up in ~/.bashrcs-private
     # which is intended to symlink to a private repo's rc scripts.
@@ -80,7 +67,7 @@ else
       PS1+="[\${PS1ENV}]"
     fi
 
-    # Include current git branch in the prompt, if that's installed (see
+    # Include the current git branch in the prompt, if that command is installed (see
     # https://github.com/johnkerl/scripts).
     git-show-current-branch-safe > /dev/null 2>&1 && PS1+='[$(git-show-current-branch-safe)]'
 
@@ -101,12 +88,12 @@ else
     PS1+="$ "
 
     # End of prompt coloring.
-    PS1+="\[${default}\]"
+    # __text_default is from colorrc which should be sourced before this file.
+    PS1+="\[${__text_default}\]"
 
-    # For copy/paste into gists etc.:
-    # * more spare
-    # * blank line before prompt
-    export PSX="\n\[${ps1_color1}\]\u@$hostname[\W]\[${default}\] "
+    # Handy access to a short prompt for when I want to run comnands and
+    # copy/paste into gists etc..
+    export PSX="\n\[${__ps1_color1}\]\u@$hostname[\W]\[${__text_default}\] "
     alias psx='export PS1="$PSX"'
 fi
 
