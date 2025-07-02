@@ -7,6 +7,7 @@ selfdir=$(dirname $self)
 
 __maybe_say SELF IS $self
 
+# Source color-rc first so other scripts can use colorized output.
 for file in \
   color-rc \
   prompt-rc \

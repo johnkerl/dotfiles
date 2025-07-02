@@ -1,37 +1,37 @@
 # ================================================================
-# XXX COMMENT
-
-# 0 /Users/kerl/.bashrc
-# 1 /Users/kerl/.bashrc-public/third-level
-# 2 /Users/kerl/.bashrc-public/second-level
-# 3 /Users/kerl/.bashrc-public/init
-# 4 /Users/kerl/.bashrc
-# 5 /Users/kerl/.bash_profile
-
-# foo() {
-#   echo 0 ${BASH_SOURCE[0]}
-#   echo 1 ${BASH_SOURCE[1]}
-#   echo a ${BASH_SOURCE[@]}
-#   echo n ${#BASH_SOURCE[@]}
-#   echo ? ${BASH_SOURCE}
-#   echo p $(pwd)
-# }
-
-# XXX note bash3
-
+# This is intended to be sourced from bashrc.
+# These are common things used in multiple rc scripts.
+#
+# Note that bash4 is widely available, but Macs often have bash3.
 # ================================================================
-# XXX COMMENT
+
+# ----------------------------------------------------------------
+# One of the tricks is getting the path to the file currently being sourced.
+# When a bash script is executed , this is as simple as basename $0.
+# For sourcing, I use the ${BASH_SOURCE[]} array.
+#
+# Empirical finding: suppose the sourcing levels are
+#
+#   ~/.bash_profile
+#   ~/.bashrc
+#   ~/.bashrc-public/init
+#   ~/.bashrc-public/second-level
+#   ~/.bashrc-public/third-level
+#
+# then I find that within ~/.bashrc-public/third-level the ${BASH_SOURCE[]} array entries are as
+# follows:
+#
+#   [0] ~/.bashrc
+#   [1] ~/.bashrc-public/third-level
+#   [2] ~/.bashrc-public/second-level
+#   [3] ~/.bashrc-public/init
+#   [4] ~/.bashrc
+#   [5] ~/.bash_profile
+#
+# This shell function does that.
 
 __get_source_name() {
   echo ${BASH_SOURCE[1]}
-}
-
-__wami() {
-  echo bs0  ${BASH_SOURCE[0]}
-  echo bs1  ${BASH_SOURCE[1]}
-  echo bs$  ${BASH_SOURCE[@]}
-  echo bsn  ${#BASH_SOURCE[@]}
-  echo bare ${BASH_SOURCE}
 }
 
 __set_verbose() {

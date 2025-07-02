@@ -1,7 +1,6 @@
 # vim: set filetype=sh:
 
-# XXX COMMENT
-# XXX requires color-rc to have been sourced first
+# Requires ./color-rc to have been sourced first.
 
 # ----------------------------------------------------------------
 # Set my prompt, using bash-prompt escapes and xterm text-coloring escapes.
