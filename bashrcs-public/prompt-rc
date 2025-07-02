@@ -33,13 +33,9 @@ if [ "`whoami`" = "root" ]; then
 	  color1="$__text_red"
 	  color2="$__text_yellow"
 else
-	  #color1="$__text_green"
-	  #color2="$__text_yellow"
 	  color1="$__text_yellow"
 	  color2="$__text_yellow"
 	  color3="$__text_green"
-	  #color1="$__text_red"
-	  #color2="$__text_red"
 fi
 
 # Notes:
@@ -51,9 +47,6 @@ fi
 # * The \[ \] around xterm escape sequences are important in shell prompts so that
 #   the shell can properly compute the length of the prompt string which in turn
 #   is essential to avoid screen-garbaging on history editing of long command lines.
-#
-# * $PS1ENV is for various work/project-specific things, typically set up in ~/.vars-site
-#   which is in a private repo.
 
 if [ -z "$BASH_VERSION" ]; then # zsh
 	export PS1="${__text_green}%n@%m[%c]${__text_red}[j%js%?]${__text_green}%#${__text_textdefault} "
@@ -80,17 +73,34 @@ else
 	fi
 
     export PS1="\n\[${ps1_color1}\]\u\[${ps1_color2}\]@\[${ps1_color3}\]${hostname}\[${ps1_color4}\]"
-    PS1+="[\${PS1ENV}]"
-    PS1+='[$(git-show-current-branch-safe)]'
+
+    # $PS1ENV is for various work/project-specific things, typically set up in ~/.bashrcs-private
+    # which is intended to symlink to a private repo's rc scripts.
+    if [ ! -z "$PS1ENV" ]; then
+      PS1+="[\${PS1ENV}]"
+    fi
+
+    # Include current git branch in the prompt, if that's installed (see
+    # https://github.com/johnkerl/scripts).
+    git-show-current-branch-safe > /dev/null 2>&1 && PS1+='[$(git-show-current-branch-safe)]'
+
+    # I want to show the last two components (at most) of the current directory
+    # in my prompt. Bash 4 does this via PROMPT_DIRTRIM and \W;; for Bash 3
+    # (MacOS even in the year 2025), I use a C program in my ~/bin/.
+    export PROMPT_DIRTRIM=2
     if [ -x $HOME/bin/basenames ]; then
-      # No PROMPT_DIRTRIM support in bash < 4, and I have bash 3 on MacOS in 2025.
-      export PROMPT_DIRTRIM=2
       PS1+='[$(basenames $PROMPT_DIRTRIM)]'
     else
       PS1+='[\W]'
     fi
+
+    # Status of last shell command (sometimes useful).
     #PS1+='[$?]'
+
+    # Mininal prompt.
     PS1+="$ "
+
+    # End of prompt coloring.
     PS1+="\[${default}\]"
 
     # For copy/paste into gists etc.:
@@ -100,8 +110,8 @@ else
     alias psx='export PS1="$PSX"'
 fi
 
-# For pathnicks.c in repo johnkerl/dotfiles
-export PATHNICKS="$mlb:MLR"
-export PATHNICKS="$PATHNICKS,$HOME/pub_http_internet/miller-releases:MLRREL"
-export PATHNICKS="$PATHNICKS,$HOME/git/fork:GIT-FORK"
-export PATHNICKS="$PATHNICKS,$HOME/git:GIT-MAIN"
+# # For pathnicks.c in repo johnkerl/dotfiles
+# export PATHNICKS="$mlb:MLR"
+# export PATHNICKS="$PATHNICKS,$HOME/pub_http_internet/miller-releases:MLRREL"
+# export PATHNICKS="$PATHNICKS,$HOME/git/fork:GIT-FORK"
+# export PATHNICKS="$PATHNICKS,$HOME/git:GIT-MAIN"

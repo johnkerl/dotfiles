@@ -9,9 +9,9 @@ selfdir=$(dirname $self)
 __maybe_say SELF IS $self
 
 # Source color-rc first so other scripts can use colorized output.
+# Source prompt-rc last so that PATH is full.
 for file in \
   color-rc \
-  prompt-rc \
   path-rc \
   general-rc \
   git-rc \
@@ -23,7 +23,8 @@ for file in \
   r-rc \
   java-rc \
   miller-rc \
-  lumin-rc
+  lumin-rc \
+  prompt-rc
 do
   . $selfdir/$file
 done
