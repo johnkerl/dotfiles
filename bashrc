@@ -8,6 +8,8 @@ if [ -e /etc/bashrc ]; then
 fi
 
 # ================================================================
+# See README.md for more context.
+#
 # Files to source are from:
 # o github.com/johnkerl/dotfiles
 # o github.com/johnkerl/private-dotfiles (private repo)

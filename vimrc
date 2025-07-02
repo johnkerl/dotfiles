@@ -1,7 +1,5 @@
-" John Kerl's vimrc, 2003-2013 and onward ...
+" John Kerl's vimrc, 2003 and onward.
 " See vim online help for more information.
-
-"source $HOME/.vimrc-site
 
 " :h :digraphs
 " C-k 'e accent up

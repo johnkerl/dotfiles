@@ -3,6 +3,7 @@
 # ================================================================
 # Usage:
 # curl https://raw.githubusercontent.com/johnkerl/dotfiles/refs/heads/main/install.sh | bash
+# See also ./README.md for context.
 # ================================================================
 
 # ----------------------------------------------------------------

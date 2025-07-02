@@ -5,9 +5,6 @@
 alias     gln='git log -n'
 alias     gs='git status'
 alias     gd='git diff'
-#alias    gd1='git diff HEAD~ HEAD'
-#alias    gd2='git diff HEAD~2 HEAD'
-#alias    gd3='git diff HEAD~3 HEAD'
 
 alias    gd1='git diff HEAD~'
 alias    gd2='git diff HEAD~2'

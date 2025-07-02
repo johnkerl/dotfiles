@@ -2,6 +2,6 @@
 
 # For Python REPL with my most-used modules pre-loaded:
 #alias py='python -Qnew -i ~/.mypy'
-alias  pve='python --version'
+alias pve='python --version'
 alias pves='pyenv versions'
-alias     bcd='black . --check'
+alias bcd='black . --check'

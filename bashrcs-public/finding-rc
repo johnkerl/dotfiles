@@ -1,13 +1,14 @@
 # vim: set filetype=sh:
 
 # ================================================================
-# Next are some shell functions.  The main deliverables are vimr and cd2file.
-# These enable vim and cd to find files several levels deep, which is
-# particularly important for Java development wherein package naming forces
-# several levels of directories.
+# These are some shell functions for finding things.  The main deliverables are
+# vimr and cd2file.  These enable vim and cd to find files several levels deep,
+# which is particularly important for Java development wherein package naming
+# forces several levels of directories.
 
 # ----------------------------------------------------------------
 # file2dir:
+#
 # * Given a file name, searches for it recursively downward from the pwd.
 # * I don't use this directly but it's used by cd2file and vimr.
 # * If exactly one such file is found, prints to stdout the name of the
@@ -18,6 +19,7 @@
 #   shell globbing so that they can reach here unglobbed.
 #
 # Examples:
+#
 # * bash$ file2dir CommonFileName.java
 #   Sorry, multiple matches (> 10).
 #
