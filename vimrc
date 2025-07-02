@@ -1,7 +1,7 @@
 " John Kerl's vimrc, 2003-2013 and onward ...
 " See vim online help for more information.
 
-source $HOME/.vimrc-site
+"source $HOME/.vimrc-site
 
 " :h :digraphs
 " C-k 'e accent up
@@ -20,7 +20,16 @@ set noincsearch
 set noshowmode
 "set notagrelative
 set tagrelative
-set cpoptions=aABcdeFsz
+
+" As of 2025 I need trailing z for proper cw behavior on MacOS.
+" But on Ubuntu this is a syntax error :(
+let os = substitute(system('uname -s'), '\n', '', '')
+if os == "Darwin"
+  set cpoptions=aABcdeFsz
+else
+  set cpoptions=aABcdeFs
+endif
+
 set exrc
 set modeline
 set modelines=5

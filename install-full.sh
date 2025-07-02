@@ -72,7 +72,12 @@ go version || ok="false"
 if [ "$ok" = "true" ]; then
   cd ~/git/johnkerl/miller
   ./configure --prefix $HOME
-  make install
+  # make install
+  make
+  make -C man install
+  if [ ! -h ~/bin/mlr ]; then
+    ln -s $(pwd)/mlr ~/bin/mlr
+  fi
 
   cd ~/git/johnkerl/lumin
   go build
