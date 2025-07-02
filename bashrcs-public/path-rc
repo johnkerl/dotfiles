@@ -1,17 +1,9 @@
 # vim: set filetype=sh:
 
-# Augment path
+# Augment path. Avoid too-long-path errors on subshells.
 if [ -z "$BEEN_HERE" ]; then
 
-	#export JAVA_HOME=/usr/local/jdk1.6.0_30
-	#export SCALA_HOME=/home/kerl/lang/scala/scala-2.10.1
-	#export SCALA_HOME=/home/kerl/lang/scala/scala-2.9.1.final
-
-	export RUBYLIB=$HOME/pub_http_internet/ruby:$HOME/pub_http_internet/ruby/ruffl
-	export PERLLIB=.:$HOME/scripts/perllib
-
 	# Path tail
-	export PATH=${PATH}:$HOME/bin/site
 	export PATH=${PATH}:$HOME/scripts/abbrevs
 	export PATH=${PATH}:$HOME/scripts/fundam/accel
 	export PATH=${PATH}:$HOME/scripts/fundam
@@ -19,12 +11,14 @@ if [ -z "$BEEN_HERE" ]; then
 	export PATH=${PATH}:$HOME/scripts/git
 	export PATH=${PATH}:$HOME/scripts/one-offs
 	export PATH=${PATH}:$HOME/bin/pgr
-	export PATH=${PATH}:/usr/local/go/bin
 	export PATH=${PATH}:$HOME/go/bin
-	export PATH=${PATH}:/usr/local/mysql/bin
-	export PATH=${PATH}:/usr/local/opt/node/bin
-	export PATH=${PATH}:/usr/local/Acrobat4/bin # Adobe Acrobat
-	export PATH=${PATH}:/usr/local/opt/jupyterlab/bin
+
+	#export PATH=${PATH}:$HOME/bin/site
+
+	#export PATH=${PATH}:/usr/local/mysql/bin
+	#export PATH=${PATH}:/usr/local/opt/node/bin
+	#export PATH=${PATH}:/usr/local/Acrobat4/bin
+	#export PATH=${PATH}:/usr/local/opt/jupyterlab/bin
   #export PATH=${PATH}:"/home/ubuntu/.pixi/bin"
 
 	# Path head
@@ -41,11 +35,19 @@ if [ -z "$BEEN_HERE" ]; then
 	export MANPATH=${MANPATH}:/usr/local/man
 	export MANPATH=${MANPATH}:/usr/local/share/man
 	#export MANPATH=${MANPATH}:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/share/man
-	export MANPATH=${MANPATH}://Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/share/man
+	export MANPATH=${MANPATH}:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/share/man
+
+	#export JAVA_HOME=/usr/local/jdk1.6.0_30
+	#export SCALA_HOME=/home/kerl/lang/scala/scala-2.10.1
+	#export SCALA_HOME=/home/kerl/lang/scala/scala-2.9.1.final
 
 	#export CLASSPATH=.:$HOME/aspectj/aspectj1.6/lib/aspectjrt.jar
 	#export CLASSPATH=${CLASSPATH}:/home/kerl/scala/scalatest-1.6.1/scalatest-1.6.1.jar
 	#export CLASSPATH=${CLASSPATH}:/usr/share/maven-repo/junit/junit/4.x/junit-4.x.jar 
+
+	#export RUBYLIB=$HOME/pub_http_internet/ruby:$HOME/pub_http_internet/ruby/ruffl
+
+	#export PERLLIB=.:$HOME/scripts/perllib
 
 	export   LD_LIBRARY_PATH=/usr/local/lib
 	export DYLD_LIBRARY_PATH=/usr/local/lib
