@@ -410,6 +410,8 @@ map <C-d> r l
 map <C-o> :w<C-m>:n<C-m>
 " Shell uncomment with autorepeat
 map <C-S-o> 0xj
+" Join text-width-line-broken paragraphs
+map <C-S-R> !}pjoin<C-m>}j
 
 " ================================================================
 " Language-specific separators.  Uppercase is equal signs; lowercase is dashes.
