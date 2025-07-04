@@ -104,7 +104,7 @@ file2dir () {
 # ----------------------------------------------------------------
 
 cd2file() {
-	dir=$(file2dir "$@")
+	local dir=$(file2dir "$@")
 	if [ $? -ne 0 ]; then
 		# An error message was already printed out by file2dir.
 		return 1
@@ -116,7 +116,7 @@ cd2file() {
 }
 
 pushd2file() {
-	dir=$(file2dir "$@")
+	local dir=$(file2dir "$@")
 	if [ $? -ne 0 ]; then
 		# An error message was already printed out by file2dir.
 		return 1
@@ -130,7 +130,7 @@ pushd2file() {
 # ----------------------------------------------------------------
 # vimr:  does not chdir the shell but does edit the file.
 vimr() {
-	dir=$(file2dir "$@")
+	local dir=$(file2dir "$@")
 	if [ $? -ne 0 ]; then
 		# An error message was already printed out by file2dir.
 		return 1

@@ -3,14 +3,14 @@
 # This is intended to be sourced from ../bashrc.
 # See also ./README.md for context.
 
-self=$(__get_source_name)
-selfdir=$(dirname $self)
+__self=$(__get_source_name)
+__selfdir=$(dirname $__self)
 
-__maybe_say INIT IS $self
+__maybe_say "-- BEGIN INIT $__self"
 
 # Source color-rc first so other scripts can use colorized output.
 # Source prompt-rc last so that PATH is full.
-for file in \
+for __file in \
   color-rc \
   path-rc \
   general-rc \
@@ -26,6 +26,9 @@ for file in \
   lumin-rc \
   prompt-rc
 do
-  __maybe_say INIT SOURCING $selfdir/$file
-  . $selfdir/$file
+  __maybe_say "-- $__self INIT BEGIN SOURCING $__selfdir/$__file"
+  . $__selfdir/$__file
+  __maybe_say "-- $__self INIT END   SOURCING $__selfdir/$__file"
 done
+
+__maybe_say "-- END   INIT $__self"

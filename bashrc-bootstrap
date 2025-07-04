@@ -44,7 +44,7 @@ __unset_verbose() {
 
 __maybe_say() {
   if [ "$__VERBOSE" = "true" ]; then
-    echo BASHRC: $@
+    echo "BASHRC: $@"
   fi
 }
 
@@ -76,22 +76,24 @@ __my_assign_impl() {
   if [ $# -ne 3 ]; then
     echo "my_assign_file: need name and value as arguments; got $@"
   else
-    command="$1"
-    name="$2"
-    value="$3"
+    local command="$1"
+    local name="$2"
+    local value="$3"
+
     alias $name="$command $value"
     eval export $name="$value"
   fi
 }
 
 __check_my_assign_dirs() {
-  verbose=false
+  local verbose=false
   if [ $# -eq 1 ]; then
     verbose=true
   fi
+  local entry
   for entry in $( env | grep my_assign_dir_); do
-    name=$(echo $entry | sed 's/=.*//' | sed 's/my_assign_dir_//')
-    value=$(echo $entry | sed 's/.*=//')
+    local name=$(echo $entry | sed 's/=.*//' | sed 's/my_assign_dir_//')
+    local value=$(echo $entry | sed 's/.*=//')
     if [ -d "$value" ]; then
       if [ "$verbose" = "true" ]; then
         echo "ok $name=$value"
@@ -103,7 +105,7 @@ __check_my_assign_dirs() {
 }
 
 __check_my_assign_files() {
-  verbose=false
+  local verbose=false
   if [ $# -eq 1 ]; then
     verbose=true
   fi
@@ -127,10 +129,11 @@ __my_assign_file() {
   if [ $# -ne 2 ]; then
     echo "my_assign_file: need name and value as arguments; got $@"
   else
-    name="$1"
-    value="$2"
+    local name="$1"
+    local value="$2"
+
     __my_assign_impl vim "$name" "$value"
-    export my_assign_file_$name="$value"
+    export __my_assign_file_$name="$value"
   fi
 }
 
@@ -138,10 +141,11 @@ __my_assign_dir() {
   if [ $# -ne 2 ]; then
     echo "my_assign_file: need name and value as arguments; got $@"
   else
-    name="$1"
-    value="$2"
+    local name="$1"
+    local value="$2"
+
     __my_assign_impl cd "$name" "$value"
-    export my_assign_dir_$name="$value"
+    export __my_assign_dir_$name="$value"
   fi
 }
 

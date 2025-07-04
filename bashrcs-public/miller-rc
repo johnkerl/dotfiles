@@ -17,7 +17,6 @@ __my_assign_dir mld   "$mlb/docs"
 __my_assign_dir mlds  "$mlb/docs/src"
 __my_assign_dir mman  "$mlb/man"
 
-__my_assign_dir  pkg    "pkg"
 __my_assign_dir  mlv    "pkg/mlrval"
 __my_assign_dir  bifs   "pkg/bifs"
 __my_assign_file bfm    "pkg/dsl/cst/builtin_function_manager.go"

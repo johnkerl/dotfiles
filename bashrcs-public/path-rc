@@ -1,7 +1,7 @@
 # vim: set filetype=sh:
 
 # Augment path. Avoid too-long-path errors on subshells.
-if [ -z "$BEEN_HERE" ]; then
+if [ -z "$__been_here" ]; then
 
 	# Path tail
 	export PATH=${PATH}:$HOME/scripts/abbrevs
@@ -52,5 +52,5 @@ if [ -z "$BEEN_HERE" ]; then
 	export   LD_LIBRARY_PATH=/usr/local/lib
 	export DYLD_LIBRARY_PATH=/usr/local/lib
 
-	export BEEN_HERE=yes
+	export __been_here=yes
 fi

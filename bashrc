@@ -17,26 +17,26 @@ fi
 # o ~/.bashrc-work:      Anything else work-related/site-related
 
 # First, source things all the ~/.bashrcs-public/* files need.
-boot=~/.bashrc-bootstrap
-if [ ! -f $boot ]; then
-  echo BASHRC: $boot not found
+__boot=~/.bashrc-bootstrap
+if [ ! -f $__boot ]; then
+  echo BASHRC: $__boot not found
 else
-  . $boot
+  . $__boot
 
   # Uncomment this for some tracing. This causes __maybe_say to say things.
-  #__set_verbose
+  # __set_verbose
 
-  for init in \
+  for __init in \
     ~/.bashrcs-public/init \
     ~/.bashrcs-private/init \
     ~/.bashrc-work
   do
-    if [ -e $init ]; then
-      __maybe_say "BEGIN SOURCE $init"
-      . $init
-      __maybe_say "END   SOURCE $init"
+    if [ -e $__init ]; then
+      __maybe_say "BEGIN .BASHRC SOURCE $__init"
+      . $__init
+      __maybe_say "END   .BASHRC SOURCE $__init"
     else
-      __maybe_say "NOT FOUND $init"
+      __maybe_say "NOT FOUND $__init"
     fi
   done
 fi
@@ -65,6 +65,8 @@ export NVM_DIR=~/.nvm
 # PYENV
 # if [ -f $HOME/.no-pyenv ]; then
 #   echo "bashrc: Skipping pyenv init"
+# else
+#   ...
 # fi
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d $PYENV_ROOT/bin ] ; then
