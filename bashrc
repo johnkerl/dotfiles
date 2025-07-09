@@ -12,29 +12,29 @@ fi
 # See https://github.com/johnkerl/dotfiles/blob/main/README.md
 #
 # The files we source are from:
-# o ~/.bashrcs-public/:  github.com/johnkerl/dotfiles (this is a public repo)
-# o ~/.bashrcs-private/: github.com/johnkerl/private-dotfiles (this is private repo)
-# o ~/.bashrc-work:      Anything else work-related/site-related
+# o ~/.bzrcs-public/:  github.com/johnkerl/dotfiles (this is a public repo)
+# o ~/.bzrcs-private/: github.com/johnkerl/private-dotfiles (this is private repo)
+# o ~/.bzrc-work:      Anything else work-related/site-related
 
-# First, source things all the ~/.bashrcs-public/* files need.
-__boot=~/.bashrc-bootstrap
+# First, source things all the ~/.bzrcs-public/* files need.
+__boot=~/.bzrc-bootstrap
 if [ ! -f $__boot ]; then
-  echo BASHRC: $__boot not found
+  echo BZRC: $__boot not found
 else
   . $__boot
 
   # Uncomment this for some tracing. This causes __maybe_say to say things.
-  # __set_verbose
+  #__set_verbose
 
   for __init in \
-    ~/.bashrcs-public/init \
-    ~/.bashrcs-private/init \
-    ~/.bashrc-work
+    ~/.bzrcs-public/init \
+    ~/.bzrcs-private/init \
+    ~/.bzrc-work
   do
     if [ -e $__init ]; then
-      __maybe_say "BEGIN .BASHRC SOURCE $__init"
+      __maybe_say "BEGIN .BZRC SOURCE $__init"
       . $__init
-      __maybe_say "END   .BASHRC SOURCE $__init"
+      __maybe_say "END   .BZRC SOURCE $__init"
     else
       __maybe_say "NOT FOUND $__init"
     fi

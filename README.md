@@ -25,7 +25,8 @@ That clones this repo to `~/git/johnkerl/dotfiles`, then `cd`'s there and runs `
 
 ```
 ln -s $(pwd)/bashrc         ~/.bashrc
-ln -s $(pwd)/bashrcs-public ~/.bashrcs-public
+ln -s $(pwd)/zshrc          ~/.zshrc
+ln -s $(pwd)/bzrcs-public   ~/.bzrcs-public
 ln -s $(pwd)/screenrc       ~/.screenrc
 ln -s $(pwd)/vanilla        ~/.vanilla
 ln -s $(pwd)/vimrc          ~/.vimrc
@@ -47,8 +48,8 @@ https://github.com/johnkerl/away for other remote-setup options.
 ## Structure
 
 * At installation, `~/.bashrc`, `~/.screenrc`, `~/.vimrc` are symlinked to point to this repo's [`bashrc`](./bashrc), [`screenrc`](./screenrc), [`vimrc`](./vimrc) here.
-* `~/.bashrcs-public/` is symlinked to point to [`bashrcs-public/`](./bashrcs-public/)here.
-* `~/.bashrc` sources [`~/.bashrcs-public/init`](./bashrcs-public/init).
-* [`~/.bashrcs-public/init`](./bashrcs-public/init) is responsible for sourcing the other files in its directory.
-* If `~/.bashrcs-private/` (a symlink to a directory containing an `init` file) and/or
-  `~/.bashrc-work` (a symlink to a file) are present, they'll be sourced as well.
+* `~/.bzrcs-public/` is symlinked to point to [`bzrcs-public/`](./bzrcs-public/)here.
+* `~/.bashrc` sources [`~/.bzrcs-public/init`](./bzrcs-public/init).
+* [`~/.bzrcs-public/init`](./bzrcs-public/init) is responsible for sourcing the other files in its directory.
+* If `~/.bzrcs-private/` (a symlink to a directory containing an `init` file) and/or
+  `~/.bzrc-work` (a symlink to a file) are present, they'll be sourced as well.

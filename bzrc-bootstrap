@@ -8,30 +8,41 @@
 # ----------------------------------------------------------------
 # One of the tricks is getting the path to the file currently being sourced.
 # When a bash script is executed , this is as simple as basename $0.
-# For sourcing, I use the ${BASH_SOURCE[]} array.
+#
+# For sourcing with bash, I use the ${BASH_SOURCE[]} array.
 #
 # Empirical finding: suppose the sourcing levels are
 #
 #   ~/.bash_profile
 #   ~/.bashrc
-#   ~/.bashrc-public/init
-#   ~/.bashrc-public/second-level
-#   ~/.bashrc-public/third-level
+#   ~/.bzrcs-public/init
+#   ~/.bzrcs-public/second-level
+#   ~/.bzrcs-public/third-level
 #
-# then I find that within ~/.bashrc-public/third-level the ${BASH_SOURCE[]} array entries are as
+# then I find that within ~/.bzrc-public/third-level the ${BASH_SOURCE[]} array entries are as
 # follows:
 #
 #   [0] ~/.bashrc
-#   [1] ~/.bashrc-public/third-level
-#   [2] ~/.bashrc-public/second-level
-#   [3] ~/.bashrc-public/init
+#   [1] ~/.bzrcs-public/third-level
+#   [2] ~/.bzrcs-public/second-level
+#   [3] ~/.bzrcs-public/init
 #   [4] ~/.bashrc
 #   [5] ~/.bash_profile
 #
 # This shell function does that.
+#
+# For sourcing with zsh: when file 'foo' is sourced, $0 is 'foo' within it.  But
+# within a shell function, $0 is the name of the function.  So for zsh we can't
+# make a function which returns the name of the file being source: the caller
+# itself needs to use $0.
 
 __get_source_name() {
-  echo ${BASH_SOURCE[1]}
+  if [ -z "$BASH_VERSION" ]; then # zsh
+    echo 'BZRC: do not call __get_source_name for zsh: use $0'
+    echo "nonesuch"
+  else
+    echo ${BASH_SOURCE[1]}
+  fi
 }
 
 __set_verbose() {
@@ -44,11 +55,11 @@ __unset_verbose() {
 
 __maybe_say() {
   if [ "$__VERBOSE" = "true" ]; then
-    echo "BASHRC: $@"
+    echo "BZRC: $@"
   fi
 }
 
-if [ -f ~/.bashrc-verbose ]; then
+if [ -f ~/.bzrc-verbose ]; then
   __set_verbose
 fi
 

@@ -46,8 +46,9 @@ echo "johnkerl/dotfiles: installing symlinks"
 
 for item in \
   bashrc \
-  bashrcs-public \
-  bashrc-bootstrap \
+  zshrc \
+  bzrc-bootstrap \
+  bzrcs-public \
   screenrc \
   vimrc
 do
