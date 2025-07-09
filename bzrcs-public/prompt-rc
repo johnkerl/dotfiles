@@ -22,7 +22,7 @@
 # export PS1='\u@\h:\W% '
 
 # Example:
-# kerl@sprax[tmp]  jobs=1 dirs=2$ 
+# kerl@sprax[tmp]  jobs=1 dirs=2$
 # \_____________/  \___________/|
 #     green             red     green
 
@@ -31,15 +31,15 @@
 # * The \[ \] around xterm escape sequences are important in shell prompts so that
 #   the shell can properly compute the length of the prompt string which in turn
 #   is essential to avoid screen-garbaging on history editing of long command lines.
+# ----------------------------------------------------------------
 
 if [ -z "$BASH_VERSION" ]; then # zsh
   # These colors from ./color-rc which should be sourced before this file.
-    # export PS1="${__text_green}%n@%m[%c]${__text_red}[j%js%?]${__text_green}%#${__textdefault} "
 
   setopt PROMPT_SUBST
   set -o emacs
 
-  # XXX TEMP
+  # Artisanal shading
   __ps1_color1='%F{172}'
   __ps1_color2='%F{130}'
   __ps1_color3='%F{172}'
@@ -51,6 +51,8 @@ if [ -z "$BASH_VERSION" ]; then # zsh
       __hostname=$(cat ~/.hostname-alias)
   fi
 
+  # From the web:
+  #
   # %F{color}: Sets the foreground color.
   # %f: Resets the foreground color to the default.
   # %K{color}: Sets the background color.
@@ -61,10 +63,10 @@ if [ -z "$BASH_VERSION" ]; then # zsh
   # %u: Stops underlining.
   # Color Specification:
   # Named Colors: Zsh supports standard color names like black, red, green, yellow, blue, magenta, cyan, and white.
-  # Numbered Colors: For a wider range of colors, you can use numbers from 0 to 255 to reference colors from the 256-color palette.
+  # Numbered Colors: For a wider range of colors, you can use numbers from 0 to
+  #   255 to reference colors from the 256-color palette.
   # Hexadecimal Colors: You can also use hex color codes in the format %F{#RRGGBB}.
 
-  #export PS1="\n\[${__ps1_color1}\]%u\[${__ps1_color2}\]@\[${__ps1_color3}\]%n\[${__ps1_color4}\]"
   export PS1="$(echo "")${__ps1_color1}%n${__ps1_color2}@${__ps1_color3}${__hostname}${__ps1_color4}"
 
   # $PS1ENV is for various work/project-specific things, typically set up in ~/.bzrcs-private
@@ -106,13 +108,13 @@ else # bash
   # Other conditions may certainly apply. For me in 2022 my main goal is distinguishing visually
   # from terminals on my Mac laptop from SSH sessions into a Linux EC2 instance.
   if [ $(uname) = "Darwin" ]; then
-  # Artisanal shades of yellow
+    # Artisanal shades of yellow
     __ps1_color1=$'\033[1;38;5;178m'
     __ps1_color2=$'\033[1;38;5;136m'
     __ps1_color3=$'\033[1;38;5;178m'
     __ps1_color4=$'\033[1;38;5;136m'
   else
-  # Artisanal shades of orange and brown
+    # Artisanal shades of orange and brown
     __ps1_color1=$'\033[1;38;5;208m'
     __ps1_color2=$'\033[1;38;5;94m'
     __ps1_color3=$'\033[1;38;5;208m'

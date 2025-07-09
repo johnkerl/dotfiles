@@ -1,6 +1,6 @@
 # vim: set filetype=sh:
 
-# This is intended to be sourced from ../bashrc.
+# This is intended to be sourced from ../bashrc or ../zshrc.
 # See also ./README.md for context.
 
 if [ -z "$BASH_VERSION" ]; then # zsh

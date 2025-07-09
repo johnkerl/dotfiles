@@ -1,5 +1,5 @@
-# ----------------------------------------------------------------
-# PYENV
+# vim: set filetype=sh:
+
 # if [ -f $HOME/.no-pyenv ]; then
 #   echo "bashrc: Skipping pyenv init"
 # else

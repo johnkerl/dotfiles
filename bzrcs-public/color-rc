@@ -1,8 +1,9 @@
 # vim: set filetype=sh:
 
 # ==============================================================================
-# For my prompt, and anything else that wants to echo colorfully using echo -e.
-# These are xterm-style escape sequences.
+# These are xterm-style escape sequences, for my prompt, and for anything else
+# that wants to echo colorfully using echo -e.
+#
 # John Kerl
 # 2011-06-30
 # ==============================================================================

@@ -1,7 +1,5 @@
 # vim: set filetype=sh:
 
-# ----------------------------------------------------------------
-
 alias     gln='git log -n'
 alias     gs='git status'
 alias     gd='git diff'
@@ -70,7 +68,7 @@ gacp() {
   fi
 }
 
-# from https://github.com/johnkerl/scripts/tree/main/git
+# From https://github.com/johnkerl/scripts/tree/main/git
 alias     gsb='git show-current-branch'
 alias     sbs='git show-branches'
 alias     gub='git checkout'

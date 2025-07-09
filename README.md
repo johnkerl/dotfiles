@@ -47,9 +47,9 @@ https://github.com/johnkerl/away for other remote-setup options.
 
 ## Structure
 
-* At installation, `~/.bashrc`, `~/.screenrc`, `~/.vimrc` are symlinked to point to this repo's [`bashrc`](./bashrc), [`screenrc`](./screenrc), [`vimrc`](./vimrc) here.
+* At installation, `~/.bashrc`, `~/.zshrc`, `~/.screenrc`, `~/.vimrc` are symlinked to point to this repo's [`bashrc`](./bashrc), [`zshrc`](./zshrc), [`screenrc`](./screenrc), [`vimrc`](./vimrc) here.
 * `~/.bzrcs-public/` is symlinked to point to [`bzrcs-public/`](./bzrcs-public/)here.
-* `~/.bashrc` sources [`~/.bzrcs-public/init`](./bzrcs-public/init).
+* `~/.bashrc` and `~/.zshrc` source [`~/.bzrcs-public/init`](./bzrcs-public/init). The `bz` reflects the fact that these scripts work with `bash` and `zsh` both.
 * [`~/.bzrcs-public/init`](./bzrcs-public/init) is responsible for sourcing the other files in its directory.
 * If `~/.bzrcs-private/` (a symlink to a directory containing an `init` file) and/or
   `~/.bzrc-work` (a symlink to a file) are present, they'll be sourced as well.

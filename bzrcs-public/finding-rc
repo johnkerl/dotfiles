@@ -5,6 +5,7 @@
 # vimr and cd2file.  These enable vim and cd to find files several levels deep,
 # which is particularly important for Java development wherein package naming
 # forces several levels of directories.
+# ================================================================
 
 # ----------------------------------------------------------------
 # file2dir:
