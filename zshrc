@@ -1,43 +1,75 @@
 # vim: set filetype=sh:
 # .zshrc
 
-# In this repo
-if [ -f ~kerl/.vars ]; then
-	. ~kerl/.vars
+# ================================================================
+# Systemwide setup
+if [ -e /etc/zshrc ]; then
+  . /etc/zshrc
 fi
 
-# Not in this repo -- perhaps in a private repo
-if [ -f ~kerl/.vars-personal ]; then
-	. ~kerl/.vars-personal
+# ================================================================
+# Use an installed checkout of https://github.com/johnkerl/dotfiles.
+# See https://github.com/johnkerl/dotfiles/blob/main/README.md
+#
+# The files we source are from:
+# o ~/.zshrcs-public/:  github.com/johnkerl/dotfiles (this is a public repo)
+# o ~/.zshrcs-private/: github.com/johnkerl/private-dotfiles (this is private repo)
+# o ~/.zshrc-work:      Anything else work-related/site-related
+
+# First, source things all the ~/.zshrcs-public/* files need.
+__boot=~/.zshrc-bootstrap
+if [ ! -f $__boot ]; then
+  echo ZSHRC: $__boot not found
+else
+  . $__boot
+
+  # Uncomment this for some tracing. This causes __maybe_say to say things.
+  # __set_verbose
+
+  for __init in \
+    ~/.zshrcs-public/init \
+    ~/.zshrcs-private/init \
+    ~/.zshrc-work
+  do
+    if [ -e $__init ]; then
+      __maybe_say "BEGIN .ZSHRC SOURCE $__init"
+      . $__init
+      __maybe_say "END   .ZSHRC SOURCE $__init"
+    else
+      __maybe_say "NOT FOUND $__init"
+    fi
+  done
 fi
-if [ -f ~kerl/.vars-site ]; then
-	. ~kerl/.vars-site
+
+# ================================================================
+# The rest could go into my GitHub dotfiles repos, but, software-installation
+# tools like to edit ~/.zshrc files directly. Sometimes it's easier to just let
+# them do that. That way, if a tool install edits my ~/.zshrc, I'll see the
+# double entries all in one place, right here.
+
+# ----------------------------------------------------------------
+# RUST
+if [ -f "$HOME/.cargo/.env" ]; then
+  . "$HOME/.cargo/env"
 fi
 
 # ----------------------------------------------------------------
-# The rest is for interactive shells only.
-
-if [ "${-/i/}" = "$-" ] ; then
-	return 0
-fi
-
-# ----------------------------------------------------------------
-
-if [ -f ~kerl/.aliases ]; then
-	. ~kerl/.aliases
-fi
-
-# I use a black background.  Replace (dark) blue with cyan for colored
-# ls output.
-# Later note:  this was OK on some OS version; not OK later.
-# eval `dircolors|sed s/34/36/g`
+# NVM
+export NVM_DIR=~/.nvm
+# This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# This loads nvm zsh_completion
+[ -s "$NVM_DIR/zsh_completion" ] && \. "$NVM_DIR/zsh_completion"
 
 # ----------------------------------------------------------------
-# Bash history-editing option.
-set mark-modified-lines off
-
-# Without this, control-W at end of line on "ls /a/b/c/d" results in "ls".
-# With this,    control-W at end of line on "ls /a/b/c/d" results in "ls /a/b/c".
-stty werase undef
-
-set -o emacs
+# PYENV
+# if [ -f $HOME/.no-pyenv ]; then
+#   echo "zshrc: Skipping pyenv init"
+# else
+#   ...
+# fi
+export PYENV_ROOT="$HOME/.pyenv"
+if [ -d $PYENV_ROOT/bin ] ; then
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi

@@ -8,9 +8,11 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export PROMPT_COMMAND=
 
 stty werase undef
-bind '"\C-w": backward-kill-word'
 
-bind 'set bell-style none'
+if [ ! -z "$BASH_VERSION" ]; then # not zsh
+  bind '"\C-w": backward-kill-word'
+  bind 'set bell-style none'
+fi
 
 # ----------------------------------------------------------------
 # The alias is for interactive use. The $PAGER is for, at least, git diff.  I
@@ -81,7 +83,9 @@ ttvim() {
 }
 
 wreset () {
-    bind '"\C-w": backward-kill-word'
+    if [ -z "$BASH_VERSION" ]; then # zsh
+      bind '"\C-w": backward-kill-word'
+    fi
     stty werase undef
 }
 

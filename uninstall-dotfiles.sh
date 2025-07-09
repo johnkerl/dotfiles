@@ -11,9 +11,10 @@ set -euo pipefail
 
 for item in \
   bashrc \
-  bashrc_profile \
-  bashrcs-public \
-  bashrc-bootstrap \
+  zshrc \
+  bzrc_profile \
+  bzrcs-public \
+  bzrc-bootstrap \
   screenrc \
   vimrc \
   hostname-alias
