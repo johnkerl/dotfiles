@@ -9,7 +9,9 @@ export PROMPT_COMMAND=
 
 stty werase undef
 
-if [ ! -z "$BASH_VERSION" ]; then # not zsh
+if [ -z "$BASH_VERSION" ]; then # zsh
+  export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+else
   bind '"\C-w": backward-kill-word'
   bind 'set bell-style none'
 fi

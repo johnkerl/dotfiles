@@ -17,7 +17,7 @@ fi
 # o ~/.zshrc-work:      Anything else work-related/site-related
 
 # First, source things all the ~/.zshrcs-public/* files need.
-__boot=~/.zshrc-bootstrap
+__boot=~/.bzrc-bootstrap
 if [ ! -f $__boot ]; then
   echo ZSHRC: $__boot not found
 else
@@ -27,9 +27,9 @@ else
   # __set_verbose
 
   for __init in \
-    ~/.zshrcs-public/init \
-    ~/.zshrcs-private/init \
-    ~/.zshrc-work
+    ~/.bzrcs-public/init \
+    ~/.bzrcs-private/init \
+    ~/.bzrc-work
   do
     if [ -e $__init ]; then
       __maybe_say "BEGIN .ZSHRC SOURCE $__init"
