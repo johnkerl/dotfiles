@@ -20,10 +20,13 @@ for __file in \
   path-rc \
   general-rc \
   git-rc \
+  nvm-rc \
   quarto-rc \
+  pyenv-rc \
   python-rc \
   cpp-rc \
   rust-rc \
+  cargo-rc \
   docker-rc \
   r-rc \
   java-rc \

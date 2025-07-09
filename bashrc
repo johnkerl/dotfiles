@@ -40,36 +40,3 @@ else
     fi
   done
 fi
-
-# ================================================================
-# The rest could go into my GitHub dotfiles repos, but, software-installation
-# tools like to edit ~/.bashrc files directly. Sometimes it's easier to just let
-# them do that. That way, if a tool install edits my ~/.bashrc, I'll see the
-# double entries all in one place, right here.
-
-# ----------------------------------------------------------------
-# RUST
-if [ -f "$HOME/.cargo/.env" ]; then
-  . "$HOME/.cargo/env"
-fi
-
-# ----------------------------------------------------------------
-# NVM
-export NVM_DIR=~/.nvm
-# This loads nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# This loads nvm bash_completion
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# ----------------------------------------------------------------
-# PYENV
-# if [ -f $HOME/.no-pyenv ]; then
-#   echo "bashrc: Skipping pyenv init"
-# else
-#   ...
-# fi
-export PYENV_ROOT="$HOME/.pyenv"
-if [ -d $PYENV_ROOT/bin ] ; then
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
-fi
