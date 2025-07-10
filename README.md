@@ -53,5 +53,3 @@ https://github.com/johnkerl/away for other remote-setup options.
 * [`~/.bzrcs-public/init`](./bzrcs-public/init) is responsible for sourcing the other files in its directory.
 * If `~/.bzrcs-private/` (a symlink to a directory containing an `init` file) and/or
   `~/.bzrc-work` (a symlink to a file) are present, they'll be sourced as well.
-
-## temp commit
