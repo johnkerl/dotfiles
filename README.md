@@ -15,7 +15,7 @@ Run either or both of these from within a checkout of this repo:
 `./download-and-install.sh` can be run in `curl`:
 
 ```
-curl https://raw.githubusercontent.com/johnkerl/dotfiles/refs/heads/main/install.sh | bash
+curl https://raw.githubusercontent.com/johnkerl/dotfiles/refs/heads/main/install-dotfiles.sh | bash
 ```
 
 That clones this repo to `~/git/johnkerl/dotfiles`, then `cd`'s there and runs `bash
