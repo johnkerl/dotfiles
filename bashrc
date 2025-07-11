@@ -19,22 +19,24 @@ fi
 # First, source things all the ~/.bzrcs-public/* files need.
 __boot=~/.bzrc-bootstrap
 if [ ! -f $__boot ]; then
-  echo BZRC: $__boot not found
+  echo BASHRC: $__boot not found
 else
   . $__boot
 
   # Uncomment this for some tracing. This causes __maybe_say to say things.
   #__set_verbose
 
+  # For work I want to support either the subdir model or the single-rc model
   for __init in \
     ~/.bzrcs-public/init \
     ~/.bzrcs-private/init \
+    ~/.bzrcs-work/init \
     ~/.bzrc-work
   do
     if [ -e $__init ]; then
-      __maybe_say "BEGIN .BZRC SOURCE $__init"
+      __maybe_say "BEGIN BASHRC SOURCE $__init"
       . $__init
-      __maybe_say "END   .BZRC SOURCE $__init"
+      __maybe_say "END   BASHRC SOURCE $__init"
     else
       __maybe_say "NOT FOUND $__init"
     fi

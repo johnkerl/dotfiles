@@ -26,15 +26,17 @@ else
   # Uncomment this for some tracing. This causes __maybe_say to say things.
   # __set_verbose
 
+  # For work I want to support either the subdir model or the single-rc model
   for __init in \
     ~/.bzrcs-public/init \
     ~/.bzrcs-private/init \
+    ~/.bzrcs-work/init \
     ~/.bzrc-work
   do
     if [ -e $__init ]; then
-      __maybe_say "BEGIN .ZSHRC SOURCE $__init"
+      __maybe_say "BEGIN ZSHRC SOURCE $__init"
       . $__init
-      __maybe_say "END   .ZSHRC SOURCE $__init"
+      __maybe_say "END   ZSHRC SOURCE $__init"
     else
       __maybe_say "NOT FOUND $__init"
     fi
