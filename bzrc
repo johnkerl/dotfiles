@@ -1,10 +1,20 @@
 # vim: set filetype=sh:
-# .bashrc
+
+# ================================================================
+# This is .bashrc and .zshrc, in one file.
+# ================================================================
 
 # ================================================================
 # Systemwide setup
-if [ -e /etc/bashrc ]; then
-  . /etc/bashrc
+
+if [ -z "$BASH_VERSION" ]; then # zsh
+  if [ -e /etc/zshrc ]; then
+    . /etc/zshrc
+  fi
+else
+  if [ -e /etc/bashrc ]; then
+    . /etc/bashrc
+  fi
 fi
 
 # ================================================================
@@ -19,7 +29,7 @@ fi
 # First, source things all the ~/.bzrcs-public/* files need.
 __boot=~/.bzrc-bootstrap
 if [ ! -f $__boot ]; then
-  echo BASHRC: $__boot not found
+  echo BZRC: $__boot not found
 else
   . $__boot
 
@@ -34,9 +44,9 @@ else
     ~/.bzrc-work
   do
     if [ -e $__init ]; then
-      __maybe_say "BEGIN BASHRC SOURCE $__init"
+      __maybe_say "BEGIN BZRC SOURCE $__init"
       . $__init
-      __maybe_say "END   BASHRC SOURCE $__init"
+      __maybe_say "END   BZRC SOURCE $__init"
     else
       __maybe_say "NOT FOUND $__init"
     fi

@@ -15,24 +15,11 @@ export __text_green=$'\033[32;01m'
 echo ""
 echo "johnkerl/dotfiles: checking for overwrites"
 
-# ok="true"
-# for file in \
-#   ~/.bashrc \
-#   ~/.bashrc_profile
-# do
-#   if [ -f "$file" ]; then
-#     echo "File $file exists -- please rename it as backup"
-#     ok="false"
-#   fi
-# done
-# if [ "$ok" != "true" ]; then
-#   exit 1
-# fi
-
 stamp=$(date "+%Y%m%d-%H%M%S")
 for file in \
   ~/.bashrc \
-  ~/.bashrc_profile
+  ~/.bashrc_profile \
+  ~/.zshrc
 do
   if [ -f "$file" ]; then
     mv $file $file.$stamp
@@ -52,7 +39,17 @@ for item in \
   screenrc \
   vimrc
 do
-  src=$(pwd)/$item
+  if [ "$item" = "bashrc" ]; then
+    # Link our bzrc to ~/.bashrc
+    src=$(pwd)/bzrc
+  elif [ "$item" = "bashrc" ]; then
+    # Link our bzrc to ~/.zshrc
+    src=$(pwd)/bzrc
+  else
+    # Link our foo to ~/.foo
+    src=$(pwd)/$item
+  fi
+
   dst=~/.$item
   if [ ! -e $src ]; then
     echo "${__text_red}johnkerl/dotfiles: cannot find $src to link to $dst${__text_default}"
