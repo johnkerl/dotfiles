@@ -19,6 +19,10 @@ set noshowmode
 "set notagrelative
 set tagrelative
 
+" To avoid this with .tsx + syntax on:
+" redrawtime exceeded, syntax highlighting disabled
+set re=0
+
 " As of 2025 I need trailing z for proper cw behavior on MacOS.
 " But on Ubuntu this is a syntax error :(
 let os = substitute(system('uname -s'), '\n', '', '')
