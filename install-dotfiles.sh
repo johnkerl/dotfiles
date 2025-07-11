@@ -43,7 +43,7 @@ do
   if [ "$item" = "bashrc" ]; then
     # Link our bzrc to ~/.bashrc
     src=$(pwd)/bzrc
-  elif [ "$item" = "bashrc" ]; then
+  elif [ "$item" = "zshrc" ]; then
     # Link our bzrc to ~/.zshrc
     src=$(pwd)/bzrc
   else
