@@ -90,7 +90,7 @@ if [ -z "$BASH_VERSION" ]; then # zsh
   fi
 
   # Status of last shell command (sometimes useful).
-  PS1+='[%?]'
+  # PS1+='[%?]'
 
   # Mininal prompt.
   PS1+="%% "
