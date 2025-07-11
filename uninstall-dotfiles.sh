@@ -15,6 +15,7 @@ for item in \
   bzrc_profile \
   bzrcs-public \
   bzrc-bootstrap \
+  ctags \
   screenrc \
   vimrc \
   hostname-alias

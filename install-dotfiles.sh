@@ -36,6 +36,7 @@ for item in \
   zshrc \
   bzrc-bootstrap \
   bzrcs-public \
+  ctags \
   screenrc \
   vimrc
 do
@@ -46,7 +47,7 @@ do
     # Link our bzrc to ~/.zshrc
     src=$(pwd)/bzrc
   else
-    # Link our foo to ~/.foo
+    # Link all other foo to ~/.foo
     src=$(pwd)/$item
   fi
 

@@ -27,6 +27,7 @@ That clones this repo to `~/git/johnkerl/dotfiles`, then `cd`'s there and runs `
 ln -s $(pwd)/bashrc         ~/.bashrc
 ln -s $(pwd)/zshrc          ~/.zshrc
 ln -s $(pwd)/bzrcs-public   ~/.bzrcs-public
+ln -s $(pwd)/ctags          ~/.ctags
 ln -s $(pwd)/screenrc       ~/.screenrc
 ln -s $(pwd)/vanilla        ~/.vanilla
 ln -s $(pwd)/vimrc          ~/.vimrc
