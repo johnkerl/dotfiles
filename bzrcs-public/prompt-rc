@@ -49,10 +49,10 @@ if [ -z "$BASH_VERSION" ]; then # zsh
     __ps1_color4='%F{130}'
   else
     # Artisanal shades of yellow
-    __ps1_color1='%F{208}'
-    __ps1_color2='%F{94}'
-    __ps1_color3='%F{208}'
-    __ps1_color4='%F{94}'
+    __ps1_color1='%F{179}'
+    __ps1_color2='%F{136}'
+    __ps1_color3='%F{179}'
+    __ps1_color4='%F{136}'
   fi
   __text_default='%f'
 
@@ -118,13 +118,11 @@ else # bash
   # Other conditions may certainly apply. For me in 2022 my main goal is distinguishing visually
   # from terminals on my Mac laptop from SSH sessions into a Linux EC2 instance.
   if [ $(uname) = "Darwin" ]; then
-    # Artisanal shades of yellow
     __ps1_color1=$'\033[1;38;5;178m'
     __ps1_color2=$'\033[1;38;5;136m'
     __ps1_color3=$'\033[1;38;5;178m'
     __ps1_color4=$'\033[1;38;5;136m'
   else
-    # Artisanal shades of orange and brown
     __ps1_color1=$'\033[1;38;5;208m'
     __ps1_color2=$'\033[1;38;5;94m'
     __ps1_color3=$'\033[1;38;5;208m'
