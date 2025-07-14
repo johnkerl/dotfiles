@@ -42,17 +42,17 @@ if [ -z "$BASH_VERSION" ]; then # zsh
   # Other conditions may certainly apply. For me in 2022 my main goal is distinguishing visually
   # from terminals on my Mac laptop from SSH sessions into a Linux EC2 instance.
   if [ $(uname) = "Darwin" ]; then
-    # Artisanal shades of orange and brown
-    __ps1_color1='%F{172}'
-    __ps1_color2='%F{130}'
-    __ps1_color3='%F{172}'
-    __ps1_color4='%F{130}'
-  else
-    # Artisanal shades of yellow
+    # Artisanal shading
     __ps1_color1='%F{179}'
     __ps1_color2='%F{136}'
     __ps1_color3='%F{179}'
     __ps1_color4='%F{136}'
+  else
+    # Artisanal shading
+    __ps1_color1='%F{172}'
+    __ps1_color2='%F{130}'
+    __ps1_color3='%F{172}'
+    __ps1_color4='%F{130}'
   fi
   __text_default='%f'
 
