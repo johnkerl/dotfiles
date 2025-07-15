@@ -168,7 +168,8 @@ highlight link myImportant2 Question
 syntax match myImportant3 /^ *w .*/
 "highlight link myImportant3 Visual
 "highlight link myImportant3 Conceal
-highlight link myImportant3 CursorLine
+"highlight link myImportant3 CursorLine
+highlight link myImportant3 Include
 
 "syn list Todo
 "syn list myTodo
