@@ -50,11 +50,7 @@ alias 8='fg %8'
 alias 9='fg %9'
 
 UNAME=$(uname)
-if [ "$UNAME" = "Darwin" ]; then
-  alias ls='ls -G'
-else
-  alias ls='ls --color=tty'
-fi
+alias ls='ls --color=tty'
 alias ll='ls -l'
 alias lll='ls -lL'
 alias llh='ls -lh'
