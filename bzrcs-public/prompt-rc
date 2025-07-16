@@ -78,7 +78,9 @@ if [ -z "$BASH_VERSION" ]; then # zsh
   # Hexadecimal Colors: You can also use hex color codes in the format %F{#RRGGBB}.
 
   # Empty line before prompt. In bash you can include a "\n" within PS1; in zsh you cannot.
-  precmd() { print ""}
+  precmd() {
+    print ""
+  }
   export PS1="${__ps1_color1}%n${__ps1_color2}@${__ps1_color3}${__hostname}${__ps1_color4}"
 
   # $PS1ENV is for various work/project-specific things, typically set up in ~/.bzrcs-private
