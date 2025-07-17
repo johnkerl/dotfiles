@@ -472,9 +472,9 @@ map \v :se ft=java<C-m>
 
 " Set mark, format, return to mark. Without the mark, the cursor would be at
 " the top of the file after the %!...
-map \G mz:%!gofmt<CR>'z
-map \g mz:%!clang-format<CR>'z
-map \f :w<CR>!make format<CR>'z
+map \g mz:%!gofmt<CR>'z
+map \G mz:%!clang-format<CR>'z
+"map \f :w<CR>!make format<CR>'z
 " Default edition is 2015: ick.
 map \F mz:%!rustfmt --edition 2024<CR>'z
 
