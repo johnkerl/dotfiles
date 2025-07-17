@@ -171,6 +171,9 @@ syntax match myImportant3 /^ *w .*/
 "highlight link myImportant3 CursorLine
 highlight link myImportant3 Include
 
+syntax match myImportant4 /^ *? .*/
+highlight link myImportant4 Removed
+
 "syn list Todo
 "syn list myTodo
 
@@ -178,6 +181,7 @@ au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 c
 au BufNewFile,BufRead * syntax match myImportant1 /^ *! .*/
 au BufNewFile,BufRead * syntax match myImportant2 /^ *\~ .*/
 au BufNewFile,BufRead * syntax match myImportant3 /^ *w .*/
+au BufNewFile,BufRead * syntax match myImportant4 /^ *? .*/
 
 " ----------------------------------------------------------------
 " Tabs/whitespaces, and indent/unindent keymaps
