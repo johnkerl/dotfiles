@@ -107,7 +107,7 @@ if [ -z "$BASH_VERSION" ]; then # zsh
   # PS1+='[%?]'
 
   # Mininal prompt.
-  PS1+="%% "
+  PS1+="$ "
 
   # End of prompt coloring.
   PS1+="${__text_default}"
