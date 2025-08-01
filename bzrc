@@ -42,7 +42,8 @@ else
     ~/.bzrcs-private/init \
     ~/.bzrcs-work/init \
     ~/.bzrc-work \
-    ~/.secrets
+    ~/.secrets \
+    ~/.ephemeral
   do
     if [ -e $__init ]; then
       __maybe_say "BEGIN BZRC SOURCE $__init"
