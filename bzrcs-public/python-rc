@@ -7,3 +7,5 @@ alias pves='pyenv versions'
 alias bcd='black . --check'
 
 alias pav='python -m pre_commit run -a -v'
+
+alias ptv='python -m pytest --capture=tee-sys -v'
