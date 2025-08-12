@@ -175,11 +175,11 @@ syntax match myImportant4 /^ *? .*/
 highlight link myImportant4 Removed
 
 
-syntax match myImportant5 /![^!]*!/
+syntax match myImportant5 /!![^!]*!!/
 " Yellow
 highlight link myImportant5 ModeMsg
 
-syntax match myImportant6 /\~[^\~]*\~/
+syntax match myImportant6 /\~\~[^\~]*\~\~/
 " Green
 highlight link myImportant6 Question
 
@@ -187,7 +187,7 @@ syntax match myImportant7 /??[^?][^?]*??/
 " Red
 highlight link myImportant7 Removed
 
-syntax match myImportant7 /@[^@]*@/
+syntax match myImportant7 /@@[^@]*@@/
 " Blue
 highlight link myImportant8 Include
 
@@ -202,10 +202,10 @@ au BufNewFile,BufRead * syntax match myImportant2 /^ *\~ .*/
 au BufNewFile,BufRead * syntax match myImportant3 /^ *w .*/
 au BufNewFile,BufRead * syntax match myImportant4 /^ *? .*/
 
-au BufNewFile,BufRead * syntax match myImportant5 /![^!]*!/
-au BufNewFile,BufRead * syntax match myImportant6 /\~[^\~]*\~/
+au BufNewFile,BufRead * syntax match myImportant5 /!![^!]*!!/
+au BufNewFile,BufRead * syntax match myImportant6 /\~\~[^\~]*\~\~/
 au BufNewFile,BufRead * syntax match myImportant7 /??[^?][^?]*??/
-au BufNewFile,BufRead * syntax match myImportant8 /@[^@]*@/
+au BufNewFile,BufRead * syntax match myImportant8 /@@[^@]*@@/
 
 " ----------------------------------------------------------------
 " Tabs/whitespaces, and indent/unindent keymaps
