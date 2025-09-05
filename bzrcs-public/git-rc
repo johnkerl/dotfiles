@@ -60,11 +60,21 @@ alias    gdm='git diff origin/main'
 alias   gdma='git diff origin/master'
 alias   gdmo='git diff origin/main-old'
 
-gacp() {
+gaacp() {
   if [ $# -eq 1 ]; then
     gam && gcm "$@" && git push
   else
     echo "Need commit message as single argument"
+  fi
+}
+
+gacp() {
+  if [ $# -lt 2 ]; then
+    echo "Need commit message as single argument"
+  else
+    msg="$1"
+    shift
+    git add "$@" && gcm "$msg" && git push
   fi
 }
 
