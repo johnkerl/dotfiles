@@ -70,7 +70,7 @@ gaacp() {
 
 gacp() {
   if [ $# -lt 2 ]; then
-    echo "Need commit message as single argument"
+    echo "Need commit message as first argument, followed by one or more file names"
   else
     msg="$1"
     shift
