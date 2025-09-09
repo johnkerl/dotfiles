@@ -69,12 +69,12 @@ gaacp() {
 }
 
 gacp() {
-  if [ $# -lt 2 ]; then
-    echo "Need commit message as first argument, followed by one or more file names"
+  if [ $# -eq 1 ]; then
+    git add "$1" && git commit -m "$1" && git push
   else
     msg="$1"
     shift
-    git add "$@" && gcm "$msg" && git push
+    git add "$@" && git commit -m "$msg" && git push
   fi
 }
 
