@@ -152,8 +152,10 @@ map <SPACE> zz
 " ----------------------------------------------------------------
 " https://vi.stackexchange.com/questions/15505/highlight-whole-todo-comment-line
 
-syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx|TK).*/hs=s+1 containedin=.*Comment
+syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
+syntax match myTK /\<TK\>/
 highlight link myTodo Todo
+highlight link myTK Todo
 highlight Search ctermbg=LightGrey
 highlight Todo ctermbg=DarkGrey
 
@@ -195,7 +197,8 @@ highlight link myImportant8 Include
 "syn list Todo
 "syn list myTodo
 
-au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx|TK).*/hs=s+1 containedin=.*Comment
+au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
+au BufNewFile,BufRead * syntax match myTK /\<TK\>/
 
 au BufNewFile,BufRead * syntax match myImportant1 /^ *! .*/
 au BufNewFile,BufRead * syntax match myImportant2 /^ *\~ .*/
