@@ -152,64 +152,56 @@ map <SPACE> zz
 " ----------------------------------------------------------------
 " https://vi.stackexchange.com/questions/15505/highlight-whole-todo-comment-line
 
-syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
-syntax match myTK /\<TK\>/
-highlight link myTodo Todo
-highlight link myTK Todo
-highlight Search ctermbg=LightGrey
-highlight Todo ctermbg=DarkGrey
-
-
-syntax match myImportant1 /^ *! .*/
-highlight myImportant1 ctermfg=Yellow
-
-syntax match myImportant2 /^ *\~ .*/
-highlight myImportant2 ctermfg=Green
-
-syntax match myImportant3 /^ *w .*/
-highlight myImportant3 ctermfg=Blue
-
-syntax match myImportant4 /^ *? .*/
-highlight myImportant4 ctermfg=Magenta
-
-
-syntax match myImportant5 /!![^!]*!!/
-highlight myImportant5 ctermfg=Yellow
-
-syntax match myImportant6 /\~\~[^\~]*\~\~/
-highlight myImportant6 ctermfg=Green
-
-syntax match myImportant7 /??[^?][^?]*??/
-highlight myImportant7 ctermfg=Magenta
-
-syntax match myImportant8 /@@[^@]*@@/
-highlight myImportant8 ctermfg=Blue
-
-syntax match myImportant9 /^\$.*/
-highlight myImportant9 ctermfg=Cyan
-
-syntax match myImportant10 /^#.*/
-highlight myImportant10 ctermfg=Grey
-
-
-"syn list Todo
 "syn list myTodo
+" highlight link myTodo Todo
 
-au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
+" NR-16   NR-8    COLOR NAME ~
+" 0       0       Black
+" 1       4       DarkBlue
+" 2       2       DarkGreen
+" 3       6       DarkCyan
+" 4       1       DarkRed
+" 5       5       DarkMagenta
+" 6       3       Brown, DarkYellow
+" 7       7       LightGray, LightGrey, Gray, Grey
+" 8       0*      DarkGray, DarkGrey
+" 9       4*      Blue, LightBlue
+" 10      2*      Green, LightGreen
+" 11      6*      Cyan, LightCyan
+" 12      1*      Red, LightRed
+" 13      5*      Magenta, LightMagenta
+" 14      3*      Yellow, LightYellow
+" 15      7*      White
+
+au BufNewFile,BufRead * syntax match myHighlight01 /^ *! .*/
+au BufNewFile,BufRead * syntax match myHighlight02 /^ *\~ .*/
+au BufNewFile,BufRead * syntax match myHighlight03 /^ *? .*/
+au BufNewFile,BufRead * syntax match myHighlight04 /^ *@ .*/
+au BufNewFile,BufRead * syntax match myHighlight05 /^ *w .*/
+au BufNewFile,BufRead * syntax match myHighlight11 /!![^!]*!!/
+au BufNewFile,BufRead * syntax match myHighlight12 /\~\~[^\~]*\~\~/
+au BufNewFile,BufRead * syntax match myHighlight13 /??[^?][^?]*??/
+au BufNewFile,BufRead * syntax match myHighlight14 /@@[^@]*@@/
+au BufNewFile,BufRead * syntax match myHighlight20 /^\$ .*/
+au BufNewFile,BufRead * syntax match myHighlight21 /^#.*/
 au BufNewFile,BufRead * syntax match myTK /\<TK\>/
+au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
 
-au BufNewFile,BufRead * syntax match myImportant1 /^ *! .*/
-au BufNewFile,BufRead * syntax match myImportant2 /^ *\~ .*/
-au BufNewFile,BufRead * syntax match myImportant3 /^ *w .*/
-au BufNewFile,BufRead * syntax match myImportant4 /^ *? .*/
+highlight myHighlight01 ctermfg=DarkYellow
+highlight myHighlight02 ctermfg=DarkGreen
+highlight myHighlight03 ctermfg=DarkMagenta
+highlight myHighlight04 ctermfg=LightBlue
+highlight myHighlight05 ctermfg=Blue
+highlight myHighlight11 ctermfg=DarkYellow
+highlight myHighlight12 ctermfg=DarkGreen
+highlight myHighlight13 ctermfg=DarkMagenta
+highlight myHighlight14 ctermfg=LightBlue
+highlight myHighlight20 ctermfg=Cyan
+highlight myHighlight21 ctermfg=Grey
 
-au BufNewFile,BufRead * syntax match myImportant5 /!![^!]*!!/
-au BufNewFile,BufRead * syntax match myImportant6 /\~\~[^\~]*\~\~/
-au BufNewFile,BufRead * syntax match myImportant7 /??[^?][^?]*??/
-au BufNewFile,BufRead * syntax match myImportant8 /@@[^@]*@@/
-
-au BufNewFile,BufRead * syntax match myImportant9 /^\$.*/
-au BufNewFile,BufRead * syntax match myImportant10 /^#.*/
+highlight Search ctermbg=LightGrey
+highlight myTodo ctermbg=DarkGrey
+highlight myTK   ctermbg=DarkGrey
 
 " ----------------------------------------------------------------
 " Tabs/whitespaces, and indent/unindent keymaps
