@@ -161,37 +161,35 @@ highlight Todo ctermbg=DarkGrey
 
 
 syntax match myImportant1 /^ *! .*/
-" Yellow
-highlight link myImportant1 ModeMsg
+highlight myImportant1 ctermfg=Yellow
 
 syntax match myImportant2 /^ *\~ .*/
-" Green
-highlight link myImportant2 Question
+highlight myImportant2 ctermfg=Green
 
 syntax match myImportant3 /^ *w .*/
-" Blue
-highlight link myImportant3 Include
+highlight myImportant3 ctermfg=Blue
 
 syntax match myImportant4 /^ *? .*/
-" Red
-highlight link myImportant4 Removed
+highlight myImportant4 ctermfg=Magenta
 
 
 syntax match myImportant5 /!![^!]*!!/
-" Yellow
-highlight link myImportant5 ModeMsg
+highlight myImportant5 ctermfg=Yellow
 
 syntax match myImportant6 /\~\~[^\~]*\~\~/
-" Green
-highlight link myImportant6 Question
+highlight myImportant6 ctermfg=Green
 
 syntax match myImportant7 /??[^?][^?]*??/
-" Red
-highlight link myImportant7 Removed
+highlight myImportant7 ctermfg=Magenta
 
-syntax match myImportant7 /@@[^@]*@@/
-" Blue
-highlight link myImportant8 Include
+syntax match myImportant8 /@@[^@]*@@/
+highlight myImportant8 ctermfg=Blue
+
+syntax match myImportant9 /^\$.*/
+highlight myImportant9 ctermfg=Cyan
+
+syntax match myImportant10 /^#.*/
+highlight myImportant10 ctermfg=Grey
 
 
 "syn list Todo
@@ -209,6 +207,9 @@ au BufNewFile,BufRead * syntax match myImportant5 /!![^!]*!!/
 au BufNewFile,BufRead * syntax match myImportant6 /\~\~[^\~]*\~\~/
 au BufNewFile,BufRead * syntax match myImportant7 /??[^?][^?]*??/
 au BufNewFile,BufRead * syntax match myImportant8 /@@[^@]*@@/
+
+au BufNewFile,BufRead * syntax match myImportant9 /^\$.*/
+au BufNewFile,BufRead * syntax match myImportant10 /^#.*/
 
 " ----------------------------------------------------------------
 " Tabs/whitespaces, and indent/unindent keymaps
