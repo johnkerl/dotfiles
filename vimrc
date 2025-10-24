@@ -174,6 +174,7 @@ map <SPACE> zz
 " 15      7*      White
 
 au BufNewFile,BufRead * syntax match myHighlight01 /^ *! .*/
+au BufNewFile,BufRead * syntax match myHighlight01b /^!! .*/
 au BufNewFile,BufRead * syntax match myHighlight02 /^ *\~ .*/
 au BufNewFile,BufRead * syntax match myHighlight03 /^ *? .*/
 au BufNewFile,BufRead * syntax match myHighlight04 /^ *@ .*/
@@ -188,6 +189,7 @@ au BufNewFile,BufRead * syntax match myTK /\<TK\>/
 au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
 
 highlight myHighlight01 ctermfg=DarkYellow
+highlight myHighlight01b ctermfg=Red
 highlight myHighlight02 ctermfg=DarkGreen
 highlight myHighlight03 ctermfg=DarkMagenta
 highlight myHighlight04 ctermfg=LightBlue
