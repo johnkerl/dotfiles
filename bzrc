@@ -54,6 +54,3 @@ else
     fi
   done
 fi
-
-# Added by Yarn Switch
-source "/Users/john.kerl/.yarn/switch/env"
