@@ -28,6 +28,7 @@ for __file in \
   rust-rc \
   cargo-rc \
   docker-rc \
+  k8s-rc \
   r-rc \
   java-rc \
   miller-rc \
