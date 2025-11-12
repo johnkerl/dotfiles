@@ -174,7 +174,7 @@ map <SPACE> zz
 " 15      7*      White
 
 au BufNewFile,BufRead * syntax match myHighlight01 /^ *! .*/
-au BufNewFile,BufRead * syntax match myHighlight01b /^!! .*/
+au BufNewFile,BufRead * syntax match myHighlight01b /^ *!! .*/
 au BufNewFile,BufRead * syntax match myHighlight02 /^ *\~ .*/
 au BufNewFile,BufRead * syntax match myHighlight03 /^ *? .*/
 au BufNewFile,BufRead * syntax match myHighlight04 /^ *@ .*/
