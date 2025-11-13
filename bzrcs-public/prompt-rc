@@ -108,9 +108,11 @@ if [ -z "$BASH_VERSION" ]; then # zsh
 
   # Mininal prompt.
   PS1+="$ "
+  ### PS1+="$"
 
   # End of prompt coloring.
   PS1+="${__text_default}"
+  ### PS1+=$'\n'
 
   # Handy access to a short prompt for when I want to run comnands and
   # copy/paste into gists etc..
