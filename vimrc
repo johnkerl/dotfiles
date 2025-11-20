@@ -188,14 +188,14 @@ au BufNewFile,BufRead * syntax match myHighlight21 /^#.*/
 au BufNewFile,BufRead * syntax match myTK /\<TK\>/
 au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
 
-highlight myHighlight01 ctermfg=DarkYellow
+highlight myHighlight01 ctermfg=Green
 highlight myHighlight01b ctermfg=Red
-highlight myHighlight02 ctermfg=DarkGreen
+highlight myHighlight02 ctermfg=DarkYellow
 highlight myHighlight03 ctermfg=DarkMagenta
 highlight myHighlight04 ctermfg=LightBlue
 highlight myHighlight05 ctermfg=Blue
-highlight myHighlight11 ctermfg=DarkYellow
-highlight myHighlight12 ctermfg=DarkGreen
+highlight myHighlight11 ctermfg=Green
+highlight myHighlight12 ctermfg=DarkYellow
 highlight myHighlight13 ctermfg=DarkMagenta
 highlight myHighlight14 ctermfg=LightBlue
 highlight myHighlight20 ctermfg=Cyan
