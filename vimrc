@@ -190,7 +190,7 @@ au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 c
 
 highlight myHighlight01  ctermfg=Green
 highlight myHighlight01b ctermfg=Red
-highlight myHighlight02  ctermfg=Brown
+highlight myHighlight02  ctermfg=DarkBlue
 highlight myHighlight03  ctermfg=Magenta
 highlight myHighlight04  ctermfg=LightBlue
 highlight myHighlight05  ctermfg=Blue
