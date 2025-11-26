@@ -1,3 +1,6 @@
 # vim: set filetype=sh:
 
 alias wpod='watch -d -n 1 kubectl get pods -A'
+alias kpod='kubectl get pods -A'
+alias k8s-ctx='kubectl config current-context'
+alias k8s-ns='kubectl config view --minify --output "jsonpath={..namespace}"'
