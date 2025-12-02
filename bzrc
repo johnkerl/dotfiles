@@ -38,11 +38,11 @@ else
 
   # For work I want to support either the subdir model or the single-rc model
   for __init in \
+    ~/.secrets \
     ~/.bzrcs-public/init \
     ~/.bzrcs-private/init \
     ~/.bzrcs-work/init \
     ~/.bzrc-work \
-    ~/.secrets \
     ~/.ephemeral
   do
     if [ -e $__init ]; then

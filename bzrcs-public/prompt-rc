@@ -47,12 +47,14 @@ if [ -z "$BASH_VERSION" ]; then # zsh
     __ps1_color2='%F{136}'
     __ps1_color3='%F{179}'
     __ps1_color4='%F{136}'
+    __ps1_color5='%F{220}'
   else
     # Artisanal shading
     __ps1_color1='%F{172}'
     __ps1_color2='%F{130}'
     __ps1_color3='%F{172}'
     __ps1_color4='%F{130}'
+    __ps1_color5='%F{220}'
   fi
   __text_default='%f'
 
@@ -86,7 +88,7 @@ if [ -z "$BASH_VERSION" ]; then # zsh
   # $PS1ENV is for various work/project-specific things, typically set up in ~/.bzrcs-private
   # which is intended to symlink to a private repo's rc scripts.
   if [ ! -z "$PS1ENV" ]; then
-    PS1+="[\${PS1ENV}]"
+    PS1+="${__ps1_color5}[\${PS1ENV}]${__ps1_color4}"
   fi
 
   # Include the current git branch in the prompt, if that command is installed (see
