@@ -49,7 +49,7 @@ alias gloggoa='git log --graph --all --oneline'
 
 alias    grh='git reset --hard'
 alias    gcl='git clean -df'
-alias   gclx='git clean -dfx'
+alias   gclx='git clean -dffx'
 alias   gprm='git pull --rebase origin main'
 alias  gprmr='git pull --rebase origin master'
 alias   grom='git rebase origin/main'
