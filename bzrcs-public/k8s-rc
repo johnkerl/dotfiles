@@ -2,6 +2,22 @@
 
 alias wpod='watch -d -n 1 kubectl get pods -A'
 alias kpod='kubectl get pods -A'
+
 alias k8s-ctxs='kubectl config get-contexts'
-alias k8s-ctx='kubectl config current-context'
+
 alias k8s-ns='kubectl config view --minify --output "jsonpath={..namespace}"'
+
+k8s-ctx-ns() {
+  echo -n 'context:   '; kubectl config current-context
+  echo -n 'namespace: '; echo $(kubectl config view --minify --output 'jsonpath={..namespace}')
+}
+
+k8s-ctx() {
+  if [ $# -eq 0 ]; then
+    kubectl config current-context
+  elif [ $# -eq 1 ]; then
+    kubectl config use-context "$1"
+  else
+    echo "Usage: k8s-ctx [name to switch to]" 1>&2
+  fi
+}
