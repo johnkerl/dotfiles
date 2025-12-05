@@ -55,8 +55,8 @@ if [ -z "$BASH_VERSION" ]; then # zsh
     __ps1_color2='%F{130}'
     __ps1_color3='%F{172}'
     __ps1_color4='%F{130}'
-    __ps1_color5='%F{220}'
-    __ps1_color6='%F{220}'
+    __ps1_color5='%F{208}'
+    __ps1_color6='%F{208}'
   fi
   __text_default='%f'
 
