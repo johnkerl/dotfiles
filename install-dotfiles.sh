@@ -33,7 +33,7 @@ echo "johnkerl/dotfiles: installing symlinks"
 
 for item in \
   bashrc \
-  bzrc
+  bzrc \
   zshrc \
   bzrc-bootstrap \
   bzrcs-public \
