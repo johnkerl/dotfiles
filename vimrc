@@ -183,7 +183,7 @@ au BufNewFile,BufRead * syntax match myHighlight11 /!![^!]*!!/
 au BufNewFile,BufRead * syntax match myHighlight12 /\~\~[^\~]*\~\~/
 au BufNewFile,BufRead * syntax match myHighlight13 /??[^?][^?]*??/
 au BufNewFile,BufRead * syntax match myHighlight14 /@@[^@]*@@/
-au BufNewFile,BufRead * syntax match myHighlight20 /^\$ .*/
+au BufNewFile,BufRead * syntax match myHighlight20 /^  *\$ .*/
 au BufNewFile,BufRead * syntax match myHighlight21 /^#.*/
 au BufNewFile,BufRead * syntax match myTK /\<TK\>/
 au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
