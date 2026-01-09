@@ -1,0 +1,55 @@
+syntax match HL_Black /^.*Black$/
+syntax match HL_Blue /^.*Blue$/
+syntax match HL_Brown /^.*Brown$/
+syntax match HL_Cyan /^.*Cyan$/
+syntax match HL_DarkBlue /^.*DarkBlue$/
+syntax match HL_DarkCyan /^.*DarkCyan$/
+syntax match HL_DarkGray /^.*DarkGray$/
+syntax match HL_DarkGreen /^.*DarkGreen$/
+syntax match HL_DarkGrey /^.*DarkGrey$/
+syntax match HL_DarkMagenta /^.*DarkMagenta$/
+syntax match HL_DarkRed /^.*DarkRed$/
+syntax match HL_DarkYellow /^.*DarkYellow$/
+syntax match HL_Gray /^.*Gray$/
+syntax match HL_Green /^.*Green$/
+syntax match HL_Grey /^.*Grey$/
+syntax match HL_LightBlue /^.*LightBlue$/
+syntax match HL_LightCyan /^.*LightCyan$/
+syntax match HL_LightGray /^.*LightGray$/
+syntax match HL_LightGreen /^.*LightGreen$/
+syntax match HL_LightGrey /^.*LightGrey$/
+syntax match HL_LightMagenta /^.*LightMagenta$/
+syntax match HL_LightRed /^.*LightRed$/
+syntax match HL_LightYellow /^.*LightYellow$/
+syntax match HL_Magenta /^.*Magenta$/
+syntax match HL_Red /^.*Red$/
+syntax match HL_White /^.*White$/
+syntax match HL_Yellow /^.*Yellow$/
+
+highlight HL_Black ctermfg=Black
+highlight HL_Blue ctermfg=Blue
+highlight HL_Brown ctermfg=Brown
+highlight HL_Cyan ctermfg=Cyan
+highlight HL_DarkBlue ctermfg=DarkBlue
+highlight HL_DarkCyan ctermfg=DarkCyan
+highlight HL_DarkGray ctermfg=DarkGray
+highlight HL_DarkGreen ctermfg=DarkGreen
+highlight HL_DarkGrey ctermfg=DarkGrey
+highlight HL_DarkMagenta ctermfg=DarkMagenta
+highlight HL_DarkRed ctermfg=DarkRed
+highlight HL_DarkYellow ctermfg=DarkYellow
+highlight HL_Gray ctermfg=Gray
+highlight HL_Green ctermfg=Green
+highlight HL_Grey ctermfg=Grey
+highlight HL_LightBlue ctermfg=LightBlue
+highlight HL_LightCyan ctermfg=LightCyan
+highlight HL_LightGray ctermfg=LightGray
+highlight HL_LightGreen ctermfg=LightGreen
+highlight HL_LightGrey ctermfg=LightGrey
+highlight HL_LightMagenta ctermfg=LightMagenta
+highlight HL_LightRed ctermfg=LightRed
+highlight HL_LightYellow ctermfg=LightYellow
+highlight HL_Magenta ctermfg=Magenta
+highlight HL_Red ctermfg=Red
+highlight HL_White ctermfg=White
+highlight HL_Yellow ctermfg=Yellow
