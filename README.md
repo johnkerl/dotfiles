@@ -10,6 +10,36 @@ Run either or both of these from within a checkout of this repo:
 * `bash ./install-dotfiles.sh` does setup of this repo's files.
 * `bash ./install-full.sh` does setup of some of my other utility repos.
 
+## What this setup tries to accomplish
+
+* Must work on MacOS and Linux, with minimal tweaking or duplication.
+  * I don't attempt any other OS support, including NetBSD, etc.
+* Must work on `zsh` and `bash` both, with minimal tweaking or duplication.
+* Modularity:
+  * Must function for my personal and work setups.
+  * Must function for different employers.
+  * Must not expose secrets.
+  * Must not be a single `.bashrc` or `.zshrc` with hundreds of lines in it, with if-statements.
+* Must be low-latency install:
+  * Whenever I get a new laptop (which is infrequent).
+  * Whenever I spin up a new EC2 instance (which is more frequent).
+  * Any other ephemeral configurations (bashing into a Docker image for example).
+* Must be stable over time.
+  * Many of my dotfiles and scripts are (as of 2026) ten, twenty, or thirty years old. Something may break someday on a new system somewhere, and my memory won't be fresh.
+
+What I do to accommodate these goals:
+
+* MacOS and Linux: Very few changes are needed. Checking `uname` for `Darwin` suffices for me.
+* `zsh`/`bash`: I use a single `.bzrc`.
+* Modularity, including personal/work split, and working for different employers: top-level `.bzrc` looks at `.bzrcs-public/`, `.bzrcs-private`, and `.bzrcs-work`. 
+  * `.bzrcs-public/` is for this repo.
+  * `.bzrcs-private/` is for a private, personal-dotfiles repo.
+  * `.bzrcs-work/` is for employer-specific things, such as project-specific aliases.
+  * `.secrets` is for API keys, etc. that I never check into source control.
+  * All but the last are directories with specific things in them. I can put prompt configs in one file, project-specific aliases in another, etc.
+* Low-latency install: I have scripts like `download-and-install.sh`.
+* Stability over time: I comment liberally so that one day when something changes unexpectedly, I can figure out what's going on and fix it.
+
 ## Setup option: scripted from `curl`
 
 `./download-and-install.sh` can be run in `curl`:
