@@ -111,8 +111,6 @@ if [ -z "$BASH_VERSION" ]; then # zsh
   # Status of last shell command (sometimes useful).
   # PS1+='[%?]'
 
-  # Mininal prompt.
-  # PS1+="$ "
   PS1+=${__ps1_color6}
   PS1+=$'\n'
   PS1+="$ "
@@ -121,7 +119,8 @@ if [ -z "$BASH_VERSION" ]; then # zsh
 
   # Handy access to a short prompt for when I want to run comnands and
   # copy/paste into gists etc..
-  export PSX="\n${__ps1_color1}\u@%n[%c]${__text_default} "
+  export PSX=$'\n'
+  PSX+="${__ps1_color1}%n@{$__hostname}[%c]${__text_default} "
   alias psx='export PS1="$PSX"'
 
 else # bash
@@ -172,7 +171,6 @@ else # bash
   # Status of last shell command (sometimes useful).
   #PS1+='[$?]'
 
-  # Mininal prompt.
   PS1+="$ "
 
   # End of prompt coloring.
@@ -184,9 +182,3 @@ else # bash
   export PSX="\n\[${__ps1_color1}\]\u@$__hostname[\W]\[${__text_default}\] "
   alias psx='export PS1="$PSX"'
 fi
-
-# # For pathnicks.c in repo johnkerl/dotfiles
-# export PATHNICKS="$mlb:MLR"
-# export PATHNICKS="$PATHNICKS,$HOME/pub_http_internet/miller-releases:MLRREL"
-# export PATHNICKS="$PATHNICKS,$HOME/git/fork:GIT-FORK"
-# export PATHNICKS="$PATHNICKS,$HOME/git:GIT-MAIN"
