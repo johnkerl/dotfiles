@@ -3,13 +3,6 @@
 This is a place to put my Linux/Darwin/Unix dotfiles. It's grown by accretion and evolution,
 1992-ish onwards.  See also http://github.com/johnkerl/scripts.
 
-## Setup option: scripted from checkout
-
-Run either or both of these from within a checkout of this repo:
-
-* `bash ./install-dotfiles.sh` does setup of this repo's files.
-* `bash ./install-full.sh` does setup of some of my other utility repos.
-
 ## What this setup tries to accomplish
 
 * Must work on MacOS and Linux, with minimal tweaking or duplication.
@@ -39,6 +32,13 @@ What I do to accommodate these goals:
   * All but the last are directories with specific things in them. I can put prompt configs in one file, project-specific aliases in another, etc.
 * Low-latency install: I have scripts like `download-and-install.sh`.
 * Stability over time: I comment liberally so that one day when something changes unexpectedly, I can figure out what's going on and fix it.
+
+## Setup option: scripted from checkout
+
+Run either or both of these from within a checkout of this repo:
+
+* `bash ./install-dotfiles.sh` does setup of this repo's files.
+* `bash ./install-full.sh` does setup of some of my other utility repos.
 
 ## Setup option: scripted from `curl`
 
