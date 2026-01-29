@@ -203,7 +203,7 @@ highlight myHighlight14  ctermfg=LightBlue
 highlight myHighlight20  ctermfg=Cyan
 highlight myHighlight21  ctermfg=Grey
 
-highlight Search ctermbg=LightGrey
+highlight Search ctermbg=DarkYellow
 highlight myTodo ctermbg=DarkGrey
 highlight myTK   ctermbg=DarkGrey
 
