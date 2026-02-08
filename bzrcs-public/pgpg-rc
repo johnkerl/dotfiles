@@ -1,0 +1,3 @@
+# vim: set filetype=sh:
+
+__my_assign_dir pdir "$HOME/git/johnkerl/pgpg"
