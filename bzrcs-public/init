@@ -33,6 +33,7 @@ for __file in \
   java-rc \
   miller-rc \
   lumin-rc \
+  pgpg-rc \
   prompt-rc
 do
   __maybe_say "-- $__self INIT BEGIN SOURCING $__selfdir/$__file"
