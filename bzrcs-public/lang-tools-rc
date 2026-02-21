@@ -1,0 +1,6 @@
+# vim: set filetype=sh:
+
+__my_assign_dir pgpgd  "$HOME/git/johnkerl/pgpg"
+__my_assign_dir spffld "$HOME/git/johnkerl/spffl"
+__my_assign_dir goffld "$HOME/git/johnkerl/goffl"
+__my_assign_dir pyffld "$HOME/git/johnkerl/pyffl"
