@@ -91,12 +91,6 @@ if [ -z "$BASH_VERSION" ]; then # zsh
     PS1+="${__ps1_color5}[\${PS1ENV}]${__ps1_color4}"
   fi
 
-  # Include the current git branch in the prompt, if that command is installed (see
-  # https://github.com/johnkerl/scripts).
-  #
-  # https://github.com/johnkerl/scripts/blob/main/git/git-show-current-branch-safe
-  git-show-current-branch-safe > /dev/null 2>&1 && PS1+='[$(git-show-current-branch-safe)]'
-
   # I want to show the last two components (at most) of the current directory
   # in my prompt. Bash 4 does this via PROMPT_DIRTRIM and \W;; for Bash 3
   # (MacOS even in the year 2025), I use a Go program in my ~/bin/.
@@ -108,6 +102,12 @@ if [ -z "$BASH_VERSION" ]; then # zsh
   else
     PS1+='[%c]'
   fi
+
+  # Include the current git branch in the prompt, if that command is installed (see
+  # https://github.com/johnkerl/scripts).
+  #
+  # https://github.com/johnkerl/scripts/blob/main/git/git-show-current-branch-safe
+  git-show-current-branch-safe > /dev/null 2>&1 && PS1+='[$(git-show-current-branch-safe)]'
 
   # Status of last shell command (sometimes useful).
   # PS1+='[%?]'
@@ -153,12 +153,6 @@ else # bash
     PS1+="[\${PS1ENV}]"
   fi
 
-  # Include the current git branch in the prompt, if that command is installed (see
-  # https://github.com/johnkerl/scripts).
-  #
-  # https://github.com/johnkerl/scripts/blob/main/git/git-show-current-branch-safe
-  git-show-current-branch-safe > /dev/null 2>&1 && PS1+='[$(git-show-current-branch-safe)]'
-
   # I want to show the last two components (at most) of the current directory
   # in my prompt. Bash 4 does this via PROMPT_DIRTRIM and \W;; for Bash 3
   # (MacOS even in the year 2025), I use a Go program in my ~/bin/.
@@ -170,6 +164,12 @@ else # bash
   else
     PS1+='[\W]'
   fi
+
+  # Include the current git branch in the prompt, if that command is installed (see
+  # https://github.com/johnkerl/scripts).
+  #
+  # https://github.com/johnkerl/scripts/blob/main/git/git-show-current-branch-safe
+  git-show-current-branch-safe > /dev/null 2>&1 && PS1+='[$(git-show-current-branch-safe)]'
 
   # Status of last shell command (sometimes useful).
   #PS1+='[$?]'
