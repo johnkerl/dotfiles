@@ -173,7 +173,7 @@ else # bash
   # https://github.com/johnkerl/scripts).
   #
   # https://github.com/johnkerl/scripts/blob/main/git/git-show-current-branch-safe
-  git-show-current-branch-safe > /dev/null 2>&1 && PS1+='${__ps1_color7}[$(git-show-current-branch-safe)]${__ps1_color4}'
+  git-show-current-branch-safe > /dev/null 2>&1 && PS1+='\[${__ps1_color7}\][$(git-show-current-branch-safe)]\[${__ps1_color4}\]'
 
   # Status of last shell command (sometimes useful).
   #PS1+='[$?]'
