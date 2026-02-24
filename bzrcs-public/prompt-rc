@@ -33,6 +33,9 @@
 #   is essential to avoid screen-garbaging on history editing of long command lines.
 # ----------------------------------------------------------------
 
+# ================================================================
+# THIS IS FOR ZSH
+# ================================================================
 if [ -z "$BASH_VERSION" ]; then # zsh
 
   setopt PROMPT_SUBST
@@ -126,6 +129,9 @@ if [ -z "$BASH_VERSION" ]; then # zsh
   PSX+="${__ps1_color1}%n@{$__hostname}[%c]${__text_default} "
   alias psx='export PS1="$PSX"'
 
+# ================================================================
+# THIS IS FOR BASH
+# ================================================================
 else # bash
 
   # Other conditions may certainly apply. For me in 2022 my main goal is distinguishing visually
@@ -178,7 +184,7 @@ else # bash
   # Status of last shell command (sometimes useful).
   #PS1+='[$?]'
 
-  PS1+="$ "
+  PS1+="\n$ "
 
   # End of prompt coloring.
   PS1+="\[${__text_default}\]"
