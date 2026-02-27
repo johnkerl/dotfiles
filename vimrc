@@ -179,6 +179,7 @@ au BufNewFile,BufRead * syntax match myHighlight02 /^ *\~ .*/
 au BufNewFile,BufRead * syntax match myHighlight03 /^ *? .*/
 au BufNewFile,BufRead * syntax match myHighlight04 /^ *@ .*/
 au BufNewFile,BufRead * syntax match myHighlight05 /^ *w .*/
+au BufNewFile,BufRead * syntax match myHighlight06 /^ *k .*/
 au BufNewFile,BufRead * syntax match myHighlight11 /!![^!]*!!/
 au BufNewFile,BufRead * syntax match myHighlight12 /\~\~[^\~]*\~\~/
 au BufNewFile,BufRead * syntax match myHighlight13 /??[^?][^?]*??/
@@ -196,6 +197,7 @@ highlight myHighlight02  ctermfg=DarkBlue
 highlight myHighlight03  ctermfg=Magenta
 highlight myHighlight04  ctermfg=LightBlue
 highlight myHighlight05  ctermfg=Blue
+highlight myHighlight06  ctermfg=DarkGrey
 highlight myHighlight11  ctermfg=Green
 highlight myHighlight12  ctermfg=DarkYellow
 highlight myHighlight13  ctermfg=Magenta
