@@ -64,6 +64,8 @@ alias    gdm='git diff origin/main'
 alias   gdma='git diff origin/master'
 alias   gdmo='git diff origin/main-old'
 
+alias   gdng="git diff -- . ':(exclude)generated'"
+
 gaacp() {
   if [ $# -eq 1 ]; then
     gam && gcm "$@" && git push
