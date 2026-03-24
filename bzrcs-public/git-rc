@@ -40,6 +40,8 @@ alias   gaap='gam && echo "" && gca && echo "" && gpf'
 alias    gsl='git sl ...upstream/main'
 alias    grc='git rebase --continue'
 
+alias    gmb='git-merge-branch'
+
 alias   glog='git log'
 alias  glogg='git log --graph'
 
