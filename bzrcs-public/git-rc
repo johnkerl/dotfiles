@@ -40,8 +40,6 @@ alias   gaap='gam && echo "" && gca && echo "" && gpf'
 alias    gsl='git sl ...upstream/main'
 alias    grc='git rebase --continue'
 
-alias    gmb='git-merge-branch'
-
 alias   glog='git log'
 alias  glogg='git log --graph'
 
@@ -90,8 +88,8 @@ gacp() {
 alias     gsb='git show-current-branch'
 alias     sbs='git show-branches'
 alias     gub='git checkout'
+alias     gmb='git-merge-branch'
 alias     gnb='git new-branch'
-alias     gmb='git merge'
 alias     gxb='git delete-branch'
 alias    gxxb='git delete-branch-force'
 alias     g2b='git switch-branch'
