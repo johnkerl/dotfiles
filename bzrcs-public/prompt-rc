@@ -120,12 +120,12 @@ if [ -z "$BASH_VERSION" ]; then # zsh
   PS1+=$'\n'
   PS1+="$ "
   # End of prompt coloring.
-  PS1+="${__text_default}"
+  PS1+='%f'
 
   # Handy access to a short prompt for when I want to run comnands and
   # copy/paste into gists etc..
   export PSX=$'\n'
-  PSX+="${__ps1_color1}%n@{$__hostname}[%c]${__text_default} "
+  PSX+="${__ps1_color1}%n@{$__hostname}[%c]%f "
   alias psx='export PS1="$PSX"'
 
 # ================================================================
