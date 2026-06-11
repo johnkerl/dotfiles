@@ -1,0 +1,7 @@
+# vim: set filetype=sh:
+
+alias claade='claude --permission-mode auto'
+
+alias claade5='claude --permission-mode auto --model claude-haiku-4-5-20251001'
+alias claade6='claude --permission-mode auto --model claude-sonnet-4-6'
+alias claade8='claude --permission-mode auto --model claude-opus-4-8'

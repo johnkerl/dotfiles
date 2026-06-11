@@ -34,6 +34,7 @@ for __file in \
   miller-rc \
   lumin-rc \
   lang-tools-rc \
+  claude-rc \
   prompt-rc
 do
   __maybe_say "-- $__self INIT BEGIN SOURCING $__selfdir/$__file"
