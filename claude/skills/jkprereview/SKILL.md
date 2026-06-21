@@ -1,5 +1,5 @@
 ---
-name: review
+name: jkprereview
 description: Review the current branch's diff from a skeptic's perspective before pushing. Optional arg selects the reviewer persona.
 ---
 

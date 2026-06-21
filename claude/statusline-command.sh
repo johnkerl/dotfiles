@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
+
 # Claude Code statusLine — context window + cost + effort + 5h rate limit (no pwd).
 # Reads session JSON on stdin. 256-colors mirror ~/.bzrcs-public/prompt-rc.
+#
+# Example output:
+#
+# ❯ 
+# ──────────────────────────────────────────────────────────────────────────────────────────────
+#   [Sonnet 4.6 (1M context)]  32.8k in + 1.9k out / 1.0M 3%  ·  $0.15  ·  effort high
 
 input=$(cat)
 

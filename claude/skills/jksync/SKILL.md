@@ -1,5 +1,5 @@
 ---
-name: sync
+name: jksync
 description: Sync the current branch with the repo's primary branch (main, master, preprod, etc). Pulls primary, switches back, merges in, pushes.
 ---
 

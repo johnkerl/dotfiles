@@ -1,5 +1,5 @@
 ---
-name: fix-comments
+name: jkaddrcom
 description: Action GitHub PR review comments. Provide a PR URL to fix all open comments, or a specific comment URL to fix one.
 ---
 

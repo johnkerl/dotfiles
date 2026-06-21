@@ -1,5 +1,5 @@
 ---
-name: review-pr
+name: jkreview
 description: Review a GitHub PR. Provide a URL to review without checking it out locally, or omit the URL if the branch is already checked out.
 ---
 

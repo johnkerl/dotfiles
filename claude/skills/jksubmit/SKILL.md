@@ -1,5 +1,5 @@
 ---
-name: ship
+name: jksubmit
 description: Commit, push, and open a draft PR with a written description. Use when ready to share work in progress for review.
 ---
 
