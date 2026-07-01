@@ -107,9 +107,6 @@ alias pbv='pbp | vim -'
 alias nnbu='nbu -d ~/Desktop/folder/bak'
 
 # ----------------------------------------------------------------
-alias claade='claude --permission-mode=auto'
-
-# ----------------------------------------------------------------
 # Edit "$variablename" but put "variablename" in the title bar
 vvim() {
   name="$1"
