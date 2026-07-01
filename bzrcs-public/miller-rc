@@ -14,6 +14,8 @@ export MLR_VALUE_COLOR=darkgoldenrod
 # Miller developer
 
 __my_assign_dir mlb   "$HOME/git/johnkerl/miller"
+__my_assign_dir mlb2  "$HOME/git/johnkerl/miller2"
+__my_assign_dir mlb3  "$HOME/git/johnkerl/miller3"
 __my_assign_dir mld   "$mlb/docs"
 __my_assign_dir mlds  "$mlb/docs/src"
 __my_assign_dir mman  "$mlb/man"
@@ -38,13 +40,13 @@ __my_assign_dir  types  "pkg/types"
 __my_assign_file put    "pkg/transformers/put-or-filter.go"
 __my_assign_file udf    "pkg/dsl/cst/udf.go"
 __my_assign_file uds    "pkg/dsl/cst/uds.go"
+__my_assign_file hofs   "pkg/dsl/cst/hofs.go"
 __my_assign_file mlrmap "pkg/types/mlrmap.go"
 __my_assign_file mlrval "pkg/types/mlrval.go"
 __my_assign_file stream "pkg/stream/stream.go"
 __my_assign_file stack  "pkg/runtime/stack.go"
 __my_assign_file typing "pkg/types/mlrval_typing.go"
 __my_assign_dir  repl   "pkg/auxents/repl"
-__my_assign_file hofs   "$cst/hofs.go"
 __my_assign_file exv    "docs/src/example.csv"
 
 __my_assign_file dflags "reference-main-flag-list.md.in"
