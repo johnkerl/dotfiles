@@ -1,6 +1,6 @@
 # What and why
 
-These are things to go into my ~/.claude.
+These are things to go into my `~/.claude`.
 
 * [statusline-command.sh](statusline-command.sh) shows right there below the Claude Code prompt line which model I'm using, the token-in and token-out counts for the thread, context-window percent/token-count, and cumulative USD cost.
 * [skills](skills) contains several keystroke-savers: nothingi too complex.
