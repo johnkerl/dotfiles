@@ -17,3 +17,5 @@ Review as a thoughtful senior engineer doing a real code review:
 - Anything that would block you from approving
 
 Give specific file/line feedback. Separate blocking issues from suggestions. End with a clear statement: approve, approve-with-comments, or request-changes — and why.
+
+Show your feedback in the Claude Code session. Don't post to the PR unless directed to do so.
