@@ -54,6 +54,3 @@ else
     fi
   done
 fi
-
-# bun completions
-[ -s "/Users/john.kerl/.bun/_bun" ] && source "/Users/john.kerl/.bun/_bun"
