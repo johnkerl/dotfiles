@@ -17,3 +17,8 @@ Distinguish, out loud, between:
 This applies across both work and personal use — no need to distinguish context. If a claim is about
 to inform a decision or an action, prefer checking it over guessing at it; if you can't check it,
 say that plainly rather than smoothing it over.
+
+## Don't use ... in URLs/paths
+
+When displaying URLs and paths, always spell them out in full. Never elide components with "...", even
+if you think it's obvious what the "..." stands for. I want copy-pasteable paths and URLs.
