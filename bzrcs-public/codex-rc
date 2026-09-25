@@ -1,0 +1,3 @@
+# vim: set filetype=sh:
+
+alias codexx='codex --approve-for-me'
