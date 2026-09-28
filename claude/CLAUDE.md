@@ -22,3 +22,12 @@ say that plainly rather than smoothing it over.
 
 When displaying URLs and paths, always spell them out in full. Never elide components with "...", even
 if you think it's obvious what the "..." stands for. I want copy-pasteable paths and URLs.
+
+## Worktrees
+
+Do not create a Git worktree if we're already working on a feature branch and I'm asking about
+things on that feature branch.
+
+If you feel you must create a Git worktree, first ask me if that's okay, and prompt me for the path.
+Do not propose random tmp-paths: prefer ~/git/worktrees/<reponame>/<branchname>, or, failing that,
+~/git/worktrees/<reponame>/<some-descriptive-label-here>.
