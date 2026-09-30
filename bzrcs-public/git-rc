@@ -100,3 +100,6 @@ alias     gff='git files-from'
 gffa() {
     gff "$@" | sed 's:apis/python/::'
 }
+gmxb() {
+  gmb "$@" && gxb "$@"
+}
