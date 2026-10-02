@@ -1,5 +1,6 @@
 # vim: set filetype=sh:
 
+alias k='kubectl'
 alias wpod='watch -d -n 1 kubectl get pods -A'
 alias kpod='kubectl get pods -A'
 
