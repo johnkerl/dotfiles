@@ -8,4 +8,9 @@ alias  claades5='claude --permission-mode auto --model claude-sonnet-5'
 alias claadeo48='claude --permission-mode auto --model claude-opus-4-8'
 alias  claadef5='claude --permission-mode auto --model claude-fable-5'
 
+alias claadeh55='claude --permission-mode auto --model claude-haiku-5-5'
+alias claades55='claude --permission-mode auto --model claude-sonnet-5-5'
+alias claadeo55='claude --permission-mode auto --model claude-opus-5-5'
+alias claadef51='claude --permission-mode auto --model claude-fable-5-1'
+
 alias    codeex='codex --sandbox workspace-write --ask-for-approval on-request'
