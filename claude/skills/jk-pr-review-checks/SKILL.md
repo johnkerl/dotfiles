@@ -1,5 +1,5 @@
 ---
-name: pr-review-checks
+name: jk-pr-review-checks
 description: Checks to run on every finding before drafting review comments on someone else's pull request. Verify that each comment's line is in the PR's diff, whether the problem was introduced by the PR or was already there, and whether the PR is based on the current tip of its base branch. Use whenever drafting, reviewing or posting PR review comments.
 ---
 

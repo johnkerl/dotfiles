@@ -39,6 +39,10 @@ When writing a Markdown draft or other file for me to read or pick up (issue tex
 doc drafts), put it in `~/Desktop`, not in a scratchpad or tmp directory. Scratchpad is fine for
 purely internal intermediate files I don't need to see.
 
+## Things to check when doing PR reviews
+
+When drafting PR review comments, use the jk-pr-review-checks skill.
+
 ## Acronyms and initialisms
 
 - When someone else uses an acronym, it's fine to spell it out.
