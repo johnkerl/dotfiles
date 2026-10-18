@@ -191,6 +191,7 @@ au BufNewFile,BufRead * syntax match myTK /\<TK\>/
 au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
 au BufNewFile,BufRead *.qmd syntax match myQmdSection  /^##.*/
 au BufNewFile,BufRead *.qmd syntax match myQmdHighlight  /TK/
+au BufNewFile,BufRead *.qmd syntax match myQmdHighlight  /TK::.*/
 au BufNewFile,BufRead *.qmd syntax match myQmdHighlight  /TBD/
 
 "highlight myHighlight01  ctermfg=Green
@@ -210,7 +211,9 @@ highlight myHighlight14   ctermfg=LightBlue
 highlight myHighlight20   ctermfg=Cyan
 highlight myHighlight21   ctermfg=Grey
 highlight myQmdSection    ctermbg=Brown
-highlight myQmdHighlight  ctermbg=Red
+"highlight myQmdSection    ctermfg=DarkYellow
+"highlight myQmdHighlight  ctermbg=Red
+highlight myQmdHighlight  ctermfg=Red
 
 highlight Search ctermbg=DarkYellow
 highlight myTodo ctermbg=DarkGrey
