@@ -122,6 +122,8 @@ map \N :se nonu<C-m>
 map \l :se list<C-m>
 map \L :se nolist<C-m>
 
+map \y :!wc -w %<C-m>
+
 " This highlight git merge lines
 map \m :se hlsearch<C-m>/^[<=\|>][<=\|>][<=\|>][<=\|>][<=\|>][<=\|>][<=\|>] <C-m>
 
@@ -516,7 +518,7 @@ map \F mz:%!rustfmt --edition 2024<CR>'z
 
 "au BufNewFile,BufRead *.go set filetype=go
 
-map \y :.!xget<CR>
+" map \y :.!xget<CR>
 
 map \t :w<C-m>:!clear;go run %<C-m>
 
