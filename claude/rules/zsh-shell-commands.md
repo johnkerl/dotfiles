@@ -56,3 +56,18 @@ Observed, not root-caused: in one call the failed glob sat in a pipeline and the
 `;`-separated commands still ran; in another it was the first command and nothing after it ran. So a
 failed glob can silently drop one command while the rest of the line carries on. Read the output for
 `no matches found` before trusting the rest of it.
+
+## An unquoted word that starts with `=` is expanded as a command path in zsh
+
+In zsh, an unquoted word starting with `=` is replaced by the full path of the command named after
+it (`=ls` becomes `/bin/ls`), and the command line fails if there is no such command. Bash prints
+the word unchanged. Verified 2026-10-30 in the Bash tool's shell:
+
+- `echo ======` fails with `(eval):1: ===== not found`. In bash it prints `======`.
+- `zsh -c 'echo =ls'` prints `/bin/ls`.
+
+This bit us with a separator line, `echo ======`, in a diagnostic command. Quote it: `echo '======'`
+works (verified), and so does `echo "=== section"`, because the word does not start with a bare
+`=`. A `=` in the middle or at the end of a word is fine: `a=b`, `x==` and `---===` printed
+unchanged. `setopt noequals` also turns the expansion off (verified in a child `zsh -c`), but
+quoting is simpler.
