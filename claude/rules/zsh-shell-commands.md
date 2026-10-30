@@ -9,6 +9,14 @@ This has bitten us repeatedly: a loop like `for spec in "grafana/auth 1515" ...;
 pr view $2 --repo $1` passes the whole string as `$1` and nothing as `$2`, so `gh` fails with
 "argument required when using the --repo flag". Don't write that pattern.
 
+The same applies to a command stored in a variable. Verified 2026-10-30: `c="echo a b"; $c` fails
+with `command not found: echo a b` in zsh, because the whole string is treated as one command name.
+Session transcripts have many `command not found: kubectl --context ... -n faro ...` errors of this
+shape, and the matching commands do assign a kubectl string to a variable (`K="kubectl --context
+... -n faro ..."`, seen 2026-10-30; the later line that invoked `$K` was not seen). Use an
+array (`c=(echo a b); "${c[@]}"`) or a function, or `${=c}` as a last resort. Array and function
+forms verified in zsh.
+
 Use one of these instead. All were verified in zsh:
 
 - A function with explicit arguments, called once per item: `show() { gh pr view "$2" --repo "$1"
