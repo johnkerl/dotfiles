@@ -26,11 +26,18 @@ anything needs to be redacted, replace that part with `REDACTED` and leave every
 
 ## Always give PRs and issues as full URLs
 
-Always show a GitHub pull request as the full URL, `https://github.com/ORG/REPO/pull/NUMBER`. Never
-as a bare `#14720`, and not as `ORG/REPO#14720` or `ORG/REPO/pull/NUMBER` either. Always, with no
-exceptions: chat replies, tables, notes, drafts, and files I'll read. Same for issues:
-`https://github.com/ORG/REPO/issues/NUMBER`. If you don't know which repo a number belongs to, find
-out before writing it, rather than falling back to a bare number.
+Every mention of a GitHub pull request is the full URL, `https://github.com/ORG/REPO/pull/NUMBER`.
+Every mention of an issue is `https://github.com/ORG/REPO/issues/NUMBER`. No exceptions: chat replies,
+tables, notes, drafts, commit messages, memory files, and files I'll read.
+
+The number is never written without the URL, in any form. Not `#14720`, not `ORG/REPO#14720`, not
+`PR 14720`, not `issue 1883`, not a bare `1883`, not a list like `1874/1920/1921`, not "the 1883
+backfill". This holds for the second and third mention in the same reply too. Repeat the URL. Don't
+shorten it because it appeared earlier.
+
+If you don't know which repo a number belongs to, find out before writing it. Never fall back to a bare
+number. Before sending a reply or finishing a file, scan it for any 3-to-5-digit number that refers to
+a PR or issue and replace each with its URL.
 
 ## Git worktrees
 
