@@ -232,6 +232,7 @@ set expandtab
 " TWO:
 map <C-a> I  <ESC>
 map <C-S-A> I  <ESC>j
+map \3 I   <ESC>j
 map <C-u> 0xx
 map <C-S-U> 0xxj
 set ts=2
@@ -257,11 +258,12 @@ set ts=2
 """""map <C-S-U> 0xj
 "set ts=8
 
-map \2 :se ts=2<C-m>
-map \3 :se ts=3<C-m>
-map \4 :se ts=4<C-m>
-map \8 :se ts=8<C-m>
+"map \2 :se ts=2<C-m>
+"map \3 :se ts=3<C-m>
+"map \4 :se ts=4<C-m>
+"map \8 :se ts=8<C-m>
 "map \0 :se ts=80<C-m>
+
 map \0 :set colorcolumn=120<CR>
 map \o :set colorcolumn=88<CR>
 map \c :set colorcolumn=80<C-m>                                                
