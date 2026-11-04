@@ -49,7 +49,7 @@ purely internal intermediate files I don't need to see.
 
 ## Things to check when doing PR reviews
 
-When drafting PR review comments, use the jk-pr-review-checks skill.
+When drafting PR review comments, use the `/jk-pr-review-checks`/ skill.
 
 ## Acronyms and initialisms
 
