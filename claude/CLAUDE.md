@@ -24,6 +24,14 @@ When displaying URLs and paths, always spell them out in full. Never elide compo
 even if you think it's obvious what the "..." stands for. I want copy-pasteable paths and URLs.  If
 anything needs to be redacted, replace that part with `REDACTED` and leave everything else intact.
 
+## Always give PRs and issues as full URLs
+
+Always show a GitHub pull request as the full URL, `https://github.com/ORG/REPO/pull/NUMBER`. Never
+as a bare `#14720`, and not as `ORG/REPO#14720` or `ORG/REPO/pull/NUMBER` either. Always, with no
+exceptions: chat replies, tables, notes, drafts, and files I'll read. Same for issues:
+`https://github.com/ORG/REPO/issues/NUMBER`. If you don't know which repo a number belongs to, find
+out before writing it, rather than falling back to a bare number.
+
 ## Git worktrees
 
 Do not create a Git worktree if we're already working on a feature branch and I'm asking about
