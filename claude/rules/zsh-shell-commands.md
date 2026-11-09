@@ -1,6 +1,6 @@
 ## Before you write any shell loop or variable-held command in the Bash tool
 
-This shell is zsh. Three things that work in bash silently break here. Check the command you are
+This shell is zsh. Four things that work in bash silently break here. Check the command you are
 about to run against this list:
 
 1. Never `set -- $var`, `for x in $var`, or `a=$var; cmd $a` to split a string. zsh does not
@@ -9,6 +9,10 @@ about to run against this list:
    array, `K=(kubectl --context ...); "${K[@]}" ...`, or a function.
 3. Quote any glob that the program, not the shell, should expand (`--include='*.tf'`), and
    quote any word that starts with `=`.
+4. Never compare strings with `>` or `<` inside `[ ... ]` or `test`. They fail in zsh. Use
+   `[[ "$a" > "$b" ]]`, or compare integers with `-gt`/`-lt`. And before any polling loop, run its
+   condition once by itself and read the output: a condition that errors looks false, so the loop
+   just runs to its timeout.
 
 Default template for "do X for each (a, b) pair". Copy it, don't improvise:
 
@@ -97,3 +101,29 @@ works (verified), and so does `echo "=== section"`, because the word does not st
 `=`. A `=` in the middle or at the end of a word is fine: `a=b`, `x==` and `---===` printed
 unchanged. `setopt noequals` also turns the expansion off (verified in a child `zsh -c`), but
 quoting is simpler.
+
+## `[ a > b ]` and `test a ">" b` don't work in zsh: use `[[ ]]`, and test a polling loop once first
+
+zsh's `[` and `test` builtins don't support string ordering with `>` or `<`. Verified 2026-11-09 in
+the Bash tool's shell:
+
+- `t="22:06"; [ "$t" \> "22:00" ]` prints `zsh:1: condition expected: >` and exits 2. Same for
+  `test "$t" ">" "22:00"`.
+- `[[ "$t" > "22:00" ]]` works (true for `22:06`, false for `21:59`, false for an empty `$t`).
+- Integer comparison works in `[ ]`: `[ 2206 -gt 2200 ]`.
+
+This bit us in a wait loop, `until [ "$t" \> "22:00" ]; do sleep 20; done` style, inside a
+background command: every iteration printed the error, the condition counted as false, and the
+loop ran to its seven-minute timeout instead of stopping when the new Atlantis plan appeared. A
+failing condition does not stop a `while` or `until` loop.
+
+Do this instead:
+
+- For HH:MM or ISO timestamps, `[[ "$t" > "22:00" ]]` (lexical order works for fixed-width strings),
+  or convert to an integer first and use `-gt`.
+- Before starting a polling loop, run its condition once on its own and read the output. If it
+  prints an error, fix it before looping.
+- For anything fiddly (dates, counts across API output), put the comparison in a short Python
+  snippet that exits 0 or 1, and loop on that.
+- Prefer a Monitor with an `until` loop over a long foreground `sleep`; the Bash tool blocks long
+  foreground sleeps.
