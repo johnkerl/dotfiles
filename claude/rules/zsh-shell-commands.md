@@ -1,3 +1,25 @@
+## Before you write any shell loop or variable-held command in the Bash tool
+
+This shell is zsh. Three things that work in bash silently break here. Check the command you are
+about to run against this list:
+
+1. Never `set -- $var`, `for x in $var`, or `a=$var; cmd $a` to split a string. zsh does not
+   split. Pass items to a function or `while read -r a b` loop instead (template below).
+2. Never keep a command in a string variable (`K="kubectl --context ..."; $K ...`). Use an
+   array, `K=(kubectl --context ...); "${K[@]}" ...`, or a function.
+3. Quote any glob that the program, not the shell, should expand (`--include='*.tf'`), and
+   quote any word that starts with `=`.
+
+Default template for "do X for each (a, b) pair". Copy it, don't improvise:
+
+    show() { gh pr view "$2" --repo "$1" --json state --jq .state; }
+    while read -r repo num; do show "$repo" "$num"; done <<EOF
+    grafana/auth 1515
+    grafana/backend-enterprise 14720
+    EOF
+
+The details and evidence for each of these are below.
+
 ## The Bash tool runs zsh: don't rely on bash word-splitting
 
 On MacOS the Bash tool's shell is, by default, `/bin/zsh`. Unquoted parameter expansion does not
@@ -7,7 +29,9 @@ word-split in zsh the way it does in bash. Verified 2026-10-23:
 
 This has bitten us repeatedly: a loop like `for spec in "grafana/auth 1515" ...; do set -- $spec; gh
 pr view $2 --repo $1` passes the whole string as `$1` and nothing as `$2`, so `gh` fails with
-"argument required when using the --repo flag". Don't write that pattern.
+"argument required when using the --repo flag". For `gh issue view` and `gh pr view` without
+`--repo`, the same mistake shows up as "accepts 1 arg(s), received 0" (seen 2026-11-09). Don't
+write that pattern.
 
 The same applies to a command stored in a variable. Verified 2026-10-30: `c="echo a b"; $c` fails
 with `command not found: echo a b` in zsh, because the whole string is treated as one command name.
@@ -22,6 +46,8 @@ Use one of these instead. All were verified in zsh:
 - A function with explicit arguments, called once per item: `show() { gh pr view "$2" --repo "$1"
   ...; }; show grafana/auth 1515`
 - `while read -r repo num; do ...; done <<EOF` with one item per line.
+- `items=("a 1" "b 2"); for spec in "${items[@]}"; do show ${=spec}; done` splits each element
+  explicitly (verified 2026-11-09).
 - Explicit `${=var}` to force splitting, only when the other options don't fit.
 - Separate tool calls, run in parallel, when there are only a few items.
 
