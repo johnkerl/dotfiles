@@ -8,7 +8,11 @@ about to run against this list:
 2. Never keep a command in a string variable (`K="kubectl --context ..."; $K ...`). Use an
    array, `K=(kubectl --context ...); "${K[@]}" ...`, or a function.
 3. Quote any glob that the program, not the shell, should expand (`--include='*.tf'`), and
-   quote any word that starts with `=`.
+   quote any word that starts with `=`. That includes banner lines: never write `echo ======`
+   or `echo =====`. Label sections with `echo '--- name'` or `echo "## name"` (a leading `-`, `#`
+   or a quote is safe), or skip the banner. This one has bitten twice (2026-10-30 and 2026-11-10),
+   the second time with this item already in the file, so read each `echo` in the command before
+   sending it.
 4. Never compare strings with `>` or `<` inside `[ ... ]` or `test`. They fail in zsh. Use
    `[[ "$a" > "$b" ]]`, or compare integers with `-gt`/`-lt`. And before any polling loop, run its
    condition once by itself and read the output: a condition that errors looks false, so the loop
@@ -96,9 +100,12 @@ the word unchanged. Verified 2026-10-30 in the Bash tool's shell:
 - `echo ======` fails with `(eval):1: ===== not found`. In bash it prints `======`.
 - `zsh -c 'echo =ls'` prints `/bin/ls`.
 
-This bit us with a separator line, `echo ======`, in a diagnostic command. Quote it: `echo '======'`
-works (verified), and so does `echo "=== section"`, because the word does not start with a bare
-`=`. A `=` in the middle or at the end of a word is fine: `a=b`, `x==` and `---===` printed
+This bit us with a separator line, `echo ======`, in a diagnostic command. It happened again on
+2026-11-10, in a command that read a PR description after a diff: the error was
+`(eval):1: ===== not found` (one `=` fewer than typed), and the part
+of the command after the `echo` did not run, so the description came back empty. Quote it:
+`echo '======'` works (verified), and so does `echo "=== section"`, because the word does not
+start with a bare `=`. Simplest is to avoid banners made of `=` and use `echo '--- name'`. A `=` in the middle or at the end of a word is fine: `a=b`, `x==` and `---===` printed
 unchanged. `setopt noequals` also turns the expansion off (verified in a child `zsh -c`), but
 quoting is simpler.
 
