@@ -4,7 +4,10 @@ This shell is zsh. Four things that work in bash silently break here. Check the 
 about to run against this list:
 
 1. Never `set -- $var`, `for x in $var`, or `a=$var; cmd $a` to split a string. zsh does not
-   split. Pass items to a function or `while read -r a b` loop instead (template below).
+   split. Pass items to a function or `while read -r a b` loop instead (template below). This one
+   has bitten repeatedly, most recently on 2026-11-11 with this item already in the file, and the
+   second time it let a later command with a side effect run: see "A loop whose arguments came out
+   empty" below. Before any loop that takes pairs, write it with the template, not with `set --`.
 2. Never keep a command in a string variable (`K="kubectl --context ..."; $K ...`). Use an
    array, `K=(kubectl --context ...); "${K[@]}" ...`, or a function.
 3. Quote any glob that the program, not the shell, should expand (`--include='*.tf'`), and
@@ -62,6 +65,23 @@ Use one of these instead. All were verified in zsh:
 Related: when a command's output feeds a parser (`gh ... | python3 -c 'json.load(...)'`), a failure
 in the first command shows up as an unrelated JSON traceback and hides the real error. Look at the
 raw command output first, or capture it to a variable and check the exit status before parsing.
+
+## A loop whose arguments came out empty still lets the rest of the line run
+
+On 2026-11-11 a posting loop was written as
+`for p in "1877 epic" "2087 2087" ...; do set -- $p; gh issue comment $1 --body-file post/$2.md; done;
+gh issue close 1882 ...`. Because `set -- $p` does not split in zsh, `$1` was the whole string and
+`$2` was empty, so every `gh` call failed with `open post/.md: no such file or directory`. The
+loop did not stop, and the `gh issue close 1882` after it ran: the issue was closed without the
+comment that was meant to go with it. Nine comments were not posted.
+
+- Use the function template at the top, with explicit arguments: `post() { gh issue comment "$1"
+  --body-file "post/$2.md"; }; post 1877 epic; post 2087 2087`. Verified in zsh.
+- Put any command with a side effect that cannot be undone (closing an issue, merging, applying)
+  in its own call, after reading the output of the loop that precedes it. Never chain it after a
+  loop with `;`.
+- Before running a loop for real, run it once with `echo` in place of the command and read the
+  arguments it would pass.
 
 ## An unquoted glob that matches nothing is an error in zsh: quote patterns meant for the program
 
