@@ -28,7 +28,7 @@ Keep notes for the user (tone, what to hold, communication-style commentary) out
 ## Create it
 
 1. Build the payload, keeping the output in the scratchpad:
-   `python3 -I ~/kerl/.claude/skills/jkpend/scripts/build-review.py <draft.md> <full-head-sha> <scratchpad>/review_payload.json`
+   `python3 -I ~/.claude/skills/jkpend/scripts/build-review.py <draft.md> <full-head-sha> <scratchpad>/review_payload.json`
    It exits non-zero and writes nothing if the draft is malformed. Fix the draft, don't work around it.
 2. Do not add an `event` field. A payload without `event` is what keeps the review pending.
 3. `gh api -X POST repos/<org>/<repo>/pulls/<n>/reviews --input <scratchpad>/review_payload.json --jq '{id, state, user: .user.login, html_url}'`
