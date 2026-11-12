@@ -103,3 +103,29 @@ gffa() {
 gmxb() {
   gmb "$@" && gxb "$@"
 }
+
+# ----------------------------------------------------------------
+glw() {
+  if [ $# -ne 0 ]; then
+    echo "Usage: $0 with no arguments" 1>&2
+  else
+    git worktree list
+  fi
+}
+gaw() {
+  if [ $# -ne 2 ]; then
+    echo "Usage: $0 {tree} {branch}" 1>&2
+  else
+    local tree="$1"
+    local branch="$2"
+    git worktree add $tree $branch
+  fi
+}
+gxw() {
+  if [ $# -ne 1 ]; then
+    echo "Usage: $0 {tree}" 1>&2
+  else
+    local tree="$1"
+    git worktree remove $tree
+  fi
+}
