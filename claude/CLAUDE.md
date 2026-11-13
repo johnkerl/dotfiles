@@ -48,6 +48,12 @@ If you feel you must create a Git worktree, first ask me if that's okay, and the
 path.  Do not propose random tmp-paths: prefer ~/git/worktrees/<reponame>/<branchname>, or, failing
 that, ~/git/worktrees/<reponame>/<some-descriptive-label-here>.
 
+## Git branch names
+
+When you create a branch for me, in any repo, prefix it with `johnkerl/`, not `jk/`. For example,
+`johnkerl/add-build-tag`. This applies to new branches only; don't rename existing `jk/` branches
+unless I ask.
+
 ## Where to put drafts
 
 When writing a Markdown draft or other file for me to read or pick up (issue text, PR descriptions,
