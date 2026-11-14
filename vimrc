@@ -154,6 +154,9 @@ map <SPACE> zz
 " ----------------------------------------------------------------
 " https://vi.stackexchange.com/questions/15505/highlight-whole-todo-comment-line
 
+" Make gqj et al. respect `*` lists as well as `-` lists:
+au BufNewFile,BufRead *.qmd set comments=fb:*,fb:-,fb:+,n:>
+
 "syn list myTodo
 " highlight link myTodo Todo
 
@@ -190,9 +193,10 @@ au BufNewFile,BufRead * syntax match myHighlight14 /@@[^@]*@@/
 au BufNewFile,BufRead * syntax match myHighlight20 /^  *\$ .*/
 au BufNewFile,BufRead * syntax match myHighlight21 /^ *#.*/
 au BufNewFile,BufRead * syntax match myHighlight22 /^ *i .*/
-au BufNewFile,BufRead * syntax match myTK /\<TK\>/
+"au BufNewFile,BufRead * syntax match myTK /\<TK\>/
 au BufNewFile,BufRead * syntax match myTodo /\v.<(TODO|FIXME|XXX|xxx).*/hs=s+1 containedin=.*Comment
-au BufNewFile,BufRead *.qmd syntax match myQmdSection  /^##.*/
+au BufNewFile,BufRead *.qmd syntax match myQmdSection  /^## .*/
+au BufNewFile,BufRead *.qmd syntax match myQmdSection3 /^### .*/
 au BufNewFile,BufRead *.qmd syntax match myQmdHighlight  /TK/
 au BufNewFile,BufRead *.qmd syntax match myQmdHighlight  /TK::.*/
 au BufNewFile,BufRead *.qmd syntax match myQmdHighlight  /TBD/
@@ -214,14 +218,15 @@ highlight myHighlight14   ctermfg=LightBlue
 highlight myHighlight20   ctermfg=Cyan
 highlight myHighlight21   ctermfg=Grey
 highlight myHighlight22   ctermfg=Magenta
-highlight myQmdSection    ctermbg=Brown
+highlight myQmdSection    ctermbg=DarkRed
+highlight myQmdSection3   ctermbg=Brown
 "highlight myQmdSection    ctermfg=DarkYellow
 "highlight myQmdHighlight  ctermbg=Red
 highlight myQmdHighlight  ctermfg=Red
 
 highlight Search ctermbg=DarkYellow
 highlight myTodo ctermbg=DarkGrey
-highlight myTK   ctermbg=DarkGrey
+"highlight myTK   ctermbg=DarkGrey
 
 " ----------------------------------------------------------------
 " Tabs/whitespaces, and indent/unindent keymaps
