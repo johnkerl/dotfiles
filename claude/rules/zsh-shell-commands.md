@@ -1,6 +1,6 @@
 ## Before you write any shell loop or variable-held command in the Bash tool
 
-This shell is zsh. Four things that work in bash silently break here. Check the command you are
+This shell is zsh. Five things that work in bash silently break here. Check the command you are
 about to run against this list:
 
 1. Never `set -- $var`, `for x in $var`, or `a=$var; cmd $a` to split a string. zsh does not
@@ -20,6 +20,11 @@ about to run against this list:
    `[[ "$a" > "$b" ]]`, or compare integers with `-gt`/`-lt`. And before any polling loop, run its
    condition once by itself and read the output: a condition that errors looks false, so the loop
    just runs to its timeout.
+5. Write `${var}`, never `$var`, when a `:` follows a variable inside a string, URL or path.
+   zsh reads `$var:t`, `:h`, `:r`, `:e`, `:l`, `:u`, `:q`, `:a` as modifiers and silently eats the letter.
+   This bit on 2026-11-18: `.../projects/$P:testIamPermissions` became `...projects/grafanalabs-globalestIamPermissions`
+   and the API returned a 404 that looked like a wrong endpoint. Read each URL, GCP resource name
+   (`projects/$P:action`) and `host:port` in the command before sending it.
 
 Default template for "do X for each (a, b) pair". Copy it, don't improvise:
 
@@ -154,3 +159,36 @@ Do this instead:
   snippet that exits 0 or 1, and loop on that.
 - Prefer a Monitor with an `until` loop over a long foreground `sleep`; the Bash tool blocks long
   foreground sleeps.
+
+## `$var:x` is a history-style modifier in zsh: use `${var}` before a colon
+
+In zsh, `$var:t` is not "the value of `var`, then `:t`". It is a modifier applied to the value. The
+ones that matter are `:t` (tail, the last path component), `:h` (head, everything before the last
+`/`), `:r` (strip the extension) and `:e` (the extension only). `:l` and `:u` change case, `:q`
+quotes, and `:a` makes an absolute path from the current directory. Bash prints the colon and letter
+unchanged. Verified 2026-11-18 (zsh 5.9, the Bash tool's shell):
+
+- `P=grafanalabs-global; echo "$P:testIamPermissions"` prints `grafanalabs-globalestIamPermissions`.
+  The `:t` was consumed as a modifier and the `t` vanished from the word.
+- `echo "${P}:testIamPermissions"` prints `grafanalabs-global:testIamPermissions`.
+- `F=/a/b/c.txt; echo "$F:t $F:h $F:r $F:e"` prints `c.txt /a/b /a/b/c txt`.
+- `echo "$P:foo"` is unchanged, because `f` is not one of the modifiers. So the failure depends on
+  the letter after the colon, which is why it looks random.
+- `x=Hello; echo "$x:l $x:u $x:q $x:a"` prints `hello HELLO Hello /Users/kerl/git/grafana/app-o11y-kwl-endpoint/Hello`
+  (the last one is the current directory plus the value).
+
+This bit us calling the Google Resource Manager API
+(`.../v1/projects/$P:testIamPermissions`; Google API "custom method" URLs end in a `:verb` suffix,
+so every one of them is exposed to this). The mangled URL returned an HTML 404 saying `/v1/projects/grafanalabs-globalestIamPermissions`
+was not found, and the first read was "wrong endpoint", not "my shell ate a letter". Quoting does not
+help: the expansion happens inside double quotes too.
+
+Do this instead:
+
+- Always write `${var}` when anything follows the variable name that is not a space, `/` or end of
+  word. It costs nothing and removes the whole class.
+- Read the URL as echoed by the error, not as written in the command: the missing letter shows up
+  in the error text.
+- `$host:port` and `$host:3306` are fine (verified 2026-11-18: `:p` and digits are not modifiers
+  here), but write `${host}:${port}` anyway so you never have to remember which letters bite.
+- When in doubt, `echo` the final string once before sending it.
