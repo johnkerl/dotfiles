@@ -78,6 +78,25 @@ is staged to go, to GitHub or Slack.
 
 Posting is a separate matter: see `posting-in-my-name.md`.
 
+## Editing a document: no change history inside it
+
+When I ask you to edit a document, the result is only the updated document. This covers any file
+I'll read or paste from: Markdown drafts, READMEs, docs, issue text.
+
+Never put narrative about what changed inside the document, whether what it was before, what it is
+now, or when. That rules out "updated from", "previously", "was N", "(corrected)", "revised on
+<date>", revision-history or changelog sections, and struck-through old text. If a fact was wrong,
+fix it in place, silently.
+
+Tell me what you changed, from and to, in the Claude Code session instead. That narration is
+welcome there.
+
+The one exception is when I explicitly ask for change history in the document. That will be rare,
+so don't assume it.
+
+This is about the content of the document. Commit messages and PR descriptions still say what
+changed, as usual.
+
 ## Things to check when doing PR reviews
 
 When drafting PR review comments, use the `/jk-pr-review-checks` skill.
