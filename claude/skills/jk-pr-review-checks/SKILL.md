@@ -35,8 +35,11 @@ to make and both land on the PR author:
 5. Tag. Mark each comment [change], [follow-up], [question] or [nit], so the author can tell
    what blocks.
 
-Keep drafts out of the PR until the user says to post. Save drafts to ~/Desktop. Notes meant for
-the user (trust, tone, what to hold) go in a section marked as not for pasting.
+Keep drafts out of the PR until the user says to post (see `posting-in-my-name.md`). Show findings
+in the session first. If a Markdown draft is needed, save it to `~/Desktop/DRAFTS/`; never delete or
+tidy drafts afterwards. Notes meant for the user (trust, tone, what to hold) go in the chat reply,
+or in a section of the draft marked `NOT FOR PASTING`. Never put them in text that is posted or
+staged to GitHub: a draft that will go to `/jkpend` has none.
 
 ## The anchor script
 
@@ -54,7 +57,7 @@ python3 -I ${CLAUDE_SKILL_DIR}/scripts/pr-anchor-check.py --base origin/main --h
 # Anchors read from a draft whose comment headings look like "### 3. pkg/foo/bar.go, line 289"
 # (also "lines 16 and 30" and "around line 285"):
 python3 -I ${CLAUDE_SKILL_DIR}/scripts/pr-anchor-check.py --pr 1920 \
-  --from-draft ~/Desktop/pr-1920-review-draft.md
+  --from-draft ~/Desktop/DRAFTS/pr-1920-review-draft.md
 ```
 
 Per anchor it prints CHANGED, CONTEXT, OUTSIDE-DIFF or FILE-NOT-IN-DIFF. For anything outside the

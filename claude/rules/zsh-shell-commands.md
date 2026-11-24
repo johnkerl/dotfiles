@@ -1,6 +1,6 @@
 ## Before you write any shell loop or variable-held command in the Bash tool
 
-This shell is zsh. Five things that work in bash silently break here. Check the command you are
+This shell is zsh. Six things that work in bash silently break here. Check the command you are
 about to run against this list:
 
 1. Never `set -- $var`, `for x in $var`, or `a=$var; cmd $a` to split a string. zsh does not
@@ -25,6 +25,13 @@ about to run against this list:
    This bit on 2026-11-18: `.../projects/$P:testIamPermissions` became `...projects/grafanalabs-globalestIamPermissions`
    and the API returned a 404 that looked like a wrong endpoint. Read each URL, GCP resource name
    (`projects/$P:action`) and `host:port` in the command before sending it.
+6. Never name a shell variable `path`, `status`, `fpath`, `cdpath`, `manpath`, `module_path` or
+   `mailpath`, not even as a `while read -r` or `for` loop variable. In zsh `path` is tied to
+   `PATH`, so `read -r kind path num` or `path=$x` replaces the search path, and every later
+   command (`gh`, `wc`, `head`) fails with `command not found`. `status` is read-only. This bit on
+   2026-11-24: a loop `while read -r kind path num` made `gh` and `wc` vanish for the rest of
+   that call. Use names like `seg`, `file`, `dir`, `rc`, `repo`, `num`, and read each loop's
+   variable names before sending it.
 
 Default template for "do X for each (a, b) pair". Copy it, don't improvise:
 
@@ -192,3 +199,34 @@ Do this instead:
 - `$host:port` and `$host:3306` are fine (verified 2026-11-18: `:p` and digits are not modifiers
   here), but write `${host}:${port}` anyway so you never have to remember which letters bite.
 - When in doubt, `echo` the final string once before sending it.
+
+## `path` is tied to `PATH` in zsh: don't use it as a variable name
+
+In zsh, some lowercase array names are tied to uppercase search-path variables, and `path` is the
+one that matters. Assigning `path` assigns `PATH`. Verified 2026-11-24 (zsh 5.9, in a clean `zsh -f`
+child shell):
+
+- `path=foo; echo $PATH` prints `foo`, and the next external command fails with `command not
+  found`.
+- `while read -r kind path num; do :; done` does the same: `read` assigns `path`, and afterwards
+  `wc` is `command not found`.
+- `status=1` fails with `read-only variable: status`.
+- `typeset -p fpath cdpath manpath module_path mailpath` shows each is tied to its uppercase twin
+  (`typeset -aT`). I verified the tie, not what assigning each one breaks.
+- A `local path=x` inside a function is restored when the function returns: after the call `PATH`
+  had its old value. A top-level loop variable has no such protection.
+
+This bit us in the Bash tool on 2026-11-24, in a loop that fetched issue and PR texts:
+`while read -r kind path num; do dump "$kind" "$path" "$num"; done`. `gh` was `command not found`
+inside `dump`, and so was `wc` afterwards. Every output file held the 28-byte error
+`dump: command not found: gh`, and the first symptom was a directory of files that were all
+28 bytes. Nothing in that error points at `PATH`; the cause only showed up after `wc` also failed.
+
+Do this instead:
+
+- Name loop and `read` variables for what they hold and avoid the tied names: `seg`, `file`,
+  `dir`, `rc`, `repo`, `num`, `kind`. Use `rc`, not `status`, for an exit code.
+- If a command suddenly reports `command not found` for something that worked a moment ago, run
+  `echo "$PATH"` first. Look for a loop variable named `path` before suspecting the tool.
+- Check the files a loop wrote (`ls -l`, sizes) before parsing them; a set of identical tiny sizes
+  means the command failed the same way each time.

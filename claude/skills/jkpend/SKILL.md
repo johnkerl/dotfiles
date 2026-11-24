@@ -7,7 +7,7 @@ description: Stage a GitHub PR review as a pending, unsubmitted review, with the
 
 Create a `PENDING` review on a PR. Only the user can see it, and nobody is notified. The user edits the comments and submits it themselves.
 
-Use this after reviewing (see `/jkreview` and `/jk-pr-review-checks`), or on an existing draft file. It takes a PR URL and, optionally, a draft path. With no draft, write one first, in `~/Desktop`, in the format below.
+Use this after reviewing (see `/jkreview` and `/jk-pr-review-checks`), or on an existing draft file. It takes a PR URL and, optionally, a draft path. With no draft, write one first, in the scratchpad, in the format below. It is only the builder's input: the user edits the review text in GitHub, so no copy goes on the Desktop.
 
 ## Draft format
 

@@ -1,7 +1,8 @@
 ## Miller (mlr) can convert tables copied from Claude Code
 
 John wrote Miller. Since 6.22.0 it has a Unicode box-drawing tabular format (flags `--box`, `--ibox`,
-`--obox`; release note "Support Unicode-boxed I/O format: tabular with UTF-8 markers", PR 2253,
+`--obox`; release note "Support Unicode-boxed I/O format: tabular with UTF-8 markers", from
+https://github.com/johnkerl/miller/pull/2253, in
 https://github.com/johnkerl/miller/releases/tag/v6.22.0). He added it so that tables shown in Claude Code
 (the box-drawing tables in terminal output) can be copied and converted for pasting elsewhere.
 
@@ -18,5 +19,4 @@ Markdown. Not verified: how very wide or wrapped cells survive a copy from the t
 machines have a Miller new enough for `--ibox`; check `mlr --version` before assuming.
 
 Google Docs tables: "Paste from Markdown" did not work for John. Rendered HTML pasted from a browser keeps the
-table, so for a Docs table write an HTML file to `~/Desktop` (see `~/Desktop/decisions-box.html` for an
-example) or give TSV for a Sheets detour.
+table, so for a Docs table write an HTML file to `~/Desktop/DRAFTS/` or give TSV for a Sheets detour.

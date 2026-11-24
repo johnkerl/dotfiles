@@ -17,7 +17,7 @@ Usage (run with `python3 -I pr-anchor-check.py ...`; standard library only):
   # Anchors taken from a draft whose comment headings look like
   #   ### 3. pkg/foo/bar.go, line 289
   #   ### 5. pkg/foo/baz.go, lines 16 and 30
-  pr-anchor-check.py --pr 1920 --from-draft ~/Desktop/pr-1920-review-draft.md
+  pr-anchor-check.py --pr 1920 --from-draft ~/Desktop/DRAFTS/pr-1920-review-draft.md
 
   # Also say whether each line was introduced by the PR (local refs only):
   pr-anchor-check.py --base origin/main --head origin/feature --provenance FILE:LINE

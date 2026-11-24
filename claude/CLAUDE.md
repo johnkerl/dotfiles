@@ -54,15 +54,33 @@ When you create a branch for me, in any repo, prefix it with `johnkerl/`, not `j
 `johnkerl/add-build-tag`. This applies to new branches only; don't rename existing `jk/` branches
 unless I ask.
 
-## Where to put drafts
+## Drafts and notes
 
-When writing a Markdown draft or other file for me to read or pick up (issue text, PR descriptions,
-doc drafts), put it in `~/Desktop`, not in a scratchpad or tmp directory. Scratchpad is fine for
-purely internal intermediate files I don't need to see.
+Most of our conversation happens in the Claude Code session, and that is right for almost
+everything. Show analysis, short drafts and notes here.
+
+When a draft is more than trivial and I will edit it before it goes to GitHub or Slack (issue text,
+PR descriptions, doc drafts), write it as Markdown in `~/Desktop/DRAFTS/`. Not in `~/Desktop`
+itself, and never in a scratchpad, `/tmp` or any other deep temporary path: I won't find it there.
+(Same reason worktrees go under `~/git/worktrees/`.) The scratchpad is still fine for purely
+internal intermediate files I don't need to see, including a file that a skill needs as its input.
+
+Don't write a Markdown file when the text is already going somewhere I can edit it: review comments
+staged with `/jkpend` (I edit them in GitHub), or a draft PR opened with `/jksubmit` (I edit the
+PR). A file there is redundant.
+
+File names don't matter; these are temporary. I clean up `~/Desktop/DRAFTS/` myself. Never delete,
+move or tidy my drafts.
+
+Notes that are for my eyes only (tone, trust, what to hold) are fine in the session and fine in a
+draft file, below a clearly marked `NOT FOR PASTING` line. Never put them in anything that goes, or
+is staged to go, to GitHub or Slack.
+
+Posting is a separate matter: see `posting-in-my-name.md`.
 
 ## Things to check when doing PR reviews
 
-When drafting PR review comments, use the `/jk-pr-review-checks`/ skill.
+When drafting PR review comments, use the `/jk-pr-review-checks` skill.
 
 ## Acronyms and initialisms
 
