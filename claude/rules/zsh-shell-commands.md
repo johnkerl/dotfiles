@@ -58,7 +58,10 @@ this list:
    condition once by itself and read the output: a condition that errors looks false, so the loop
    just runs to its timeout.
 5. Write `${var}`, never `$var`, when a `:` follows a variable inside a string, URL or path.
-   zsh reads `$var:t`, `:h`, `:r`, `:e`, `:l`, `:u`, `:q`, `:a` as modifiers and silently eats the letter.
+   zsh reads `$var:t`, `:h`, `:r`, `:e`, `:l`, `:u`, `:q`, `:a`, `:c`, `:s`, `:A`, `:P`, `:Q` as
+   modifiers and silently eats the letter (all thirteen verified 2026-11-25 by trying every letter
+   in a clean `zsh -f`). A PreToolUse hook, `~/.claude/zsh-colon-guard.py`, now blocks these
+   before the command runs and says to brace the variable. Don't rely on it: write `${var}` anyway.
    The commonest trigger is git's `rev:path` form: always `git show "${sha}:path"`,
    `git cat-file -p "${sha}:path"`, `git diff "${a}:${f}" ...`, never `git show $sha:path`.
    This bit on 2026-11-18 (`.../projects/$P:testIamPermissions` became
