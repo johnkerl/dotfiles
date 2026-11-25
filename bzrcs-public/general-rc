@@ -1,4 +1,4 @@
-# vim: set filetype=sh:
+bzrcs-public/general-rc# vim: set filetype=sh:
 
 # ----------------------------------------------------------------
 # MacOS Catalina gripery about yay-zsh
@@ -11,6 +11,8 @@ stty werase undef
 
 if [ -z "$BASH_VERSION" ]; then # zsh
   export WORDCHARS='*?_.[]~=&;!#$%^(){}<>'
+  # Makes things easier for Claude, which is trained on bashisms, & I personally don't care either way:
+  setopt nonomatch
 else
   bind '"\C-w": backward-kill-word'
   bind 'set bell-style none'

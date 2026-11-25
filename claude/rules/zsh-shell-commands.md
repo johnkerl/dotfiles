@@ -1,7 +1,44 @@
-## Before you write any shell loop or variable-held command in the Bash tool
+## Before you write any shell command in the Bash tool
 
-This shell is zsh. Six things that work in bash silently break here. Check the command you are
-about to run against this list:
+This shell is zsh, and every failed attempt costs a rerun. Two defaults prevent most of them. Then
+eight specific traps, each of which has already cost a rerun.
+
+Default A: write every variable as `"${var}"`, braced and quoted, even when `$var` would do. It
+removes the `$var:x` modifier trap (item 5) for free, and it is the habit that holds when you are
+not thinking about it. Verified 2026-11-25 that `$H:libs` and `$H:apps` in a `git show` were eaten
+as `:l` and `:a` while `"${H}:libs/..."` worked, with item 5 already in this file.
+
+Default B: if the command needs a loop over strings, splitting a string into words, or any
+bash-only syntax (item 8), run it as bash instead of translating it to zsh:
+
+    bash <<'EOF'
+    for p in "1877 epic" "2087 2087"; do set -- $p; echo "a=$1 b=$2"; done
+    EOF
+
+The quoted `'EOF'` keeps zsh from touching the body, so bash does all the expansion. Verified
+2026-11-25 that this splits correctly and inherits the environment (`gh` auth, exported variables).
+It is a fresh process, so it sees no zsh functions or variables; put everything it needs inside the
+heredoc. `/bin/bash` here is 3.2.57 (no `${v^^}`, `mapfile` or associative arrays);
+`/opt/homebrew/bin/bash` is 5.3.20 on this machine (verified `${v^^}` works there). Whether other
+machines have a newer bash I have not checked.
+
+Before sending, scan the command text for each of these, and fix it if present:
+
+- a `$name` immediately followed by `:` (item 5), a `*`, `?` or `[` in a word that is not quoted
+  (items 3 and 7), a word that starts with `=` (item 3), `set --` or an unquoted `$var` used as a
+  list (item 1), a variable named `path` or `status` (item 6), and bash-only syntax (item 8).
+
+If a result looks wrong in a way that smells like a mangled word (a missing letter, `no matches
+found`, `command not found: <the whole string>`), suspect zsh first, `echo` the final string once,
+fix it, and rerun once. Do not go exploring for another cause first.
+
+A zsh error can abort the rest of the call. Verified 2026-11-25: after `no matches found` on an
+`echo https://x.test/y?a=b`, the later `echo` in the same call never ran. So keep independent
+checks in separate parallel calls, and never put a side effect after something that can fail this
+way.
+
+Eight things that work in bash silently break here. Check the command you are about to run against
+this list:
 
 1. Never `set -- $var`, `for x in $var`, or `a=$var; cmd $a` to split a string. zsh does not
    split. Pass items to a function or `while read -r a b` loop instead (template below). This one
@@ -22,9 +59,13 @@ about to run against this list:
    just runs to its timeout.
 5. Write `${var}`, never `$var`, when a `:` follows a variable inside a string, URL or path.
    zsh reads `$var:t`, `:h`, `:r`, `:e`, `:l`, `:u`, `:q`, `:a` as modifiers and silently eats the letter.
-   This bit on 2026-11-18: `.../projects/$P:testIamPermissions` became `...projects/grafanalabs-globalestIamPermissions`
-   and the API returned a 404 that looked like a wrong endpoint. Read each URL, GCP resource name
-   (`projects/$P:action`) and `host:port` in the command before sending it.
+   The commonest trigger is git's `rev:path` form: always `git show "${sha}:path"`,
+   `git cat-file -p "${sha}:path"`, `git diff "${a}:${f}" ...`, never `git show $sha:path`.
+   This bit on 2026-11-18 (`.../projects/$P:testIamPermissions` became
+   `...projects/grafanalabs-globalestIamPermissions`, a 404 that looked like a wrong endpoint) and
+   on 2026-11-25 (`git show $H:libs/README.md` became `...ibs/README.md`, so git said "ambiguous
+   argument"), the second time with this item already in the file. Read each URL, GCP resource
+   name (`projects/$P:action`), `host:port` and git `rev:path` in the command before sending it.
 6. Never name a shell variable `path`, `status`, `fpath`, `cdpath`, `manpath`, `module_path` or
    `mailpath`, not even as a `while read -r` or `for` loop variable. In zsh `path` is tied to
    `PATH`, so `read -r kind path num` or `path=$x` replaces the search path, and every later
@@ -32,6 +73,19 @@ about to run against this list:
    2026-11-24: a loop `while read -r kind path num` made `gh` and `wc` vanish for the rest of
    that call. Use names like `seg`, `file`, `dir`, `rc`, `repo`, `num`, and read each loop's
    variable names before sending it.
+7. Quote any URL, API path or argument that contains `?`, `[`, `]` or `*`:
+   `gh api 'repos/ORG/REPO/pulls?state=open'`, `--jq '.[0]'`, `curl 'https://host/p?a=b&c=d'`.
+   Unquoted, zsh treats them as globs and fails with `no matches found` before the program runs
+   (and `&` backgrounds the command in any shell). Verified 2026-11-25 in the Bash tool:
+   `echo https://x.test/y?a=b` fails with `no matches found`. In a clean `zsh -f` child,
+   `echo a[0]` fails the same way.
+8. Bash-only syntax fails in zsh. Run such a command as bash (Default B) instead of translating it.
+   Verified 2026-11-25 in a clean `zsh -f` child:
+   - `${v^^}` and `${v,,}`, `${!name}` and `${!arr[@]}` all fail with `bad substitution`.
+   - `mapfile` fails with `command not found`, and `read -a arr` with `bad option: -a`.
+   - Arrays start at 1: `a=(x y z); echo "${a[0]}"` prints an empty line.
+   - `echo "a\tb"` prints a real tab in zsh (bash prints the backslash). Use `printf '%s\n'` for
+     any text that may contain a backslash.
 
 Default template for "do X for each (a, b) pair". Copy it, don't improvise:
 
@@ -141,6 +195,10 @@ start with a bare `=`. Simplest is to avoid banners made of `=` and use `echo '-
 unchanged. `setopt noequals` also turns the expansion off (verified in a child `zsh -c`), but
 quoting is simpler.
 
+Not reproducing on 2026-11-25: in the Bash tool, `echo =ls` printed `=ls` and `echo ======` printed
+`======`, and `setopt` there listed `noequals`. So the failures above may not happen in the current
+tool shell. I don't know why it changed or whether it will stay that way, so keep quoting.
+
 ## `[ a > b ]` and `test a ">" b` don't work in zsh: use `[[ ]]`, and test a polling loop once first
 
 zsh's `[` and `test` builtins don't support string ordering with `>` or `<`. Verified 2026-11-09 in
@@ -230,3 +288,66 @@ Do this instead:
   `echo "$PATH"` first. Look for a loop variable named `path` before suspecting the tool.
 - Check the files a loop wrote (`ls -l`, sizes) before parsing them; a set of identical tiny sizes
   means the command failed the same way each time.
+
+## `git show $sha:path` is the same trap as `$var:x`
+
+This is the `$var:x` modifier problem (section above) in the form it most often takes: git's
+`rev:path` syntax. Verified 2026-11-25 (zsh 5.9, the Bash tool's shell), reviewing a PR by SHA
+without checking it out, with `H` holding a 40-character SHA:
+
+- `git show $H:libs/README.md` failed with `ambiguous argument 'a2a8122...ibs/README.md'`. `:l` was
+  consumed as the lowercase modifier, and the `l` of `libs` went with it.
+- `git show $H:apps/errortracking/pkg/symbols/symbols.go` failed with `ambiguous argument
+  '/Users/kerl/git/grafana/error-tracking/a2a8122...pps/errortracking/...'`. `:a` made the value an
+  absolute path from the current directory and ate the `a` of `apps`.
+- `git show "${H}:libs/README.md"` works. Quoting alone is not the fix; the braces are.
+- The tell in the error text is a revision with one letter missing, or a repo path glued onto it.
+- Same for `git cat-file -p`, `git ls-tree`, `git archive` and `git diff` whenever a `rev:path`
+  argument is built from a variable.
+
+## Unquoted `?`, `[` and `*` in URLs and API paths are globs in zsh
+
+Verified 2026-11-25. In the Bash tool, `echo https://x.test/y?a=b` fails with `no matches found:
+https://x.test/y?a=b`, and the call stopped there: the `echo` after it never ran. In a clean
+`zsh -f` child, `echo a[0]` fails the same way. Bash passes both through literally.
+
+Do this instead:
+
+- Single-quote URLs and `gh api` paths that have a query string: `gh api
+  'repos/ORG/REPO/pulls?state=open&per_page=100'`. Quote `--jq` programs too: `--jq '.[0].id'`.
+- If the URL needs a variable, double-quote it and brace the variable:
+  `"https://host/repos/${repo}/pulls?state=open"`.
+- This is a close cousin of the unquoted-glob section above; the fix is the same, and the trigger
+  is easy to miss because a URL does not look like a glob.
+
+## Bash-only syntax: what fails in zsh, and the fix
+
+Verified 2026-11-25 in a clean `zsh -f` child (zsh 5.9). The fix for all of these is Default B at the
+top: run the command as bash. I have not verified the zsh-native equivalents, so I don't list them.
+
+| Bash | In zsh |
+| --- | --- |
+| `${v^^}`, `${v,,}` | `bad substitution` |
+| `${!name}`, `${!arr[@]}` | `bad substitution` |
+| `mapfile -t x < file` | `command not found: mapfile` |
+| `read -a arr` | `read: bad option: -a` |
+| `${a[0]}` (first element) | empty; zsh arrays start at 1 |
+| `echo "a\tb"` | prints a real tab; bash prints the backslash |
+
+Also verified: an unquoted command substitution does split into words in zsh, so
+`for x in $(echo "a b"); do ...; done` runs twice. The trap is only unquoted parameter expansion
+(`$var`), not `$(cmd)`.
+
+## Running a command as bash from the Bash tool
+
+Verified 2026-11-25 (macOS, `/bin/bash` 3.2.57, `/opt/homebrew/bin/bash` 5.3.20):
+
+- `bash <<'EOF' ... EOF` runs the body under bash with the caller's environment. A loop with
+  `set -- $p` split `"1877 epic"` into `a=1877 b=epic` there, which fails in zsh.
+- Use the quoted `'EOF'`. An unquoted `EOF` lets zsh expand `$` first and defeats the point.
+- It is a fresh process: it does not see zsh functions or unexported variables. Anything it needs
+  goes inside the heredoc, or is passed as an exported variable or an argument.
+- `/bin/bash` 3.2 lacks `${v^^}`, `mapfile` and associative arrays. Call
+  `/opt/homebrew/bin/bash` when you need them, and say so if another machine might not have it.
+- The side-effect rule still applies: a command that closes, merges or applies goes in its own
+  call, after you have read the loop's output.
